@@ -1,4 +1,5 @@
 # cheatsheets
   * pandas.py: Cheat Sheet for python's pandas package
   * seaborn.py: Cheat Sheet for python's seaborn package
-  * command.py: Cheat Sheet for Mac's Terminal / Linux command line scripting
+  * cmd.txt: Cheat Sheet for Mac's Terminal / Linux command line scripting
+  * pyspark.py: Cheat Sheet for python's pyspark package
