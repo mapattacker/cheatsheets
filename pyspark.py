@@ -6,7 +6,7 @@ sc = SparkContext(conf = conf)
 
 # call the data from file and create RDD (Resilient Distributed Dataset)
 lines = sc.textFile("file:///Users/Spark/1800.csv")
-parsedLines = lines.map(parseLine)  #use map function
+parsedLines = lines.map(parseLine)  #use map function, output has same number of entries, just that it can be transformed.
 # split data into key/value or just values
 
 parsedLines.countByValue()  #count values
