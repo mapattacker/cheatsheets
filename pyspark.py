@@ -1,7 +1,12 @@
 from pyspark import SparkConf, SparkContext
 
+# set configuration & spark context object
 conf = SparkConf().setMaster("local").setAppName("MinTemperatures")
 sc = SparkContext(conf = conf)
 
+# call the data from file and create RDD (Resilient Distributed Dataset)
 lines = sc.textFile("file:///Users/Spark/1800.csv")
-parsedLines = lines.map(parseLine)
+parsedLines = lines.map(parseLine)  #use map function
+# split data into key/value or just values
+
+parsedLines.countByValue()  #count values
