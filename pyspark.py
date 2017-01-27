@@ -23,4 +23,5 @@ swap = total.map(lambda x: (x[1],x[0])).sortByKey()
 results = words.collect()
 
 
-
+# broadcasting; send data to every node ahead of time
+nameDict = sc.broadcast(loadMovieNames())
