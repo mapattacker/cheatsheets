@@ -10,4 +10,4 @@ parsedLines = lines.map(parseLine)  #use map function, output has same number of
 words = input.flatMap(lambda x: x.split())  #use flat map function, output has more entries than input
 # split data into key/value or just values
 
-parsedLines.countByValue()  #count values
+parsedLines.countByValue()  #count values, give key & count value
