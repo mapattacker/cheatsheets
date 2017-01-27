@@ -15,6 +15,9 @@ words = input.flatMap(lambda x: x.split())  #use flat map function, output has m
   # reduce by key, x & y represent values of same key
 total = parsedLines.reduceByKey(lambda x, y: x + y)
 totalsByAge = rdd.mapValues(lambda x: (x, 1)).reduceByKey(lambda x, y: (x[0] + y[0], x[1] + y[1]))
+  # swap key with value; and sort result by key
+swap = total.map(lambda x: (x[1],x[0])).sortByKey()
+
 
 # collect the results
 results = words.collect()
