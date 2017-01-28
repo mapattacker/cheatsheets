@@ -30,3 +30,7 @@ results = words.collect()
 #--------------
 # broadcasting; send data to every node ahead of time
 nameDict = sc.broadcast(loadMovieNames())
+
+
+#--------------
+# breadth first search alogrithm
