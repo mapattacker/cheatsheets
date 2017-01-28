@@ -44,6 +44,9 @@ nameDict = sc.broadcast(loadMovieNames())
 spark-submit script_name.py
 spark-submit --executor-memory 1g MovieSimilarities1M.py 260  #change executor memory from default 512Mb to 1G
 
+# troubleshooting UI
+# type localhost:4040 in browser when script is running. Open troubleshooting UI
+
 #--------------
 # breadth first search alogrithm
   # set each node with > list of friends, distance, flag
