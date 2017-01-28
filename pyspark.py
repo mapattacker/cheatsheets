@@ -40,6 +40,9 @@ nameDict = sc.broadcast(loadMovieNames())
   # for reduceByKey(), join(), lookup(), groupByKey(), etc.
 .partitionBy(100)
 
+# submit to run
+spark-submit script_name.py
+spark-submit --executor-memory 1g MovieSimilarities1M.py 260  #change executor memory from default 512Mb to 1G
 
 #--------------
 # breadth first search alogrithm
