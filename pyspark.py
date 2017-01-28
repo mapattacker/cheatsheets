@@ -3,6 +3,7 @@ from pyspark import SparkConf, SparkContext
 #--------------
 # set configuration & spark context object
 conf = SparkConf().setMaster("local").setAppName("MinTemperatures")
+conf = SparkConf().setMaster("local[*]").setAppName("MovieSimilarities") #use all cores in local computer
 sc = SparkContext(conf = conf)
 
 #--------------
@@ -33,6 +34,11 @@ results = words.collect()
 #--------------
 # broadcasting; send data to every node ahead of time
 nameDict = sc.broadcast(loadMovieNames())
+
+#--------------
+# partition; spark does not distribute on its own
+  # for reduceByKey(), join(), lookup(), groupByKey(), etc.
+.partitionBy(100)
 
 
 #--------------
