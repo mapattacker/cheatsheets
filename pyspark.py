@@ -35,3 +35,6 @@ nameDict = sc.broadcast(loadMovieNames())
 #--------------
 # breadth first search alogrithm
   # set each node with > list of friends, distance, flag
+  # start with distance 0 for starting node and change flag
+  # iterate and expand to adjacent nodes and change distance to 1 and change flag
+  # continue till friend is found and obtain the distance
