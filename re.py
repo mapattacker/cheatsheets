@@ -10,6 +10,9 @@ import re
 # match; output if result at start of string
 # search; output first result in string
 # findall; output all results in a list
+phone = "2004-959-559 # This is Phone Number"
+num = re.findall(r'2004|Phone', phone)
+print num
 
 # replace
 phone = "2004-959-559 # This is Phone Number"
