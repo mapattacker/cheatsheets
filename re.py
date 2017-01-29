@@ -9,6 +9,7 @@ import re
 
 # match
 # search
+# findall
 # replace
 phone = "2004-959-559 # This is Phone Number"
 num = re.sub(r'\W', '', phone)  #3 arguments
