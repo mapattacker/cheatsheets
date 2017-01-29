@@ -8,7 +8,8 @@ import re
   # \d	  Matches digits. Equivalent to [0-9].
   # \D	  Matches nondigits.
   # \s    Matches whitespace
-
+  # \S    Matches non-whitespace
+  
 phone = "2004-959-559 # This is Phone Number"
 
 
