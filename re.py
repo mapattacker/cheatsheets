@@ -20,12 +20,13 @@ import re
 phone = "2004-959-559 # This is Phone Number"
 email = 'this is an bah bah email nick19a@gmail.com the end foo@gmail.com.'
 
-
+#-------------------------------------------
 # match; output if result at start of string
 num = re.match(r'\w\w\w', phone)
 print num.group() #output '200'
 
 
+#-------------------------------------------
 # search; output first result in string
 num = re.search(r'...4', phone)
 print num.group() #output '2004'
@@ -39,12 +40,13 @@ print num.group() #output '2004-959-559'
 result = re.search(r'\w+@[\w.]+', email)  #find all word characters and dot after @
 print result.group()  #output 'nick19a@gmail.com'
 
-result = re.search(r'(\w+)@([\w.]+)', email)  #find all word characters and dot after @
+result = re.search(r'(\w+)@([\w.]+)', email)  #split the username & host name using round brackets
 print result.group(0)  #output 'nick19a@gmail.com'
 print result.group(1)  #output 'nick19a'
 print result.group(2)  #output 'gmail.com'
 
 
+#-------------------------------------------
 # findall; output all results in a list
 num = re.findall(r'2004|Phone', phone)
 print num #output ['2004', 'Phone']
