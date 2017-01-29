@@ -6,7 +6,9 @@ import re
   # .     (dot) matches any character.
   # +     Matches 1 or more occurrence of preceding expression.
   # []    Matches any charcters in the square brackets
+  # ()    Groups regular expressions and remembers matched text.
   # a|b	  Matches either a or b.
+  
   # \w	  Matches word characters (numbers & alphabets).
   # \W	  Matches nonword characters.
   # \d	  Matches digits. Equivalent to [0-9].
@@ -36,6 +38,11 @@ print num.group() #output '2004-959-559'
 
 result = re.search(r'\w+@[\w.]+', email)  #find all word characters and dot after @
 print result.group()  #output 'nick19a@gmail.com'
+
+result = re.search(r'(\w+)@([\w.]+)', email)  #find all word characters and dot after @
+print result.group(0)  #output 'nick19a@gmail.com'
+print result.group(1)  #output 'nick19a'
+print result.group(2)  #output 'gmail.com'
 
 
 # findall; output all results in a list
