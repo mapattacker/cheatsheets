@@ -3,7 +3,7 @@ import re
 # https://www.tutorialspoint.com/python/python_reg_expressions.htm
   # .     (dot) matches any character
   # a|b	  Matches either a or b.
-  # \w	  Matches word characters.
+  # \w	  Matches word characters (numbers & alphabets).
   # \W	  Matches nonword characters.
   # \d	  Matches digits. Equivalent to [0-9].
   # \D	  Matches nondigits.
