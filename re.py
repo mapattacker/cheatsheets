@@ -3,7 +3,8 @@ import re
 # https://www.tutorialspoint.com/python/python_reg_expressions.htm
 # https://www.youtube.com/watch?v=kWyoYtvJpe4
 
-  # .     (dot) matches any character
+  # .     (dot) matches any character.
+  # +     Matches 1 or more occurrence of preceding expression.
   # a|b	  Matches either a or b.
   # \w	  Matches word characters (numbers & alphabets).
   # \W	  Matches nonword characters.
@@ -19,12 +20,15 @@ phone = "2004-959-559 # This is Phone Number"
 num = re.match(r'\w\w\w', phone)
 print num.group() #output '200'
 
-num = re.search(r'\sThis', phone)
-print num.group() #output ' This'
-
 # search; output first result in string
 num = re.search(r'...4', phone)
 print num.group() #output '2004'
+
+num = re.search(r'\sThis', phone)
+print num.group() #output ' This'
+
+num = re.search(r'.+559', phone)
+print num.group() #output '2004-959-559'
 
 # findall; output all results in a list
 num = re.findall(r'2004|Phone', phone)
