@@ -15,10 +15,16 @@ import re
   # \D	  Matches nondigits.
   # \s    Matches whitespace
   # \S    Matches non-whitespace
-  
 
+#-------------------------------------------
+dir(re) #give list of constants
+result = re.findall(r'this', email, re.IGNORECASE) #e.g., IGNORECASE ignores casing
+
+
+#-------------------------------------------
 phone = "2004-959-559 # This is Phone Number"
 email = 'this is an bah bah email nick19a@gmail.com the end foo@gmail.com.'
+
 
 #-------------------------------------------
 # match; output if result at start of string
