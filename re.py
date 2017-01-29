@@ -13,6 +13,9 @@ phone = "2004-959-559 # This is Phone Number"
 
 
 # match; output if result at start of string
+num = re.match(r'\w\w\w', phone)
+print num.group()
+
 # search; output first result in string
 num = re.search(r'...4', phone)
 print num.group()
