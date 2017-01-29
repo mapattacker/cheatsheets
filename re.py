@@ -47,10 +47,10 @@ print result.group(2)  #output 'gmail.com'
 
 # findall; output all results in a list
 num = re.findall(r'2004|Phone', phone)
-print num #output [('nick19a', 'gmail.com'), ('foo', 'gmail.com.')]
+print num #output ['2004', 'Phone']
 
 result = re.findall(r'(\w+)@([\w.]+)', email)  #find all word characters and dot after @
-print result
+print result #ouput [('nick19a', 'gmail.com'), ('foo', 'gmail.com.')]
 
 # replace
 num = re.sub(r'\W', '', phone)  #3 arguments
