@@ -7,9 +7,10 @@ import re
   # \d	Matches digits. Equivalent to [0-9].
   # \D	Matches nondigits.
 
-# match
-# search
-# findall
+# match; output if result at start of string
+# search; output first result in string
+# findall; output all results in a list
+
 # replace
 phone = "2004-959-559 # This is Phone Number"
 num = re.sub(r'\W', '', phone)  #3 arguments
