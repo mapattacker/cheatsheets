@@ -1,6 +1,7 @@
 import re
 
 # https://www.tutorialspoint.com/python/python_reg_expressions.htm
+  # a|b	Matches either a or b.
   # \w	Matches word characters.
   # \W	Matches nonword characters.
   # \d	Matches digits. Equivalent to [0-9].
