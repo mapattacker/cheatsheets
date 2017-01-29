@@ -18,7 +18,7 @@ import re
   
 
 phone = "2004-959-559 # This is Phone Number"
-email = 'this is an bah bah email nick19a@gmail.com the end.'
+email = 'this is an bah bah email nick19a@gmail.com the end foo@gmail.com.'
 
 
 # match; output if result at start of string
@@ -47,7 +47,10 @@ print result.group(2)  #output 'gmail.com'
 
 # findall; output all results in a list
 num = re.findall(r'2004|Phone', phone)
-print num #output ['2004', 'Phone']
+print num #output [('nick19a', 'gmail.com'), ('foo', 'gmail.com.')]
+
+result = re.findall(r'(\w+)@([\w.]+)', email)  #find all word characters and dot after @
+print result
 
 # replace
 num = re.sub(r'\W', '', phone)  #3 arguments
