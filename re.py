@@ -5,6 +5,7 @@ import re
 
   # .     (dot) matches any character.
   # +     Matches 1 or more occurrence of preceding expression.
+  # []    Matches any charcters in the square brackets
   # a|b	  Matches either a or b.
   # \w	  Matches word characters (numbers & alphabets).
   # \W	  Matches nonword characters.
@@ -13,12 +14,15 @@ import re
   # \s    Matches whitespace
   # \S    Matches non-whitespace
   
+
 phone = "2004-959-559 # This is Phone Number"
+email = 'this is an bah bah email nick19a@gmail.com the end.'
 
 
 # match; output if result at start of string
 num = re.match(r'\w\w\w', phone)
 print num.group() #output '200'
+
 
 # search; output first result in string
 num = re.search(r'...4', phone)
@@ -29,6 +33,10 @@ print num.group() #output ' This'
 
 num = re.search(r'.+559', phone)
 print num.group() #output '2004-959-559'
+
+result = re.search(r'\w+@[\w.]+', email)  #find all word characters and dot after @
+print result.group()  #output 'nick19a@gmail.com'
+
 
 # findall; output all results in a list
 num = re.findall(r'2004|Phone', phone)
