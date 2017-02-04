@@ -47,10 +47,11 @@ result = re.search(r'\w+@[\w.]+', email)  #find all word characters and dot afte
 print result.group()  #output 'nick19a@gmail.com'
 
 result = re.search(r'(\w+)@([\w.]+)', email)  #split the username & host name using round brackets
+print result.groups()  #output ('nick19a', 'gmail.com')
+print result.group()  #output 'nick19a@gmail.com'
 print result.group(0)  #output 'nick19a@gmail.com'
 print result.group(1)  #output 'nick19a'
 print result.group(2)  #output 'gmail.com'
-
 
 #-------------------------------------------
 # findall; output all results in a list
