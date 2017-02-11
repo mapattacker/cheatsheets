@@ -99,17 +99,19 @@ sns.factorplot(x='NUMBER_LAYERS',y='DEPTH_RIMFLOOR_TOPOG',kind='bar', data=df2)
 sns.factorplot(x='layers',y='depth',data=df3, kind='bar', ci=False) # remove confidence interval
 
 ## CORRELATION plots
-# joinplot, for only pairwise comparison. Gives histograms & scatterplot
+# joinplot, for only pairwise comparison. Gives histograms & scatterplot. Gives correlation labels.
 sns.jointplot('CMT', 'FCT', df2, kind='scatter', color='seagreen')
-# pairplot, for multiple comparisons. Gives histograms & scatterplots
+# pairplot, for multiple comparisons. Gives histograms & scatterplots. No correlation labels.
 sns.pairplot(df3.dropna())
-# pairgrid, for multiple comparisons. Define plot type.
+# pairgrid, for multiple comparisons. Define plot type. No correlation labels.
 fig = sns.PairGrid(df3.dropna())
   # define top, bottom and diagonal plots
   fig.map_upper(plt.scatter, color='purple')
   fig.map_lower(sns.kdeplot, cmap='cool_d')
   fig.map_diag(sns.distplot, bins=30)
-
+# corrplot, for multiple comparisons. Gives correlation labels.
+sns.corrplot(df3.dropna())
+  
 #------------------------------------------------------------------------------------
   # SUBPLOTS
 fig, ax = plt.subplots(ncols=3, nrows=2, figsize=(16, 20))
