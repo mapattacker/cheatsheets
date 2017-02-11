@@ -58,6 +58,12 @@ df.iloc[5:10] #index location; row number
 df.iloc[1,0] #index 1, column 0
 df.iloc[:,0] #all index, column 0
 
+
+# ix indexing works just the same as .loc when passed strings
+df.ix[['Andrade']] == df.loc[['Andrade']]
+# ix indexing works the same as .iloc when passed integers.
+df.ix[[33]] == df.iloc[[33]]
+
 #--------------------------------------------------------
 ## COLUMNS NAMES
     ## identify column names
