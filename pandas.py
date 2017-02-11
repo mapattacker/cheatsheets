@@ -41,6 +41,14 @@ pd.to_datetime(df2['time'])
 
 
 #--------------------------------------------------------
+## Using SQL
+query = ''' SELECT *
+            FROM customer
+            WHERE first_name = 'MARY'  '''
+sql_to_df(query).head()
+
+
+#--------------------------------------------------------
 ## INDEX NAMES
 df.index
 df['country'] = df.index #transfer index to a column
