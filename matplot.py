@@ -17,3 +17,5 @@ plt.ylabel('Volume')
 
 ### Add horizontal line, axhline
 df2.plot(figsize(15,5)).axhline(y = 0, color = "red", lw=1)
+    #or just add to a new line
+axhline(y = 0, color = "red", lw=1)
