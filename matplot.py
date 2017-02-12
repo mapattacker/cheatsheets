@@ -13,3 +13,7 @@ plt.plot(df.index, df['Adj Close'])
 plt.title('Frasers Centrepoint Trust')
 plt.xlabel('Date')
 plt.ylabel('Volume')
+
+
+### Add horizontal line, axhline
+df2.plot(figsize(15,5)).axhline(y = 0, color = "red", lw=1)
