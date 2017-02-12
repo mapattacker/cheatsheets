@@ -11,7 +11,7 @@ b: blue; g: green r: red c: cyan, m: magenta, y: yellow, k: black, w: white
 color = '#eeefff'
 
 
-### two main ways to plot---------------------------------------
+### TWO BASIC WAYS OF PLOTTING---------------------------------------
   #1. when dataframe is outside, you can enter arguements inside OR outside brackets.
 df.plot()
 df.plot(figsize(18,5), legend=True, title='Frasers Centrepoint Trust', label='Adjusted Closing Price')
@@ -24,7 +24,8 @@ plt.xlabel('Date')
 plt.ylabel('Volume')
 
 
-### Add horizontal line, axhline---------------------------------------
+
+### ADD HORIZONTAL LINE, axhline---------------------------------------
 df2.plot(figsize(15,5)).axhline(y = 0, color = "red", lw=1)
     #or just add to a new line
 axhline(y = 0, color = "red", lw=1)
@@ -32,7 +33,16 @@ axhline(y = 0, color = "red", lw=1)
 
 
 ### SUBPLOTS---------------------------------------
-# using subplot2grid
+#subplots, equal sizing of each plot
+fig, ax = plt.subplots(ncols=3, nrows=2, figsize=(16, 20))
+sns.regplot(x=df[df.columns[1]], y='Protected Areas', data=df, ax=ax[0,0])
+sns.regplot(x=df[df.columns[2]], y='Protected Areas', data=df, ax=ax[0,1])
+sns.regplot(x=df[df.columns[3]], y='Protected Areas', data=df, ax=ax[0,2])
+sns.regplot(x=df[df.columns[4]], y='Protected Areas', data=df, ax=ax[1,0])
+sns.regplot(x=df[df.columns[5]], y='Protected Areas', data=df, ax=ax[1,1])
+sns.regplot(x=df[df.columns[6]], y='Protected Areas', data=df, ax=ax[1,2])
+
+# using subplot2grid; full control over size of each plot
 plt.figure(figsize(14,5)) #define plot dimensions
     #arguments: grid dimensions (rows,columns), placement of plot in grid (row, column), no. of rows it occupy, no. columns it occupy.
     #note that even if rowspan=1, dimension is (4,4), you cant put placement as (4,0), but rather (3,0)
