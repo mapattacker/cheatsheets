@@ -244,6 +244,7 @@ Top15[['est','cit']].corr() #default is pearson's; give a correlation matrix
 # can add method='pearson'
 
 df2=df.pct_change() #difference of each row and the next with percentage. good for calculating stocks daily retuns
+sma10 = CMT['Close'].rolling(10).mean() #calcluating moving averages
 
 #--------------------------------------------------------
 ## BUILDING A DATAFRAME
