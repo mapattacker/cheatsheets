@@ -243,6 +243,8 @@ Top15['Avg']=Top15[df.columns[10:]].mean(axis=1) #mean for columns
 Top15[['est','cit']].corr() #default is pearson's; give a correlation matrix
 # can add method='pearson'
 
+df2=df.pct_change() #difference of each row and the next with percentage. good for calculating stocks daily retuns
+
 #--------------------------------------------------------
 ## BUILDING A DATAFRAME
     #build dataframe from a for loop
