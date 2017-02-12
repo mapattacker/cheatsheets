@@ -24,6 +24,11 @@ plt.title('Frasers Centrepoint Trust')
 plt.xlabel('Date')
 plt.ylabel('Volume')
 
+  #subplot settings
+ax1.set_title('CapitalMall Trust')
+ax1.set_ylabel('Adj Closing Price')
+ax2.set_ylabel('Volume')
+
 
 
 ### ADD HORIZONTAL/VERTICAL LINE, axhline---------------------------------------
