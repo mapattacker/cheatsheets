@@ -34,6 +34,11 @@ plt.axvline(y = 0, color = "red", lw=1) #vertical lines
 
 
 
+### ADD HORIZONTAL/VERTICAL LINE, axhline---------------------------------------
+plt.text('2015-10-23', 2.25, 'SMA 10-20',rotation=90) #(x, y, text, rotate-label)
+
+
+
 ### SUBPLOTS---------------------------------------
 #subplots, equal sizing of each plot
 fig, ax = plt.subplots(ncols=3, nrows=2, figsize=(16, 20))
