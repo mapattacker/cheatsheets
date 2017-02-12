@@ -2,7 +2,18 @@ import pandas as pd
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-### two main ways to plot
+### COLORS---------------------------------------
+  #normal form
+color = red
+  #short form
+b: blue; g: green r: red c: cyan, m: magenta, y: yellow, k: black, w: white
+  #range
+color=b1; color=b2
+  # html
+color = '#eeefff'
+
+
+### two main ways to plot---------------------------------------
   #1. when dataframe is outside, you can enter arguements inside OR outside brackets.
 df.plot()
 df.plot(figsize(18,5), legend=True, title='Frasers Centrepoint Trust', label='Adjusted Closing Price')
@@ -15,7 +26,7 @@ plt.xlabel('Date')
 plt.ylabel('Volume')
 
 
-### Add horizontal line, axhline
+### Add horizontal line, axhline---------------------------------------
 df2.plot(figsize(15,5)).axhline(y = 0, color = "red", lw=1)
     #or just add to a new line
 axhline(y = 0, color = "red", lw=1)
