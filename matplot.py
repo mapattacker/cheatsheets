@@ -7,8 +7,6 @@ import matplotlib.pyplot as plt
 color = red
   #short form
 b: blue; g: green r: red c: cyan, m: magenta, y: yellow, k: black, w: white
-  #range
-color=b1; color=b2
   # html
 color = '#eeefff'
 
