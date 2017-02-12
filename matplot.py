@@ -28,3 +28,15 @@ plt.ylabel('Volume')
 df2.plot(figsize(15,5)).axhline(y = 0, color = "red", lw=1)
     #or just add to a new line
 axhline(y = 0, color = "red", lw=1)
+
+
+
+### SUBPLOTS---------------------------------------
+# using subplot2grid
+plt.figure(figsize(14,5)) #define plot dimensions
+    #arguments: grid dimensions (rows,columns), placement of plot in grid (row, column), no. of rows it occupy, no. columns it occupy.
+    #note that even if rowspan=1, dimension is (4,4), you cant put placement as (4,0), but rather (3,0)
+top = plt.subplot2grid((5,4), (0, 0), rowspan=3, colspan=3) 
+bottom = plt.subplot2grid((5,4), (4,0), rowspan=2, colspan=3)
+top.plot(FCT.index, FCT['Adj Close'])
+bottom.bar(FCT.index, FCT['Volume'])
