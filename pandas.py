@@ -280,7 +280,7 @@ df=pd.concat([df1,df2], axis=1, join_axes=[df1.index])
     #change string to date format
 col = pd.to_datetime(df.columns[6:])
     #aggregation by date intervals
-date=date.resample('Q').mean()  #by quarter
+date=date.resample('Q').mean()  #by quarter, also (Day: D, Week: W, Month: M, Quarter: Q, Year: Y)
                  
     #change date to string
 date_yr=a['column_nm'].dt.strftime('%Y') #change to year
