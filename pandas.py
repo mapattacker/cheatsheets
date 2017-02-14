@@ -245,8 +245,9 @@ Top15[['est','cit']].corr() #default is pearson's; give a correlation matrix
 
 df2=df.pct_change() #difference of each row and the next with percentage. good for calculating stocks daily retuns
 sma10 = CMT['Close'].rolling(10).mean() #calcluating moving averages
+df.std() #standard deviation
 
-round(CMT['Adj Close'].quantile(0.75),2) #get value by quantile, in this case 75%
+CMT['Adj Close'].quantile(0.75) #get value by quantile, in this case 75%
                  
 #--------------------------------------------------------
 ## BUILDING A DATAFRAME
