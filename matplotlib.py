@@ -19,6 +19,9 @@ top.axes.get_xaxis().set_visible(False)
 
   #2 when df is inside, arguments must be entered as a separate line.
 plt.figure(figsize=(18, 5)) #note this sets for all figures in script
+plt.ylim([0.01,0.025]) #set x and y axis limits
+plt.xlim([-0.003,0.004])
+
 plt.plot(df.index, df['Adj Close'])
 plt.title('Frasers Centrepoint Trust')
 plt.xlabel('Date')
