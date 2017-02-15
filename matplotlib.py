@@ -46,7 +46,7 @@ plt.axvline(y = 0, color = "red", lw=1) #vertical lines
 plt.text('2015-10-23', 2.25, 'SMA 10-20',rotation=90) #(x, y, text, rotate-label)
 
 # http://matplotlib.org/users/annotations_guide.html#plotting-guide-annotation
- # label name, data points, annotation text, horizontal alignment, vertical alignment, arrow settings
+ # label name, data points coord, annotation text coord, textcoords???, horizontal alignment, vertical alignment, arrow settings
     plt.annotate(label, 
                  xy = (x, y), 
                  xytext = (50, 50),
