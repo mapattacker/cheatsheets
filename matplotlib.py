@@ -27,7 +27,7 @@ plt.ylabel('Volume')
 plt.ylim([0.01,0.025]) #set x and y axis limits
 plt.xlim([-0.003,0.004])
 
-  #subplot settings
+  #subplot settings; have to add set_*
 ax1.set_title('CapitalMall Trust')
 ax1.set_ylabel('Adj Closing Price')
 ax2.set_ylabel('Volume')
