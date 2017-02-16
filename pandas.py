@@ -12,7 +12,7 @@ df.to_excel('output.xlsx', index=False)
 conn = sqlite3.connect(sqlitePath) 
 df= pd.read_sql_query("SELECT * FROM table", conn)
     # TXT
-utown=pd.read_table('university_towns.txt', header=None)
+utown=pd.read_table('university_towns.txt', sep=',', header=None)
 
 #--------------------------------------------------------
 ## SETTINGS
