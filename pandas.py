@@ -91,6 +91,7 @@ df.columns = map(str.lower, df.columns) # change to lower case
     #drop columns
 df.drop(df.columns[[0, 1, 3]], axis=1)
 df.drop('column_name', axis=1, inplace=True) #note that if inplace value is not set to true, need to reassign a new df
+del df['column_name']
     #choose column names by condition
 col = [i for i in df.columns if i[-4:]=='2012']
 
