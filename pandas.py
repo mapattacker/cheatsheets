@@ -276,7 +276,9 @@ df.T
 #--------------------------------------------------------
 ## JOINS
 # http://pandas.pydata.org/pandas-docs/stable/comparison_with_sql.html#compare-with-sql-join
+# http://pandas.pydata.org/pandas-docs/stable/generated/pandas.DataFrame.merge.html
     #default is inner join
+    #can also use left_on=, right_on=
 df=pd.merge(df1, df2, on='Country')
 hudf=pd.merge(hdf, ul, how ='left', on=['State','RegionName']) #join on multiple columns
 
