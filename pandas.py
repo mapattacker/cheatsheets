@@ -117,6 +117,7 @@ for i in df.columns: # how many nan in each column? Value
     #drop NaN
 df3 = df2.dropna() #drop all rows with nan in any columns
 df3 = df2.dropna(how='all') #drop only rows with all nan values
+df3 = df2.dropna(threa=2) #drop only rows with 2 or more nan values
 df.dropna(subset=['x277_2012'],inplace=True) #drop all rows for specific columns
 
     #fill Nan
