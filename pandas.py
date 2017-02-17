@@ -219,10 +219,12 @@ df['data']=df['data'].apply(lambda x: 'true' if x <= 2.5 else 'false')
 
 #--------------------------------------------------------
 # REPLACE VALUES
-    #option 1
+    #option 1: single value
+df = df.replace('value1', 'value2')
+    #option 2: multiple values
 dict={4:88, 1:11}
 df1['a'].replace(dict,inplace=True)
-    #option 2
+    #option 3
 df['Country'].apply(lambda x: dict.get(x,x))
 
 #--------------------------------------------------------
