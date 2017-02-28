@@ -9,6 +9,7 @@ import re
   # ()    Groups regular expressions and remembers matched text / find only characters in brackets.
   # a|b	  Matches either a or b.
   
+  # \     backslash changes search code into real symbol (eg., /$)
   # \w	  Matches word characters (numbers & alphabets).
   # \W	  Matches nonword characters.
   # \d	  Matches digits. Equivalent to [0-9].
