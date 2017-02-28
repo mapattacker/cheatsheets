@@ -216,7 +216,15 @@ for i in range(len(df)):
     ## lambda function iterates a simple function. x below refers to each row of Top15{'PopEst']
 Top15['PopEst']=Top15['PopEst'].apply(lambda x: "{:,}".format(x))   
 df['data']=df['data'].apply(lambda x: 'true' if x <= 2.5 else 'false')
+df['date'] = df['raw'].str.extract('(....-..-..)', expand=True)
 
+    ## regex
+df['date'] = df['raw'].str.extract('(....-..-..)', expand=True)
+# 0    2014-12-23
+# 1    2010-02-23
+# 2    2014-06-20
+# 3    2014-03-14       
+                 
 #--------------------------------------------------------
 # REPLACE VALUES
     #option 1: single value
