@@ -40,6 +40,7 @@ df.describe #mean, std, count, etc. only numeric formated columns
 df.dtypes
 df['hour'] = df['hour'].astype('int64')
 pd.to_datetime(df2['time'])
+pd.to_numeric(df['price'])
 
 
 #--------------------------------------------------------
