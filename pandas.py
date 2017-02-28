@@ -324,3 +324,6 @@ date=date.resample('Q').mean()  #by quarter, also (Day: D, Week: W, Month: M, Qu
                  
     #change date to string
 date_yr=a['column_nm'].dt.strftime('%Y') #change to year
+
+    #change to hour
+df['hour'] = df['Time'].apply(lambda x: x.hour)
