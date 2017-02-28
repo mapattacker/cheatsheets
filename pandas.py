@@ -218,7 +218,11 @@ for i in range(len(df)):
 Top15['PopEst']=Top15['PopEst'].apply(lambda x: "{:,}".format(x))   
 df['data']=df['data'].apply(lambda x: 'true' if x <= 2.5 else 'false')
 df['date'] = df['raw'].str.extract('(....-..-..)', expand=True)
-
+    #for this case x refers to the entire dataframe, you have to specify the column within the function.
+    #this gives if else conditions from multiple columns
+ticketcat['funpass_days'] = ticketcat.apply(lambda x: '2' if x['ItemDescription'].find('2Day')>=0 else x['funpass_days'],axis=1)
+                
+                 
     ## regex
 df['date'] = df['raw'].str.extract('(....-..-..)', expand=True)
 # 0    2014-12-23
