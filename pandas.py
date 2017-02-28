@@ -225,6 +225,11 @@ df['date'] = df['raw'].str.extract('(....-..-..)', expand=True)
 # 1    2010-02-23
 # 2    2014-06-20
 # 3    2014-03-14       
+             
+    ## split by delimiter
+# example of value 'Online,Sales,Adult'
+ticketcat['sales'] = ticketcat['TicketDescription'].apply(lambda x: x.split(',')[1])
+ticketcat['medium'] = ticketcat['TicketDescription'].apply(lambda x: x.split(',')[0])
                  
 #--------------------------------------------------------
 # REPLACE VALUES
