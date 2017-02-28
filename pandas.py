@@ -285,6 +285,15 @@ hudf=pd.merge(hdf, ul, how ='left', on=['State','RegionName']) #join on multiple
     #join by index
 df=pd.concat([df1,df2], axis=1, join_axes=[df1.index])
 
+                 
+## UNION
+df1=pd.read_csv('Redemption_Part1.csv')
+df2=pd.read_csv('Redemption_Part2.csv')
+df3=pd.read_csv('Redemption_Part3.csv')
+frames=[df1,df2,df3]
+df_new = pd.concat(frames)
+                 
+                 
 #--------------------------------------------------------
 ## DATES
     #change string to date format
