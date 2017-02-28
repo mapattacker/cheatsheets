@@ -235,6 +235,8 @@ dict={4:88, 1:11}
 df1['a'].replace(dict,inplace=True)
     #option 3
 df['Country'].apply(lambda x: dict.get(x,x))
+    #option 4: replace part of string in value
+ticketcat['price']=ticketcat['price'].str.replace('$', '')
 
 #--------------------------------------------------------
 ## GROUP BY AND CALCULATING
