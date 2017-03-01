@@ -301,8 +301,10 @@ df.T
     #default is inner join
     #can also use left_on=, right_on=
 df=pd.merge(df1, df2, on='Country')
+df = pd.merge(df1, df2, how='left', left_on=['id_key'], right_on=['fk_key']) #if join fields are different
 hudf=pd.merge(hdf, ul, how ='left', on=['State','RegionName']) #join on multiple columns
 
+                 
     #join by index
 df=pd.concat([df1,df2], axis=1, join_axes=[df1.index])
 
