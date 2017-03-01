@@ -340,6 +340,7 @@ date_yr=a['column_nm'].dt.strftime('%Y') #change to year
 
     #change to hour
 df['hour'] = df['Time'].apply(lambda x: x.hour)
-                 
     #change to day of week
 df['day_of_week'] = df['my_dates'].dt.weekday_name
+    #set constant for date, minute, second
+df2['hour'] = pd.to_datetime('1900-01-01') + pd.to_timedelta(df3['Time'].dt.hour, unit='H')
