@@ -329,3 +329,6 @@ date_yr=a['column_nm'].dt.strftime('%Y') #change to year
 
     #change to hour
 df['hour'] = df['Time'].apply(lambda x: x.hour)
+                 
+    #change to day of week
+df['day_of_week'] = df['my_dates'].dt.weekday_name
