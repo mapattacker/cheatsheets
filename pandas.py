@@ -176,7 +176,8 @@ df[['EVENT_TYPE', 'EVENT_ID']].drop_duplicates() # multiple columns, dataframe
     ## SINGLE COLUMN CONDITION
     ## by summing
 df['TOTAL'] = df[df.columns[:]].sum(axis=1)
-    ## by function
+
+    ## by function, single column condition
 def timerange(x):
     if x >= 0 and x < 3:
         return '00:00-03:00'
@@ -184,7 +185,26 @@ def timerange(x):
         return '03:00-06:00'
     else:
         return '21:00-24:00'
-df['time_range'] = df['hour'].apply(timerange)
+df['time_range'] = df['hour'].apply(timerange, axis=1)
+    ## MULTIPLE COLUMN CONDITION
+def peak(x):
+    if x['Public Holiday'] == 'National Day' or x['Public Holiday'] == 'New Year''s Day':
+        return 'Super Peak'
+    if x['dow'] == 'Sunday' or x['dow'] == 'Saturday' or x['dow'] == 'Friday':
+        return 'Peak'
+    else: 
+        return 'Non-Peak'
+df3['day_period'] = df3.apply(peak, axis=1)
+
+
+    ## lambda function iterates a simple function. x below refers to each row of Top15{'PopEst']
+Top15['PopEst']=Top15['PopEst'].apply(lambda x: "{:,}".format(x))   
+df['data']=df['data'].apply(lambda x: 'true' if x <= 2.5 else 'false')
+df['date'] = df['raw'].str.extract('(....-..-..)', expand=True)
+    #for this case x refers to the entire dataframe, you have to specify the column within the function.
+    #this gives if else conditions from multiple columns
+ticketcat['funpass_days'] = ticketcat.apply(lambda x: '2' if x['ItemDescription'].find('2Day')>=0 else x['funpass_days'],axis=1)
+
 
     ## if else using np.where
 df['logic'] = np.where(df['AAA'] > 5,'high','low')
@@ -213,16 +233,7 @@ for i in range(len(df)):
     df.set_value(i, 'X_svy', svy[0]) #set_value(index, column, value)
     df.set_value(i, 'Y_svy', svy[1])
 
-    
-    ## lambda function iterates a simple function. x below refers to each row of Top15{'PopEst']
-Top15['PopEst']=Top15['PopEst'].apply(lambda x: "{:,}".format(x))   
-df['data']=df['data'].apply(lambda x: 'true' if x <= 2.5 else 'false')
-df['date'] = df['raw'].str.extract('(....-..-..)', expand=True)
-    #for this case x refers to the entire dataframe, you have to specify the column within the function.
-    #this gives if else conditions from multiple columns
-ticketcat['funpass_days'] = ticketcat.apply(lambda x: '2' if x['ItemDescription'].find('2Day')>=0 else x['funpass_days'],axis=1)
-                
-                 
+
     ## regex
 df['date'] = df['raw'].str.extract('(....-..-..)', expand=True)
 # 0    2014-12-23
