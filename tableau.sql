@@ -1,3 +1,4 @@
+--------------------------------------SQL---------------------------------------
 --using Tableau parameters to connect to SQL database with (All) option
 	--either define a table with possible and (All) attributes, and define in WHERE clause
 with filter_week AS (select 'Weekend' AS weektype, 'Weekend' AS param
@@ -21,3 +22,6 @@ WHERE (to_char(DATE_TIME,'hh24:mi') between :stme1 and :etme1))
 --Set date as constant so that Tableau can group by time only
 SELECT to_char(DATE_TIME, '1900-01-01 HH24:MI')::date
 FROM table_nm
+
+
+--------------------------------------TABLEAU---------------------------------------
