@@ -13,6 +13,11 @@ WHERE (((holiday='N' OR holiday='Y') AND :holiday='(All)') OR (holiday=:holiday)
 
 ---------------------------------------
 --Define Date range
-WHERE trunc(a.DATE_TIME) BETWEEN :strt_1_tme and :end_1_tme;
+WHERE trunc(DATE_TIME) BETWEEN :strt_1_tme and :end_1_tme;
 --Define Time range
-WHERE (to_char(a.DATE_TIME,'hh24:mi') between :stme1 and :etme1))
+WHERE (to_char(DATE_TIME,'hh24:mi') between :stme1 and :etme1))
+
+---------------------------------------
+--Set date as constant so that Tableau can group by time only
+SELECT to_char(DATE_TIME, '1900-01-01 HH24:MI')::date
+FROM table_nm
