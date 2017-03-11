@@ -29,11 +29,11 @@ FROM table_nm
 --Tableau Field Calculations
 
 --adjustable time bin aggregation
-  --Set date as constant so that Tableau can group by time only
+  --(1) Set date as constant so that Tableau can group by time only
 DATEADD('second', DATEDIFF('second', DATETRUNC('day',[Date Time]), [Date Time]), #1900-01-01#)
-  --field calculation (Time Bins)
+  --(2) field calculation (Time Bins)
 DATEADD('minute', 
 	INT(DATEDIFF('minute', DATETRUNC('day', [YF : Time]), [YF : Time]) / [Minute Bin Size] 
      	    ) * [Minute Bin Size], 
 DATETRUNC('day', [YF : Time]))
-  --set an integer parameter with range for changing bin size
+  --(3) set an integer parameter with range for changing bin size
