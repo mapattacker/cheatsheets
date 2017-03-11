@@ -1,5 +1,6 @@
 --------------------------------------SQL---------------------------------------
---using Tableau parameters to connect to SQL database with (All) option
+--using Tableau parameters to connect to SQL database
+-- with (All) option
 	--either define a table with possible and (All) attributes, and define in WHERE clause
 with filter_week AS (select 'Weekend' AS weektype, 'Weekend' AS param
 			  UNION select 'Weekday' AS weektype, 'Weekday' AS param
@@ -25,3 +26,4 @@ FROM table_nm
 
 
 --------------------------------------TABLEAU---------------------------------------
+
