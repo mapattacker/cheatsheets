@@ -10,8 +10,7 @@ SELECT * FROM DBO.table_nm a
 WHERE WEEKTYPE IN (SELECT weektype FROM filter_week WHERE param=:week);
 
 	--or just entirely in the WHERE clause as below
-SELECT * FROM DBO.table_nm a
-WHERE (((holiday='N' OR holiday='Y') AND :holiday='(All)') OR (holiday=:holiday));
+WHERE (((time_belt='Morning' OR time_belt='Day' OR time_belt= 'Evening') AND :timebelt='(All)') OR (time_belt=:timebelt))
 
 ---------------------------------------
 --Define Date range
