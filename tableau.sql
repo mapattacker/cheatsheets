@@ -20,7 +20,7 @@ WHERE (to_char(DATE_TIME,'hh24:mi') between :stme1 and :etme1))
 
 ---------------------------------------
 --Set date as constant so that Tableau can group by time only
-SELECT to_char(DATE_TIME, '1900-01-01 HH24:MI')::date
+SELECT to_char(DATE_TIME, '1900-01-01 HH24:MI')::timestamp
 FROM table_nm
 
 
