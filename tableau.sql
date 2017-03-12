@@ -25,26 +25,35 @@ FROM table_nm
 
 
 ---------------------------------------
---graph networks
-create table table1 (
-  id integer,
-  node1 varchar,
-  node2 varchar,
-  count numeric);
-
-insert into table1 (id,node1,node2,count) values (1,'0135weqwe','0146w468',10);
-insert into table1 (id,node1,node2,count) values (2,'0146w468','0135weqwe',20);
-insert into table1 (id,node1,node2,count) values (3,'qwe46587','0146w468',30);
-insert into table1 (id,node1,node2,count) values (4,'qwe46587','0135weqwe',30);
-insert into table1 (id,node1,node2,count) values (5,'0135weqwe','qwe46587',20);
-insert into table1 (id,node1,node2,count) values (6,'0146w468','qwe46587',10);
-	--changing bidirectional to unidirectional; use least and greatest.
-with table2 as (select id, least(node1, node2) as node1, greatest(node1, node2) as node2, count
-             	from table1)
-select node1, node2, sum(count)
-from table2
-group by node1, node2
-order by 3
+--graph networks; set a unidirectional & bidirectional graph according to time in a day
+	--paired movement to next location by time series
+with origin as (select user_id, timestamp, location, day_type, time_belt,
+					--pair the next (end) ap by time sequence partition by day
+					lead(ap_name) over(partition by user_id, date order by timestamp) as loc_end, 
+					--row_number() over(partition by user_mac, start_date order by start_timestamp) as seq_id
+				from main_table
+				where location is not null 
+				order by user_id, timestamp),
+	 --define if this is a unidirectional or bidirectional count using least & greatest (postgresql)
+	 direction AS (SELECT * FROM (SELECT user_id, start_timestamp, least(location,loc_end), day_type, time_belt, greatest(location, loc_end) FROM origin)
+	 				WHERE :direction = 'Unidirectional'
+	 				UNION SELECT * FROM origin WHERE :direction = 'Bidirectional'),
+	 --get total count of movement for each ap-ap permutation
+	 movement as (select location as loc_start, 1 as path_order, day_type, time_belt, loc_end, 2 as path_order2,
+	 					 --create unique path id when start & end ap is the same
+	 					 --row_number()over() as path_id, count(*),
+	 					 dense_rank()over(order by location, loc_end) as path_id, count(*),
+	 					 (case when location = loc_end then 1 else 0 end) as test
+			  from direction group by location, loc_end, day_type, time_belt),
+	 --remove those which start & end aps are the same, and those start and end ap that are null
+	 remove as (select * from movement where test = 0 and loc_end is not null),
+	 --stack ap end below ap start to conform to tableau mapping format
+	 stack as (select * from (select day_type, time_belt, loc_start as location, loc_start, loc_end, path_order, path_id, count from remove)a
+	 			  union 
+	 		   	  select * from (select day_type, time_belt, loc_start as location, loc_start, loc_end, path_order2 as path_order, path_id, count from remove)b)
+select *, b.latitude, b.longitude 
+from stack a
+join table_coordinates b on a.fieldnm = b.fieldnm
 
 
 --------------------------------------TABLEAU---------------------------------------
