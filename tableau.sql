@@ -56,6 +56,20 @@ from stack a
 join table_coordinates b on a.fieldnm = b.fieldnm
 
 
+	--find most common path
+with newtable as (select * from (select *, 
+                   --for testing & removing adjacent duplicated connections in same location
+                    (CASE when lead(path) over(partition by user1 order by timestamp) = path then 1
+                      else 0 end) as test
+                  from table1 order by 1,3)a
+                  where test = 0),
+      --group concat of each corresponding path
+      group_concat as (select user1, string_agg(path, '>' order by timestamp) 
+                       from newtable
+                      group by user1)
+select string_agg, count(*) from group_concat
+group by string_agg
+
 --------------------------------------TABLEAU---------------------------------------
 --Tableau Field Calculations
 
