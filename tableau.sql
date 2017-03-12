@@ -24,6 +24,29 @@ SELECT to_char(DATE_TIME, '1900-01-01 HH24:MI')::timestamp
 FROM table_nm
 
 
+---------------------------------------
+--graph networks
+create table table1 (
+  id integer,
+  node1 varchar,
+  node2 varchar,
+  count numeric);
+
+insert into table1 (id,node1,node2,count) values (1,'0135weqwe','0146w468',10);
+insert into table1 (id,node1,node2,count) values (2,'0146w468','0135weqwe',20);
+insert into table1 (id,node1,node2,count) values (3,'qwe46587','0146w468',30);
+insert into table1 (id,node1,node2,count) values (4,'qwe46587','0135weqwe',30);
+insert into table1 (id,node1,node2,count) values (5,'0135weqwe','qwe46587',20);
+insert into table1 (id,node1,node2,count) values (6,'0146w468','qwe46587',10);
+	--changing bidirectional to unidirectional; use least and greatest.
+with table2 as (select id, least(node1, node2) as node1, greatest(node1, node2) as node2, count
+             	from table1)
+select node1, node2, sum(count)
+from table2
+group by node1, node2
+order by 3
+
+
 --------------------------------------TABLEAU---------------------------------------
 --Tableau Field Calculations
 
