@@ -24,7 +24,8 @@ pd.set_option('display.max_colwidth', -1) # no limit to column width
 
     # jupyter notebook magic functions
 %lsmagic #list all magic
-%%timeit -n 100 #time script to complete, -n 100 means only loop 100 times
+%%timeit -n 100 #time script to complete, -n 100 means only loop 100 times; default is 100
+%time #time just once with CPU time outputs
     
 #--------------------------------------------------------
 ## EXPLORATORY
