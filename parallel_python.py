@@ -1,3 +1,7 @@
+# check no. of cores
+import multiprocessing
+print multiprocessing.cpu_count()
+
 
 # https://pythonhosted.org/joblib/parallel.html
 # using 
