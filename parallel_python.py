@@ -6,7 +6,7 @@
 from math import sqrt
 x = [sqrt(i ** 2) for i in range(100000)]
 
-%time
+%%timeit -n 10
 from joblib import Parallel, delayed
 import multiprocessing
 from math import sqrt
