@@ -22,11 +22,30 @@ pd.set_option('display.max_columns', None) # show all columns
 pd.set_option('display.max_rows', None) # show all rows
 pd.set_option('display.max_colwidth', -1) # no limit to column width
 
-    # jupyter notebook magic functions
+
+#--------------------------------------------------------
+# jupyter notebook magic functions
 %lsmagic #list all magic
 %%timeit -n 100 #time script to complete, -n 100 means only loop 100 times; default is 100
 %time #time just once with CPU time outputs
-    
+%%bash #run bash commands in mac
+%%cmd #run command prompt in windows
+
+
+#--------------------------------------------------------
+## BUILDING A DATAFRAME
+    #build dataframe from a for loop
+x = 0
+list = []
+for i in df.columns: # how many nan in each column? Value
+    list.append({'column':x, 'nan_count':df[i].isnull().values.sum(), 'variable':i})
+    x+=1
+df_nan = pd.DataFrame(list)
+
+    #create random dataframe
+df1 = pd.DataFrame(np.random.randint(1, 5, (10,2)), columns=['a','b']) #10 rows, 2 columns, with numbers 1 to 5
+
+
 #--------------------------------------------------------
 ## EXPLORATORY
 df.shape #total number of rows by columns
@@ -288,19 +307,7 @@ sma10 = CMT['Close'].rolling(10).mean() #calcluating moving averages
 df.std() #standard deviation
 
 CMT['Adj Close'].quantile(0.75) #get value by quantile, in this case 75%
-                 
-#--------------------------------------------------------
-## BUILDING A DATAFRAME
-    #build dataframe from a for loop
-x = 0
-list = []
-for i in df.columns: # how many nan in each column? Value
-    list.append({'column':x, 'nan_count':df[i].isnull().values.sum(), 'variable':i})
-    x+=1
-df_nan = pd.DataFrame(list)
-
-    #create random dataframe
-df1 = pd.DataFrame(np.random.randint(1, 5, (10,2)), columns=['a','b']) #10 rows, 2 columns, with numbers 1 to 5
+                
 
 #--------------------------------------------------------
 ## TRANSPOSING
