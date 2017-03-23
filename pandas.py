@@ -189,10 +189,13 @@ for i in list:
     df = df[~df['country'].str.contains(i)]
 
 #--------------------------------------------------------
-## UNIQUE VALUES
+## UNIQUE VALUES, DUPLICATES
 df['EVENT_TYPE'].unique() # single column, array
 df[['EVENT_TYPE', 'EVENT_ID']].drop_duplicates() # multiple columns, dataframe
 df[df.duplicated(keep=False)] # show all duplicated rows (only)
+
+# comparing duplicates between two columns
+df[df['States'].ne(df['Region'])]
 
 #--------------------------------------------------------
 ## NEW COLUMN CALCAULATIONS
