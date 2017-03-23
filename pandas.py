@@ -353,3 +353,6 @@ df['hour'] = df['Time'].apply(lambda x: x.hour)
 df['day_of_week'] = df['my_dates'].dt.weekday_name
     #set constant for date, minute, second
 df2['hour'] = pd.to_datetime('1900-01-01') + pd.to_timedelta(df3['Time'].dt.hour, unit='H')
+
+    # from epoch, i.e., seconds since 1970
+dfr['event_ts']=  dfr['Event-Timestamp'].apply(lambda x: time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(x)))
