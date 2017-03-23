@@ -294,9 +294,15 @@ df.groupby(['LocationDescription','LocationCode']).size() #size include NAN coun
     #group by to show just top 3 records for each STNAME
 df.groupby(['STNAME']).head(3)
 
+    #group by, add a new count field
+df1 = pd.DataFrame(np.random.randint(1, 15, (100,4)), columns=['a','b','c','d'])
+df1.groupby(list(df1.columns)).size().reset_index().rename(columns={0:'count'})
+                 
     #multiple aggregations
 Top15.groupby('Continent')['PopEst'].agg({'size': np.count_nonzero, 'mean': np.mean, 'sum': np.sum, 'std': np.std})
 
+                 
+                 
 #--------------------------------------------------------
 ## SIMPLE MATHS
 max(df['Gold']) #get the max value in the column
