@@ -201,7 +201,14 @@ df[df['States'].ne(df['Region'])]
 
 #group by, add a new count field for duplicate counts
 df1 = pd.DataFrame(np.random.randint(1, 15, (100,4)), columns=['a','b','c','d'])
-df1.groupby(list(df1.columns)).size().reset_index().rename(columns={0:'count'}) #might need to change all to df1.astype('str') first
+df1.groupby(df1.columns.tolist()).size().reset_index().rename(columns={0:'count'})
+
+    # sometimes, might need to change all to str first as nulls are interferring w groupby
+df2 = (df.astype('str').groupby(df.columns.tolist()).size()
+         .sort_values(ascending=False)
+         .reset_index()
+         .rename(columns={0:'duplicates'})
+         .replace('nan',np.nan)) #set nulls back to NaN
 
 #--------------------------------------------------------
 ## NEW COLUMN CALCAULATIONS
