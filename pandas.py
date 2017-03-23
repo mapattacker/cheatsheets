@@ -7,6 +7,7 @@ df = pd.read_csv('olympics.csv', index_col=0, skiprows=1)   #take 1st col as ind
 df.to_csv('shenzhen_processed.csv', index=False)
     # EXCEL
 df = pd.read_excel('shenzhen_processed.csv')
+df = pd.read_csv("P00000001-ALL.csv", nrows=20) # limit to only 20 rows
 df.to_excel('output.xlsx', index=False)
     # SQL
 conn = sqlite3.connect(sqlitePath) 
