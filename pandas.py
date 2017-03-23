@@ -151,7 +151,9 @@ df = df.fillna(method='bfill') #back filling, note to sort index
 
     #set value as NaN
 import numpy as np
-df.replace({'99':np.nan}, inplace=True)
+df2=df2.replace('nan',np.nan)
+df.replace({'99':np.nan}, inplace=True) #multiple rows
+
 
 #--------------------------------------------------------
 ## SORTING
