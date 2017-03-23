@@ -1,3 +1,7 @@
+#pip install feather-format
+#for reading and writing binary data frames fast
+
+
 # check no. of cores
 import multiprocessing
 print multiprocessing.cpu_count()
