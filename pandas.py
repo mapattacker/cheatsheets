@@ -197,6 +197,10 @@ df[df.duplicated(keep=False)] # show all duplicated rows (only)
 # comparing duplicates between two columns
 df[df['States'].ne(df['Region'])]
 
+#group by, add a new count field for duplicate counts
+df1 = pd.DataFrame(np.random.randint(1, 15, (100,4)), columns=['a','b','c','d'])
+df1.groupby(list(df1.columns)).size().reset_index().rename(columns={0:'count'})
+
 #--------------------------------------------------------
 ## NEW COLUMN CALCAULATIONS
     ## SINGLE COLUMN CONDITION
@@ -293,10 +297,6 @@ df.groupby(['LocationDescription','LocationCode']).size() #size include NAN coun
 
     #group by to show just top 3 records for each STNAME
 df.groupby(['STNAME']).head(3)
-
-    #group by, add a new count field
-df1 = pd.DataFrame(np.random.randint(1, 15, (100,4)), columns=['a','b','c','d'])
-df1.groupby(list(df1.columns)).size().reset_index().rename(columns={0:'count'})
                  
     #multiple aggregations
 Top15.groupby('Continent')['PopEst'].agg({'size': np.count_nonzero, 'mean': np.mean, 'sum': np.sum, 'std': np.std})
