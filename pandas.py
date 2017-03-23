@@ -60,6 +60,7 @@ df.describe #mean, std, count, etc. only numeric formated columns
 ## FORMAT
 df.dtypes
 df['hour'] = df['hour'].astype('int64')
+df['text'] = df['text'].astype('str')
 df['price'] = pd.to_numeric(df['price'])
 df['Time'] = pd.to_datetime(df['Time'])
 
