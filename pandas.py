@@ -289,7 +289,7 @@ ticketcat['price']=ticketcat['price'].str.replace('$', '')
 census_df[['STNAME', 'COUNTY']].groupby(['STNAME']).sum() #SELECT sum(county), stname FROM tablenm GROUP BY stname
 df3.groupby(['longitude', 'latitude']).count()
 df3.groupby(['longitude', 'latitude']).sum()
-df.groupby(['LocationDescription','LocationCode']).size()
+df.groupby(['LocationDescription','LocationCode']).size() #size include NAN counts, counts() does not
 
     #group by to show just top 3 records for each STNAME
 df.groupby(['STNAME']).head(3)
