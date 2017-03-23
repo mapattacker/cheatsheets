@@ -121,6 +121,9 @@ col = [i for i in df.columns if i[-4:]=='2012']
     #concat two lists of columns together
 df[df.columns[1:11] | df.columns[12:14]]
 
+    #ordering columns in a df
+df[sorted(df.columns.tolist())].head(3)
+    
 #--------------------------------------------------------
 ## COUNTING
 df['EVENT_TYPE'].value_counts()
