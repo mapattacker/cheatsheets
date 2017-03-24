@@ -61,11 +61,10 @@ df.describe #mean, std, count, etc. only numeric formated columns
 df.dtypes
 df['hour'] = df['hour'].astype('int64')
 df['text'] = df['text'].astype('str')
-df['price'] = pd.to_numeric(df['price'])
-df['Time'] = pd.to_datetime(df['Time'])
+    #coerce, any errors will be converted to NaN
+df['price'] = pd.to_numeric(df['price'], errors='coerce')
+df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
 
-    #if have null values, float conversion have to use 'coerce' 
-df3['Timestamp2'] = df3['Event-Timestamp'].apply(pd.to_numeric, args=('coerce',))
 
 #--------------------------------------------------------
 ## Using SQL
@@ -382,4 +381,4 @@ df2['hour'] = pd.to_datetime('1900-01-01') + pd.to_timedelta(df3['Time'].dt.hour
 
     # from epoch, i.e., seconds since 1970
 dfr['event_ts']=  dfr['Event-Timestamp'].apply(lambda x: time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(x)))
-dfr['event_ts']= pd.to_datetime(dfr['Event-Timestamp'], unit='s') #note that this STILL needs to convert to local time
+dfr['event_ts']= pd.to_datetime(dfr['Event-Timestamp'], unit='s', errors='coerce') #note that this STILL needs to convert to local time
