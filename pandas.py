@@ -64,6 +64,8 @@ df['text'] = df['text'].astype('str')
 df['price'] = pd.to_numeric(df['price'])
 df['Time'] = pd.to_datetime(df['Time'])
 
+    #if have null values, float conversion have to use 'coerce' 
+df3['Timestamp2'] = df3['Event-Timestamp'].apply(pd.to_numeric, args=('coerce',))
 
 #--------------------------------------------------------
 ## Using SQL
