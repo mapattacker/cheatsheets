@@ -136,6 +136,7 @@ df.describe()
 df.isnull().any().any() # is there any nan in entire dataframe? Boolean
 df.isnull().values.sum() #total number of nan in dataframe? Value
 df.isnull().any() # which column is the nan in? Boolean
+df[df['Timestamp'].isnull()] #filter rows with nan
 
 for i in df.columns: # how many nan in each column? Value
     print df[i].isnull().values.sum(), i
