@@ -68,9 +68,9 @@ for root, dir, file in os.walk(path):
 
 
 # add or remove directory
-os.remove() will remove a file.
-os.rmdir() will remove an empty directory.
-shutil.rmtree() will delete a directory and all its contents.
+os.remove() # will remove a file.
+os.rmdir() # will remove an empty directory.
+shutil.rmtree() # will delete a directory and all its contents.
 
                 
 # http://en.cppreference.com/w/cpp/io/c/fopen
