@@ -41,6 +41,28 @@ newpath = r'C:\Program Files\arbitrary'
 if not os.path.exists(newpath):
     os.makedirs(newpath)        
 
+# find file dates created or modified time
+import os
+import platform
+import datetime
+
+path = r'C:\Desktop\foldername'
+
+for root, dir, file in os.walk(path):
+    for i in file:
+        filenm = os.path.join(root,i)
+        # windows
+        if platform.system() == 'Windows':
+            print i, os.path.getctime(filenm)
+        else: # linux, mac
+            stat = os.stat(filenm)
+            try:
+                print i, datetime.datetime.fromtimestamp(stat.st_birthtime)
+            except AttributeError:
+                # No easy way to get creation dates from linux or mac
+                # so we'll settle for when its content was last modified.
+                print i, datetime.datetime.fromtimestamp(stat.st_mtime)
+
 
 # http://en.cppreference.com/w/cpp/io/c/fopen
 # File access mode string | Meaning | Explanation | Action if file already exists | Action if file does not exist
