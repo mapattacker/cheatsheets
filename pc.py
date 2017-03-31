@@ -35,13 +35,7 @@ if os.path.isfile(fieldnamefile):
             print line
 else:
     with open(fieldnamefile, 'ab+') as file: #create new field file
-        file.write('headername\n')
-
-        
-# create directory
-newpath = r'C:\Program Files\arbitrary' 
-if not os.path.exists(newpath):
-    os.makedirs(newpath)        
+        file.write('headername\n') 
 
     
 # find file dates created or modified time
@@ -66,6 +60,11 @@ for root, dir, file in os.walk(path):
                 # so we'll settle for when its content was last modified.
                 print i, datetime.datetime.fromtimestamp(stat.st_mtime)
 
+                
+# create directory
+newpath = r'C:\Program Files\arbitrary' 
+if not os.path.exists(newpath):
+    os.makedirs(newpath)
 
 # add or remove directory
 os.remove() # will remove a file.
