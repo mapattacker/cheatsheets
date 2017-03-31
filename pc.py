@@ -26,6 +26,7 @@ for root, dirs, files in os.walk(path):
     for i in files:
         print os.path.join(root,i) # get full path of files 
 
+        
 # check if a file is present
 fieldnamefile = 'filename.txt'
 if os.path.isfile(fieldnamefile):
@@ -36,11 +37,13 @@ else:
     with open(fieldnamefile, 'ab+') as file: #create new field file
         file.write('headername\n')
 
+        
 # create directory
 newpath = r'C:\Program Files\arbitrary' 
 if not os.path.exists(newpath):
     os.makedirs(newpath)        
 
+    
 # find file dates created or modified time
 import os
 import platform
