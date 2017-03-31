@@ -74,7 +74,7 @@ shutil.rmtree() # will delete a directory and all its contents.
 
 # os path
 os.chdir('..') # directory 1 level up
-
+print os.path.abspath(os.curdir)
 
                 
 # http://en.cppreference.com/w/cpp/io/c/fopen
