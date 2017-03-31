@@ -26,7 +26,17 @@ for root, dirs, files in os.walk(path):
     for i in files:
         print os.path.join(root,i) # get full path of files 
 
-    
+# check if a file is present
+fieldnamefile = 'filename.txt'
+if os.path.isfile(fieldnamefile):
+    with open(fieldnamefile, 'rb+') as file: #read field file contents
+        for line in file:
+            print line
+else:
+    with open(fieldnamefile, 'ab+') as file: #create new field file
+        file.write('headername\n')
+
+        
 # http://en.cppreference.com/w/cpp/io/c/fopen
 # File access mode string | Meaning | Explanation | Action if file already exists | Action if file does not exist
 # "r"	read | Open a file for reading | read from start | failure to open
