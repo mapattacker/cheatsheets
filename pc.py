@@ -67,6 +67,12 @@ for root, dir, file in os.walk(path):
                 print i, datetime.datetime.fromtimestamp(stat.st_mtime)
 
 
+# add or remove directory
+os.remove() will remove a file.
+os.rmdir() will remove an empty directory.
+shutil.rmtree() will delete a directory and all its contents.
+
+                
 # http://en.cppreference.com/w/cpp/io/c/fopen
 # File access mode string | Meaning | Explanation | Action if file already exists | Action if file does not exist
 # "r"	read | Open a file for reading | read from start | failure to open
