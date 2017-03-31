@@ -36,7 +36,12 @@ else:
     with open(fieldnamefile, 'ab+') as file: #create new field file
         file.write('headername\n')
 
-        
+# create directory
+newpath = r'C:\Program Files\arbitrary' 
+if not os.path.exists(newpath):
+    os.makedirs(newpath)        
+
+
 # http://en.cppreference.com/w/cpp/io/c/fopen
 # File access mode string | Meaning | Explanation | Action if file already exists | Action if file does not exist
 # "r"	read | Open a file for reading | read from start | failure to open
