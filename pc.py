@@ -72,6 +72,10 @@ os.remove() # will remove a file.
 os.rmdir() # will remove an empty directory.
 shutil.rmtree() # will delete a directory and all its contents.
 
+# os path
+os.chdir('..') # directory 1 level up
+
+
                 
 # http://en.cppreference.com/w/cpp/io/c/fopen
 # File access mode string | Meaning | Explanation | Action if file already exists | Action if file does not exist
