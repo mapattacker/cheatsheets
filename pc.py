@@ -23,6 +23,8 @@ import os
 path = 'C:\Users\Teo Siyang\'
 for root, dirs, files in os.walk(path):
     print root, dirs, files
+    for i in files:
+        print os.path.join(root,i) # get full path of files 
 
     
 # http://en.cppreference.com/w/cpp/io/c/fopen
