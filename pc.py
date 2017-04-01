@@ -72,7 +72,7 @@ os.rmdir() # will remove an empty directory.
 shutil.rmtree() # will delete a directory and all its contents.
 
 # os path
-os.chdir('..') # directory 1 level up
+os.chdir('.') # directory 1 level up; every dot brings a level up
 print os.path.abspath(os.curdir)
 
                 
