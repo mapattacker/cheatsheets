@@ -12,9 +12,8 @@ directoryName = os.path.relpath(".","..")
 
 # get all files & folders in path listed (as a list)
 import os
-# Open a file
-path = 'C:\Users\Teo Siyang\'
-for i in os.listdir( path ):
+path = r'C:\Users\Teo Siyang\'
+for i in os.listdir(path):
   print i
 
     
@@ -50,15 +49,18 @@ for root, dir, file in os.walk(path):
         filenm = os.path.join(root,i)
         # windows
         if platform.system() == 'Windows':
-            print i, os.path.getctime(filenm)
+            if i.endswith('csv'): # condition to filter only csv files
+                print i, os.path.getctime(filenm)
         else: # linux, mac
             stat = os.stat(filenm)
             try:
-                print i, datetime.datetime.fromtimestamp(stat.st_birthtime)
+                if i.endswith('csv'): 
+                    print i, datetime.datetime.fromtimestamp(stat.st_birthtime)
             except AttributeError:
                 # No easy way to get creation dates from linux or mac
                 # so we'll settle for when its content was last modified.
-                print i, datetime.datetime.fromtimestamp(stat.st_mtime)
+                if i.endswith('csv'):
+                    print i, datetime.datetime.fromtimestamp(stat.st_mtime)
 
                 
 # create directory
@@ -72,6 +74,7 @@ os.rmdir() # will remove an empty directory.
 shutil.rmtree() # will delete a directory and all its contents.
 
 #  full os path
+print os.path.abspath('.') # current directory path
 print os.path.abspath('..') # directory 1 level up; every dot brings a level up
 
                 
