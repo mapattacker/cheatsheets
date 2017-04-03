@@ -37,7 +37,7 @@ else:
         file.write('headername\n') 
 
     
-# find file dates created or modified time
+# find file dates created or modified time, & file size
 import os
 import platform
 import datetime
@@ -55,12 +55,12 @@ for root, dir, file in os.walk(path):
             stat = os.stat(filenm)
             try:
                 if i.endswith('csv'): 
-                    print i, datetime.datetime.fromtimestamp(stat.st_birthtime)
+                    print i, datetime.datetime.fromtimestamp(stat.st_birthtime), stat.st_size
             except AttributeError:
                 # No easy way to get creation dates from linux or mac
                 # so we'll settle for when its content was last modified.
                 if i.endswith('csv'):
-                    print i, datetime.datetime.fromtimestamp(stat.st_mtime)
+                    print i, datetime.datetime.fromtimestamp(stat.st_mtime), stat.st_size
 
                 
 # create directory
