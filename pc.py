@@ -68,6 +68,9 @@ newpath = r'C:\Program Files\arbitrary'
 if not os.path.exists(newpath):
     os.makedirs(newpath)
 
+# list files, folders in current directory
+os.listdir('.')
+
 # add or remove directory
 os.remove() # will remove a file.
 os.rmdir() # will remove an empty directory.
