@@ -68,7 +68,7 @@ df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
 
 #--------------------------------------------------------
 ## Using SQL
-import psycopg2
+import psycopg2 #postgres connection
 conn = psycopg2.connect(database="postgres", user="postgres", password="***", host="127.0.0.1", port="5432")
 query = ''' SELECT *
             FROM customer
