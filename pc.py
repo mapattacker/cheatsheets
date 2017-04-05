@@ -62,7 +62,9 @@ for root, dir, file in os.walk(path):
                 if i.endswith('csv'):
                     print i, datetime.datetime.fromtimestamp(stat.st_mtime), stat.st_size
 
-                
+# check file 
+os.path.isfile(path) # Boolean
+
 # create directory
 newpath = r'C:\Program Files\arbitrary' 
 if not os.path.exists(newpath):
