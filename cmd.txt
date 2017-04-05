@@ -26,5 +26,7 @@ ctrl + x			--exit
 ctrl+D			--close python, pyspark session
 
 
+WINDOWS COMMAND PROMPT
+
 Make new directories
-mkdir rst test --make two directories at current folder, called rst & test
+mkdir rst, test --make two directories at current folder, called rst & test
