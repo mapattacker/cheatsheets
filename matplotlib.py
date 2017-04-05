@@ -22,8 +22,12 @@ plt.figure(figsize=(18, 5)) #note this sets for all figures in script
 plt.plot(df.index, df['Adj Close'])
 
 plt.title('Frasers Centrepoint Trust')
-plt.xlabel('Date')
-plt.ylabel('Volume')
+  #axis title
+plt.xlabel('Date', fontsize=10)
+plt.ylabel('Volume', fontsize=10)
+  #axis tick size
+plt.xticks(size = 10)
+plt.yticks(size = 10)
 plt.ylim([0.01,0.025]) #set x and y axis limits
 plt.xlim([-0.003,0.004])
 
