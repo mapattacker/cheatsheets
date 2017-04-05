@@ -1,5 +1,5 @@
 # cheatsheets
-  * pandas.py: python's pandas package
+  * __pandas.py__: python's pandas package
   * seaborn.py: python's seaborn package
   * matplot.py: python's matplotlib package
   * network_basics.ipynb: python's networkx package for graphing
