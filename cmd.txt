@@ -24,3 +24,7 @@ ctrl + o			--save
 ctrl + x			--exit
 
 ctrl+D			--close python, pyspark session
+
+
+Make new directories
+mkdir rst test --make two directories at current folder, called rst & test
