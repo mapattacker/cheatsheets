@@ -22,7 +22,8 @@ top.axes.get_xaxis().set_visible(False)
 plt.figure(figsize=(18, 5)) #note this sets for all figures in script
 plt.plot(df.index, df['Adj Close'])
 
-plt.title('Frasers Centrepoint Trust')
+  #title
+plt.title('Frasers Centrepoint Trust', fontsize=10)
   #axis title
 plt.xlabel('Date', fontsize=10)
 plt.ylabel('Volume', fontsize=10)
@@ -31,6 +32,9 @@ plt.xticks(size = 10)
 plt.yticks(size = 10)
 plt.ylim([0.01,0.025]) #set x and y axis limits
 plt.xlim([-0.003,0.004])
+  #legend
+plt.legend(loc=9, labels=['Max Temp 2005-2014', 'Min Temp 2005-2014', 'Max Temp 2015', 'Min Temp 2015'], \
+           frameon=False, fontsize=6, ncol=4) #ncol, split into horizontal, #loc is location of title
 
   #subplot settings; have to add set_*
 ax1.set_title('CapitalMall Trust')
