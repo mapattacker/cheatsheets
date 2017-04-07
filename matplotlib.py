@@ -94,7 +94,7 @@ bottom.set_ylabel('Volume')
 #scatter-plot
 plt.scatter(dfinal['day'], dfinal['tmax15'], s=5, c='r')
 #histogram
-plt.hist(sample, bins=100)
+plt.hist(sample, bins=100, orientation='horizontal')
 #bar-plot
 plt.bar(FCT.index, FCT['Volume'])
 
