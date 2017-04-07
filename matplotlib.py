@@ -73,7 +73,6 @@ ax5.plot(linear_data, '-')
 
 
 ### SUBPLOT2GRID-------------------------------------------------------------------------
-# http://matplotlib.org/users/gridspec.html
 # advantage of subplot2grid: full control over size of each plot
 plt.figure(figsize(14,5)) #define plot dimensions
     #arguments: grid dimensions (rows,columns), placement of plot in grid (row, column), no. of rows it occupy, no. columns it occupy.
@@ -91,8 +90,10 @@ bottom.set_ylabel('Volume')
 
 
 ### GRIDSPEC-------------------------------------------------------------------------
-import matplotlib.gridspec as gridspec
+# http://matplotlib.org/users/gridspec.html
 # similar to subplot2grid
+import matplotlib.gridspec as gridspec
+
 gs = gridspec.GridSpec(3, 3)
 ax1 = plt.subplot(gs[0, :])
 ax2 = plt.subplot(gs[1,:-1])
