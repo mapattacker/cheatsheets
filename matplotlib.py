@@ -54,6 +54,7 @@ ax2.set_ylabel('Volume')
 
 
 ### SUBPLOTS---------------------------------------
+#advantage of subplot: easier to control all figures
 #e.g. 1
 #subplots, equal sizing of each plot
 fig, ax = plt.subplots(ncols=3, nrows=2, figsize=(16, 20))
@@ -72,7 +73,7 @@ ax5.plot(linear_data, '-')
 
 
 ### SUBPLOT2GRID---------------------------------------
-# using subplot2grid; full control over size of each plot
+# advantage of subplot2grid: full control over size of each plot
 plt.figure(figsize(14,5)) #define plot dimensions
     #arguments: grid dimensions (rows,columns), placement of plot in grid (row, column), no. of rows it occupy, no. columns it occupy.
     #note that even if rowspan=1, dimension is (4,4), you cant put placement as (4,0), but rather (3,0)
