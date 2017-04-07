@@ -90,6 +90,17 @@ top.set_ylabel('Adj Closing Price')
 bottom.set_ylabel('Volume')
 
 
+### GRIDSPEC-------------------------------------------------------------------------
+import matplotlib.gridspec as gridspec
+# similar to subplot2grid
+gs = gridspec.GridSpec(3, 3)
+ax1 = plt.subplot(gs[0, :])
+ax2 = plt.subplot(gs[1,:-1])
+ax3 = plt.subplot(gs[1:, -1])
+ax4 = plt.subplot(gs[-1,0])
+ax5 = plt.subplot(gs[-1,-2])
+
+
 
 ### CHART TYPES--------------------------------------------------------------------------
 #scatter-plot
