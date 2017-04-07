@@ -83,6 +83,12 @@ top.plot(FCT.index, FCT['Adj Close'])
 bottom.bar(FCT.index, FCT['Volume'])
 
 
+### CHART TYPES---------------------------------------
+#scatter-plot
+plt.scatter(dfinal['day'], dfinal['tmax15'], s=5, c='r')
+#histogram
+plt.hist(sample, bins=100)
+
 ### ADD HORIZONTAL/VERTICAL LINE, axhline---------------------------------------
 df2.plot(figsize(15,5)).axhline(y = 0, color = "red", lw=1)
     #or just add to a new line
