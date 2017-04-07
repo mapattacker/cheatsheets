@@ -64,6 +64,14 @@ sns.regplot(x=df[df.columns[4]], y='Protected Areas', data=df, ax=ax[1,0])
 sns.regplot(x=df[df.columns[5]], y='Protected Areas', data=df, ax=ax[1,1])
 sns.regplot(x=df[df.columns[6]], y='Protected Areas', data=df, ax=ax[1,2])
 
+#e.g. 2
+# create a 3x3 grid of subplots
+fig, ((ax1,ax2,ax3), (ax4,ax5,ax6), (ax7,ax8,ax9)) = plt.subplots(3, 3, sharex=True, sharey=True)
+# plot the linear_data on the 5th subplot axes 
+ax5.plot(linear_data, '-')
+
+
+### SUBPLOT2GRID---------------------------------------
 # using subplot2grid; full control over size of each plot
 plt.figure(figsize(14,5)) #define plot dimensions
     #arguments: grid dimensions (rows,columns), placement of plot in grid (row, column), no. of rows it occupy, no. columns it occupy.
@@ -72,13 +80,6 @@ top = plt.subplot2grid((5,4), (0, 0), rowspan=3, colspan=3)
 bottom = plt.subplot2grid((5,4), (4,0), rowspan=2, colspan=3)
 top.plot(FCT.index, FCT['Adj Close'])
 bottom.bar(FCT.index, FCT['Volume'])
-
-
-#e.g. 2
-# create a 3x3 grid of subplots
-fig, ((ax1,ax2,ax3), (ax4,ax5,ax6), (ax7,ax8,ax9)) = plt.subplots(3, 3, sharex=True, sharey=True)
-# plot the linear_data on the 5th subplot axes 
-ax5.plot(linear_data, '-')
 
 
 ### ADD HORIZONTAL/VERTICAL LINE, axhline---------------------------------------
