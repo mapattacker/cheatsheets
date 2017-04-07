@@ -30,11 +30,20 @@ plt.ylabel('Volume', fontsize=10)
   #axis tick size
 plt.xticks(size = 10)
 plt.yticks(size = 10)
+  #axis scale limits
 plt.ylim([0.01,0.025]) #set x and y axis limits
 plt.xlim([-0.003,0.004])
   #legend
 plt.legend(loc=9, labels=['Max Temp 2005-2014', 'Min Temp 2005-2014', 'Max Temp 2015', 'Min Temp 2015'], \
            frameon=False, fontsize=6, ncol=4) #ncol, split into horizontal, #loc is location of title
+
+### SUBPLOT-----------------------------------------------------------------------------
+plt.figure()
+ax1 = plt.subplot(1, 2, 1) #arg(nrow, ncol, 1st plot)
+plt.plot(linear_data, '-o')
+# pass sharey=ax1 to ensure the two subplots share the same y axis
+ax2 = plt.subplot(1, 2, 2, sharey=ax1) #arg(nrow, ncol, 2nd plot)
+plt.plot(exponential_data, '-x')
 
   #subplot settings; have to add set_*
 ax1.set_title('CapitalMall Trust')
