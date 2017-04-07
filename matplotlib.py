@@ -37,6 +37,8 @@ plt.xlim([-0.003,0.004])
 plt.legend(loc=9, labels=['Max Temp 2005-2014', 'Min Temp 2005-2014', 'Max Temp 2015', 'Min Temp 2015'], \
            frameon=False, fontsize=6, ncol=4) #ncol, split into horizontal, #loc is location of title
 
+
+
 ### SUBPLOT-----------------------------------------------------------------------------
 plt.figure()
 ax1 = plt.subplot(1, 2, 1) #arg(nrow, ncol, 1st plot)
@@ -50,6 +52,33 @@ ax1.set_title('CapitalMall Trust')
 ax1.set_ylabel('Adj Closing Price')
 ax2.set_ylabel('Volume')
 
+
+### SUBPLOTS---------------------------------------
+#e.g. 1
+#subplots, equal sizing of each plot
+fig, ax = plt.subplots(ncols=3, nrows=2, figsize=(16, 20))
+sns.regplot(x=df[df.columns[1]], y='Protected Areas', data=df, ax=ax[0,0])
+sns.regplot(x=df[df.columns[2]], y='Protected Areas', data=df, ax=ax[0,1])
+sns.regplot(x=df[df.columns[3]], y='Protected Areas', data=df, ax=ax[0,2])
+sns.regplot(x=df[df.columns[4]], y='Protected Areas', data=df, ax=ax[1,0])
+sns.regplot(x=df[df.columns[5]], y='Protected Areas', data=df, ax=ax[1,1])
+sns.regplot(x=df[df.columns[6]], y='Protected Areas', data=df, ax=ax[1,2])
+
+# using subplot2grid; full control over size of each plot
+plt.figure(figsize(14,5)) #define plot dimensions
+    #arguments: grid dimensions (rows,columns), placement of plot in grid (row, column), no. of rows it occupy, no. columns it occupy.
+    #note that even if rowspan=1, dimension is (4,4), you cant put placement as (4,0), but rather (3,0)
+top = plt.subplot2grid((5,4), (0, 0), rowspan=3, colspan=3) 
+bottom = plt.subplot2grid((5,4), (4,0), rowspan=2, colspan=3)
+top.plot(FCT.index, FCT['Adj Close'])
+bottom.bar(FCT.index, FCT['Volume'])
+
+
+#e.g. 2
+# create a 3x3 grid of subplots
+fig, ((ax1,ax2,ax3), (ax4,ax5,ax6), (ax7,ax8,ax9)) = plt.subplots(3, 3, sharex=True, sharey=True)
+# plot the linear_data on the 5th subplot axes 
+ax5.plot(linear_data, '-')
 
 
 ### ADD HORIZONTAL/VERTICAL LINE, axhline---------------------------------------
@@ -74,21 +103,3 @@ plt.text('2015-10-23', 2.25, 'SMA 10-20',rotation=90) #(x, y, text, rotate-label
                  arrowprops = dict(arrowstyle = '-', connectionstyle = 'arc3, rad=-0.3'))
 
     
-### SUBPLOTS---------------------------------------
-#subplots, equal sizing of each plot
-fig, ax = plt.subplots(ncols=3, nrows=2, figsize=(16, 20))
-sns.regplot(x=df[df.columns[1]], y='Protected Areas', data=df, ax=ax[0,0])
-sns.regplot(x=df[df.columns[2]], y='Protected Areas', data=df, ax=ax[0,1])
-sns.regplot(x=df[df.columns[3]], y='Protected Areas', data=df, ax=ax[0,2])
-sns.regplot(x=df[df.columns[4]], y='Protected Areas', data=df, ax=ax[1,0])
-sns.regplot(x=df[df.columns[5]], y='Protected Areas', data=df, ax=ax[1,1])
-sns.regplot(x=df[df.columns[6]], y='Protected Areas', data=df, ax=ax[1,2])
-
-# using subplot2grid; full control over size of each plot
-plt.figure(figsize(14,5)) #define plot dimensions
-    #arguments: grid dimensions (rows,columns), placement of plot in grid (row, column), no. of rows it occupy, no. columns it occupy.
-    #note that even if rowspan=1, dimension is (4,4), you cant put placement as (4,0), but rather (3,0)
-top = plt.subplot2grid((5,4), (0, 0), rowspan=3, colspan=3) 
-bottom = plt.subplot2grid((5,4), (4,0), rowspan=2, colspan=3)
-top.plot(FCT.index, FCT['Adj Close'])
-bottom.bar(FCT.index, FCT['Volume'])
