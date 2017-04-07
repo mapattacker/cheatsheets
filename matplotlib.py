@@ -73,6 +73,7 @@ ax5.plot(linear_data, '-')
 
 
 ### SUBPLOT2GRID-------------------------------------------------------------------------
+# http://matplotlib.org/users/gridspec.html
 # advantage of subplot2grid: full control over size of each plot
 plt.figure(figsize(14,5)) #define plot dimensions
     #arguments: grid dimensions (rows,columns), placement of plot in grid (row, column), no. of rows it occupy, no. columns it occupy.
