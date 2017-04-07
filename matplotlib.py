@@ -53,7 +53,7 @@ ax1.set_ylabel('Adj Closing Price')
 ax2.set_ylabel('Volume')
 
 
-### SUBPLOTS---------------------------------------
+### SUBPLOTS-----------------------------------------------------------------------------
 #advantage of subplot: easier to control all figures
 #e.g. 1
 #subplots, equal sizing of each plot
@@ -72,7 +72,7 @@ fig, ((ax1,ax2,ax3), (ax4,ax5,ax6), (ax7,ax8,ax9)) = plt.subplots(3, 3, sharex=T
 ax5.plot(linear_data, '-')
 
 
-### SUBPLOT2GRID---------------------------------------
+### SUBPLOT2GRID-------------------------------------------------------------------------
 # advantage of subplot2grid: full control over size of each plot
 plt.figure(figsize(14,5)) #define plot dimensions
     #arguments: grid dimensions (rows,columns), placement of plot in grid (row, column), no. of rows it occupy, no. columns it occupy.
@@ -82,12 +82,23 @@ bottom = plt.subplot2grid((5,4), (4,0), rowspan=2, colspan=3)
 top.plot(FCT.index, FCT['Adj Close'])
 bottom.bar(FCT.index, FCT['Volume'])
 
+# set the labels
+top.axes.get_xaxis().set_visible(False)
+top.set_title('CapitalMall Trust')
+top.set_ylabel('Adj Closing Price')
+bottom.set_ylabel('Volume')
 
-### CHART TYPES---------------------------------------
+
+
+### CHART TYPES--------------------------------------------------------------------------
 #scatter-plot
 plt.scatter(dfinal['day'], dfinal['tmax15'], s=5, c='r')
 #histogram
 plt.hist(sample, bins=100)
+#bar-plot
+plt.bar(FCT.index, FCT['Volume'])
+
+
 
 ### ADD HORIZONTAL/VERTICAL LINE, axhline---------------------------------------
 df2.plot(figsize(15,5)).axhline(y = 0, color = "red", lw=1)
