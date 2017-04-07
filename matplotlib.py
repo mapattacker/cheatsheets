@@ -42,7 +42,7 @@ plt.figure()
 ax1 = plt.subplot(1, 2, 1) #arg(nrow, ncol, 1st plot)
 plt.plot(linear_data, '-o')
 # pass sharey=ax1 to ensure the two subplots share the same y axis
-ax2 = plt.subplot(1, 2, 2, sharey=ax1) #arg(nrow, ncol, 2nd plot)
+ax2 = plt.subplot(1, 2, 2, sharey=ax1) #arg(nrow, ncol, 2nd plot), share axis with 1st plot
 plt.plot(exponential_data, '-x')
 
   #subplot settings; have to add set_*
