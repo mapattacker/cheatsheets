@@ -106,13 +106,16 @@ ax5 = plt.subplot(gs[-1,-2])
 
 
 ### CHART TYPES--------------------------------------------------------------------------
-#scatter-plot
+  # scatter-plot
 plt.scatter(dfinal['day'], dfinal['tmax15'], s=5, c='r')
-#histogram
+  # histogram
 plt.hist(sample, bins=100, orientation='horizontal')
-#bar-plot
+  # bar-plot
 plt.bar(FCT.index, FCT['Volume'])
+  # boxplot
 plt.boxplot([df['normal'], df['random'], df['gamma']])
+  # heatmap
+_ = plt.hist2d(X, Y, bins=25)
 
 
 ### ADD HORIZONTAL/VERTICAL LINE, axhline---------------------------------------
