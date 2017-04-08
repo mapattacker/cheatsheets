@@ -122,6 +122,9 @@ plt.boxplot([df['normal'], df['random'], df['gamma']])
   # heatmap
 _ = plt.hist2d(X, Y, bins=25)
 plt.colorbar() #add color range legend
+  # error bars
+plt.errorbar(x, y, xerr=0.2)
+
 
 
 ### ADD HORIZONTAL/VERTICAL LINE, axhline---------------------------------------
