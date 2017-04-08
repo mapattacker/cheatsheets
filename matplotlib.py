@@ -33,6 +33,8 @@ plt.yticks(size = 10)
   #axis scale limits
 plt.ylim([0.01,0.025]) #set x and y axis limits
 plt.xlim([-0.003,0.004])
+  #change axis position
+plt.yaxis.tick_right()
   #legend
 plt.legend(loc=9, labels=['Max Temp 2005-2014', 'Min Temp 2005-2014', 'Max Temp 2015', 'Min Temp 2015'], \
            frameon=False, fontsize=6, ncol=4) #ncol, split into horizontal, #loc is location of title
