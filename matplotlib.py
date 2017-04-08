@@ -116,6 +116,7 @@ plt.bar(FCT.index, FCT['Volume'])
 plt.boxplot([df['normal'], df['random'], df['gamma']])
   # heatmap
 _ = plt.hist2d(X, Y, bins=25)
+plt.colorbar() #add color range legend
 
 
 ### ADD HORIZONTAL/VERTICAL LINE, axhline---------------------------------------
