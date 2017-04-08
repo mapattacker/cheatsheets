@@ -110,7 +110,7 @@ plt.scatter(dfinal['day'], dfinal['tmax15'], s=5, c='r')
 plt.hist(sample, bins=100, orientation='horizontal')
 #bar-plot
 plt.bar(FCT.index, FCT['Volume'])
-
+plt.boxplot([df['normal'], df['random'], df['gamma']])
 
 
 ### ADD HORIZONTAL/VERTICAL LINE, axhline---------------------------------------
