@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 
 # see available styles
 plt.style.available
-plt.style.use('seaborn')
+plt.style.use('seaborn') #set the style
 
 ### COLORS---------------------------------------
   #normal form
