@@ -3,6 +3,10 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 %matplotlib notebook
 
+# see available styles
+plt.style.available
+plt.style.use('seaborn')
+
 ### COLORS---------------------------------------
   #normal form
 color = red
