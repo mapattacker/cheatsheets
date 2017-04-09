@@ -16,6 +16,8 @@ plt.cla() #clears an axis, i.e. the currently active axis in the current figure.
 plt.clear() #clears the entire current figure with all its axes, but leaves the window opened, such that it may be reused for other plots.
 plt.close() #closes a window, which will be the current window, if not specified otherwise.
 
+hline = plt.axhline(y = line, color = "red", lw=1)
+hline.remove() #remove an object in the chart
 
 ### TWO BASIC WAYS OF PLOTTING---------------------------------------
   #1. when dataframe is outside, you can enter arguements inside OR outside brackets.
