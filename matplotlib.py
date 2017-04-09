@@ -3,9 +3,14 @@ import matplotlib.pyplot as plt
 %matplotlib inline
 %matplotlib notebook
 
+
+### SETTINGS---------------------------------------
 # see available styles
 plt.style.available
 plt.style.use('seaborn') #set the style
+
+# add a semi-colon to the end of the plotting call to suppress unwanted output
+df.plot(); 
 
 ### COLORS---------------------------------------
   #normal form
@@ -128,7 +133,7 @@ plt.bar(FCT.index, FCT['Volume'])
   # boxplot
 plt.boxplot([df['normal'], df['random'], df['gamma']])
   # heatmap
-_ = plt.hist2d(X, Y, bins=25)
+plt.hist2d(X, Y, bins=25)
 plt.colorbar() #add color range legend
   # error bars
 plt.errorbar(x, y, xerr=0.2)
