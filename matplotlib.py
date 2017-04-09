@@ -24,12 +24,14 @@ hline = plt.axhline(y = line, color = "red", lw=1)
 hline.remove() #remove an object in the chart
 
 ### TWO BASIC WAYS OF PLOTTING---------------------------------------
-  #1. when dataframe is outside, you can enter arguements inside OR outside brackets.
+  #1. Plotting Using Pandas
+  # when dataframe is outside, you can enter arguements inside OR outside brackets.
 df.plot()
 df.plot(figsize(18,5), legend=True, title='Frasers Centrepoint Trust', label='Adjusted Closing Price')
 top.axes.get_xaxis().set_visible(False)
 
-  #2 when df is inside, arguments must be entered as a separate line.
+  #2. Plotting using Matplotlib 
+  # when df is inside, arguments must be entered as a separate line.
 plt.figure(figsize=(18, 5)) #note this sets for all figures in script
 plt.plot(df.index, df['Adj Close'])
 
