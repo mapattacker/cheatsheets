@@ -9,28 +9,50 @@ print multiprocessing.cpu_count()
 
 # use multiprocessing pool
 #------------------------------
-from multiprocessing import Pool
-from multiprocessing import cpu_count
-import time
+# unzip files from different folders
+import tarfile
+import gzip
+import os
+import multiprocessing as mp
+from time import time
 
-start = time.time()
-core = cpu_count()
 
-def f(x):
-    return x*x
+# worker, task to process, i.e., unzipping
+def unziptar(folder):
+    """worker unzips one file"""
+    for file in os.listdir(folder):
+        filepath = os.path.join(folder, file)
+        if file.endswith("tar.gz"):
+            print 'extracting... {}'.format(filepath)
+            tar = tarfile.open(filepath, 'r:gz')
+            tar.extractall(os.path.dirname(filepath))
+            tar.close()
 
-if __name__ == '__main__':
-    test = range(80000000)
-    pool = Pool(processes=core)
-    results = pool.map(f, test)
+def fanout_unziptar(path):
+    """create pool to extract all"""
+    # collect all paths of tar.gz
+    my_files = []
+    for root, dirs, files in os.walk(path):
+        for i in files:
+            if i.endswith("tar.gz"):
+                my_files.append(root)
+                # my_files.append(os.path.join(root, i))
 
-# test using normal loop
-# record = []
-# for i in range(8000000):
-#     record.append(f(i))
+    # set number of workers
+    # note, for unzipping its I/O intensive~ so allocating too many cores will burn the RAM and make it even slower.
+    pool = mp.Pool(4, maxtasksperchild=1)
+    # separate each 
+    pool.map(unziptar, my_files, chunksize=1)
+    pool.close()
 
-end = time.time()
-print end-start
+# need this "if" else windows will have recursive error
+if __name__ == "__main__":
+    start = time()
+    path = r"/Users/siyang/Desktop/test"
+    fanout_unziptar(path)
+    end = time()
+    print 'script ended after {} mins'.format((end-start)/60)
+
 #------------------------------
 
 
