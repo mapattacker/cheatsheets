@@ -37,6 +37,7 @@ def fanout_unziptar(path):
             if i.endswith("tar.gz"):
                 my_files.append(root)
                 # my_files.append(os.path.join(root, i))
+    my_files = set(my_files) #remove duplicates
 
     # set number of workers
     # note, for unzipping its I/O intensive~ so allocating too many cores will burn the RAM and make it even slower.
