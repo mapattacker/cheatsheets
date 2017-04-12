@@ -8,6 +8,7 @@ print multiprocessing.cpu_count()
 
 
 # use multiprocessing pool
+# https://www.youtube.com/watch?v=s1SkCYMnfbY
 #------------------------------
 # unzip files from different folders
 import tarfile
