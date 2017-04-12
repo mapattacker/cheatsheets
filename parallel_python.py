@@ -10,6 +10,8 @@ print multiprocessing.cpu_count()
 # use multiprocessing pool
 # https://www.youtube.com/watch?v=s1SkCYMnfbY
 #------------------------------
+
+# EXAMPLE 1
 # unzip files from different folders
 import tarfile
 import gzip
@@ -55,30 +57,6 @@ if __name__ == "__main__":
     end = time()
     print 'script ended after {} mins'.format((end-start)/60)
 
-#------------------------------
-
-
-
-# https://pythonhosted.org/joblib/parallel.html
-# using 
-
-%%timeit -n 10
-from math import sqrt
-x = [sqrt(i ** 2) for i in range(100000)]
-
-%%timeit -n 10
-from joblib import Parallel, delayed
-import multiprocessing
-from math import sqrt
-num_cores = multiprocessing.cpu_count()
-x = Parallel(n_jobs=num_cores)(delayed(sqrt)(i ** 2) for i in range(100000))
-
-
-
-#------------------
-import pandas as pd
-import numpy as np
-col = ['a','b','c','d','e','f']
-df = pd.DataFrame(np.random.randint(1, 99, (100000,6)), columns=col)
-
+# --------------------------------
+# EXAMPLE 2
 
