@@ -110,7 +110,7 @@ fig = sns.PairGrid(df3.dropna())
   fig.map_lower(sns.kdeplot, cmap='cool_d')
   fig.map_diag(sns.distplot, bins=30)
 # corrplot, for multiple comparisons. Gives correlation labels.
-sns.corrplot(df3.dropna())
+sns.linearmodels.corrplot(df3.dropna())
   
 #------------------------------------------------------------------------------------
   # SUBPLOTS
