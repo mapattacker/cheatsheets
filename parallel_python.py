@@ -50,6 +50,7 @@ def fanout_unziptar(path):
     pool.close()
 
 # need this "if" else windows will have recursive error
+# a python entry point for a function
 if __name__ == "__main__":
     start = time()
     path = r"/Users/siyang/Desktop/test"
