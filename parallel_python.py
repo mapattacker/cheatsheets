@@ -41,7 +41,7 @@ def fanout_unziptar(path):
 
     # set number of workers
     # note, for unzipping its I/O intensive~ so allocating too many cores will burn the RAM and make it even slower.
-    pool = mp.Pool(4, maxtasksperchild=1)
+    pool = mp.Pool(processes=4, maxtasksperchild=1)
     # separate the list of files such that only 1 file take one core (chunksize)
     pool.map(unziptar, my_files, chunksize=1)
     pool.close()
