@@ -3,14 +3,25 @@
 
 
 # check no. of cores
-import multiprocessing
-print multiprocessing.cpu_count()
+#-----------------------------------------------------------
+import multiprocessing as mp
+print mp.cpu_count()
 
 
+# from functools import partial
+#-----------------------------------------------------------
+from functools import partial
+
+def pooling(allfiles, name, newfolderpath, acctHeader, fieldnamefile):
+    func = partial(worker, name, newfolderpath, acctHeader, fieldnamefile)
+    pool = mp.Pool(min(mp.cpu_count(), len(allfiles)))
+    pool.map(func, allfiles, chunksize=1)
+    pool.close()
+
+    
 # use multiprocessing pool
 # https://www.youtube.com/watch?v=s1SkCYMnfbY
-#------------------------------
-
+#-----------------------------------------------------------
 # EXAMPLE 1
 # unzip files from different folders
 import tarfile
@@ -31,6 +42,7 @@ def unziptar(folder):
             tar.extractall(os.path.dirname(filepath))
             tar.close()
 
+# spawn processes for each loop
 def fanout_unziptar(path):
     """create pool to extract all"""
     # collect all paths of tar.gz
@@ -58,6 +70,7 @@ if __name__ == "__main__":
     end = time()
     print 'script ended after {} mins'.format((end-start)/60)
 
-# --------------------------------
-# EXAMPLE 2
 
+
+    
+    
