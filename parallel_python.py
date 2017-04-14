@@ -79,6 +79,8 @@ if __name__ == "__main__":
 # FEATHER
 #---------------------------------------
 # http://blog.cloudera.com/blog/2016/03/feather-a-fast-on-disk-format-for-data-frames-for-r-and-python-powered-by-apache-arrow/
+    # very fast read & write dataframe format, uses Apache Arrow
+    # used for data interoperability between R & Python, not suitable for long term storage atm
 import feather
 import pandas as pd
 # write feather file
