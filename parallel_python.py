@@ -3,15 +3,19 @@
 
 
 # check no. of cores
-#-----------------------------------------------------------
+#---------------------------------------
 import multiprocessing as mp
 print mp.cpu_count()
 
 
 # from functools import partial
-#-----------------------------------------------------------
+#---------------------------------------
+# for worker function that require more than one variable, use 'partial' function to 'group' them together
 from functools import partial
 
+def worker(files):
+    some task
+    
 def pooling(allfiles, name, newfolderpath, acctHeader, fieldnamefile):
     func = partial(worker, name, newfolderpath, acctHeader, fieldnamefile)
     pool = mp.Pool(min(mp.cpu_count(), len(allfiles)))
@@ -21,7 +25,7 @@ def pooling(allfiles, name, newfolderpath, acctHeader, fieldnamefile):
     
 # use multiprocessing pool
 # https://www.youtube.com/watch?v=s1SkCYMnfbY
-#-----------------------------------------------------------
+#---------------------------------------
 # EXAMPLE 1
 # unzip files from different folders
 import tarfile
