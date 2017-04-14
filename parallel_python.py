@@ -69,7 +69,7 @@ def fanout_unziptar(path):
 # a python entry point for a function
 if __name__ == "__main__":
     start = time()
-    path = r"/Users/siyang/Desktop/test"
+    path = r"/Users/jake/Desktop/test"
     fanout_unziptar(path)
     end = time()
     print 'script ended after {} mins'.format((end-start)/60)
