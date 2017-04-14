@@ -76,5 +76,13 @@ if __name__ == "__main__":
 
 
 
-    
-    
+# FEATHER
+#---------------------------------------
+# http://blog.cloudera.com/blog/2016/03/feather-a-fast-on-disk-format-for-data-frames-for-r-and-python-powered-by-apache-arrow/
+import feather
+import pandas as pd
+# write feather file
+feather.write_dataframe(df, 'test.feather')
+# read feather file
+df2 = feather.read_dataframe('test.feather')
+
