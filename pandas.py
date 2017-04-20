@@ -74,7 +74,8 @@ query = ''' SELECT * FROM customer  '''
 # reading from sql
 df = pd.read_sql(query, conn)
 df = pd.read_sql_query(query, conn)
-
+# to database
+df.to_sql(query, conn)
 
 #--------------------------------------------------------
 ## INDEX NAMES
