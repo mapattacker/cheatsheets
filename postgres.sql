@@ -1,3 +1,6 @@
+--SYSTEM TABLES----------------------
+SELECT * FROM information_schema.tables
+
 
 --NEW TABLE----------------------
 --time series
