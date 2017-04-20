@@ -73,7 +73,7 @@ conn = psycopg2.connect(database="postgres", user="postgres", password="***", ho
 query = ''' SELECT *
             FROM customer
             WHERE first_name = 'MARY'  '''
-sql_to_df(query).head()
+df = pd.sql_to_df(query, conn)
 
 
 #--------------------------------------------------------
