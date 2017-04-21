@@ -70,13 +70,18 @@ df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
 ## Using SQL
 import psycopg2 #postgres connection
 conn = psycopg2.connect(database="postgres", user="postgres", password="***", host="127.0.0.1", port="5432")
+# OR
+from sqlalchemy import create_engine
+conn = create_engine('postgresql://postgres:password@localhost:5432/postgres')
+
 query = ''' SELECT * FROM customer  '''
+
 # reading from sql
 df = pd.read_sql(query, conn)
 df = pd.read_sql_query(query, conn)
-# to database
-df.to_sql(name=tablenm, con=conn)
 
+# to database as new table, only available for sqlalchemy
+df.to_sql(name='wsg_ap_list2', con=conn, index=False)
 
 #--------------------------------------------------------
 ## INDEX NAMES
