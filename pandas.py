@@ -9,9 +9,6 @@ df.to_csv('shenzhen_processed.csv', index=False)
 df = pd.read_excel('shenzhen_processed.csv')
 df = pd.read_csv("P00000001-ALL.csv", nrows=20) # limit to only 20 rows
 df.to_excel('output.xlsx', index=False)
-    # SQL
-conn = sqlite3.connect(sqlitePath) 
-df= pd.read_sql_query("SELECT * FROM table", conn)
     # TXT
 utown=pd.read_table('university_towns.txt', sep=',', header=None)
     # convert a clip board into dataframe!!!
@@ -71,6 +68,9 @@ df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
 ## Using SQL
     
 # Connection to database
+    # sqlite connection
+conn = sqlite3.connect(sqlitePath) 
+df= pd.read_sql_query("SELECT * FROM table", conn)
     # postgres connection
 import psycopg2 
 conn = psycopg2.connect(database="postgres", user="postgres", password="***", host="127.0.0.1", port="5432")
