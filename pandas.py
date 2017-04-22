@@ -86,7 +86,7 @@ query = ''' SELECT * FROM customer  '''
 df = pd.read_sql(query, conn)
 df = pd.read_sql_query(query, conn)
 
-# to database as new table by default (use if_exist for appending), only available using sqlalchemy as engine
+# upload dataframe to database as new table by default (use if_exist for appending), only available using sqlalchemy as engine
 df.to_sql(name='wsg_ap_list3', con=conn, index=False, if_exists='append')
 
 #--------------------------------------------------------
