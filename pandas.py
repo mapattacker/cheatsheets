@@ -74,9 +74,9 @@ df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
 import psycopg2 
 conn = psycopg2.connect(database="postgres", user="postgres", password="***", host="127.0.0.1", port="5432")
     # OR use sqlalchemy, which supports most databases
-    # database engine + database connector package://username:password @ host ip / database? encoding
+    # database engine + database connector package://username:password @ host ip / database? client encoding
 from sqlalchemy import create_engine
-conn = create_engine('postgresql://postgres:password@localhost:5432/postgres')
+conn = create_engine('postgresql://postgres:password@localhost:5432/postgres?client_encoding=utf8'')
 
 query = ''' SELECT * FROM customer  '''
 
