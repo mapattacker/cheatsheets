@@ -75,8 +75,10 @@ import psycopg2
 conn = psycopg2.connect(database="postgres", user="postgres", password="***", host="127.0.0.1", port="5432")
     # OR use sqlalchemy, which supports most databases
     # database engine + database connector package://username:password @ host ip / database? client encoding
+    # latin1 or utf8 depending on client encoding
 from sqlalchemy import create_engine
-conn = create_engine('postgresql://postgres:password@localhost:5432/postgres?client_encoding=utf8'')
+import psycopg2
+conn = create_engine('postgresql+psycopg2://postgres:password@localhost:5432/postgres?client_encoding=latin1') 
 
 query = ''' SELECT * FROM customer  '''
 
