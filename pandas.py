@@ -47,6 +47,7 @@ df_nan = pd.DataFrame(list)
 df1 = pd.DataFrame(np.random.randint(1, 5, (10,2)), columns=['a','b']) #10 rows, 2 columns, with numbers 1 to 5
 
 
+
 #--------------------------------------------------------
 ## EXPLORATORY
 df.shape #total number of rows by columns
@@ -79,15 +80,14 @@ conn = psycopg2.connect(database="postgres", user="postgres", password="***", ho
 from sqlalchemy import create_engine
 import psycopg2
 conn = create_engine('postgresql+psycopg2://postgres:password@localhost:5432/postgres?client_encoding=latin1') 
-
 query = ''' SELECT * FROM customer  '''
 
 # reading from sql
 df = pd.read_sql(query, conn)
 df = pd.read_sql_query(query, conn)
 
-# to database as new table, only available for sqlalchemy
-df.to_sql(name='wsg_ap_list2', con=conn, index=False)
+# to database as new table by default (use if_exist for appending), only available using sqlalchemy as engine
+df.to_sql(name='wsg_ap_list3', con=conn, index=False, if_exists='append')
 
 #--------------------------------------------------------
 ## INDEX NAMES
