@@ -14,6 +14,7 @@ utown=pd.read_table('university_towns.txt', sep=',', header=None)
     # convert a clip board into dataframe!!!
 pd.read_clipboard()
 
+
 #--------------------------------------------------------
 ## SETTINGS
 pd.set_option('display.max_columns', None) # show all columns
@@ -44,7 +45,6 @@ df_nan = pd.DataFrame(list)
 df1 = pd.DataFrame(np.random.randint(1, 5, (10,2)), columns=['a','b']) #10 rows, 2 columns, with numbers 1 to 5
 
 
-
 #--------------------------------------------------------
 ## EXPLORATORY
 df.shape #total number of rows by columns
@@ -53,6 +53,7 @@ len(df.columns) #total number of columns
 df.head(2) #top 2 rows
 df.dtypes #format
 df.describe #mean, std, count, etc. only numeric formated columns
+
 
 #--------------------------------------------------------
 ## FORMAT
@@ -89,6 +90,7 @@ df = pd.read_sql_query(query, conn)
 # upload dataframe to database as new table by default (use if_exist for appending), only available using sqlalchemy as engine
 df.to_sql(name='wsg_ap_list3', con=conn, index=False, if_exists='append')
 
+
 #--------------------------------------------------------
 ## INDEX NAMES
 df.index
@@ -112,6 +114,7 @@ df.iloc[:,0] #all index, column 0
 df.ix[['Andrade']] == df.loc[['Andrade']]
 # ix indexing works the same as .iloc when passed integers.
 df.ix[[33]] == df.iloc[[33]]
+
 
 #--------------------------------------------------------
 ## COLUMNS NAMES
@@ -139,12 +142,14 @@ df[df.columns[1:11] | df.columns[12:14]]
 
     #ordering columns in a df
 df[sorted(df.columns.tolist())].head(3)
-    
+
+
 #--------------------------------------------------------
 ## COUNTING
 df['EVENT_TYPE'].value_counts()
 df['number_layers'].value_counts(normalize=True)*100 # by percentage
 df.describe()
+
 
 #--------------------------------------------------------
 ## NAN NULL VALUES
@@ -190,6 +195,7 @@ df2.sort_values('x277_2012',ascending=False)
     # sort multiple columns
 df1.sort_values(['a', 'b'], ascending=[True, False])
 
+
 #--------------------------------------------------------
 ## FILTERING, SQL WHERE CLAUSE
 df[:100] # first 100 rows
@@ -210,6 +216,7 @@ list = ['WORLD', 'ALL', 'DEVELOPING', 'ASIA', 'OTHER', 'MEMBERS', 'INCOME', 'DEV
 for i in list:
     df = df[~df['country'].str.contains(i)]
 
+    
 #--------------------------------------------------------
 ## UNIQUE VALUES, DUPLICATES
 df['EVENT_TYPE'].unique() # single column, array
@@ -229,6 +236,7 @@ df2 = (df.astype('str').groupby(df.columns.tolist()).size()
          .reset_index()
          .rename(columns={0:'duplicates'})
          .replace('nan',np.nan)) #set nulls back to NaN
+
 
 #--------------------------------------------------------
 ## NEW COLUMN CALCAULATIONS
@@ -305,6 +313,7 @@ df['date'] = df['raw'].str.extract('(....-..-..)', expand=True)
 ticketcat['sales'] = ticketcat['TicketDescription'].apply(lambda x: x.split(',')[1])
 ticketcat['medium'] = ticketcat['TicketDescription'].apply(lambda x: x.split(',')[0])
                  
+                 
 #--------------------------------------------------------
 # REPLACE VALUES
     #option 1: single value
@@ -317,6 +326,7 @@ df['Country'].apply(lambda x: dict.get(x,x))
     #option 4: replace part of string in value
 ticketcat['price']=ticketcat['price'].str.replace('$', '')
 
+                 
 #--------------------------------------------------------
 ## GROUP BY AND CALCULATING
 census_df[['STNAME', 'COUNTY']].groupby(['STNAME']).sum() #SELECT sum(county), stname FROM tablenm GROUP BY stname
@@ -329,7 +339,6 @@ df.groupby(['STNAME']).head(3)
                  
     #multiple aggregations
 Top15.groupby('Continent')['PopEst'].agg({'size': np.count_nonzero, 'mean': np.mean, 'sum': np.sum, 'std': np.std})
-
                  
                  
 #--------------------------------------------------------
