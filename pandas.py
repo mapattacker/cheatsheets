@@ -27,14 +27,8 @@ pd.set_option('display.max_colwidth', -1) # no limit to column width
 df.info() # display memory usage
 
 # determining optimal dtype so that memory usage is maximised
-if df['columnNm'].max() < np.iinfo("int8").max and df['columnNm'].min() > np.iinfo("int8").min:
-    df['columnNm'] = df['columnNm'].astype('int8')
-elif df['columnNm'].max() < np.iinfo("int16").max and df['columnNm'].min() > np.iinfo("int16").min:
-    df['columnNm'] = df['ExhibitionSortOrder'].astype('int16')
-elif df['columnNm'].max() < np.iinfo("int32").max and df['columnNm'].min() > np.iinfo("int32").min:
-    df['columnNm'] = df['columnNm'].astype('int32')
-else:
-    df['columnNm'] = df['columnNm'].astype('int64')
+df['columnNm'] = pd.to_numeric(df['columnNm'], downcast='integer')
+df['columnNm'].dtype
 
 
 #--------------------------------------------------------
