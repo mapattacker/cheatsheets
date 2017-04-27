@@ -24,7 +24,7 @@ pd.set_option('display.max_colwidth', -1) # no limit to column width
 
 #--------------------------------------------------------
 ## PERFORMANCE
-df.info() # display memory usage
+df.info(memory_usage="deep") # display memory usage
 df.memory_usage(deep=True) # display memory usage for each column
 
 # filter dataframe to select certain dtype
