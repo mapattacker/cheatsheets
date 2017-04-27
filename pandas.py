@@ -35,6 +35,7 @@ df['columnNm'] = pd.to_numeric(df['columnNm'], downcast='integer')
 df['columnNm'].dtype
 
 # convert objects into category to minimise memory usage as its converted to int backend
+# only use this when unique values <50% of rows & that there is no need for numeric calculations
 df['columnNm'] = df['columnNm'].astype('category')
 
 
