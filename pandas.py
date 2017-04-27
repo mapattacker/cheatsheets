@@ -25,6 +25,9 @@ pd.set_option('display.max_colwidth', -1) # no limit to column width
 #--------------------------------------------------------
 ## PERFORMANCE
 df.info() # display memory usage
+df.memory_usage(deep=True) # display memory usage for each column
+
+
 
 # determining optimal dtype so that memory usage is maximised
 df['columnNm'] = pd.to_numeric(df['columnNm'], downcast='integer')
