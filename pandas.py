@@ -27,11 +27,16 @@ pd.set_option('display.max_colwidth', -1) # no limit to column width
 df.info() # display memory usage
 df.memory_usage(deep=True) # display memory usage for each column
 
+# filter dataframe to select certain dtype
+df_obj = df.select_dtypes(include=['object'])
 
-
-# determining optimal dtype so that memory usage is maximised
+# determining optimal dtype so that memory usage is minimised
 df['columnNm'] = pd.to_numeric(df['columnNm'], downcast='integer')
 df['columnNm'].dtype
+
+# convert objects into category to minimise memory usage as its converted to int backend
+df_obj = df_obj.astype('category')
+
 
 
 #--------------------------------------------------------
