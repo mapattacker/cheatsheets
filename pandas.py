@@ -404,7 +404,7 @@ frames=[df1,df2,df3]
 df_new = pd.concat(frames)
 
 ## APPEND
-df.append(df2, ignore_index=True)
+df = df.append(df2, ignore_index=True)
                  
 #--------------------------------------------------------
 ## DATES
