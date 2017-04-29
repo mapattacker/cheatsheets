@@ -11,6 +11,8 @@ import re
   
   # \     backslash changes search code into real symbol (eg., /$)
   
+  # [^\d] does not match digits (^ means does not)
+  
   # \w	  Matches word characters (numbers & alphabets).
   # \W	  Matches nonword characters.
   # \d	  Matches digits. Equivalent to [0-9].
