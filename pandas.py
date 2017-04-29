@@ -402,7 +402,9 @@ df2=pd.read_csv('Redemption_Part2.csv')
 df3=pd.read_csv('Redemption_Part3.csv')
 frames=[df1,df2,df3]
 df_new = pd.concat(frames)
-                 
+
+## APPEND
+df.append(df2, ignore_index=True)
                  
 #--------------------------------------------------------
 ## DATES
