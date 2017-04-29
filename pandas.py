@@ -66,7 +66,8 @@ df1 = pd.DataFrame(np.random.randint(1, 5, (10,2)), columns=['a','b']) #10 rows,
 #--------------------------------------------------------
 ## EXPLORATORY
 df.shape #total number of rows by columns
-len(df) #total number of rows
+df.size #total number of rows
+len(df) #total number of rows too
 len(df.columns) #total number of columns
 df.head(2) #top 2 rows
 df.dtypes #format
