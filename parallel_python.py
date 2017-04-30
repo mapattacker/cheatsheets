@@ -8,7 +8,6 @@ import multiprocessing as mp
 print mp.cpu_count()
 
 
-# from functools import partial
 #---------------------------------------
 # for worker function that require more than one variable, use 'partial' function to 'group' them together
 from functools import partial
