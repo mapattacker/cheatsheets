@@ -12,7 +12,7 @@ import re
   
   # \     backslash changes search code into real symbol (eg., /$)
   
-  # [^\d] does not match digits (^ means does not)
+  # [^A-Z] does not match alphabets A to Z (^ means does not)
   
   # \w	  Matches word characters (numbers & alphabets).
   # \W	  Matches nonword characters.
