@@ -5,6 +5,7 @@ import re
 
   # .     (dot) matches any character.
   # +     Matches 1 or more occurrence of preceding expression.
+  # ^     Match first character in line
   # []    Matches any charcters in the square brackets
   # ()    Groups regular expressions and remembers matched text / find only characters in brackets.
   # a|b	  Matches either a or b.
