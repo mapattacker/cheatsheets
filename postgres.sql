@@ -24,3 +24,13 @@ select date, count from
 cross join
 --table 2
 (select generate_series(1,4) count) b
+
+
+--HISTOGRAM BINNING----------------------
+--width_bucket(column_name, start_range, end_range, no_of_bins)
+--note, any values that fall out of start or end range will be classified into another bin
+select width_bucket(columName, 0, 0.25, 10) as output_bin_no, 
+	count(*), 
+	min(columName),
+	max(columName),
+from tablename
