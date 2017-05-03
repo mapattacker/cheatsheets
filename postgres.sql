@@ -34,3 +34,5 @@ select width_bucket(columName, 0, 0.25, 10) as output_bin_no,
 	min(columName),
 	max(columName),
 from tablename
+group by 1
+order by 1
