@@ -1,6 +1,8 @@
 --SYSTEM----------------------
 SELECT * FROM information_schema.tables --check list of tables in database
 select version() --check version of database
+explain analyze --prints the time started for query to execute
+
 
 --NEW TABLE----------------------
 --time series
