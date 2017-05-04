@@ -1,5 +1,5 @@
 <!-- -->
-<!-- Queries with dot in front are classes -->
+// Queries with dot in front are classes
 .foo {
   font-size = 18px} 
 <!-- will style all elements with an attribute class="foo"-->
