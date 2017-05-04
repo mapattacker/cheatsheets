@@ -1,6 +1,6 @@
---SYSTEM TABLES----------------------
-SELECT * FROM information_schema.tables
-
+--SYSTEM----------------------
+SELECT * FROM information_schema.tables --check list of tables in database
+select version() --check version of database
 
 --NEW TABLE----------------------
 --time series
