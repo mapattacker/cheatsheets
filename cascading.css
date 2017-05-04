@@ -3,6 +3,11 @@
 .foo {
   font-size = 18px} 
 
+// comma like below assigns both a tag and class
+h5, 
+.h5 {
+  font-size: 14px;
+}
 
 // media queries changes styles in response to webpage size
 @media (max-width: 768px) {
