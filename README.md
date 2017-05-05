@@ -1,4 +1,5 @@
 # cheatsheets
+Its tough to remember all the codes you wrote, especially if you have not use it for awhile. This is a collection of cheat codes I compiled to assist in compiling faster scripts. They are updated whenever I encounter any lines of code which I forsee to be used again in the future.
   * __pandas.py__: python's pandas package
   * __seaborn.py__: python's seaborn package
   * __matplot.py__: python's matplotlib package
