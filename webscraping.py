@@ -36,7 +36,7 @@ html = driver.page_source.encode('utf-8')
 #----------------
 # use beautiful soup to search for html tags
 from bs4 import BeautifulSoup
-soup = BeautifulSoup(html, 'html.parser')
+soup = BeautifulSoup(html, 'html.parser').encoding('utf-8')
 
 # find element td, attribute data-name, with value of totalRevenue
 revenue=soup.select('td[data-name="totalRevenue"]')
