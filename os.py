@@ -91,3 +91,12 @@ print os.path.abspath('..') # directory 1 level up; every dot brings a level up
 # "r+"	read extended | Open a file for read/write | read from start error
 # "w+"	write extended | Create a file for read/write | destroy contents | create new
 # "a+"	append extended | Open a file for read/write | write to end | create new
+
+# csv writer
+file = open(r'/Users/xxx/Plant Website/website.csv', 'wb')
+# quotechar. close the variable in "" if there are any space, quotes etc.
+csvwriter = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_ALL)
+csvwriter.writerow(['genus', 'species', 'author', 'family',\
+                    'form', 'status', 'distribution', 'diagnostic',\
+                    'references', 'posted_date', 'modified_date', 'url'])
+
