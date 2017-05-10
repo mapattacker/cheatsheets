@@ -5,6 +5,12 @@ html = urllib.urlopen(url).read()
 
 
 #----------------
+# force all encoding to be utf-8
+import sys
+reload(sys)
+sys.setdefaultencoding("utf-8")
+
+#----------------
 # chromedriver for using webforms, dropdown and other browser manipulations
 from selenium import webdriver
 
@@ -36,7 +42,7 @@ html = driver.page_source.encode('utf-8')
 #----------------
 # use beautiful soup to search for html tags
 from bs4 import BeautifulSoup
-soup = BeautifulSoup(html, 'html.parser').encoding('utf-8')
+soup = BeautifulSoup(html, 'html.parser')
 
 # find element td, attribute data-name, with value of totalRevenue
 revenue=soup.select('td[data-name="totalRevenue"]')
