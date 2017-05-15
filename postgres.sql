@@ -42,3 +42,8 @@ select width_bucket(columName, 0, 0.25, 10) as output_bin_no,
 from tablename
 group by 1
 order by 1
+
+
+--DATES-----------------------------
+--get week no. of month
+select extract('day' from date_trunc('week', current_date) - date_trunc('week', date_trunc('month', current_date))) / 7 + 1
