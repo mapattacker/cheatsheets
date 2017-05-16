@@ -6,6 +6,9 @@ select version()
 --prints the time started for query to execute
 explain analyze 
 select query
+--check index tables
+SELECT * FROM pg_indexes 
+WHERE schemaname = 'public' and tablename = 'mytable';
 
 
 --NEW TABLE----------------------
