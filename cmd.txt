@@ -1,3 +1,11 @@
+WINDOWS COMMAND LINE
+
+dir       --list files directories in current directory
+
+
+
+
+------------------------------------------------------
 TERMINAL COMMANDS
 
 Show / Hide hidden folders/files
