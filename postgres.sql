@@ -49,4 +49,4 @@ order by 1
 
 --DATES-----------------------------
 --get week no. of month
-select extract('day' from date_trunc('week', current_date) - date_trunc('week', date_trunc('month', current_date))) / 7 + 1
+select ((date_part('day', now()::date)::integer-1)/7)+1
