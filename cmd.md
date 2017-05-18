@@ -58,4 +58,4 @@ ctrl+D			--close python, pyspark session
 | Select-String       | sls                           | find, findstr         | grep                     | Print lines matching a pattern                                                                                |
 | Set-Variable        | sv, set                       | set                   | env, export, set, setenv | Set the value of a variable / create a variable                                                               |
 | Invoke-WebRequest   | iwr, curl, wget               | N/A                   | wget, curl               | Gets content from a web page on the Internet                                                                  |
-You can now import Markdown table code directly using File/Paste table data... dialog.
+
