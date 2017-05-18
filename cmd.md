@@ -10,7 +10,9 @@ mkdir rst, test --make two directories at current folder, called rst & test
 __for loops__
 
 for i in $( ls ); 
+
 do echo $i
+
 done
 
 Show / Hide hidden folders/files
