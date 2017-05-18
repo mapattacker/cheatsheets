@@ -5,7 +5,6 @@ mkdir rst, test --make two directories at current folder, called rst & test
 
 
 
-------------------------------------------------------
 ## TERMINAL COMMANDS
 
 Show / Hide hidden folders/files
