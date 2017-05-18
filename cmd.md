@@ -38,3 +38,6 @@ WINDOWS COMMAND PROMPT
 
 Make new directories
 mkdir rst, test --make two directories at current folder, called rst & test
+
+
+
