@@ -14,22 +14,35 @@ killall Finder
 defaults write com.apple.finder AppleShowAllFiles NO
 killall Finder
 
+
 cd 			--go back one directory before
+
 cd ~			--go back to base directory
+
 cd ~desktop		--go to desktop directory
+
 pwd			--show full directory path (print working directory)
+
 open .			--open current directory in Finder
 
 ls			--list files and directories
+
 brew list		--list of packages installed using homebrew
 
-TextEdit editor							
+
+TextEdit editor					
+
 open -a TextEdit .bash_profile
 
+
 NANO text editor
+
 nano .bash_profile	--open bash profile
+
 ctrl + o			--save
+
 ctrl + x			--exit
+
 
 ctrl+D			--close python, pyspark session
 
