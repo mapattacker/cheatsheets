@@ -5,7 +5,12 @@ mkdir rst, test --make two directories at current folder, called rst & test
 
 
 
-## TERMINAL COMMANDS
+## TERMINAL / BASH COMMANDS
+
+__for loops__
+for i in $( ls ); 
+do echo $i
+done
 
 Show / Hide hidden folders/files
 defaults write com.apple.finder AppleShowAllFiles YES
