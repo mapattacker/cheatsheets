@@ -10,6 +10,7 @@ mkdir rst, test --make two directories at current folder, called rst & test
 Show / Hide hidden folders/files
 defaults write com.apple.finder AppleShowAllFiles YES
 killall Finder
+
 defaults write com.apple.finder AppleShowAllFiles NO
 killall Finder
 
