@@ -82,7 +82,7 @@ shutil.rmtree() # will delete a directory and all its contents.
 print os.path.abspath('.') # current directory path
 print os.path.abspath('..') # directory 1 level up; every dot brings a level up
 
-                
+#------ FILE HANDLING------------
 # http://en.cppreference.com/w/cpp/io/c/fopen
 # File access mode string | Meaning | Explanation | Action if file already exists | Action if file does not exist
 # "r"	read | Open a file for reading | read from start | failure to open
@@ -100,3 +100,6 @@ csvwriter.writerow(['genus', 'species', 'author', 'family',\
                     'form', 'status', 'distribution', 'diagnostic',\
                     'references', 'posted_date', 'modified_date', 'url'])
 
+# copying files
+from shutil import copyfile
+copyfile(file_original, file_new)
