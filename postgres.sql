@@ -48,5 +48,11 @@ order by 1
 
 
 --DATES-----------------------------
+--get year
+extract(year from to_timestamp(starttime))
+date_part('year', to_timestamp(starttime))
+--get month
+extract(month from to_timestamp(starttime))
+date_part('month', to_timestamp(starttime))
 --get week no. of month
 select ((date_part('day', now()::date)::integer-1)/7)+1
