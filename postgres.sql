@@ -3,12 +3,18 @@
 SELECT * FROM information_schema.tables 
 --check version of database
 select version() 
---prints the time started for query to execute
-explain analyze 
-select query
 --check index tables
 SELECT * FROM pg_indexes 
 WHERE schemaname = 'public' and tablename = 'mytable';
+
+
+--EXECUTION PLAN----------------------
+--prints the time started for query to execute
+explain analyze 
+select query
+
+--use this awesome visualizer to view the plan
+--http://tatiyants.com
 
 
 --NEW TABLE----------------------
