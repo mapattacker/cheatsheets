@@ -17,6 +17,11 @@ select query
 --http://tatiyants.com
 
 
+--VACUUM----------------------
+--clean up junk in table that can affect performance
+vacuum analzye table_name
+
+
 --NEW TABLE----------------------
 --time series
 SELECT date_trunc('day', dd)::date
