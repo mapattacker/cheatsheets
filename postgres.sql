@@ -81,3 +81,8 @@ FROM crosstab(
        ORDER  BY 1,2')  -- needs to be "ORDER BY 1,2" here
 AS ct ("Section" text, "Active" int, "Inactive" int); --enter all column names to be input as ct in the crosstab function
 
+--REVERSE TRANSPOSE (UNNEST)-----------------------------
+select scanid, 
+	unnest(array[column1, column2, column3]) 
+from s188
+
