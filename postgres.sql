@@ -68,3 +68,16 @@ date_part('month', to_timestamp(starttime))
 --get week no. of month
 select ((date_part('day', now()::date)::integer-1)/7)+1
 to_char(to_timestamp(starttime), 'W')
+
+
+--TRANSPOSE-----------------------------
+--installation of extension is needed
+CREATE EXTENSION tablefunc;
+
+SELECT *
+FROM crosstab(
+      'SELECT section, status, ct
+       FROM   t
+       ORDER  BY 1,2')  -- needs to be "ORDER BY 1,2" here
+AS ct ("Section" text, "Active" int, "Inactive" int); --enter all column names to be input as ct in the crosstab function
+
