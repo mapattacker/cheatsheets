@@ -1,0 +1,11 @@
+--check node.js version
+node -v
+
+--check node package manager version
+npm -v
+
+--list all node packages
+npm -g list
+
+--check node package
+node -g package_name
