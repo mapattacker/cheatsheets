@@ -8,4 +8,4 @@ npm -v
 npm -g list
 
 --check node package
-node -g package_name
+node -g list package_name
