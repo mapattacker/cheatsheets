@@ -6,6 +6,7 @@ npm -v
 
 --list all node packages
 npm -g list
+npm ls
 
 --check node package
 node -g list package_name
