@@ -3,7 +3,7 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __cascading.css__: css cheatsheets for web development
   * __pandas.py__: python's pandas package
   * __seaborn.py__: python's seaborn package
-  * __matplot.py__: python's matplotlib package
+  * __matplotlib.py__: python's matplotlib package
   * __network_basics.ipynb__: python's networkx package for graphing
   * __cmd.txt__: Mac's Terminal / Linux command line scripting
   * __parallel_python.py__: parallel processing using python
