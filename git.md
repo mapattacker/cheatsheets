@@ -9,4 +9,11 @@
 3) __Existing repository__: clone project, eg "git clone https://github.com/mapattacker/cheatsheets.git
 
 
-3) __New repository__: create new project folder "> testfolder", then "git init"
+## __New repository__
+1) create new project folder "> testfolder", then "git init"
+2) Go to Github > create new repository > get repository link
+3) git add README.md
+4) git commit -m "first commit"
+5) git remote add origin https://github.com/mapattacker/testrepo.git
+6) Go to Github > Personal access tokens > create token. This will be used in place of the password in command line
+7) git push -u origin master > enter username & token as password
