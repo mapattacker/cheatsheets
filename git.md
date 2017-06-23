@@ -1,13 +1,13 @@
 ## Steps for Versioning using Git & GitHub / GitLab
 
-1) Create new Git Directory, eg. "mkdir github"
+1) Create new Git Directory, eg. `mkdir github`
 2) Go into directory: `cd github`
-3) Create github key > "ssh-keygen" > enter to accept defaults 
+3) Create github key > `ssh-keygen` > enter to accept defaults 
 4) Open file & copy keys `cat ~/.ssh/id_rsa.pub` OR `open ~/.ssh/id_rsa.pub` OR `open -a textedit ~/.ssh/id_rsa.pub`
 5) Go to Github/GitLab > Settings > SSH and GPG Keys > paste the key here
 
 ## New Repository
-1) create new project folder ``> testfolder`, then `git init`
+1) create new project folder `> testfolder`, then `git init`
 2) Go to Github > create new repository > get repository link
 3) `git add README.md`
 4) `git commit -m "first commit"`
