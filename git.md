@@ -19,14 +19,17 @@
 1) __Existing repository__: clone project, eg "git clone https://github.com/mapattacker/cheatsheets.git
 
 ## __Commit and Upload to GitHub__
-1) __git add .__: add all changes in repository
-2) __git commit -m "add a message here"__: commit files with a message tag
+1) __git add .__: add all changes in working area to staging area
+2) __git commit -m "add a message here"__: commit files with a message tag to repository
 3) __git push__: push committed files to GitHub
 
 ## __Some Git Commands__
-1) __git pull__: pull all contents from github repository into local repository
-2) __git config --global user.name "Jake Teo"__: set username. Will show in commit message
-3) __git config --global user.email "xxx@gmail.com"__: set email. Will show in commit message
+   * __git pull__: pull all contents from github repository into local repository
+   * __git config --global user.name "Jake Teo"__: set username. Will show in commit message
+   * __git config --global user.email "xxx@gmail.com"__: set email. Will show in commit message
+   * __git log__: show commits for the day
+   * __git status__: shows files changed
+
 
 ## __Resources__
 1) http://rogerdudler.github.io/git-guide/
