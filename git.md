@@ -18,4 +18,7 @@
 ## __Existing Repository__
 1) __Existing repository__: clone project, eg "git clone https://github.com/mapattacker/cheatsheets.git
 
+
+## __Some Git Commands__
+1) __git pull origin master__: pull all contents from github repository into local repository
 http://rogerdudler.github.io/git-guide/
