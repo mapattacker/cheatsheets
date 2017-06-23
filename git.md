@@ -6,10 +6,7 @@
 4) Open file & copy keys "cat ~/.ssh/id_rsa.pub" OR "open ~/.ssh/id_rsa.pub" OR "open -a textedit ~/.ssh/id_rsa.pub"
 5) Go to Github > Settings > SSH and GPG Keys > paste the key here
 
-3) __Existing repository__: clone project, eg "git clone https://github.com/mapattacker/cheatsheets.git
-
-
-## __New repository__
+## __New Repository__
 1) create new project folder "> testfolder", then "git init"
 2) Go to Github > create new repository > get repository link
 3) git add README.md
@@ -18,5 +15,7 @@
 6) Go to Github > Personal access tokens > create token. This will be used in place of the password in command line
 7) git push -u origin master > enter username & token as password
 
+## __Existing Repository__
+1) __Existing repository__: clone project, eg "git clone https://github.com/mapattacker/cheatsheets.git
 
 http://rogerdudler.github.io/git-guide/
