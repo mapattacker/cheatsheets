@@ -18,9 +18,10 @@
 ## __Existing Repository__
 1) __Existing repository__: clone project, eg "git clone https://github.com/mapattacker/cheatsheets.git
 
-## __Commit and Upload to GitHub
+## __Commit and Upload to GitHub__
 1) __git add .__: add all changes in repository
 2) __git commit -m "add a message here"__: commit files with a message tag
+3) __git push__: push committed files to GitHub
 
 ## __Some Git Commands__
 1) __git pull__: pull all contents from github repository into local repository
