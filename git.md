@@ -25,6 +25,8 @@
 
 ## __Some Git Commands__
 1) __git pull__: pull all contents from github repository into local repository
+2) __git config --global user.name "Jake Teo"__: set username. Will show in commit message
+3) __git config --global user.email "xxx@gmail.com"__: set email. Will show in commit message
 
 ## __Resources__
 1) http://rogerdudler.github.io/git-guide/
