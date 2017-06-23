@@ -29,7 +29,9 @@
    * __git config --global user.email "xxx@gmail.com"__: set email. Will show in commit message
    * __git log__: show commits for the day
    * __git status__: shows files changed
-
+   * __git remote -v__: shows the source of repository in remote server
+   * __git remote rm origin__: remove origin location from remote
+   * __git remote add heroku https://git.heroku.com/xxx.git__: add new remote location
 
 ## __Resources__
 1) http://rogerdudler.github.io/git-guide/
