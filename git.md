@@ -36,4 +36,3 @@
 ## __Resources__
 1) http://rogerdudler.github.io/git-guide/
 
-test
