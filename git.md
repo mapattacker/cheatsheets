@@ -30,7 +30,7 @@
    * __git log__: show commits for the day
    * __git status__: shows files changed
    * __git remote -v__: shows the source of repository in remote server
-   * __git remote rm origin__: remove origin location from remote
+   * __git remote rm origin__: remove origin location from remote. Remote location needed for push / pull / fetch commands
    * __git remote add heroku https://git.heroku.com/xxx.git__: add new remote location
 
 ## __Resources__
