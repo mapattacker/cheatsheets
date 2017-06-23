@@ -23,36 +23,37 @@ defaults write com.apple.finder AppleShowAllFiles NO
 killall Finder
 
 
-cd 			--go back one directory before
+__cd__ 			--go back one directory before
 
-cd ~			--go back to base directory
+__cd ..__   --go up one level
 
-cd ~desktop		--go to desktop directory
+__cd ~__			--go back to base directory
 
-pwd			--show full directory path (print working directory)
+__cd ~desktop__		--go to desktop directory
 
-open .			--open current directory in Finder
+__pwd__			--show full directory path (print working directory)
 
-ls			--list files and directories
+__open .__			--open current directory in Finder
 
-brew list		--list of packages installed using homebrew
+__ls__			--list files and directories
+
+__brew list__		--list of packages installed using homebrew
 
 
 TextEdit editor					
 
-open -a TextEdit .bash_profile
+__open -a TextEdit .bash_profile__
 
 
-NANO text editor
+__NANO text editor__
 
-nano .bash_profile	--open bash profile
+__nano .bash_profile__	--open bash profile
 
-ctrl + o			--save
+__ctrl + o__			--save
 
-ctrl + x			--exit
+__ctrl + x__			--exit
 
-
-ctrl+D			--close python, pyspark session
+__ctrl+D__			--close python, pyspark session
 
 
 
