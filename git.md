@@ -22,4 +22,5 @@
 ## __Some Git Commands__
 1) __git pull__: pull all contents from github repository into local repository
 
-http://rogerdudler.github.io/git-guide/
+## __Resources__
+1) http://rogerdudler.github.io/git-guide/
