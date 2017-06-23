@@ -7,7 +7,7 @@ mkdir rst, test --make two directories at current folder, called rst & test
 
 ## TERMINAL / BASH COMMANDS
 
-__for loops__
+`for loops`
 
 for i in $( ls ); 
 
@@ -23,37 +23,37 @@ defaults write com.apple.finder AppleShowAllFiles NO
 killall Finder
 
 
-__cd__ 			--go back one directory before
+`cd` 			--go back one directory before
 
-__cd ..__   --go up one level
+`cd ..`   --go up one level
 
-__cd ~__			--go back to base directory
+`cd ~`			--go back to base directory
 
-__cd ~desktop__		--go to desktop directory
+`cd ~desktop`		--go to desktop directory
 
-__pwd__			--show full directory path (print working directory)
+`pwd`			--show full directory path (print working directory)
 
-__open .__			--open current directory in Finder
+`open .`			--open current directory in Finder
 
-__ls__			--list files and directories
+`ls`			--list files and directories
 
-__brew list__		--list of packages installed using homebrew
+`brew list`		--list of packages installed using homebrew
 
 
 TextEdit editor					
 
-__open -a TextEdit .bash_profile__
+`open -a TextEdit .bash_profile`
 
 
-__NANO text editor__
+`NANO text editor`
 
-__nano .bash_profile__	--open bash profile
+`nano .bash_profile`	--open bash profile
 
-__ctrl + o__			--save
+`ctrl + o`			--save
 
-__ctrl + x__			--exit
+`ctrl + x`			--exit
 
-__ctrl+D__			--close python, pyspark session
+`ctrl+D`			--close python, pyspark session
 
 
 
