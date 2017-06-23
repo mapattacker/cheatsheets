@@ -17,3 +17,6 @@
 5) git remote add origin https://github.com/mapattacker/testrepo.git
 6) Go to Github > Personal access tokens > create token. This will be used in place of the password in command line
 7) git push -u origin master > enter username & token as password
+
+
+http://rogerdudler.github.io/git-guide/
