@@ -7,7 +7,7 @@ mkdir rst, test --make two directories at current folder, called rst & test
 
 ## TERMINAL / BASH COMMANDS
 
-`for loops`
+__for loops__
 
 for i in $( ls ); 
 
