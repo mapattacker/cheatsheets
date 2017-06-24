@@ -1,11 +1,11 @@
-## WINDOWS COMMAND LINE
+## Windows Command Line
 
 dir             --list files directories in current directory
 mkdir rst, test --make two directories at current folder, called rst & test
 
 
 
-## TERMINAL / BASH COMMANDS
+## Bash
 
 __for loops__
 
