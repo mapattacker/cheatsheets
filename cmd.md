@@ -9,19 +9,17 @@ mkdir rst, test --make two directories at current folder, called rst & test
 
 __for loops__
 
-for i in $( ls ); 
-
-do echo $i
-
-done
+`for i in $( ls ); 
+do echo $i;
+done`
 
 __Show / Hide hidden folders/files__
 
-defaults write com.apple.finder AppleShowAllFiles YES
+`defaults write com.apple.finder AppleShowAllFiles YES`
 
 killall Finder
 
-defaults write com.apple.finder AppleShowAllFiles NO
+`defaults write com.apple.finder AppleShowAllFiles NO`
 
 killall Finder
 
