@@ -19,7 +19,7 @@
 1) __Existing repository__: clone project, eg `git clone https://github.com/mapattacker/cheatsheets.git`
 
 ## Commit and Upload to GitHub
-1) `git add .`: add all changes in working area to staging area
+1) `git add .`: add all changes from working area to staging area
 2) `git commit -m "add a message here"`: commit files with a message tag to repository
 3) `git push`: push committed files to GitHub
 
