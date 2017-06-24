@@ -25,6 +25,7 @@ defaults write com.apple.finder AppleShowAllFiles NO
 
 killall Finder
 
+## Some Commands
 
 `cd` 			--go back one directory before
 
