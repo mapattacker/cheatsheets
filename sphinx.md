@@ -15,9 +15,10 @@ import sphinx_rtd_theme
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 ```
-## Auto Docstrings Documentation
-  * Docstring definition: 1st statement in module, class, function, methods
+## Auto Docstrings
+  * Docstring definition: 1st statement in module, class, function or method
   * Read more: https://www.python.org/dev/peps/pep-0257/
+  * Ensure the docstrings are formatted correctly
   * Set `y` to set autodoc at `sphinx-quickstart` stage
   * At conf.py uncomment the following
   
