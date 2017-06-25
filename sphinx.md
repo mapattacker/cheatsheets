@@ -15,7 +15,7 @@ html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 ```
 ## Auto Docstrings
-  * A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition. Read more: https://www.python.org/dev/peps/pep-0257/
+  * A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition
   * Ensure the docstrings are formatted correctly
   * Set `y` to set autodoc at `sphinx-quickstart` stage
   * At conf.py uncomment the following
@@ -35,4 +35,5 @@ sys.path.insert(0, os.path.abspath('.'))
 ```
 
 ## Resources
+  * https://www.python.org/dev/peps/pep-0257/
   * https://codeandchaos.wordpress.com/2012/07/30/sphinx-autodoc-tutorial-for-dummies/
