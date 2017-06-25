@@ -6,7 +6,7 @@
 
 ## Themes
   * Nicest theme is provided by readthedocs.org. View here on how to install https://pypi.python.org/pypi/sphinx_rtd_theme
-  * pip install sphinx_rtd_theme
+  * `pip install sphinx_rtd_theme`
   * Add config.py with
 
 ``` 
