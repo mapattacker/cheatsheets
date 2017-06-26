@@ -46,6 +46,7 @@ sys.path.insert(0, os.path.abspath('.'))
 ## Other Commands
   * __Code__: enclosed in backticks ``
   * __Bold__: enclosed in asterieks **
+  * __Hyperlink__: enclosed in backticks \`PyPI <https://pypi.python.org/pypi/Sphinx>\`
 
 ## Resources
   * __Sphinx Documentation__: http://www.sphinx-doc.org/en/stable/index.html
