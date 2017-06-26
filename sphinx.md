@@ -1,4 +1,4 @@
-## Introduction to Sphinx
+## Using Sphinx
   * In cmd or terminal > `sphinx-quickstart`
   * master document is the home page
   * `make html` OR `./make html` (in atom powershell) command to create html document, note to cd to folder where rst file is stored
@@ -41,6 +41,21 @@ sys.path.insert(0, os.path.abspath('.'))
     *Paragraph 1*. Statement 1.
  
     *Paragraph 2*. Statement 2.
+```
+
+## Table of Contents
+  * Define max depth to display based on headers === & ----
+  * Add in additional pages (.rst files) using the file name
+  * Add auto-numbering if necessary
+  
+```
+.. toctree::
+   :maxdepth: 1
+   :caption: Contents
+   :numbered:
+  
+   page 1
+   page 2
 ```
 
 ## Other Commands
