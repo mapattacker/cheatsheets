@@ -43,6 +43,10 @@ sys.path.insert(0, os.path.abspath('.'))
     *Paragraph 2*. Statement 2.
 ```
 
+## Other Commands
+  * __Code__: enclosed in backticks ``
+  * __Bold__: enclosed in asterieks **
+
 ## Resources
   * __Sphinx Documentation__: http://www.sphinx-doc.org/en/stable/index.html
   * __Themes__: http://www.writethedocs.org/guide/tools/sphinx-themes/
