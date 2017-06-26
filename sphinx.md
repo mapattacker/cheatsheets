@@ -65,6 +65,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 ## Resources
   * __Sphinx Documentation__: http://www.sphinx-doc.org/en/stable/index.html
+  * __Cheatsheet Matplotlib__: http://matplotlib.org/sampledoc/cheatsheet.html
   * __Themes__: http://www.writethedocs.org/guide/tools/sphinx-themes/
   * __Docstrings__: https://www.python.org/dev/peps/pep-0257/
   * __Autodoc__: https://codeandchaos.wordpress.com/2012/07/30/sphinx-autodoc-tutorial-for-dummies/
