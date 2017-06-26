@@ -34,6 +34,15 @@ sys.path.insert(0, os.path.abspath('.'))
     :members:
 ```
 
+## Sidebar
+```
+.. sidebar:: title
+ 
+    *Paragraph 1*. Statement 1.
+ 
+    *Paragraph 2*. Statement 2.
+```
+
 ## Resources
   * __Sphinx Documentation__: http://www.sphinx-doc.org/en/stable/index.html
   * __Themes__: http://www.writethedocs.org/guide/tools/sphinx-themes/
