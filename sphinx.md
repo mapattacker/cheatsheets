@@ -5,6 +5,7 @@
   * Html pages stored under `_build/html` folder
 
 ## Themes
+  * Built in themes: alabaster (default), classic, sphinxdoc, scrolls, agogo, traditional, nature, haiku, pyramid, bizstyle
   * Nicest theme is provided by readthedocs.org. View here on how to install https://pypi.python.org/pypi/sphinx_rtd_theme
   * `pip install sphinx_rtd_theme`
   * Add config.py with
