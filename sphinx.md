@@ -69,7 +69,9 @@ sys.path.insert(0, os.path.abspath('.'))
   * Use the table generator in the link: http://www.tablesgenerator.com/text_tables
 
 ## Other Commands
-  * __Code__: enclosed in backticks ` `
+  * __Blocks__: enclosed in backticks ` `
+  * __Shell Code__: triple arrows give syntax highlighting `>>> print something`
+  * __Small Red Block__: enclosed in double backticks `` ``
   * __Bold__: enclosed in double asterieks ** **
   * __Italics__: enclosed in asterieks * *
   * __Line Break__: pipe |
