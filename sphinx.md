@@ -70,7 +70,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 ## Other Commands
   * __Blocks__: enclosed in backticks \` \`
-  * __Shell Code__: triple arrows give syntax highlighting `>>> print something`
+  * __Shell Code__: triple arrows with blank new line space give syntax highlighting `>>> print something`
   * __Small Red Block__: enclosed in double backticks \`\` \`\`
   * __Bold__: enclosed in double asterieks ** **
   * __Italics__: enclosed in asterieks * *
