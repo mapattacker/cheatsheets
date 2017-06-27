@@ -63,6 +63,7 @@ sys.path.insert(0, os.path.abspath('.'))
   * __Code__: enclosed in backticks ``
   * __Bold__: enclosed in asterieks **
   * __Hyperlink__: enclosed in backticks \`PyPI <https://pypi.python.org/pypi/Sphinx>\`
+  * __Images__: `.. image:: workflow.png`
 
 ## Resources
   * __Sphinx Documentation__: http://www.sphinx-doc.org/en/stable/index.html
