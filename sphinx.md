@@ -74,8 +74,14 @@ sys.path.insert(0, os.path.abspath('.'))
   * __Italics__: enclosed in asterieks * *
   * __Line Break__: pipe |
   * __Undo Commands__: \
-  * __Hyperlink__: enclosed in backticks \`PyPI <https://pypi.python.org/pypi/Sphinx>\`
   * __Images__: `.. image:: workflow.png`
+  * __Hyperlink__: assign a variable then call hyperlink below:
+  ```
+  Document dated Jun 2000. Download_.
+
+  .. _Download: https://tools.ietf.org/html/rfc2865
+  ```
+  
 
 ## Resources
   * __Sphinx Documentation__: http://www.sphinx-doc.org/en/stable/index.html
