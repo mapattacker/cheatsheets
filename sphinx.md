@@ -15,6 +15,12 @@ import sphinx_rtd_theme
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 ```
+
+## Headings
+  * header 1 ====
+  * header 2 -------
+  * header 3 \*\*\*\*\*\*\*
+  
 ## Auto Docstrings
   * A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition
   * Ensure the docstrings are formatted correctly
@@ -59,6 +65,9 @@ sys.path.insert(0, os.path.abspath('.'))
    page 2
 ```
 
+## Tables
+  * Use the table generator in the link: http://www.tablesgenerator.com/text_tables
+
 ## Other Commands
   * __Code__: enclosed in backticks ` `
   * __Bold__: enclosed in double asterieks ** **
@@ -69,6 +78,7 @@ sys.path.insert(0, os.path.abspath('.'))
 ## Resources
   * __Sphinx Documentation__: http://www.sphinx-doc.org/en/stable/index.html
   * __Cheatsheet Matplotlib__: http://matplotlib.org/sampledoc/cheatsheet.html
+  * __Cheatsheet Ralsina__: https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst
   * __Themes__: http://www.writethedocs.org/guide/tools/sphinx-themes/
   * __Docstrings__: https://www.python.org/dev/peps/pep-0257/
   * __Autodoc__: https://codeandchaos.wordpress.com/2012/07/30/sphinx-autodoc-tutorial-for-dummies/
