@@ -100,7 +100,7 @@ sys.path.insert(0, os.path.abspath('.'))
   * __Bold__: enclosed in double asterieks ** **
   * __Italics__: enclosed in asterieks * *
   * __Line Break__: pipe |
-  * __Undo Commands__: \
+  * __Undo rst Commands__: \
   * __Images__: `.. image:: workflow.png`
   * __Hyperlink__: assign a variable then call hyperlink below:
   ```
