@@ -54,11 +54,13 @@ sys.path.insert(0, os.path.abspath('.'))
   * Define max depth to display based on headers === & ----
   * Add in additional pages (.rst files) using the file name
   * Add auto-numbering if necessary
+  * Possible to hide it on main page
   
 ```
 .. toctree::
    :maxdepth: 1
    :caption: Contents
+   :hidden:
    :numbered:
   
    page 1
