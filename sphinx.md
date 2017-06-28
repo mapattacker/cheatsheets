@@ -58,7 +58,7 @@ sys.path.insert(0, os.path.abspath('.'))
   
 ```
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
    :caption: Contents
    :hidden:
    :numbered:
@@ -94,6 +94,17 @@ sys.path.insert(0, os.path.abspath('.'))
   .. tip::
      This is sample of admonition directive for "Tip".
   ```
+
+## Code Block
+```
+.. code-block:: python
+  :linenos:
+  :emphasize-lines: 1
+
+  for i in range(1,10):
+    print i
+```
+
 
 ## Other Commands
   * __Blocks__: enclosed in backticks \` \`
