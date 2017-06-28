@@ -95,16 +95,22 @@ sys.path.insert(0, os.path.abspath('.'))
      This is sample of admonition directive for "Tip".
   ```
 
-## Code Block
-```
-.. code-block:: python
-  :linenos:
-  :emphasize-lines: 1
+## Blocks
+  * Code Block
+  ```
+  .. code-block:: python
+    :linenos:
+    :emphasize-lines: 1
 
-  for i in range(1,10):
-    print i
-```
-
+    for i in range(1,10):
+      print i
+  ```
+  * Normal block
+  ```
+  ::
+  
+    Some text here.
+  ```
 
 ## Other Commands
   * __Blocks__: enclosed in backticks \` \`
