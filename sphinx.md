@@ -128,6 +128,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 ## Resources
   * __Sphinx Documentation__: http://www.sphinx-doc.org/en/stable/index.html
+  * __Sphinx Memo__: http://rest-sphinx-memo.readthedocs.io
   * __Cheatsheet Matplotlib__: http://matplotlib.org/sampledoc/cheatsheet.html
   * __Cheatsheet Ralsina__: https://github.com/ralsina/rst-cheatsheet/blob/master/rst-cheatsheet.rst
   * __Themes__: http://www.writethedocs.org/guide/tools/sphinx-themes/
