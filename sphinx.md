@@ -108,7 +108,10 @@ sys.path.insert(0, os.path.abspath('.'))
 
   .. _Download: https://tools.ietf.org/html/rfc2865
   ```
-  
+
+## Config File
+  * __Show source file__: `html_show_sourcelink = False`
+
 
 ## Resources
   * __Sphinx Documentation__: http://www.sphinx-doc.org/en/stable/index.html
