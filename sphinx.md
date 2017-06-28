@@ -70,19 +70,19 @@ sys.path.insert(0, os.path.abspath('.'))
 
 
 ## Paragraph Level Markup
-  * Note (blue)
+  * Note
   ```
   .. note::
   
      This function is not suitable for sending spam e-mails.
   ```
-  * Warning (
+  * Warning
   ```
   .. warning::
     
       An important bit of information about an API.
   ```
-  * Error/Danger (red)
+  * Error/Danger
   ```
   .. error:: 
      This is sample of admonition directive for "Error".
