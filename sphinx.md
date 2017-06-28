@@ -68,6 +68,21 @@ sys.path.insert(0, os.path.abspath('.'))
 ## Tables
   * Use the table generator in the link: http://www.tablesgenerator.com/text_tables
 
+
+## Paragraph Level Markup
+  * Note
+  ```
+  .. note::
+  
+     This function is not suitable for sending spam e-mails.
+  ```
+  * Warning
+  ```
+  .. warning::
+    
+      An important bit of information about an API.
+  ```
+
 ## Other Commands
   * __Blocks__: enclosed in backticks \` \`
   * __Shell Code__: triple arrows with blank new line space give syntax highlighting `>>> print something`
