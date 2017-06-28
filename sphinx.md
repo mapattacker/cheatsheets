@@ -80,7 +80,7 @@ sys.path.insert(0, os.path.abspath('.'))
   ```
   .. warning::
     
-      An important bit of information about an API.
+     An important bit of information about an API.
   ```
   * Error/Danger
   ```
@@ -90,7 +90,7 @@ sys.path.insert(0, os.path.abspath('.'))
   * Hint/Tip
   ```
   .. tip::
-   This is sample of admonition directive for "Tip".
+     This is sample of admonition directive for "Tip".
   ```
 
 ## Other Commands
