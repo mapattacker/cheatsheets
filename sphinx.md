@@ -110,7 +110,7 @@ sys.path.insert(0, os.path.abspath('.'))
   ```
 
 ## Config File
-  * __Show source file__: `html_show_sourcelink = False`
+  * __Remove 'show source file' link__: add this line to conf.py `html_show_sourcelink = False`
 
 
 ## Resources
