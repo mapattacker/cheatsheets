@@ -20,7 +20,21 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
   * header 1 ====
   * header 2 -------
   * header 3 \*\*\*\*\*\*\*
+
+
+## Lists
+  * bullet `*`
+  * Numbered list `1.` etc.
+  * Nested lists, with indentation after a space
   
+  ```
+    1. 1st level bullet
+    
+        a. 2nd level bullet
+  ```
+  
+
+
 ## Auto Docstrings
   * A docstring is a string literal that occurs as the first statement in a module, function, class, or method definition
   * Ensure the docstrings are formatted correctly
@@ -138,6 +152,13 @@ sys.path.insert(0, os.path.abspath('.'))
 ## Config File
   * __Remove 'show source file' link__: add this line to conf.py `html_show_sourcelink = False`
 
+
+## Generating PDF
+  * Windows: install texlive. http://www.tug.org/texlive/
+  * Mac: `sudo apt-get install wget build-essential python2.7-dev texlive-full`
+  * Go to latex folder `cd _build/latex`
+  * Create pdf document by selecting the .tex document `pdflatex filename.tex`
+  * PDF will be created in the same folder
 
 ## Resources
   * __Sphinx Documentation__: http://www.sphinx-doc.org/en/stable/index.html
