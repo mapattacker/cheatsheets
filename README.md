@@ -1,5 +1,6 @@
 # cheatsheets
-Its tough remembering all the codes one wrote, especially if one have not use it for awhile. This is a collection of cheat codes I compiled to assist in compiling faster scripts. They are updated whenever I encounter any lines of code which I forsee to be used again in the future.
+Its tough remembering all the codes one wrote, especially if one have not use it for awhile. This is a collection of cheat codes I compiled to assist in generate faster scripts. They are updated whenever I encounter any lines of code which I forsee to be used again in the future.
+
   * __CSS__: Cascading Style Sheet cheatsheet `cascading.css`
   * __Command Line__: Bash & Command Line `cmd.md`
   * __Git__: Git & GitHub/GitLab `git.md`
