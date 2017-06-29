@@ -111,11 +111,18 @@ sys.path.insert(0, os.path.abspath('.'))
   
     Some text here.
   ```
-
-## Other Commands
-  * __Blocks__: enclosed in backticks \` \`
   * __Shell Code__: triple arrows with blank new line space give syntax highlighting `>>> print something`
   * __Small Red Block__: enclosed in double backticks \`\` \`\`
+
+## Images
+  * Image only
+  ```
+  .. image:: workflow.png
+      :scale: 40 %
+      :align: left
+  ```
+
+## Other Commands
   * __Bold__: enclosed in double asterieks ** **
   * __Italics__: enclosed in asterieks * *
   * __Line Break__: pipe |

@@ -41,6 +41,7 @@ killall Finder
 
 `brew list`		--list of packages installed using homebrew
 
+`> filename.txt` --create new file
 
 TextEdit editor					
 
@@ -57,6 +58,10 @@ TextEdit editor
 
 `ctrl+D`			--close python, pyspark session
 
+
+## PowerShell
+
+`new-item newfile.txt` --create new file. Note to type in *file* when prompted "type" after pressing enter.
 
 
 ## Comparision between different shells
