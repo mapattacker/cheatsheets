@@ -156,9 +156,11 @@ sys.path.insert(0, os.path.abspath('.'))
 ## Generating PDF
   * Windows: install texlive. http://www.tug.org/texlive/
   * Mac: `sudo apt-get install wget build-essential python2.7-dev texlive-full`
+  * Build latex files `make latex`
   * Go to latex folder `cd _build/latex`
   * Create pdf document by selecting the .tex document `pdflatex filename.tex`
   * PDF will be created in the same folder
+
 
 ## Resources
   * __Sphinx Documentation__: http://www.sphinx-doc.org/en/stable/index.html
