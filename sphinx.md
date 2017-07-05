@@ -20,6 +20,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
   * header 1 ====
   * header 2 -------
   * header 3 \*\*\*\*\*\*\*
+  * header 4 ^^^^^^^
 
 
 ## Lists
