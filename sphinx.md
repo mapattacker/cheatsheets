@@ -148,6 +148,12 @@ sys.path.insert(0, os.path.abspath('.'))
 
   .. _Download: https://tools.ietf.org/html/rfc2865
   ```
+  * __SVG images__: put svg file in html/_images folder and use a raw directive to link to it
+  ```
+  .. raw:: html
+  
+      <object data="_images/workflow.svg" type="image/svg+xml"></object>
+  ```
 
 ## Config File
   * __Remove 'show source file' link__: add this line to conf.py `html_show_sourcelink = False`
