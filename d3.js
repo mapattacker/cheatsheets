@@ -1,4 +1,7 @@
-// introduction https://d3js.org/#introduction
+//////////////////// introduction ////////////////////
+// https://github.com/d3/d3/blob/master/API.md
+// there are gigantic differences btw version 3 & version 4. See more https://iros.github.io/d3-v4-whats-new/#9
+
 
 // source
 <script src="https://d3js.org/d3.v4.js"></script>
@@ -26,11 +29,14 @@ d3.select(".main-title").text("I changed the title");
 d3.select('.navbar img').attr('src', './assets/udacity_white.png'); 
 
 
-//////////////////// TRANSITIONS ////////////////////
+//////////////////// REMOVE ////////////////////
+d3.select('.main').remove
+d3.select('.main').html(null) // or undefined, or empty string ''
 
-// fade transition
-d3.select("body").transition()
-    .style("background-color", "black");
-    
+
+var svg = d3.select('.main').html(null).append('svg');
+svg.attr('width', 600).attr('height', 300)
+
+
 
 
