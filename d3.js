@@ -14,13 +14,16 @@ d3.select("h1") // select tag
 d3.select("img").attr("src") // select an attribute eg., <img src="./assets/udacity.svg">
 
   // nested selection
-d3.select("#header img") // select parent id=header, and then followed by the child tag <img>. Need not be direct child
-
+      // select parent id=header, and then followed by the child tag <img>. Need not be direct child
+d3.select("#header img") 
 
 
 //////////////////// SWAP ////////////////////
   // change text
 d3.select(".main-title").text("I changed the title");
+  // change attribute content
+      // select parent class navbar, child img tag, and change image link
+d3.select('.navbar img').attr('src', './assets/udacity_white.png'); 
 
 
 //////////////////// TRANSITIONS ////////////////////
@@ -28,3 +31,6 @@ d3.select(".main-title").text("I changed the title");
 // fade transition
 d3.select("body").transition()
     .style("background-color", "black");
+    
+
+
