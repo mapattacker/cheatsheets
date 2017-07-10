@@ -1,8 +1,9 @@
   
--- change field name
+--Alter Existing Table
 ALTER TABLE tablename RENAME fieldname1 to fieldname2
+ALTER TABLE table_name ADD fieldname float;
 
---create table
+--Create Table
 CREATE table public.tablename (
     rule_id int,
     date date,
@@ -11,8 +12,7 @@ CREATE table public.tablename (
     confidence float,
     lift float,
     support_cnt int);
-    
-    
---primary keys & indexes
+
+--Primary keys & Indexes
 ALTER TABLE tablename ADD PRIMARY KEY (fieldname);
 CREATE INDEX indexname ON tablename (fieldname);
