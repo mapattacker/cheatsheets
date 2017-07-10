@@ -28,15 +28,19 @@ d3.select(".main-title").text("I changed the title");
       // select parent class navbar, child img tag, and change image link
 d3.select('.navbar img').attr('src', './assets/udacity_white.png'); 
 
-
 //////////////////// REMOVE ////////////////////
 d3.select('.main').remove
 d3.select('.main').html(null) // or undefined, or empty string ''
 
+//////////////////// SCALE ////////////////////
+// note that for y-axis, 0 starts from top down
+.domain //refers to actual range
+.range //refers to d3 scale range
 
+// remove html tags under .main
 var svg = d3.select('.main').html(null).append('svg');
 svg.attr('width', 600).attr('height', 300)
-
-
+  // output as <svg width="600" height="300"></svg>
+d3.scale.linear.domain([15,90]).range([250,0])
 
 
