@@ -43,4 +43,3 @@ svg.attr('width', 600).attr('height', 300)
   // output as <svg width="600" height="300"></svg>
 d3.scale.linear.domain([15,90]).range([250,0])  // linear for x & y 2d-axis
 
-
