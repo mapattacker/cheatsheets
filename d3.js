@@ -28,9 +28,11 @@ d3.select(".main-title").text("I changed the title");
       // select parent class navbar, child img tag, and change image link
 d3.select('.navbar img').attr('src', './assets/udacity_white.png'); 
 
+
 //////////////////// REMOVE ////////////////////
 d3.select('.main').remove
 d3.select('.main').html(null) // or undefined, or empty string ''
+
 
 //////////////////// SCALE ////////////////////
 // note that for y-axis, 0 starts from top down
