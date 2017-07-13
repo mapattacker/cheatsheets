@@ -10,7 +10,7 @@
   * `pip install sphinx_rtd_theme`
   * Add config.py with
 
-``` 
+```
 import sphinx_rtd_theme
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
@@ -27,13 +27,13 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
   * bullet `*`
   * Numbered list `1.` etc.
   * Nested lists, with indentation after a space
-  
+
   ```
     1. 1st level bullet
-    
+
         a. 2nd level bullet
   ```
-  
+
 
 
 ## Auto Docstrings
@@ -41,7 +41,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
   * Ensure the docstrings are formatted correctly
   * Set `y` to set autodoc at `sphinx-quickstart` stage
   * At conf.py uncomment the following
-  
+
 ```
 import os
 import sys
@@ -59,9 +59,9 @@ sys.path.insert(0, os.path.abspath('.'))
 ## Sidebar
 ```
 .. sidebar:: title
- 
+
     *Paragraph 1*. Statement 1.
- 
+
     *Paragraph 2*. Statement 2.
 ```
 
@@ -70,14 +70,14 @@ sys.path.insert(0, os.path.abspath('.'))
   * Add in additional pages (.rst files) using the file name
   * Add auto-numbering if necessary
   * Possible to hide it on main page
-  
+
 ```
 .. toctree::
    :maxdepth: 2
    :caption: Contents
    :hidden:
    :numbered:
-  
+
    page 1
    page 2
 ```
@@ -90,18 +90,18 @@ sys.path.insert(0, os.path.abspath('.'))
   * Note
   ```
   .. note::
-  
+
      This function is not suitable for sending spam e-mails.
   ```
   * Warning
   ```
   .. warning::
-    
+
      An important bit of information about an API.
   ```
   * Error/Danger
   ```
-  .. error:: 
+  .. error::
      This is sample of admonition directive for "Error".
   ```
   * Hint/Tip
@@ -123,7 +123,7 @@ sys.path.insert(0, os.path.abspath('.'))
   * Normal block
   ```
   ::
-  
+
     Some text here.
   ```
   * __Shell Code__: triple arrows with blank new line space give syntax highlighting `>>> print something`
@@ -135,6 +135,19 @@ sys.path.insert(0, os.path.abspath('.'))
   .. image:: workflow.png
       :scale: 40 %
       :align: left
+  ```
+
+  * image with caption
+
+  ```
+  .. figure:: images/rankingencode.png
+      :width: 200px
+      :align: center
+      :height: 100px
+      :alt: alternate text
+      :figclass: align-center
+
+      Write caption here.
   ```
 
 ## Other Commands
@@ -152,7 +165,7 @@ sys.path.insert(0, os.path.abspath('.'))
   * __SVG images__: put svg file in html/_images folder and use a raw directive to link to it
   ```
   .. raw:: html
-  
+
       <object data="_images/workflow.svg" type="image/svg+xml"></object>
   ```
 
