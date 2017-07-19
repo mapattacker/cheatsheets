@@ -2,7 +2,7 @@
 
 1) Create new Git Directory, eg. `mkdir github`
 2) Go into directory: `cd github`
-3) Create github key > `ssh-keygen` > enter to accept defaults 
+3) Create github key > `ssh-keygen` > enter to accept defaults
 4) Open file & copy keys `cat ~/.ssh/id_rsa.pub` OR `open ~/.ssh/id_rsa.pub` OR `open -a textedit ~/.ssh/id_rsa.pub`
 5) Go to Github/GitLab > Settings > SSH and GPG Keys > paste the key here
 
@@ -14,6 +14,14 @@
 5) `git remote add origin https://github.com/mapattacker/testrepo.git`
 6) Go to Github > Personal access tokens > create token. This will be used in place of the password in command line
 7) `git push -u origin master` > enter username & token as password
+
+```
+git init
+git add README.md
+git commit -m "first commit"
+git remote add origin https://github.com/mapattacker/datavis.git
+git push -u origin master
+```
 
 ## Existing Repository
 1) __Existing repository__: clone project, eg `git clone https://github.com/mapattacker/cheatsheets.git`

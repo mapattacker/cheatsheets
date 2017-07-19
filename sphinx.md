@@ -126,7 +126,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
     Some text here.
   ```
-  * __Shell Code__: triple arrows with blank new line space give syntax highlighting `>>> print something`
+  * __Shell Code__: triple arrows with blank new line space give syntax highlighting `>>> print something`. Next line will be a comment out sentence.
   * __Small Red Block__: enclosed in double backticks \`\` \`\`
 
 ## Images
