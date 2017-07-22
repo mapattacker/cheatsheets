@@ -6,7 +6,7 @@ df = pd.read_csv('shenzhen_processed.csv')
 df = pd.read_csv('olympics.csv', index_col=0, skiprows=1)   #take 1st col as index, and remove 1st row
 df.to_csv('shenzhen_processed.csv', index=False)
     # EXCEL
-df = pd.read_excel('shenzhen_processed.csv')
+df = pd.read_excel('shenzhen_processed.csv', sheetname=1) #sheetname starts from 0
 df = pd.read_csv("P00000001-ALL.csv", nrows=20) # limit to only 20 rows
 df.to_excel('output.xlsx', index=False)
     # TXT
