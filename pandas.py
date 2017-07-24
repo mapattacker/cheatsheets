@@ -6,13 +6,16 @@ df = pd.read_csv('shenzhen_processed.csv')
 df = pd.read_csv('olympics.csv', index_col=0, skiprows=1)   #take 1st col as index, and remove 1st row
 df.to_csv('shenzhen_processed.csv', index=False)
     # EXCEL
-df = pd.read_excel('shenzhen_processed.csv', sheetname=1) #sheetname starts from 0
+df = pd.read_excel('shenzhen_processed.xlsx', sheetname=1) #sheetname starts from 0
 df = pd.read_csv("P00000001-ALL.csv", nrows=20) # limit to only 20 rows
 df.to_excel('output.xlsx', index=False)
     # TXT
 utown=pd.read_table('university_towns.txt', sep=',', header=None)
     # convert a clip board into dataframe!!!
 pd.read_clipboard()
+    # JSON
+df=pd.read_json(path)
+df.to_json('/Users/xxx/Desktop/d.json')
 
 
 #--------------------------------------------------------
@@ -38,6 +41,12 @@ df['columnNm'].dtype
 # only use this when unique values <50% of rows & that there is no need for numeric calculations
 df['columnNm'] = df['columnNm'].astype('category')
 
+
+#--------------------------------------------------------
+# display html
+from IPython.core.display import display, HTML
+html = 'https://github.com/PAIR-code/facets/blob/master/facets_dive/Dive_demo.ipynb'
+display(HTML(html))
 
 
 #--------------------------------------------------------
