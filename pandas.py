@@ -437,3 +437,17 @@ df2['hour'] = pd.to_datetime('1900-01-01') + pd.to_timedelta(df3['Time'].dt.hour
     # check datetime format: https://docs.python.org/2/library/datetime.html#strftime-strptime-behavior
 dfr['event_ts']=  dfr['Event-Timestamp'].apply(lambda x: time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(x)))
 dfr['event_ts']= pd.to_datetime(dfr['Event-Timestamp'], unit='s', errors='coerce') #note that this STILL needs to convert to local time
+
+
+#--------------------------------------------------------
+## Split commas in cells and put them in new rows
+    # https://stackoverflow.com/questions/17116814/pandas-how-do-i-split-text-in-a-column-into-multiple-rows
+    
+# 1) isolate column with comma, split them, and stack them as single rows
+p = df['producer'].str.split(', ').apply(pd.Series, 1).stack()
+# 2) remove multi dimensions index
+p.index = p.index.droplevel(-1)
+# 3) add series must have a name
+p.name = 'producer'
+# 4) use inner join to add based on index value
+df.join(p)

@@ -29,7 +29,9 @@ killall Finder
 
 `cd ..`   --go up one level
 
-`cd ~`			--go back to base directory
+`cd ~`		--go back to login base directory
+
+`cd \`    --go back to system root directory
 
 `cd ~desktop`		--go to desktop directory
 
