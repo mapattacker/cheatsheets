@@ -12,7 +12,7 @@
 3) `git add README.md`
 4) `git commit -m "first commit"`
 5) `git remote add origin https://github.com/mapattacker/testrepo.git`
-6) Go to Github > Personal access tokens > create token. This will be used in place of the password in command line
+6) Go to Github > Settings > Personal access tokens > create token. This will be used in place of the password in command line
 7) `git push -u origin master` > enter username & token as password
 
 ```
