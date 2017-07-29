@@ -25,6 +25,8 @@ killall Finder
 
 ## Some Commands
 
+`ls -a`   --list all directories & files (including hidden ones)
+
 `cd` 			--go back one directory before
 
 `cd ..`   --go up one level
@@ -54,7 +56,7 @@ TextEdit editor
 
 `nano .bash_profile`	--open bash profile
 
-`ctrl + o`			--save
+`ctrl + o`			--save / press enter after this command
 
 `ctrl + x`			--exit
 
