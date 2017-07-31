@@ -20,6 +20,9 @@ https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-
 2. Install Zookeeper
 3. Extract Kafka Binaries
 4. Configure & Start Kafka Server
+
+  ``nohup ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties > ~/kafka/kafka.log 2>&1 &``
+  
 5. Test Kafka with a message from Broker to Consumer
 
   __Start a new topic called TutorialTopic__
