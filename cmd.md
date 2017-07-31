@@ -27,6 +27,10 @@ killall Finder
 
 `ls -a`   --list all directories & files (including hidden ones)
 
+`ls -1`   --change to vertical view (number 1)
+
+`ls -l`   --list date of modification & read/write, etc. (letter L)
+
 `cd` 			--go back one directory before
 
 `cd ..`   --go up one level
