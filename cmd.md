@@ -2,8 +2,8 @@
 
 dir             --list files directories in current directory
 mkdir rst, test --make two directories at current folder, called rst & test
-
-
+where python    --show file path of a program 
+cls             --clear screen
 
 ## Bash
 
@@ -48,6 +48,8 @@ killall Finder
 `ls`			--list files and directories
 
 `brew list`		--list of packages installed using homebrew
+
+`clear`   --clear screen
 
 `> filename.txt` --create new file
 
