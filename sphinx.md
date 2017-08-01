@@ -150,6 +150,13 @@ sys.path.insert(0, os.path.abspath('.'))
       Write caption here.
   ```
 
+  * image with attachment
+  
+  ```
+  .. image:: images/sklearn.PNG
+      :target: _static/sklearn_cheat.pdf
+  ```
+
 ## Other Commands
   * __Bold__: enclosed in double asterieks ** **
   * __Italics__: enclosed in asterieks * *
