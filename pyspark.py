@@ -8,6 +8,10 @@
         # Though not using Hadoop with Spark, but it checks for HADOOP_HOME variable in configuration. 
         # So to overcome this error, download winutils.exe and place it in a location
 
+# If there are issues importing pyspark, use findspark to configure the path
+    #1. pip install findspark
+import findspark
+findspark.init()
 
 from pyspark import SparkConf, SparkContext
 
@@ -58,7 +62,7 @@ nameDict = sc.broadcast(loadMovieNames())
   # for reduceByKey(), join(), lookup(), groupByKey(), etc.
 .partitionBy(100)
 
-# submit to run
+# SUBMIT IN CMD TO RUN SCRIPT
 spark-submit script_name.py
 spark-submit --executor-memory 1g MovieSimilarities1M.py 260  #change executor memory from default 512Mb to 1G
 
