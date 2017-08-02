@@ -19,6 +19,9 @@ in windows:
   * Go control panel > System & Security > System > Advanced system settings > Environment Variables > System variables
   * Search and click on PATHS
   * Python paths are indicated here. Those that are in front will be the default. Just cut and paste them to after the python version you want to be the first
+  * Some important paths to add in
+      - ``C:\Users\xxxx\Anaconda3``: must have 
+      - ``C:\Users\xxxx\Anaconda3\Scripts``: need this to have access to pip
   
 in mac:
 
