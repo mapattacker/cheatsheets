@@ -22,6 +22,7 @@ in windows:
   * Some important paths to add in
       - ``C:\Users\xxxx\Anaconda3``: must have 
       - ``C:\Users\xxxx\Anaconda3\Scripts``: need this to have access to pip
+  * Note that these two paths have to stick together, else you might be using another version of python to pip install packages
   
 in mac:
 

@@ -8,6 +8,11 @@
         # Though not using Hadoop with Spark, but it checks for HADOOP_HOME variable in configuration. 
         # So to overcome this error, download winutils.exe and place it in a location
 
+
+#### NOTES
+# to err on the safe side, always place scripts and data at the root folder C:/
+
+
 # If there are issues importing pyspark, use findspark to configure the path
     #1. pip install findspark
 import findspark

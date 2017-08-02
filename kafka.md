@@ -1,4 +1,4 @@
-### Basics
+## Basics
 https://www.tutorialspoint.com/apache_kafka/apache_kafka_fundamentals.htm
 
 There are 4 key components in Kafka.
@@ -12,7 +12,7 @@ __Broker__: Brokers are simple system responsible for maintaining the published 
 __Consumer__: Consumers read data from brokers. Consumers subscribes to one or more topics and consume published messages by pulling data from the brokers.
 
 
-### Installation
+## Installation
 
 https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-ubuntu-14-04
 
@@ -40,13 +40,13 @@ https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-
 6. Install KafkaT by Airbnb to manage Kafka
 
 
-### Kafka & Python
+## Kafka & Python
 
 https://scotch.io/tutorials/build-a-distributed-streaming-system-with-apache-kafka-and-python
 
 https://github.com/dpkp/kafka-python
 
-### Kafka-Manager
+## Kafka-Manager
 
 This is a Kafka manager created by Yahoo.
 
@@ -56,13 +56,13 @@ It is necessary to install sbt as a prerequisite, which includes Scala.
 
 http://edbaker.weebly.com/blog/install-and-evaluation-of-yahoos-kafka-manager
 
-### Single File Stream
+## Single File Stream
 
 It is possible to have kafka monitor a single file for updates through filestream connector
 
 http://docs.confluent.io/current/connect/connect-filestream/filestream_connector.html
 
-### New Files Stream
+## New Files Stream
 
 This connector watch a directory for files and read the data as new files are written to the input directory.
 
