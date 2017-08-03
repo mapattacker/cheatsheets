@@ -22,7 +22,7 @@
 
 ### Output as Text
 
-systeminfo >c:\systeminfo.txt           --output cmd output to text file. Needs admin access
+`systeminfo >c:\systeminfo.txt`           --output cmd output to text file. Needs admin access
 
 ### Run as Executable
 
