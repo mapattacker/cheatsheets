@@ -62,7 +62,7 @@ https://github.com/dpkp/kafka-python
 
 4. Extract the created zip file to ~/. To start the kafka-manager
     * `cd kafka-manager-1.1*` go to extracted folder
-    * ``
+    * `bin/kafka-manager` launch the server
     * Type `localhost:9000` in browser
 
 ## Single File Stream
