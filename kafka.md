@@ -50,7 +50,7 @@ https://github.com/dpkp/kafka-python
 
 This is a Kafka manager created by Yahoo.
 
-http://edbaker.weebly.com/blog/install-and-evaluation-of-yahoos-kafka-manager
+https://github.com/yahoo/kafka-manager
 
 It is necessary to install sbt as a prerequisite, which includes Scala.
 
