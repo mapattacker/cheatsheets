@@ -21,6 +21,7 @@ systeminfo >c:\systeminfo.txt           --output cmd output to text file. Needs 
 Create a .cmd file, save commands in the file and double click it.
 
 
+
 ## Bash
 
 __for loops__
