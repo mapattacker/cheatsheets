@@ -4,8 +4,21 @@ dir                     --list files directories in current directory
 mkdir rst, test         --make two directories at current folder, called rst & test
 where python            --show file path of a program 
 cls                     --clear screen
+
+### SYSTEM INFO
+
 netsh wlan show profile --show all wifi profiles that you have saved
-netsh wlan show profile SSID key=clear --show wifi profile details, including password (change SSID to wifi name)
+netsh wlan show profile SSID key=clear  --show wifi profile details, including password (change SSID to wifi name)
+systeminfo              --show every details about your computer
+shutdown -f -t 636      --time shutdown. -f refers to force shutdown; -t refers to time in seconds
+
+### OUTPUT AS TEXT
+
+systeminfo >c:\systeminfo.txt           --output cmd output to text file. Needs admin access
+
+### RUN AS EXECUTABLE
+
+Create a .cmd file, save commands in the file and double click it.
 
 
 ## Bash
