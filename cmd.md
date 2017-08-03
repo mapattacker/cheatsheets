@@ -4,7 +4,7 @@
 
 `mkdir rst, test`         --make two directories at current folder, called rst & test
 
-cls                     --clear screen
+`cls`                     --clear screen
 
 ### System Info
 
