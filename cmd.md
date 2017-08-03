@@ -1,9 +1,12 @@
 ## Windows Command Line
 
-dir             --list files directories in current directory
-mkdir rst, test --make two directories at current folder, called rst & test
-where python    --show file path of a program 
-cls             --clear screen
+dir                     --list files directories in current directory
+mkdir rst, test         --make two directories at current folder, called rst & test
+where python            --show file path of a program 
+cls                     --clear screen
+netsh wlan show profile --show all wifi profiles that you have saved
+netsh wlan show profile SSID key=clear --show wifi profile details, including password (change SSID to wifi name)
+
 
 ## Bash
 
