@@ -48,7 +48,7 @@ killall Finder
 
 killall Finder
 
-## Some Commands
+### Some Commands
 
 `ls -a`   --list all directories & files (including hidden ones)
 
