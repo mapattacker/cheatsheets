@@ -1,22 +1,30 @@
 ## Windows Command Line
 
-dir                     --list files directories in current directory
-mkdir rst, test         --make two directories at current folder, called rst & test
-where python            --show file path of a program 
+`dir`                     --list files directories in current directory
+
+`mkdir rst, test`         --make two directories at current folder, called rst & test
+
 cls                     --clear screen
 
-### SYSTEM INFO
+### System Info
 
-netsh wlan show profile --show all wifi profiles that you have saved
-netsh wlan show profile SSID key=clear  --show wifi profile details, including password (change SSID to wifi name)
-systeminfo              --show every details about your computer
-shutdown -f -t 636      --time shutdown. -f refers to force shutdown; -t refers to time in seconds
+`where python`            --show file path of a program 
 
-### OUTPUT AS TEXT
+`tree`                    --show tree structure of directories & files
+
+`netsh wlan show profile` --show all wifi profiles that you have saved
+
+`netsh wlan show profile SSID key=clear`  --show wifi profile details, including password (change SSID to wifi name)
+
+`systeminfo`              --show every details about your computer
+
+`shutdown -f -t 636`      --time shutdown. -f refers to force shutdown; -t refers to time in seconds
+
+### Output as Text
 
 systeminfo >c:\systeminfo.txt           --output cmd output to text file. Needs admin access
 
-### RUN AS EXECUTABLE
+### Run as Executable
 
 Create a .cmd file, save commands in the file and double click it.
 
