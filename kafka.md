@@ -21,21 +21,21 @@ https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-
 3. Extract Kafka Binaries
 4. Configure & Start Kafka Server
 
-  ``nohup ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties > ~/kafka/kafka.log 2>&1 &``
+  `nohup ~/kafka/bin/kafka-server-start.sh ~/kafka/config/server.properties > ~/kafka/kafka.log 2>&1 &`
   
 5. Test Kafka with a message from Broker to Consumer
 
   __Start a new topic called TutorialTopic__
   
   Enter some strings as messsages.
-  ``bin/kafka-console-producer.sh --broker-list localhost:9092 --topic TutorialTopic``
+  `~/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic TutorialTopic`
 
   Or ask it to read from a file
-  ``kafka-console-produce.sh --broker-list localhost:9092 --topic TutorialTopic --new-producer < my_file.txt``
+  kafka-console-produce.sh --broker-list localhost:9092 --topic TutorialTopic --new-producer < my_file.txt`
     
   __Start Consumer in a new terminal to recieve messages__
 
-  ``~/kafka/bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic TutorialTopic --from-beginning`` Messages should be received in this terminal 
+  `~/kafka/bin/kafka-console-consumer.sh --zookeeper localhost:2181 --topic TutorialTopic --from-beginning` Messages should be received in this terminal 
   
 6. Install KafkaT by Airbnb to manage Kafka
 
@@ -48,13 +48,22 @@ https://github.com/dpkp/kafka-python
 
 ## Kafka-Manager
 
-This is a Kafka manager created by Yahoo.
+1. This is a Kafka manager created by Yahoo.
 
-https://github.com/yahoo/kafka-manager
+    https://github.com/yahoo/kafka-manager
 
-It is necessary to install sbt as a prerequisite, which includes Scala.
+2. It is necessary to install sbt as a prerequisite, which includes Scala.
 
-http://edbaker.weebly.com/blog/install-and-evaluation-of-yahoos-kafka-manager
+    http://edbaker.weebly.com/blog/install-and-evaluation-of-yahoos-kafka-manager
+
+3. If there are issues with the `sbt clean dist`, look at reinstalling java (likely missing javac) by using the link below.
+
+    https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html
+
+4. Extract the created zip file to ~/. To start the kafka-manager
+    * `cd kafka-manager-1.1*` go to extracted folder
+    * ``
+    * Type `localhost:9000` in browser
 
 ## Single File Stream
 

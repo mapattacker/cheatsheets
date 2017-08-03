@@ -10,7 +10,7 @@
 
 `where python`            --show file path of a program 
 
-`tree`                    --show tree structure of directories & files
+`tree`                    --show tree structure of current directory and within
 
 `netsh wlan show profile` --show all wifi profiles that you have saved
 
@@ -66,6 +66,8 @@ killall Finder
 
 `cd ~desktop`		--go to desktop directory
 
+`cd /java1.8*`  --* is a wild card
+
 `pwd`			--show full directory path (print working directory)
 
 `open .`			--open current directory in Finder
@@ -78,16 +80,27 @@ killall Finder
 
 `> filename.txt` --create new file
 
+`sudo rm -r directoryname` --delete directory and descending files, but WITH a prompt
+
+`sudo rm -rf directoryname` --delete directory and descending files, but WITHOUT a prompt
+
 `apt list --installed`  --check installed software in Ubuntu
 
-TextEdit editor					
+`unzip kafka-manager-1.1.zip` --unzip file
+
+sudo mv target/kafka-manager-1.1.zip ~/   --cut and paste file from current directory to ~/
+
+
+__TextEdit editor__			
 
 `open -a TextEdit .bash_profile`
 
 
-`NANO text editor`
+__NANO text editor__
 
-`nano .bash_profile`	--open bash profile
+`nano .bash_profile`	--open bash profile; in Mac
+
+`nano ~/profile`	--open bash profile; in Ubuntu
 
 `ctrl + o`			--save / press enter after this command
 
