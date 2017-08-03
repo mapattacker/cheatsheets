@@ -100,7 +100,7 @@ __NANO text editor__
 
 `nano .bash_profile`	--open bash profile; in Mac
 
-`nano ~/profile`	--open bash profile; in Ubuntu
+`nano ~/.profile`	--open bash profile; in Ubuntu
 
 `ctrl + o`			--save / press enter after this command
 
