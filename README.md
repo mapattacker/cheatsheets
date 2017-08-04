@@ -5,7 +5,9 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __Command Line__: Bash & Command Line `cmd.md`
   * __D3.js__: Intro to D3, Dynamic Driven Documents
   * __Git__: Git & GitHub/GitLab `git.md`
+  * __Kafka__: Kafka, a distributed streaming platform `kafka.md`
   * __Matplotlib__: Python's matplotlib package `matplotlib.py`
+  * __MongoDB__: A popular NoSQL database based on json format `mongodb.md`
   * __Networkx__: Python's Networkx package `network_basics.ipynb`
   * __Node.js__: basics of node.js `node.js`
   * __OS__: python os package and file handling `os.py`
