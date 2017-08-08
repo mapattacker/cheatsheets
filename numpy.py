@@ -1,7 +1,11 @@
 import numpy as np
 
 # SHAPE
-np.
+np.shape
+
+# CREATE ARRAY
+list = [1,2,3,4]
+np.array(list)
 
 
 # space out between a start & end number of equal intervals
@@ -26,3 +30,13 @@ array([[ 0.,  0.,  0.,  0.,  0.],
         [ 0.,  0.,  0.,  0.,  0.],
         [ 0.,  0.,  0.,  0.,  0.]])
 
+# SORT
+nparry = [1,2,3,4,5,6]
+np.sort(nparray) #ascending order
+np.sort(nparray)[::-1] #descending order
+np.sort(nparray)[::-1][:5] #top 5 descending
+
+
+# CALCULATIONS
+
+np.mean(nparray)    #mean
