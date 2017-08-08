@@ -1,4 +1,8 @@
+### MongoDB Tutorial
 https://www.tutorialspoint.com/mongodb/mongodb_overview.htm
+### Python Client
+http://api.mongodb.com/python/current/tutorial.html
+
 
 # IDE
 
@@ -76,3 +80,53 @@ db.post.insert([
  }
 ])
 ```
+# Query (WHERE clause)
+
+`db.mycol.find()``
+
+use pretty printing
+
+`db.mycol.find().pretty()`` --use pretty printing
+
+```db.mycol.find({"likes": {$gt:10}, $or: [{"by": "tutorials point"},
+{"title": "MongoDB Overview"}]}).pretty()```  --where likes>10 AND (by = 'tutorials point' OR title = 'MongoDB Overview')
+
+
+# Query (LIMIT clause)
+
+`db.COLLECTION_NAME.find().limit(NUMBER)` --limit by
+
+`db.COLLECTION_NAME.find().limit(NUMBER).skip(NUMBER)`  --skip by # rows
+
+
+# Explain
+
+```db.collection.find(query).explain()
+{
+    // BasicCursor means no index used, BtreeCursor would mean this is an indexed query
+    "cursor" : "BasicCursor",
+    
+    // The bounds of the index that were used, see how much of the index is being scanned
+    "indexBounds" : [ ],
+    
+    // Number of documents or indexes scanned
+    "nscanned" : 57594,
+    
+    // Number of documents scanned
+    "nscannedObjects" : 57594,
+    
+    // The number of times the read/write lock was yielded
+    "nYields" : 2 ,
+    
+    // Number of documents matched
+    "n" : 3 ,
+    
+    // Duration in milliseconds
+    "millis" : 108,
+    
+    // True if the results can be returned using only the index
+    "indexOnly" : false,
+    
+    // If true, a multikey index was used
+    "isMultiKey" : false
+}```

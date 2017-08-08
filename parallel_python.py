@@ -1,4 +1,11 @@
+# Parallel processing can be done in single machines or distributed in a cluster
+  # There are many packages for both.
+  # Single machines include multiprocessing & the default package concurrent.futures which work very similarly
+  # Clusters include parallel python and jug
+  # More here: https://wiki.python.org/moin/ParallelProcessing
 
+
+# MULTIPROCESSING
 # check no. of cores
 #---------------------------------------
 import multiprocessing as mp
@@ -85,3 +92,46 @@ feather.write_dataframe(df, 'test.feather')
 # read feather file
 df2 = feather.read_dataframe('test.feather')
 
+
+# DISTRIBUTED PARALLEL PROCESSING
+#---------------------------------------
+pip install pp
+
+import os, re, requests, pp
+
+url_list = ['http://www.google.com/','http://gizmodo.uol.com.br/',
+            'https://github.com/', 'http://br.search.yahoo.com/',
+            'http://www.python.org/','http://www.python.org/psf/']
+result_dict = {}
+
+# identify machines in cluster
+ppservers = ("192.168.25.21", "192.168.25.9") 
+# Server Class to dispatch processes to different computers
+# 1 is specified such that only 1 process in local machine and the rest is distributed to remote computers
+# timeout is extended so that it will not shutdown during latency
+job_dispatcher = pp.Server(ncpus=1, ppservers=ppservers, socket_timeout=60000)
+
+def aggregate_results(result):
+    print "Computing results in main process PID [%d]" %
+    os.getpid()
+    message = "PID %d in hostname [%s] the following links were "\
+    "found: %s" % (result[2], result[3], result[1])
+    result_dict[result[0]] = message
+
+def crawl_task(url):
+    html_link_regex = re.compile('<a\s(?:.*?\s)*?href=[\'"](.*?)[\'"].*?>')
+    request_data = requests.get(url)
+    links = html_link_regex.findall(request_data.text)[:3]
+    return (url, links, os.getpid(), os.uname()[1])
+
+for url in url_list:
+    # crawl_task is the workers
+    # returns of workers is sent to callback, i.e. aggregate results
+    job_dispatcher.submit(crawl_task, (url,), modules=('os', 're', 'requests',), callback=aggregate_results)
+
+    
+job_dispatcher.wait()
+print "\nMain process PID [%d]\n" % os.getpid()
+for key, value in result_dict.items():
+    print "** For url %s, %s\n" % (key, value)
+    job_dispatcher.print_stats()
