@@ -3,6 +3,22 @@ import numpy as np
 # SHAPE
 np.shape
 
+
+# RESHAPE AN ARRAY
+test_score
+array([ 0.66666667,  0.76086957,  0.80072464,  0.80434783,  0.8115942 ,
+        0.8115942 ,  0.80797101,  0.8115942 ,  0.80797101,  0.8115942 ])
+
+# reshape it to 5 arrays & 2 in each array
+test_score.reshape(5,2)
+array([[ 0.66666667,  0.76086957],
+       [ 0.80072464,  0.80434783],
+       [ 0.8115942 ,  0.8115942 ],
+       [ 0.80797101,  0.8115942 ],
+       [ 0.80797101,  0.8115942 ]])
+
+
+
 # CREATE ARRAY
 list = [1,2,3,4]
 np.array(list)
