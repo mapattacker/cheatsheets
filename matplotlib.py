@@ -11,6 +11,8 @@ plt.style.use('seaborn') #set the style
 
 # add a semi-colon to the end of the plotting call to suppress unwanted output
 df.plot(); 
+# prevents overlapping of axis labels, tick labels and titles
+plt.tight_layout()
 
 ### COLORS---------------------------------------
   #normal form
@@ -153,12 +155,12 @@ plt.text('2015-10-23', 2.25, 'SMA 10-20',rotation=90) #(x, y, text, rotate-label
 
 # http://matplotlib.org/users/annotations_guide.html#plotting-guide-annotation
  # label name, data points coord, annotation text coord, textcoords???, horizontal alignment, vertical alignment, arrow settings
-    plt.annotate(label, 
-                 xy = (x, y), 
-                 xytext = (50, 50),
-                 textcoords = 'offset points', 
-                 ha = 'right', 
-                 va = 'bottom',
-                 arrowprops = dict(arrowstyle = '-', connectionstyle = 'arc3, rad=-0.3'))
+plt.annotate(label, 
+             xy = (x, y), 
+             xytext = (50, 50),
+             textcoords = 'offset points', 
+             ha = 'right', 
+             va = 'bottom',
+             arrowprops = dict(arrowstyle = '-', connectionstyle = 'arc3, rad=-0.3'))
 
-    
+
