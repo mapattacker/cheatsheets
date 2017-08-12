@@ -10,6 +10,7 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __MongoDB__: A popular NoSQL database based on json format `mongodb.md`
   * __Networkx__: Python's Networkx package `network_basics.ipynb`
   * __Node.js__: basics of node.js `node.js`
+  * __Numpy__: python numpy package `numpy.py`
   * __OS__: python os package and file handling `os.py`
   * __Pandas__: python pandas package `pandas.py`
   * __Parallel Processing__: parallel processing using python `parallel_python.py`
