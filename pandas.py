@@ -88,6 +88,7 @@ df.describe #mean, std, count, etc. only numeric formated columns
 df.dtypes
 df['hour'] = df['hour'].astype('int64')
 df['text'] = df['text'].astype('str')
+df['col3'] = df['col2'].astype('category')
     #coerce, any errors will be converted to NaN
 df['price'] = pd.to_numeric(df['price'], errors='coerce')
 df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
@@ -415,7 +416,14 @@ df_new = pd.concat(frames)
 
 ## APPEND
 df = df.append(df2, ignore_index=True)
-                 
+
+
+#--------------------------------------------------------
+## ENCODE CATEGORICAL TO INTEGERS
+    
+cat_columns = df.select_dtypes(['category']).columns    #select categorical datatype
+df[cat_columns] = df[cat_columns].apply(lambda x: x.cat.codes) #cat.codes to encode them into integers
+
 #--------------------------------------------------------
 ## DATES
     #change string to date format
