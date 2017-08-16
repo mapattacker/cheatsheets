@@ -4,25 +4,33 @@ import re
 # https://www.youtube.com/watch?v=kWyoYtvJpe4
 
   # .     (dot) matches any character.
+  # *     Matches 0 or more occurrence of preceding expression.
   # +     Matches 1 or more occurrence of preceding expression.
+  # ?     Matches 0 or 1 occurences of preceding expression.
+  # {n}   Matches exactly n reptitions
+  # {n,}  At least n times
+  # {,n}  At most n times
+  # {m,n} At least m and at most n repetitions (e.g., \d{1,2} means get 1 or 2 digits only)
   # ^     Match first character in line
+  # $     Match last character of string
   # []    Matches any charcters in the square brackets
-  # ()    Groups regular expressions and remembers matched text / find only characters in brackets.
+  # ()    Groups regular expressions and remembers matched text / output & find only characters in brackets.
+  # (?:)  Outputs not just within brackets, but the entire string
   # a|b	  Matches either a or b.
   
-  # \     backslash changes search code into real symbol (eg., /$)
+  # \     backslash changes search code into real symbol (eg., \$)
   
   # [^A-Z] does not match alphabets A to Z (^ means does not)
   
-  # \w	  Matches word characters (numbers & alphabets).
+  # \w	  Matches word characters (numbers & alphabets). Includes underscore
   # \W	  Matches nonword characters.
   # \d	  Matches digits. Equivalent to [0-9].
-  # \D	  Matches nondigits.
+  # \D	  Matches nondigits. [^0-9]
   # \s    Matches whitespace
   # \S    Matches non-whitespace
 
 #-------------------------------------------
-dir(re) #give list of constants
+dir(re) #give list of constantsx
 result = re.findall(r'this', email, re.IGNORECASE) #e.g., IGNORECASE ignores casing
 
 
@@ -39,6 +47,7 @@ print num.group() #output '200'
 
 #-------------------------------------------
 # search; output first result in string
+# can use s.split(' ') to split the text into individuals words first
 num = re.search(r'...4', phone)
 print num.group() #output '2004'
 
