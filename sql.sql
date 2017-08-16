@@ -16,3 +16,17 @@ CREATE table public.tablename (
 --Primary keys & Indexes
 ALTER TABLE tablename ADD PRIMARY KEY (fieldname);
 CREATE INDEX indexname ON tablename (fieldname);
+
+--QUERIES
+--------------------------------------
+
+--select consecutive before & after rows
+select *,
+      lead(column_nm) over(partition by column_nm2 order by column_nm3), --selects the row below the current
+      lead(column_nm) over(partition by column_nm2 order by column_nm3), --selects the row above the current
+from table_name 
+
+--conditional selection
+
+(CASE when lag(ap_name) over(partition by user_mac, start_date order by start_timestamp) = ap_name then 1 else 0 end)
+

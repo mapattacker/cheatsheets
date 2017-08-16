@@ -22,6 +22,8 @@ import re
   
   # [^A-Z] does not match alphabets A to Z (^ means does not)
   
+  # \b    Word boundary. Matches r'\bfoo\b' matches 'foo', 'foo.', '(foo)', 'bar foo baz' but not 'foobar' or 'foo3'.
+  # \B    Matches r'py\B' matches 'python', 'py3', 'py2', but not 'py', 'py.', or 'py!'.
   # \w	  Matches word characters (numbers & alphabets). Includes underscore
   # \W	  Matches nonword characters.
   # \d	  Matches digits. Equivalent to [0-9].
