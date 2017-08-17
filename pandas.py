@@ -226,6 +226,22 @@ df1.sort_values(['a', 'b'], ascending=[True, False])
 
 
 #--------------------------------------------------------
+## STRING MANIPULATIONS
+    
+df['column1'].str.len() # length of each cell
+
+# regular expressions is also enabled here
+df['text'].str.count(r'\d') # find how many times a digit occurs in each string
+df['text'].str.findall(r'(\d?\d):(\d\d)') # group and find the hours and minutes
+df['text'].str.replace(r'\w+day\b', '???') # replace weekdays with '???'
+df['text'].str.replace(r'(\w+day\b)', lambda x: x.groups()[0][:3]) # replace weekdays with 3 letter abbrevations
+    # Extract match to new columns
+df['text'].str.extract(r'(\d?\d):(\d\d)') # create new columns from first match of extracted groups
+df['text'].str.extractall(r'((\d?\d):(\d\d) ?([ap]m))') # extract the entire time, the hours, the minutes, and the period
+df['text'].str.extractall(r'(?P<time>(?P<hour>\d?\d):(?P<minute>\d\d) ?(?P<period>[ap]m))') # extract the entire time, the hours, the minutes, and the period with group names
+
+
+#--------------------------------------------------------
 ## FILTERING, SQL WHERE CLAUSE
 df[:100] # first 100 rows
 df[df['EVENT_TYPE'] == 'Thunderstorm Wind'] # one value
