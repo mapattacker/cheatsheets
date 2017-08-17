@@ -10,7 +10,7 @@ import re
   # {n}   Matches exactly n reptitions
   # {n,}  At least n times
   # {,n}  At most n times
-  # {m,n} At least m and at most n repetitions (e.g., \d{1,2} means get 1 or 2 digits only)
+  # {m,n} At least m and at most n repetitions (e.g., \d{1,3} means get 1, 2 or 3 digits)
   # ^     Match first character in line
   # $     Match last character of string
   # []    Matches any charcters in the square brackets
@@ -43,12 +43,14 @@ email = 'this is an bah bah email nick19a@gmail.com the end foo@gmail.com.'
 
 #-------------------------------------------
 # match; output if result at start of string
+# Unmatched objects return None
 num = re.match(r'\w\w\w', phone)
 print num.group() #output '200'
 
 
 #-------------------------------------------
 # search; output first result in string
+# Unmatched objects return None
 # can use s.split(' ') to split the text into individuals words first
 num = re.search(r'...4', phone)
 print num.group() #output '2004'
@@ -69,6 +71,7 @@ print result.group(0)  #output 'nick19a@gmail.com'
 print result.group(1)  #output 'nick19a'
 print result.group(2)  #output 'gmail.com'
 
+
 #-------------------------------------------
 # findall; output all results in a list
 num = re.findall(r'2004|Phone', phone)
@@ -80,3 +83,35 @@ print result #ouput [('nick19a', 'gmail.com'), ('foo', 'gmail.com.')]
 # replace
 num = re.sub(r'\W', '', phone)  #3 arguments
 print num
+
+
+#-------------------------------------------
+# using date & pandas
+import re
+import numpy as np
+import pandas as pd
+
+def function(x):
+    # 04/20/2009; 04/20/09; 4/20/09; 4/3/09; 4-13-82
+    if re.search(r'\d{1,2}[-/]\d{1,2}[-/]\d{2,4}', x) is not None:
+        return re.search(r'\d{1,2}[-/]\d{1,2}[-/]\d{2,4}', x).group()
+    # Mar-20-2009; Mar 20, 2009; March 20, 2009; Mar. 20, 2009; Mar 20 2009;
+    elif re.search(r'\d{,2}/\d{4}', x) is not None:
+        return re.search(r'\d{,2}/\d{4}', x).group()
+    # Mar-20-2009; Mar 20, 2009; March 20, 2009; Mar. 20, 2009; Mar 20 2009;
+    # 20 Mar 2009; 20 March 2009; 20 Mar. 2009; 20 March, 2009
+    elif re.search(r'[\d+\s]*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z-.\s]*\d{,2}[-,\s]*\d{4}', x) is not None:
+        return re.search(r'[\d+\s]*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z-.\s]*\d{,2}[-,\s]*\d{4}', x).group().strip()
+    # Mar 20th, 2009; Mar 21st, 2009; Mar 22nd, 2009
+    elif re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{2}\w{2},\s\d{4}', x) is not None:
+        return re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{2}\w{2},\s\d{4}', x).group()
+    # Feb 2009; Sep 2009; Oct 2010    
+    elif re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{4}', x) is not None:
+        return re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{4}', x).group()
+    # 2009; 2010
+    elif re.search(r'\d{4}', x) is not None:
+        return re.search(r'\d{4}', x).group()
+    else:
+        return np.nan
+
+df2['new'] = df2['original'].apply(function)
