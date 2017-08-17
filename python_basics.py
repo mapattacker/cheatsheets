@@ -27,3 +27,7 @@ print x
 x = datetime.strptime('2011-01-03', '%Y-%m-%d').date()
 print x
 # 2011-01-03
+
+x = datetime.strptime('2011', '%Y').date()
+print x
+# 2011-01-01
