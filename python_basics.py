@@ -23,11 +23,17 @@ from datetime import datetime
 x = datetime.strptime('2011-01-03', '%Y-%m-%d')
 print x
 # 2011-01-03 00:00:00
-
 x = datetime.strptime('2011-01-03', '%Y-%m-%d').date()
 print x
 # 2011-01-03
-
 x = datetime.strptime('2011', '%Y').date()
 print x
 # 2011-01-01
+
+
+import dateutil.parser
+from datetime import datetime
+
+# note that the default day if not present will be the current day, have to add a manual default to override
+print dateutil.parser.parse("2014-02", default=datetime(2017, 1, 1, 0, 0)).date()
+# 2014-02-01
