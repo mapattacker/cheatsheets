@@ -99,9 +99,11 @@ def function(x):
     elif re.search(r'\d{,2}/\d{4}', x) is not None:
         return re.search(r'\d{,2}/\d{4}', x).group()
     # Mar-20-2009; Mar 20, 2009; March 20, 2009; Mar. 20, 2009; Mar 20 2009;
+    elif re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z-.\s]*\d{,2}[-,\s]*\d{4}', x) is not None:
+        return re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z-.\s]*\d{,2}[-,\s]*\d{4}', x).group().strip()
     # 20 Mar 2009; 20 March 2009; 20 Mar. 2009; 20 March, 2009
-    elif re.search(r'[\d+\s]*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z-.\s]*\d{,2}[-,\s]*\d{4}', x) is not None:
-        return re.search(r'[\d+\s]*(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z-.\s]*\d{,2}[-,\s]*\d{4}', x).group().strip()
+    elif re.search(r'\d+\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z.]*\s\d{4}', x) is not None:
+        return re.search(r'\d+\s(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z.]*\s\d{4}', x).group()
     # Mar 20th, 2009; Mar 21st, 2009; Mar 22nd, 2009
     elif re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{2}\w{2},\s\d{4}', x) is not None:
         return re.search(r'(Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)\s\d{2}\w{2},\s\d{4}', x).group()
