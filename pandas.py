@@ -223,6 +223,7 @@ df2=df[['country','x277_2012']]
 df2.sort_values('x277_2012',ascending=False)
     # sort multiple columns
 df1.sort_values(['a', 'b'], ascending=[True, False])
+df3[['a','b']].sort_values(['a','b'], ascending=[True, True]) # sort a first then b
 
 
 #--------------------------------------------------------
