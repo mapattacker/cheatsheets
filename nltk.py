@@ -1,5 +1,19 @@
 import nltk
 
+# BASICS
+#---------------------------------------
+# types of features in text classification
+# 1) Words 
+    # stopwords
+    # normalisation (lowercase or not)
+    # stemming/lemmatising or not
+    # Caps or not
+    # POS in a sentence
+    # Grammatical structure
+    # Grouping of words of same meaning (semantics), other e.g., dates
+2) Emoji
+3) 
+
 # DEFAULT CORPUSES
 #---------------------------------------
 # Open window to select download of corpuses (colletion of writings) and packages in nltk
@@ -139,7 +153,7 @@ print set(nltk.ngrams('hello', n=3)) #trigram cos n=3
 # set([('l', 'l', 'o'), ('e', 'l', 'l'), ('h', 'e', 'l')])
 
 
-# Jaccard Distance
+# Jaccard Distance, more: https://engineerbyday.wordpress.com/2012/01/30/how-spell-checkers-work-part-1/#Jaccard
 nltk.jaccard_distance(set(nltk.ngrams(word1, n=4)),
                       set(nltk.ngrams(word2, n=4))) #shorter the distance, closer the match (0 to 1)
                       
