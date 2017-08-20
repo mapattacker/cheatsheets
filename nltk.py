@@ -9,6 +9,9 @@ from nltk.book import * # list books
 text1 # list book
 sent1 # list one sentence of text1
 
+# all english words
+from nltk.corpus import words
+correct_spellings = words.words()
 
 
 # FREQUENCY DISTRIBUTION
@@ -131,6 +134,15 @@ print str.isalpha() # False
 
 # SPELL CHECKER ALGORITHMS
 #---------------------------------------
+# about ngrams
+print set(nltk.ngrams('hello', n=3)) #trigram cos n=3
+# set([('l', 'l', 'o'), ('e', 'l', 'l'), ('h', 'e', 'l')])
+
+
 # Jaccard Distance
 nltk.jaccard_distance(set(nltk.ngrams(word1, n=4)),
-                      set(nltk.ngrams(word2, n=4))) #shorter the distance the closer the match (0 to 1)
+                      set(nltk.ngrams(word2, n=4))) #shorter the distance, closer the match (0 to 1)
+                      
+                      
+# Edit Distance
+nltk.edit_distance(entries[0], a) #shorter distance, closer the match (0 to len(word))
