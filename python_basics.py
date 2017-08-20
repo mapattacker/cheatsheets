@@ -7,6 +7,13 @@ print 'this score is {:.2f}'.format(1.1234) # 2 decimal format
 >>> 'this score is 1.12'
 
 
+
+# STRING
+#--------------------------------
+string[::20] # get every 20th feature
+
+
+
 # DIVISION IN DECIMALS
 #--------------------------------
 # in python, there is no decimals if you do a division. Use the following to obtain it.

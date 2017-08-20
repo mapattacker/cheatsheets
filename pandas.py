@@ -16,6 +16,10 @@ pd.read_clipboard()
     # JSON
 df=pd.read_json(path)
 df.to_json('/Users/xxx/Desktop/d.json')
+    # Sample the data to speed up computation
+df = df.sample(frac=0.1, random_state=10)
+
+
 
 
 #--------------------------------------------------------
@@ -252,6 +256,8 @@ df[df['EVENT_TYPE'].isin(['Thunderstorm Wind', 'Hail', 'Winter Weather'])] # mul
 df3 = df2[(df2['layers']>0) & (df2['depth']>0)] # multiple columns using 'AND'
 df3 = df2[(df2['layers']>0) | (df2['depth']>0)] # multiple columns using 'OR'
 
+# REMOVE ROWS
+df = df[df['Rating'] != 3]
 
 # SQL NOT IN, note the curly '~' which act as a boolean
 list = ['WORLD', 'INCOME', 'DEVELOPING']
@@ -358,7 +364,9 @@ df['date'] = df['raw'].str.extract('(....-..-..)', expand=True)
 # example of value 'Online,Sales,Adult'
 ticketcat['sales'] = ticketcat['TicketDescription'].apply(lambda x: x.split(',')[1])
 ticketcat['medium'] = ticketcat['TicketDescription'].apply(lambda x: x.split(',')[0])
-                 
+
+    ## using numpy, if > 3, x=1 else x=0
+df['Positively Rated'] = np.where(df['Rating'] > 3, 1, 0)
                  
 #--------------------------------------------------------
 # REPLACE VALUES

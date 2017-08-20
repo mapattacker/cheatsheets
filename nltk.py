@@ -160,3 +160,10 @@ nltk.jaccard_distance(set(nltk.ngrams(word1, n=4)),
                       
 # Edit Distance
 nltk.edit_distance(entries[0], a) #shorter distance, closer the match (0 to len(word))
+
+
+# CLASSIFICATION
+#---------------------------------------
+from nltk.classify import NaiveBayesClassifier
+# nltk naive bayes have a useful function to show most informative features
+classifier.show_most_informative_features()
