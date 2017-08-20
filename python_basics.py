@@ -8,9 +8,10 @@ print 'this score is {:.2f}'.format(1.1234) # 2 decimal format
 
 
 
-# STRING
+# LIST EXTRACTION
 #--------------------------------
-string[::20] # get every 20th feature
+list1[-1] # get last in the list
+list1[::20] # get every 20th feature
 
 
 

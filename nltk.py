@@ -167,3 +167,26 @@ nltk.edit_distance(entries[0], a) #shorter distance, closer the match (0 to len(
 from nltk.classify import NaiveBayesClassifier
 # nltk naive bayes have a useful function to show most informative features
 classifier.show_most_informative_features()
+
+
+
+# Using Count Vectorizer
+from sklearn.feature_extraction.text import CountVectorizer
+vect = CountVectorizer().fit(X_train)
+X_train_vectorized = vect.transform(X_train)
+
+from sklearn.linear_model import LogisticRegression
+model = LogisticRegression()
+model.fit(X_train_vectorized, y_train)
+
+# TF-IDF (Term frequency-inverse document frequency)
+    # High weight is given to terms that appear often in a particular document, 
+        # but don't appear often in the corpus (all documents). 
+    # Features with low tf–idf are either commonly used across all documents 
+        # or rarely used and only occur in long documents.
+# TF-IDF can reduce the number of features required to train a model
+from sklearn.feature_extraction.text import TfidfVectorizer
+# min_df, a minimum document frequency of 5
+# extracting 1-grams and 2-grams
+vect = TfidfVectorizer(min_df=5, ngram_range=(1,2)).fit(X_train)
+
