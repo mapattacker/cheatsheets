@@ -13,7 +13,7 @@ sent1 # list one sentence of text1
 
 # FREQUENCY DISTRIBUTION
 #---------------------------------------
-freq = FreqDist(g)
+freq = nltk.FreqDist(g)
 print freq
 # it gives a dictionary
 FreqDist({u'endorsed': 2,
@@ -25,10 +25,10 @@ FreqDist({u'endorsed': 2,
           u'railing': 3,})
 
 # So it works like a dictionary
-freq.keys() # get word without frequency
+freq.keys() # get words without frequency
 freq['endorsed'] # >>> 2
           
-top10 = freq.most_common(300) # top n most common
+top10 = freq.most_common(300) # top n most common, arranged descending order
 
 
 
@@ -88,9 +88,49 @@ print nltk.word_tokenize(text11)
 ['Children', 'should', "n't", 'drink', 'a', 'sugary', 'drink', 'before', 'bed', '.']
 
 # Sentence Tokens
-text12 = "This is the first sentence. A gallon of milk in the U.S. costs $2.99. Is this the third sentence? Yes, it is!"
+text12 = "This is the first sentence. A gallon of milk in the U.S. \
+            costs $2.99. Is this the third sentence? Yes, it is!"
 print nltk.sent_tokenize(text12)
 ['This is the first sentence.',
  'A gallon of milk in the U.S. costs $2.99.',
  'Is this the third sentence?',
  'Yes, it is!']
+ 
+ 
+# PARTS OF SPEECH (POS)
+#---------------------------------------
+# grammer terms
+# get definition and examples of terms
+nltk.help.upenn_tagset('MD')
+
+text11 = "Children shouldn't drink a sugary drink before bed."
+text11 = nltk.word_tokenize(text11)
+print nltk.pos_tag(text13)
+
+[('Children', 'NNP'),
+ ('should', 'MD'),
+ ("n't", 'RB'),
+ ('drink', 'VB'),
+ ('a', 'DT'),
+ ('sugary', 'JJ'),
+ ('drink', 'NN'),
+ ('before', 'IN'),
+ ('bed', 'NN'),
+ ('.', '.')]
+ 
+ 
+# isalpha()
+#---------------------------------------
+# Gives boolean whether the string contains alpabets only
+str = "this";  # No space & digit in this string
+print str.isalpha() # True
+
+str = "this is string example....wow!!!";
+print str.isalpha() # False
+
+
+# SPELL CHECKER ALGORITHMS
+#---------------------------------------
+# Jaccard Distance
+nltk.jaccard_distance(set(nltk.ngrams(word1, n=4)),
+                      set(nltk.ngrams(word2, n=4))) #shorter the distance the closer the match (0 to 1)
