@@ -172,12 +172,16 @@ classifier.show_most_informative_features()
 
 # Using Count Vectorizer
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.linear_model import LogisticRegression
+from sklearn.metrics import roc_auc_score
+
 vect = CountVectorizer().fit(X_train)
 X_train_vectorized = vect.transform(X_train)
 
-from sklearn.linear_model import LogisticRegression
 model = LogisticRegression()
 model.fit(X_train_vectorized, y_train)
+predictions = model.predict(vect.transform(X_test))
+print('AUC: ', roc_auc_score(y_test, predictions))
 
 # TF-IDF (Term frequency-inverse document frequency)
     # High weight is given to terms that appear often in a particular document, 
