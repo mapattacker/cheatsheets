@@ -14,6 +14,10 @@ list1[-1] # get last in the list
 list1[::20] # get every 20th feature
 
 
+# SORTING
+#--------------------------------
+sorted(token, reverse=True) # default is ascending, reverse=True is descending
+
 
 # DIVISION IN DECIMALS
 #--------------------------------

@@ -11,8 +11,7 @@ import nltk
     # POS in a sentence
     # Grammatical structure
     # Grouping of words of same meaning (semantics), other e.g., dates
-2) Emoji
-3) 
+
 
 # DEFAULT CORPUSES
 #---------------------------------------
