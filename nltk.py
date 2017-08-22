@@ -174,13 +174,20 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import roc_auc_score
 
+# Fitting the CountVectorizer tokenizes each document by finding all sequences of characters 
+# of at least two letters or numbers separated by word boundaries. 
+# Converts everything to lowercase and builds a vocabulary using these tokens. 
 vect = CountVectorizer().fit(X_train)
+print vect.get_feature_names() # give a list of feature names
+
 X_train_vectorized = vect.transform(X_train)
+print vect.vocabulary_ # gives a dict of feature names with frequency
 
 model = LogisticRegression()
 model.fit(X_train_vectorized, y_train)
 predictions = model.predict(vect.transform(X_test))
 print('AUC: ', roc_auc_score(y_test, predictions))
+
 
 # TF-IDF (Term frequency-inverse document frequency)
     # High weight is given to terms that appear often in a particular document, 
@@ -189,7 +196,29 @@ print('AUC: ', roc_auc_score(y_test, predictions))
         # or rarely used and only occur in long documents.
 # TF-IDF can reduce the number of features required to train a model
 from sklearn.feature_extraction.text import TfidfVectorizer
-# min_df, a minimum document frequency of 5
+# min_df, a minimum document frequency of < 5
 # extracting 1-grams and 2-grams
 vect = TfidfVectorizer(min_df=5, ngram_range=(1,2)).fit(X_train)
 
+
+# SEMANTICS
+#---------------------------------------
+# semantic text similarity using WordNet
+
+# Path Similarity (highest 0.5, lowest near but not 0)
+import nltk
+from nltk.corpus import wordnet as wn
+
+deer = wn.synset('deer.n.01')
+elk = wn.synset('elk.n.01')
+horse = wn.synset('horse.n.01')
+
+deer.path_similarity(elk)   # 0.5
+deer.path_similarity(horse) # 0.14
+
+# Lin Similarity
+# Lowest Common Subsumer (find closest ancestor)
+
+
+# Collocations & Distributions Similarity
+    # two words that occur frequently in similar context are more likely to be semantically related

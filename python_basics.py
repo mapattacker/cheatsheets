@@ -8,10 +8,22 @@ print 'this score is {:.2f}'.format(1.1234) # 2 decimal format
 
 
 
-# LIST EXTRACTION
+# LIST
 #--------------------------------
 list1[-1] # get last in the list
 list1[::20] # get every 20th feature
+
+# append
+x = [1, 2, 3]
+x.append([4, 5])
+print (x)
+>>>[1, 2, 3, [4, 5]]
+
+# extend
+x = [1, 2, 3]
+x.extend([4, 5])
+print (x)
+>>>[1, 2, 3, 4, 5]
 
 
 # SORTING
