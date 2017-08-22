@@ -204,6 +204,7 @@ vect = TfidfVectorizer(min_df=5, ngram_range=(1,2)).fit(X_train)
 # SEMANTICS
 #---------------------------------------
 # semantic text similarity using WordNet
+# http://www.nltk.org/howto/wordnet.html
 
 # Path Similarity (highest 0.5, lowest near but not 0)
 import nltk
@@ -222,3 +223,52 @@ deer.path_similarity(horse) # 0.14
 
 # Collocations & Distributions Similarity
     # two words that occur frequently in similar context are more likely to be semantically related
+    
+    
+# TOPIC MODELING
+#---------------------------------------
+# Coarse level analysis of what's in a text collection
+# A document is a mixture of topics
+# A text clustering problem
+# Different models available
+# Topic output are just word distributions: interpretation is subjective
+
+# Given: Corpus, Number of Topics
+# Not Given: Topic Names, Topic Distribution for each document
+
+# Preprocessing
+    # Tokenize, normalize
+    # Stop words removal (common works in a domain)
+    # Stemming
+# Build Document Term Matrix
+    # Convert document has what words > what words in each document
+# Build LDA Model
+
+# Latent Dirichlet Allocation
+    # A type of generative model
+    # Choose length of document 
+    # Choose mixture of topic for document
+    # Use topic's multinomial distribution to output words to fill topics's quota
+        # for a particular document, 40% of the words come from topic A, then you use that topic A's multinomial distribution to output the 40% of the words. 
+    # LDA is a very powerful tool and a text clustering tool that is fairly commonly used as the first step to understand what a corpus is about. 
+    # LDA can also be used as a feature selection technique for text classification and other tasks
+        
+# So once you have built the mapping between the terms and documents, then suppose you have a set of pre-processed text documents in this variable doc_set. 
+# Then you could use gensim to learn LDA this way. You could import gensim and specifically you import the corpora and the models. 
+# First you create a dictionary, dictionary is mapping between IDs and words. 
+# 
+# Then you create corpus, and corpus you create going through this, all the documents in the doc_set, 
+# and creating a document to bag of words model. 
+# This is the step that creates the document term matrix.
+#  Once you have that, then you input that in the LdaModel call, so that you use a gensim.models LdaModel, 
+#  where you also specify the number of topics you want to learn. So in this case, we said number of topics is going to be four, 
+#  and you also specify this mapping, the id2word mapping. That's a dictionary that is learned two steps ahead. 
+# 
+# Once you have learned that, then that's it, and you can say how many passes it should go through. 
+# And there are other parameters that I would encourage you to read upon. But once you have defined this ldamodel,
+#  you can then use the ldamodel to print the topics. So, in this particular case, we learnt four topics. 
+#  And you can say, give me the top five words of these four topics and then it will bring that one out for you. 
+# 
+# ldamodel model can also be used to find topic distributions of documents. 
+# So when you have a new document and you apply the ldamodel on it, so you infer it. 
+# You can say, what was the topic distribution, across these four topics, for that new document. 
