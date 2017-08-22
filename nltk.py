@@ -182,6 +182,7 @@ print vect.get_feature_names() # give a list of feature names
 
 X_train_vectorized = vect.transform(X_train)
 print vect.vocabulary_ # gives a dict of feature names with frequency
+print vect.vocabulary_.items() # gives pairs of key values in tuples instead, within a list
 
 model = LogisticRegression()
 model.fit(X_train_vectorized, y_train)
@@ -200,6 +201,15 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 # extracting 1-grams and 2-grams
 vect = TfidfVectorizer(min_df=5, ngram_range=(1,2)).fit(X_train)
 
+# Use CountVectorizor to find three letter tokens, remove stop_words, 
+# remove tokens that don't appear in at least 20 documents,
+# remove tokens that appear in more than 20% of the documents
+vect = CountVectorizer(min_df=20, max_df=0.2, stop_words='english', 
+                       token_pattern='(?u)\\b\\w\\w\\w+\\b') # (?u) refers to unicode
+                       
+                       
+                       
+                       
 
 # SEMANTICS
 #---------------------------------------
