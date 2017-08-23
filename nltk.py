@@ -282,3 +282,4 @@ deer.path_similarity(horse) # 0.14
 # ldamodel model can also be used to find topic distributions of documents. 
 # So when you have a new document and you apply the ldamodel on it, so you infer it. 
 # You can say, what was the topic distribution, across these four topics, for that new document. 
+

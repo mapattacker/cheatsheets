@@ -48,6 +48,19 @@ len(set(list1)) # 4
 print set(list1) # set(['a', 'c', 'b', 'd'])
 
 
+# PICKLING
+#--------------------------------
+# http://www.pitt.edu/~naraehan/python2/pickling.html
+# saving your Python data object as itself
+# also see https://stackoverflow.com/questions/26860051/how-to-reduce-the-time-taken-to-load-a-pickle-file-in-python
+import cPickle
+
+f = open('gradesdict.p', 'rb')
+mydict = cPickle.load(f)       
+f.close()
+
+
+
 # DATE
 #--------------------------------
 from datetime import datetime
