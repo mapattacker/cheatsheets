@@ -2,7 +2,7 @@ import pandas as pd
 
 ## READ & WRITE
     # CSV
-df = pd.read_csv('shenzhen_processed.csv')
+df = pd.read_csv('shenzhen_processed.csv', low_memory=False)
 df = pd.read_csv('olympics.csv', index_col=0, skiprows=1)   #take 1st col as index, and remove 1st row
 df.to_csv('shenzhen_processed.csv', index=False)
     # EXCEL
