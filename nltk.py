@@ -177,6 +177,7 @@ from sklearn.metrics import roc_auc_score
 # Fitting the CountVectorizer tokenizes each document by finding all sequences of characters 
 # of at least two letters or numbers separated by word boundaries. 
 # Converts everything to lowercase and builds a vocabulary using these tokens. 
+# Converts each feature word into integer
 vect = CountVectorizer().fit(X_train)
 print vect.get_feature_names() # give a list of feature names
 

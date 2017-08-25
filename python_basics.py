@@ -60,6 +60,10 @@ mydict = cPickle.load(f)
 f.close()
 
 
+# READING FROM ZIP FILE
+#--------------------------------
+
+
 
 # DATE
 #--------------------------------
