@@ -220,12 +220,16 @@ vect = CountVectorizer(min_df=20, max_df=0.2, stop_words='english',
 import nltk
 from nltk.corpus import wordnet as wn
 
-deer = wn.synset('deer.n.01')
+deer = wn.synset('deer.n.01')   # wordnet contains synsets, which is a collection of synonyms
 elk = wn.synset('elk.n.01')
 horse = wn.synset('horse.n.01')
 
 deer.path_similarity(elk)   # 0.5
 deer.path_similarity(horse) # 0.14
+
+# synset vs synsets (end with s)
+wn.synsets('test.n.01') # gives the first synonym in the collection (n stands for noun)
+wn.synsets('test') # gives a list of all possible synoynms
 
 # Lin Similarity
 # Lowest Common Subsumer (find closest ancestor)

@@ -8,7 +8,7 @@ print 'this score is {:.2f}'.format(1.1234) # 2 decimal format
 
 
 
-# LIST
+# LIST SLICING
 #--------------------------------
 list1[-1] # get last in the list
 list1[::20] # get every 20th feature

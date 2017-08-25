@@ -305,6 +305,7 @@ def timerange(x):
     else:
         return '21:00-24:00'
 df['time_range'] = df['hour'].apply(timerange, axis=1)
+
     ## MULTIPLE COLUMN CONDITION
 def peak(x):
     if x['Public Holiday'] == 'National Day' or x['Public Holiday'] == 'New Year''s Day':
