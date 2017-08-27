@@ -179,6 +179,11 @@ df[sorted(df.columns.tolist())].head(3)
 
 
 #--------------------------------------------------------
+## SET VALUES PER CELL
+df.set_value(i, 'Y_svy', svy[1]) # index, column name, value
+
+
+#--------------------------------------------------------
 ## COUNTING
 df['EVENT_TYPE'].value_counts()
 df['number_layers'].value_counts(normalize=True)*100 # by percentage
