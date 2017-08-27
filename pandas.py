@@ -93,7 +93,7 @@ df.describe #mean, std, count, etc. only numeric formated columns
 df.dtypes
 df['hour'] = df['hour'].astype('int64')
 df['text'] = df['text'].astype('str')
-df['col3'] = df['col2'].astype('category')
+df['col3'] = df['col2'].astype('category') # category type has int code in the backend
     #coerce, any errors will be converted to NaN
 df['price'] = pd.to_numeric(df['price'], errors='coerce')
 df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
@@ -450,6 +450,8 @@ df = df.append(df2, ignore_index=True)
 
 df2['Gene'] = df2['Gene'].astype('category') # first change an object to category
 df2['code'] = df2['Gene'].cat.codes     # then extract their code out
+# when training a model, can just use ".cat.codes" to fit the model
+
 
 #--------------------------------------------------------
 ## DATES
