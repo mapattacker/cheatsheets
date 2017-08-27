@@ -9,10 +9,12 @@ import matplotlib.pyplot as plt
 plt.style.available
 plt.style.use('seaborn') #set the style
 
+# IMPT!!!!!!
 # add a semi-colon to the end of the plotting call to suppress unwanted output
 df.plot(); 
 # prevents overlapping of axis labels, tick labels and titles
 plt.tight_layout()
+
 
 ### COLORS---------------------------------------
   #normal form
@@ -140,6 +142,9 @@ plt.colorbar() #add color range legend
   # error bars
 plt.errorbar(x, y, xerr=0.2)
 
+
+# OR.... use kind = graph_type
+plt(kind=bar, x, y)
 
 
 ### ADD HORIZONTAL/VERTICAL LINE, axhline---------------------------------------

@@ -1,6 +1,9 @@
 ### Easiest
 Install Anaconda, comes with most of the important packages.
 
+### Check version in command line
+python -V
+
 ### install packages using wheel
    * Important for computers without internet access.
    * 

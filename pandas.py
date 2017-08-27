@@ -27,6 +27,7 @@ df = df.sample(frac=0.1, random_state=10)
 pd.set_option('display.max_columns', None) # show all columns
 pd.set_option('display.max_rows', None) # show all rows
 pd.set_option('display.max_colwidth', -1) # no limit to column width
+pd.reset_option('all') # reset set options
 
 
 #--------------------------------------------------------
@@ -446,9 +447,9 @@ df = df.append(df2, ignore_index=True)
 
 #--------------------------------------------------------
 ## ENCODE CATEGORICAL TO INTEGERS
-    
-cat_columns = df.select_dtypes(['category']).columns    #select categorical datatype
-df[cat_columns] = df[cat_columns].apply(lambda x: x.cat.codes) #cat.codes to encode them into integers
+
+df2['Gene'] = df2['Gene'].astype('category') # first change an object to category
+df2['code'] = df2['Gene'].cat.codes     # then extract their code out
 
 #--------------------------------------------------------
 ## DATES
