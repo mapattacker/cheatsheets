@@ -11,6 +11,7 @@ df = pd.read_csv("P00000001-ALL.csv", nrows=20) # limit to only 20 rows
 df.to_excel('output.xlsx', index=False)
     # TXT
 utown=pd.read_table('university_towns.txt', sep=',', header=None)
+df1 = pd.read_table('training_text', sep='\|\|', engine='python', skiprows=1, names=["ID","Text"]) #note that any delimiter more than 1 is a reg, have to use \ to override
     # convert a clip board into dataframe!!!
 pd.read_clipboard()
     # JSON
