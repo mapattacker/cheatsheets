@@ -7,6 +7,19 @@ print 'this score is {:.2f}'.format(1.1234) # 2 decimal format
 >>> 'this score is 1.12'
 
 
+# LOOPS
+#--------------------------------
+# enumerate
+a = [10,123,1231,232143434,234235]
+for num, i in enumerate(a):
+    print num, i
+
+0 10
+1 123
+2 1231
+3 232143434
+4 234235
+
 
 # LIST SLICING
 #--------------------------------

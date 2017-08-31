@@ -31,6 +31,7 @@ pd.set_option('display.max_colwidth', -1) # no limit to column width
 pd.reset_option('all') # reset set options
 
 
+
 #--------------------------------------------------------
 ## PERFORMANCE
 df.info(memory_usage="deep") # display memory usage
