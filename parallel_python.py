@@ -135,3 +135,37 @@ print "\nMain process PID [%d]\n" % os.getpid()
 for key, value in result_dict.items():
     print "** For url %s, %s\n" % (key, value)
     job_dispatcher.print_stats()
+
+
+# DASK
+#---------------------------------------
+# http://dask.pydata.org/en/latest/index.html
+# Dask is a flexible parallel computing library for analytic computing.
+
+
+
+
+# NUMBA
+#---------------------------------------
+# https://numba.pydata.org
+# With a few annotations, array-oriented and math-heavy Python code can be just-in-time compiled to native machine instructions, 
+# similar in performance to C, C++ and Fortran, without having to switch languages or Python interpreters.
+# Numba works by generating optimized machine code using the LLVM compiler infrastructure at import time, 
+# runtime, or statically (using the included pycc tool).
+
+from numba import jit
+from numpy import arange
+
+# jit decorator tells Numba to compile this function.
+# The argument types will be inferred by Numba when function is called.
+@jit
+def sum2d(arr):
+    M, N = arr.shape
+    result = 0.0
+    for i in range(M):
+        for j in range(N):
+            result += arr[i,j]
+    return result
+
+a = arange(9).reshape(3,3)
+print(sum2d(a))
