@@ -47,6 +47,8 @@ sorted(token, reverse=True) # default is ascending, reverse=True is descending
 # DIVISION IN DECIMALS
 #--------------------------------
 # in python, there is no decimals if you do a division. Use the following to obtain it.
+# only for python 2.7
+# fixed in python 3>
 >>> 4 / float(100)
 0.04
 >>> 4 / 100.0
