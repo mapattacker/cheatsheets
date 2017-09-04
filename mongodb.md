@@ -16,6 +16,18 @@ Robo 3T
 . New query language, with chained functions, learning curve low
 . Has horizontal scaling through Sharing: storing records in multiple machines
 
+. mongod is the database server 
+. mongo is the command line for typing queries 
+
+# Set-up
+
+. Setup environment variable for mongo server path "C:\Program Files\MongoDB\Server\3.4\bin"
+. Go control panel > System & Security > System > Advanced system settings > Environment Variables > User variables
+. Open cmd and type "mongod" to start mongodb server
+. Create folders data & within it, db. This stores the databases "C:\data\db"
+. Now you can start playing with it
+
+
 # Database
 
 `use dbname`  --select database, or create if not exist
