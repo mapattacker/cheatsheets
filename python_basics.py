@@ -137,6 +137,9 @@ central = utc.astimezone(tz.tzlocal())
         # "C:\Users\Teo Siyang\Dropbox\Scripts\MyPythonScripts\Social Media\facebook\facebook_public.py"
   # Note that double quotes needed is there are spaces in path
 
+
+# EXCEPTION HANDLING
+#--------------------------------
 import sys
 import traceback
 
