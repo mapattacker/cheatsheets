@@ -137,3 +137,12 @@ central = utc.astimezone(tz.tzlocal())
         # "C:\Users\Teo Siyang\Dropbox\Scripts\MyPythonScripts\Social Media\facebook\facebook_public.py"
   # Note that double quotes needed is there are spaces in path
 
+import sys
+import traceback
+
+try:
+    something
+except Exception, e:
+    print sys.exc_info()[2].tb_lineno # line number where code breaks
+    print e # exact item that have issue
+    print traceback.format_exc() # full traceback error
