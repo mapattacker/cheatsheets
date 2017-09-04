@@ -93,6 +93,9 @@ print x
 x = datetime.strptime('2011', '%Y').date()
 print x
 # 2011-01-01
+d = datetime.strptime("22:30", "%H:%M")
+print d.strftime("%I:%M %p")
+# '10:30 PM'
 
 
 # dateutil.parser is very good at parsing all times of date formats into standard ones
@@ -105,3 +108,33 @@ print dateutil.parser.parse("2014-02", default=datetime(2017, 1, 1, 0, 0)).date(
 
 # fuzzy = True ignores any exceptions
 print dateutil.parser.parse("2014-02", default=datetime(2017, 1, 1, 0, 0), fuzzy=True).date()
+
+
+# Set Timezone to Local
+from dateutil import tz
+
+# utc = datetime.utcnow()
+utc = datetime.strptime('2011-01-21 02:37:21', '%Y-%m-%d %H:%M:%S')
+
+# Tell the datetime object that it's in UTC time zone since 
+# datetime objects are 'naive' by default
+utc = utc.replace(tzinfo=tz.tzutc())
+# Convert time zone
+central = utc.astimezone(tz.tzlocal())
+
+
+# TASK SCHEDULER
+#--------------------------------
+# Go to Task Scheduler
+# Create Task
+# Give a name
+# Under Triggers > Add New > Check Repeat Task > Every 1 Hour or Others > for duration of: Change Indefinitely
+# Under Actions > Start a program 
+  # > Program/Script (choose python.exe path)
+        # C:\ProgramData\Anaconda2\python.exe
+  # > Add arguements (choose python script path)
+        # "C:\Users\Teo Siyang\Dropbox\Scripts\MyPythonScripts\Social Media\facebook\facebook_public.py"
+  # Note that double quotes needed is there are spaces in path
+
+
+
