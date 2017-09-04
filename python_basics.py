@@ -123,6 +123,7 @@ utc = utc.replace(tzinfo=tz.tzutc())
 central = utc.astimezone(tz.tzlocal())
 
 
+
 # TASK SCHEDULER
 #--------------------------------
 # Go to Task Scheduler
@@ -135,6 +136,4 @@ central = utc.astimezone(tz.tzlocal())
   # > Add arguements (choose python script path)
         # "C:\Users\Teo Siyang\Dropbox\Scripts\MyPythonScripts\Social Media\facebook\facebook_public.py"
   # Note that double quotes needed is there are spaces in path
-
-
 
