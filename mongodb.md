@@ -21,7 +21,7 @@ Robo 3T
 
 # Set-up
 
-. Setup environment variable for mongo server path "C:\Program Files\MongoDB\Server\3.4\bin"
+. Setup windows environment variable for mongo server path "C:\Program Files\MongoDB\Server\3.4\bin"
 . Go control panel > System & Security > System > Advanced system settings > Environment Variables > User variables
 . Open cmd and type "mongod" to start mongodb server
 . Create folders data & within it, db. This stores the databases "C:\data\db"
