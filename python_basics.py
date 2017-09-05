@@ -134,8 +134,9 @@ central = utc.astimezone(tz.tzlocal())
   # > Program/Script (choose python.exe path)
         # C:\ProgramData\Anaconda2\python.exe
   # > Add arguements (choose python script path)
-        # "C:\Users\Teo Siyang\Dropbox\Scripts\MyPythonScripts\Social Media\facebook\facebook_public.py"
+        # "C:\Users\xx\xx\Scripts\MyPythonScripts\facebook_public.py"
   # Note that double quotes needed is there are spaces in path
+
 
 
 # EXCEPTION HANDLING
