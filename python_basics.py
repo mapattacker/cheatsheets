@@ -98,6 +98,13 @@ print d.strftime("%I:%M %p")
 # '10:30 PM'
 
 
+import time
+# current date
+time.strftime("%d/%m/%Y")
+# current time in epoch
+time.time()
+
+
 # dateutil.parser is very good at parsing all times of date formats into standard ones
 import dateutil.parser
 from datetime import datetime
