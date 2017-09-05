@@ -104,7 +104,17 @@ time.strftime("%d/%m/%Y")
 # current time in epoch
 time.time()
 
+from datetime import datetime, timedelta
+print datetime.now()
+# 2017-09-05 21:17:02.111204
+print datetime.now().date()
+# 2017-09-05
+print datetime.now() + timedelta(days=5, hours=-5)
+# 2017-09-10 16:17:02.419905
 
+
+# Parsing Time Formats
+#----------------------
 # dateutil.parser is very good at parsing all times of date formats into standard ones
 import dateutil.parser
 from datetime import datetime
@@ -118,11 +128,10 @@ print dateutil.parser.parse("2014-02", default=datetime(2017, 1, 1, 0, 0), fuzzy
 
 
 # Set Timezone to Local
+#----------------------
 from dateutil import tz
-
 # utc = datetime.utcnow()
 utc = datetime.strptime('2011-01-21 02:37:21', '%Y-%m-%d %H:%M:%S')
-
 # Tell the datetime object that it's in UTC time zone since 
 # datetime objects are 'naive' by default
 utc = utc.replace(tzinfo=tz.tzutc())
