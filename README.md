@@ -21,5 +21,6 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __Seaborn__: Seaborn package `seaborn.py`
   * __Sphinx__: Documentation creation using sphinx `sphinx.md`
   * __SQL__: Some basic SQL queries `sql.sql`
+  * __Social Media__: Folder containing python codes for various social media APIs, including Slack, Instagram, Facebook, Twitter
   * __Tableau__: Sql queries for Tableau `tableau.sql`
   * __Web Scraping__: Web-scraping using beautiful soup and selenium `webscraping.py`
