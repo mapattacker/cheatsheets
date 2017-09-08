@@ -92,6 +92,7 @@ db.post.insert([
  }
 ])
 ```
+
 # Query (WHERE clause)
 
 `db.mycol.find()`
