@@ -10,22 +10,22 @@ Robo 3T
 
 # Basics
 
-. No schema needs to be defined.
-. Very fast to build a database because of that.
-. JSON format
-. New query language, with chained functions, learning curve low
-. Has horizontal scaling through Sharing: storing records in multiple machines
+ * No schema needs to be defined.
+ * Very fast to build a database because of that.
+ * JSON format
+ * New query language, with chained functions, learning curve low
+ * Has horizontal scaling through Sharing: storing records in multiple machines
 
-. mongod is the database server 
-. mongo is the command line for typing queries 
+ * mongod is the database server 
+ * mongo is the command line for typing queries 
 
 # Set-up
 
-. Setup windows environment variable for mongo server path "C:\Program Files\MongoDB\Server\3.4\bin"
-. Go control panel > System & Security > System > Advanced system settings > Environment Variables > User variables
-. Open cmd and type "mongod" to start mongodb server
-. Create folders data & within it, db. This stores the databases "C:\data\db"
-. Now you can start playing with it
+ * Setup windows environment variable for mongo server path "C:\Program Files\MongoDB\Server\3.4\bin"
+ * Go control panel > System & Security > System > Advanced system settings > Environment Variables > User variables
+ * Open cmd and type "mongod" to start mongodb server
+ * Create folders data & within it, db * This stores the databases "C:\data\db"
+ * Now you can start playing with it
 
 
 # Database
@@ -48,7 +48,7 @@ Collections act like tables in an RDBMS.
 
 `show collections`  --show collections 
 
-Note that it is not necessary to create a collection. 
+Note that it is not necessary to create a collection * 
 It will be automatically created when inserting a document.
 
 ```db.createCollection("mycol", { capped : true, autoIndexId : true, size :`
@@ -94,14 +94,15 @@ db.post.insert([
 ```
 # Query (WHERE clause)
 
-`db.mycol.find()``
+`db.mycol.find()`
 
 use pretty printing
 
-`db.mycol.find().pretty()`` --use pretty printing
+`db.mycol.find().pretty()` --use pretty printing
 
 ```db.mycol.find({"likes": {$gt:10}, $or: [{"by": "tutorials point"},
-{"title": "MongoDB Overview"}]}).pretty()```  --where likes>10 AND (by = 'tutorials point' OR title = 'MongoDB Overview')
+{"title": "MongoDB Overview"}]}).pretty()```  
+--where likes>10 AND (by = 'tutorials point' OR title = 'MongoDB Overview')
 
 
 # Query (LIMIT clause)

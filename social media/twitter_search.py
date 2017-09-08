@@ -1,6 +1,8 @@
 import requests
 from requests_oauthlib import OAuth1
 import json
+reload(sys)
+sys.setdefaultencoding("utf-8")
 
 
 params = {'app_key': 'xx',
