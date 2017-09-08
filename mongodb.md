@@ -15,7 +15,6 @@ Robo 3T
  * JSON format
  * New query language, with chained functions, learning curve low
  * Has horizontal scaling through Sharing: storing records in multiple machines
-
  * mongod is the database server 
  * mongo is the command line for typing queries 
 
