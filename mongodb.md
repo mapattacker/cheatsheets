@@ -116,7 +116,8 @@ db.mycol.find({"likes": {$gt:10}, $or: [{"by": "tutorials point"},
 
 # Explain
 
-```db.collection.find(query).explain()
+```
+db.collection.find(query).explain()
 {
     // BasicCursor means no index used, BtreeCursor would mean this is an indexed query
     "cursor" : "BasicCursor",
