@@ -101,9 +101,10 @@ use pretty printing
 
 `db.mycol.find().pretty()` --use pretty printing
 
+```
 db.mycol.find({"likes": {$gt:10}, $or: [{"by": "tutorials point"},
 {"title": "MongoDB Overview"}]}).pretty()
-
+```
 --where likes>10 AND (by = 'tutorials point' OR title = 'MongoDB Overview')
 
 
@@ -145,4 +146,5 @@ db.collection.find(query).explain()
     
     // If true, a multikey index was used
     "isMultiKey" : false
-}```
+}
+```
