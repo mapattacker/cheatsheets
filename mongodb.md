@@ -154,6 +154,17 @@ In Mongo Shell
 
 `mongoexport --db wsg-database --collection wsg --type=csv --fieldFile fields.txt --out export.csv`
 
+In Python
+```
+import pymongo
+import subprocess
+
+subprocess.call("""mongoexport --db wsg-database --collection wsg --type=csv --fieldFile fields.txt --out export.csv""", shell=True)
+subprocess.call(["mongoexport", "--db", "mydb", "--collection", "url_db","--type=csv", "--fieldFile", "fields.txt", "--out ", export.csv])
+
+
+```
+
 
 In Python
 ```
@@ -163,6 +174,7 @@ for i in db['wsg'].find({}):
     test.extend(i.keys())
 
 fields = list(set(test))
+# remove mongodb unique id
 fields.remove('_id')
 fields
 

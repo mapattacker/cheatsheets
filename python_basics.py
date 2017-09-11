@@ -170,3 +170,18 @@ except Exception, e:
     print sys.exc_info()[2].tb_lineno # line number where code breaks
     print e # exact item that have issue
     print traceback.format_exc() # full traceback error
+
+
+
+# SUBPROCESS
+#--------------------------------
+# call command prompt in python
+
+import subprocess
+
+subprocess.call("""mongoexport --db test-database --collection wsg --type=csv --fieldFile fields.txt
+                    --out export.csv """, shell=True)
+subprocess.call(["mongoexport", "--db", "test-database", "--collection", "wsg", "--type=csv", "--fieldFile", "fields.txt" ,
+                    "--out", "export.csv"])
+                    
+# output value of 1 means good
