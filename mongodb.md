@@ -154,6 +154,7 @@ db.collection.find(query).explain()
 
 
 ```
+# get unique fields from mongodb
 fields = []
 for i in db['wsg'].find({}):
     test.extend(i.keys())
@@ -161,4 +162,10 @@ for i in db['wsg'].find({}):
 fields = list(set(test))
 fields.remove('_id')
 fields
+
+
+# proper format for exporting as a field name txt field for mongoexport
+with open(r'C:\Users\Teo Siyang\Desktop\fields.txt', 'w') as file:
+    for i in test:
+        file.write(i + '\n')
 ```
