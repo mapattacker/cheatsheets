@@ -150,7 +150,7 @@ db.collection.find(query).explain()
 
 # Export as CSV
 
-In mongo shell
+In Mongo Shell
 
 `mongoexport --db wsg-database --collection wsg --type=csv --fieldFile fields.txt --out export.csv`
 
