@@ -62,6 +62,10 @@ len(list1) # 6
 len(set(list1)) # 4
 print set(list1) # set(['a', 'c', 'b', 'd'])
 
+# remove item
+list1.remove('valuename')
+
+
 
 # PICKLING
 #--------------------------------

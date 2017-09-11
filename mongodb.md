@@ -147,3 +147,18 @@ db.collection.find(query).explain()
     "isMultiKey" : false
 }
 ```
+
+# Export as CSV
+
+`mongoexport --db wsg-database --collection wsg --type=csv --fieldFile fields.txt --out export.csv`
+
+
+```
+fields = []
+for i in db['wsg'].find({}):
+    test.extend(i.keys())
+
+fields = list(set(test))
+fields.remove('_id')
+fields
+```
