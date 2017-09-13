@@ -31,7 +31,7 @@ https://www.digitalocean.com/community/tutorials/how-to-install-apache-kafka-on-
   `~/kafka/bin/kafka-console-producer.sh --broker-list localhost:9092 --topic TutorialTopic`
 
   Or ask it to read from a file
-  kafka-console-produce.sh --broker-list localhost:9092 --topic TutorialTopic --new-producer < my_file.txt`
+  `kafka-console-produce.sh --broker-list localhost:9092 --topic TutorialTopic --new-producer < my_file.txt`
     
   __Start Consumer in a new terminal to recieve messages__
 
