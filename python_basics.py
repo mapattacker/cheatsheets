@@ -179,8 +179,8 @@ except Exception, e:
 
 import subprocess
 
-subprocess.call("""mongoexport --db test-database --collection wsg --type=csv --fieldFile fields.txt
-                    --out export.csv """, shell=True)
+subprocess.call(r"""mongoexport --db test-database --collection wsg --type=csv --fieldFile "C:\Users\Teo S\Desktop\fields.txt"
+                    --out export.csv""", shell=True)
 subprocess.call(["mongoexport", "--db", "test-database", "--collection", "wsg", "--type=csv", "--fieldFile", "fields.txt" ,
                     "--out", "export.csv"])
                     
