@@ -76,3 +76,21 @@ http://docs.confluent.io/current/connect/connect-filestream/filestream_connector
 This connector watch a directory for files and read the data as new files are written to the input directory.
 
 https://github.com/jcustenborder/kafka-connect-spooldir
+
+
+## Python Kafka
+
+`pip install kafka-python`
+
+__Consumer__
+
+```
+from kafka import KafkaConsumer
+consumer = KafkaConsumer("Tatooine", bootstrap_servers="192.168.0.2", auto_offset_reset='earliest', enable_auto_commit=False)
+
+for msg in consumer:
+    log = msg.value
+    log = log.split('\n')
+    for n, i in enumerate(log):
+        print n, i
+```
