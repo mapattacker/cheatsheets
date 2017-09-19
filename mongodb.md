@@ -159,10 +159,8 @@ In Python
 import pymongo
 import subprocess
 
-subprocess.call("""mongoexport --db wsg-database --collection wsg --type=csv --fieldFile fields.txt --out export.csv""", shell=True)
+subprocess.call(r'mongoexport --db wsg-database --collection wsg --type=csv --fieldFile "C:\Users\Teo XXX\Desktop\fields.txt" --out "C:\Users\Teo XXX\Desktop\export.csv"', shell=True)
 subprocess.call(["mongoexport", "--db", "mydb", "--collection", "url_db","--type=csv", "--fieldFile", "fields.txt", "--out ", export.csv])
-
-
 ```
 
 
