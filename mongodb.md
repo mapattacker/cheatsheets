@@ -184,3 +184,24 @@ with open(r'C:\Users\Teo Siyang\Desktop\fields.txt', 'w') as file:
     for i in test:
         file.write(i + '\n')
 ```
+
+# Spark-MongoDB Connector
+Download the jar file of the connector.
+
+Use spark-submit filename.py
+
+```
+from pyspark.sql import SparkSession
+
+
+spark = SparkSession \
+    .builder \
+    .appName("myApp") \
+    .config("spark.mongodb.input.uri", "mongodb://localhost:27017/wsg-database.wsg") \
+    .config("spark.mongodb.output.uri", "mongodb://localhost:27017/wsg-database.wsg") \
+    .getOrCreate()
+
+
+df = spark.read.format("com.mongodb.spark.sql.DefaultSource").load()
+df.printSchema()
+```
