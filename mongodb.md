@@ -183,7 +183,7 @@ with open(r'C:\Users\Teo Siyang\Desktop\fields.txt', 'w') as file:
         file.write(i + '\n')
 ```
 
-# Spark-MongoDB Connector
+# Spark-MongoDB Connector 
 Download the jar file of the connector. Place in `C:\spark\jars` folder.
 
 Use `spark-submit --jars C:/spark/jars/mongo-spark-connector_2.10-2.2.0.jar filename.py`
