@@ -1,8 +1,12 @@
 # APACHE AVRO
 
-Avro is a file format used for serialising data in a json-like format. It requires a separate schema file to read together. 
+Avro is a a language-neutral file format used for serialising data in a json-like format. Avro requires a separate schema file to read together. 
 
-Read more: https://avro.apache.org/docs/current/gettingstartedpython.html
+It was developed by Doug Cutting, the founder of Hadoop. 
+
+Read more: 
+ * https://avro.apache.org/docs/current/gettingstartedpython.html
+ * https://www.tutorialspoint.com/avro/avro_overview.htm
 
 ## Installation
 
