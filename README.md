@@ -1,6 +1,7 @@
 # cheatsheets
 Its tough remembering all the codes one wrote, especially if one have not use it for awhile. This is a collection of cheat codes I compiled to assist in generate faster scripts. They are updated whenever I encounter any lines of code which I forsee to be used again in the future.
 
+  * __Avro__: A serialised file format based on json `avro.md`
   * __CSS__: Cascading Style Sheet cheatsheet `cascading.css`
   * __Command Line__: Bash & Command Line `cmd.md`
   * __D3.js__: Intro to D3, Dynamic Driven Documents
