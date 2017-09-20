@@ -1,6 +1,6 @@
 # APACHE AVRO
 
-Avro is a file format used for serialising data in a json-like format. It requires a separate schema file to read together.
+Avro is a file format used for serialising data in a json-like format. It requires a separate schema file to read together. 
 
 Read more: https://avro.apache.org/docs/current/gettingstartedpython.html
 
