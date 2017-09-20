@@ -14,6 +14,9 @@ python -V
   * ``pip freeze``: Print list of packages installed
   * ``pip uninstall packageName``: Uninstall package
 
+### Check paths of all python installations
+  * windows cmd: `where python`
+  * Bash: `which python`
 
 ### Change default python path
 
