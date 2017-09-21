@@ -108,10 +108,36 @@ for message in consumer:
 
 __Get list of topics__
 
-`
+```
 topic = "*"
 consumer = KafkaConsumer(topic, bootstrap_servers="192.XXX.X.X", auto_offset_reset='earliest', enable_auto_commit=False)
 
 print consumer.topics()
 >>> set([u'z1', u'test_topic', u'Z1'])
-`
+```
+
+## Kafka Spark-Streaming
+
+`spark-submit --packages org.apache.spark:spark-streaming-kafka_2.10:1.6.1 C:\kafka2spark.py`
+
+```
+from pyspark import SparkContext  
+from pyspark.streaming import StreamingContext  
+from pyspark.streaming.kafka import KafkaUtils
+
+start = time.time()
+
+# Spark Streaming
+# ----------------------------------------
+sc = SparkContext(appName="PythonSparkStreamingKafka_RM_01")  
+sc.setLogLevel("WARN")
+ssc = StreamingContext(sc, 1) # listen every 1 second
+# ssc = spark-streaming context, zkQuorum = zookeeper, groupid = kafka topic group-id, topics = topicname:#partitions
+kafkaStream = KafkaUtils.createStream(ssc=ssc, zkQuorum='192.168.0.2:2181', groupId='m1', topics={'m1':1}) 
+
+parsed = kafkaStream.map(lambda x: x)  
+parsed.pprint()
+
+ssc.start()
+ssc.awaitTermination()
+```
