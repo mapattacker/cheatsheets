@@ -119,7 +119,8 @@ print consumer.topics()
 ## Kafka Spark-Streaming
 
 Submit in command line. spark-streaming jar file will be downloaded to a local folder and will pull from it next time.
-Remember to update kafka & spark version respectively for `2.10` & `1.6.1`
+Remember to update kafka & spark version respectively for `2.10` & `1.6.1`.
+
 `spark-submit --packages org.apache.spark:spark-streaming-kafka_2.10:1.6.1 kafka2spark.py`
 
 Python script
