@@ -9,7 +9,7 @@ __Get python modules, Java, Scale__
  5. Check java is installed `java -version`
  6. Install scala `sudo apt-get install scala`
  7. Check scala is installed `scala -version`
- 8. sudo pip3 install py4j
+ 8. `sudo pip3 install py4j`
  
 __Get Apache Spark__
  1. Go to https://spark.apache.org/downloads.html
@@ -18,12 +18,12 @@ __Get Apache Spark__
  4. unzip file `sudo tar -zxvf spark-2.2.0-bin-hadoop2.7`
 
 __Define Paths__
- 1. export SPARK_HOME='home/ubuntu/spark-2.2.0-bin-hadoop2.7'
- 2. export PATH=$SPARK_HOME:$PATH
- 3. export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH
- 4. export PYSPARK_DRIVER_PYTHON="jupyter"
- 5. export PYSPARK_DRIVER_PYTHON_OPTS="notebook"
- 6. export PYSPARK_PYTHON=python3
+ 1. `export SPARK_HOME='home/ubuntu/spark-2.2.0-bin-hadoop2.7'`
+ 2. `export PATH=$SPARK_HOME:$PATH`
+ 3. `export PYTHONPATH=$SPARK_HOME/python:$PYTHONPATH`
+ 4. `export PYSPARK_DRIVER_PYTHON="jupyter"`
+ 5. `export PYSPARK_DRIVER_PYTHON_OPTS="notebook"`
+ 6. `export PYSPARK_PYTHON=python3`
 
 __Grant Permissions to essential Spark folders__
  1. `sudo chmod 777 spark-2.2.0-bin-hadoop2.7`
@@ -33,7 +33,7 @@ __Grant Permissions to essential Spark folders__
  5. `sudo chmod 777 pyspark`
 
 
-# Access pyspark from Any Directory
+# Access pyspark from any Directory
 
 `pip3 install findspark`
 
