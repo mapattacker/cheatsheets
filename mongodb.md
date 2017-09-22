@@ -178,7 +178,7 @@ fields
 
 
 # proper format for exporting as a field name txt field for mongoexport
-with open(r'C:\Users\Teo Siyang\Desktop\fields.txt', 'w') as file:
+with open(r'C:\Users\Teo XXX\Desktop\fields.txt', 'w') as file:
     for i in test:
         file.write(i + '\n')
 ```
