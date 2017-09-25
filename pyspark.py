@@ -7,10 +7,17 @@ spark = SparkSession.builder.appName("Basics").getOrCreate() #appName can be any
 ## READING
 #----------------------------
 df = spark.read.json('people.json')
+df = spark.read.csv('appl_stock.csv', inferSchema=True, header=True)
 df.show()
 
 df.head() #shows a list of row objects
 # [Row(age=None, name='Michael'), Row(age=30, name='Andy')]
+
+
+## BASICS
+#--------------------------------------------------------
+df[:10].collect() #collect the result instead of showing
+row.asDict() #produce as dictionary
 
 
 ## SCHEMA
@@ -22,6 +29,10 @@ final_struc = StructType(fields=data_schema)
 df = spark.read.json('people.json', schema=final_struc)
 
 df.printSchema()
+
+# FORMAT DECIMAL PLACES
+sales_std.select(format_number('std',2)).show()
+
 
 
 ## EXPLORATORY
@@ -53,6 +64,91 @@ df.withColumnRenamed('age','supernewage').show()
 # Register the DataFrame as a SQL temporary view
 df.createOrReplaceTempView("people")
 spark.sql("SELECT * FROM people WHERE age=30").show()
+
+
+# ORDER BY
+df.orderBy("Sales").show() #ascending
+df.orderBy(df["Sales"].desc()).show() #descending
+
+
+## NULL VALUES
+#--------------------------------------------------------
+# DROP NAN
+# Drop any row that contains missing data
+df.na.drop().show()
+# Has to have at least 2 NON-null values in a row
+df.na.drop(thresh=2).show()
+# rows in Sales that have null
+df.na.drop(subset=["Sales"]).show()
+# rows that have any nulls
+df.na.drop(how='any').show()
+# rows that have all nulls
+df.na.drop(how='all').show()
+
+
+# FILL NAN
+# Spark is actually smart enough to match up & fill the data types.
+# only fill in strings
+df.na.fill('NEW VALUE').show()
+# only fill in numeric
+df.na.fill(0).show()
+# fill in specific column
+df.na.fill('No Name',subset=['Name']).show()
+
+
+# fill in values with mean
+df.na.fill(df.select(mean(df['Sales'])).collect()[0][0],['Sales']).show()
+
+
+## FILTERING
+#--------------------------------------------------------
+df.filter("Close < 500").show() #SQL synatx
+df.filter(df["Close"] < 500).show() #Python synatx
+
+df.filter("Close<500").select(['Open','Close']).show()
+
+#Multiple conditions
+df.filter( (df["Close"] < 200) & (df['Open'] > 200) ).show() #AND &
+df.filter( (df["Close"] < 200) | (df['Open'] > 200) ).show() #OR |
+df.filter( (df["Close"] < 200) & ~(df['Open'] < 200) ).show() #NOT ~
+
+df.filter(df["Low"] == 197.16).show()
+
+
+## AGGREGATE
+#--------------------------------------------------------
+df.groupBy("Company").mean().show() #Mean
+df.groupBy("Company").count().show() #Count
+df.groupBy("Company").max().show() #Max
+df.groupBy("Company").min().show() #Min
+df.groupBy("Company").sum().show() #Sum
+
+
+df.agg({'Sales':'max'}).show() #aggregate across all rows to get one result
+
+
+from pyspark.sql.functions import countDistinct, avg, stddev
+df.select(countDistinct("Sales")).show() #count distinct
+df.select(countDistinct("Sales").alias("Distinct Sales")).show() #change alias name
+df.select(avg('Sales')).show() #average
+df.select(stddev("Sales")).show() #stdev
+
+
+## DATETIME
+#--------------------------------------------------------
+from pyspark.sql.functions import (format_number, dayofmonth, hour, 
+                                    dayofyear, month, year, 
+                                    weekofyear, date_format)
+
+df.select(dayofmonth(df['Date'])).show() #date of month
+df.select(hour(df['Date'])).show() #hour
+df.select(dayofyear(df['Date'])).show() #day of year
+df.select(month(df['Date'])).show() #month
+df.select(year(df['Date'])).show() #year
+
+
+
+
 
 
 
