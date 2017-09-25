@@ -1,24 +1,61 @@
-
-#### SPARK INSTALLATION IN WINDOWS
-#------- More details from here. http://nishutayaltech.blogspot.sg/2015/04/how-to-run-apache-spark-on-windows7-in.html
-# 1. Download and update Java SE Development Kit 8. Create folder called C://jdk & C://jre
-# 2. Download Spark at https://spark.apache.org/downloads.html . 
-# 3. Download 7zip and extract the spark .tgz file. Put them in a folder called C://spark
-# 4. Download winutils.exe and put it in a folder called C://winutils/bin 
-        # Though not using Hadoop with Spark, but it checks for HADOOP_HOME variable in configuration. 
-        # So to overcome this error, download winutils.exe and place it in a location
-
-
-#### NOTES
-# to err on the safe side, always place scripts and data at the root folder C:/
-
-
-# If there are issues importing pyspark, use findspark to configure the path
-    #1. pip install findspark
-import findspark
+import findspark #pyspark can't be detected if file is at other folders than where it is installed
 findspark.init()
 
-from pyspark import SparkConf, SparkContext
+from pyspark.sql import SparkSession
+spark = SparkSession.builder.appName("Basics").getOrCreate() #appName can be anything
+
+## READING
+#----------------------------
+df = spark.read.json('people.json')
+df.show()
+
+df.head() #shows a list of row objects
+# [Row(age=None, name='Michael'), Row(age=30, name='Andy')]
+
+
+## SCHEMA
+#--------------------------------------------------------
+#changing the schema
+from pyspark.sql.types import StructField,StringType,IntegerType,StructType
+data_schema = [StructField("age", IntegerType(), True),StructField("name", StringType(), True)]
+final_struc = StructType(fields=data_schema)
+df = spark.read.json('people.json', schema=final_struc)
+
+df.printSchema()
+
+
+## EXPLORATORY
+#--------------------------------------------------------
+df.describe() #show datatypes
+df.describe().show() #show max, min, stdev
+
+
+## COLUMNS
+#--------------------------------------------------------
+df.columns #show column names
+df.select('age').show() #have to use select to choose entire column
+df.select(['age','name']).show() #multiple columns
+
+
+# NEW COLUMNS
+# Adding a new column with a simple copy
+df.withColumn('newage',df['age']).show()
+df.withColumn('add_one_age',df['age']+1).show() #with calculation
+
+
+# RENAME COLUMN
+df.withColumnRenamed('age','supernewage').show()
+
+
+
+## SQL
+#--------------------------------------------------------
+# Register the DataFrame as a SQL temporary view
+df.createOrReplaceTempView("people")
+spark.sql("SELECT * FROM people WHERE age=30").show()
+
+
+
 
 #--------------
 # set configuration & spark context object
@@ -79,14 +116,4 @@ spark-submit --version #check spark version
 # type localhost:4040 in browser when script is running. Open troubleshooting UI
 
 
-
-#--------------
-# breadth first search alogrithm
-  # set each node with > list of friends, distance, flag
-  # start with distance 0 for starting node and change flag
-  # iterate and expand to adjacent nodes and change distance to 1 and change flag
-  # continue till friend is found and obtain the distance
-  
-  
-#--------------
 
