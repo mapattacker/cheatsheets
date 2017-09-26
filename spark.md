@@ -2,7 +2,7 @@
 
 __Get python modules, Java, Scale__
 
- 1. Install pip3 `sudo apt install python-pip3`
+ 1. Install pip3 `sudo apt install python3-pip`
  2. Install jupyter notebook `pip3 install jupyter`
  3. `sudo apt-get update`
  4. Install java `sudo apt-get install default-jre`
