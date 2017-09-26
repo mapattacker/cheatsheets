@@ -197,8 +197,7 @@ totalsByAge = rdd.mapValues(lambda x: (x, 1)).reduceByKey(lambda x, y: (x[0] + y
   # swap key with value; and sort result by key
 swap = total.map(lambda x: (x[1],x[0])).sortByKey() #or .sortByKey(ascending = False)
 
-# top N results
-.take(10)
+
 
 # look up from another RDD
 mostPopularName = namesRdd.lookup(mostPopular[1])[0]
