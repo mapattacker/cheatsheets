@@ -2,14 +2,19 @@ import findspark #pyspark can't be detected if file is at other folders than whe
 findspark.init('/home/jake/spark/spark-2.2.0-bin-hadoop2.7')
 
 from pyspark.sql import SparkSession
+from pyspark.sql.functions import *
 spark = SparkSession.builder.appName("Basics").getOrCreate() #appName can be anything
+
 
 ## READING
 #----------------------------
-df = spark.read.json('people.json')
-df = spark.read.csv('appl_stock.csv', inferSchema=True, header=True)
-df.show()
+df = spark.read.json('people.json') #json
+df = spark.read.csv('appl_stock.csv', inferSchema=True, header=True) #csv
+df = spark.read.csv(r'/home/jake/Desktop/test3.txt') #text
 
+
+df.show()
+df.show(20, False) #show non-truncated results
 df.head() #shows a list of row objects
 # [Row(age=None, name='Michael'), Row(age=30, name='Andy')]
 
@@ -35,6 +40,13 @@ sales_std.select(format_number('std',2)).show()
 
 
 
+## CREATE DATAFRAME
+#--------------------------------------------------------
+# value, column name
+df = sqlContext.createDataFrame([('cat \n\n elephant rat \n rat cat', )], ['word'])
+
+
+
 ## EXPLORATORY
 #--------------------------------------------------------
 df.describe() #show datatypes
@@ -55,7 +67,7 @@ df.withColumn('add_one_age',df['age']+1).show() #with calculation
 
 
 # RENAME COLUMN
-df.withColumnRenamed('age','supernewage').show()
+df = df.withColumnRenamed('age','supernewage')
 
 
 
@@ -69,6 +81,7 @@ spark.sql("SELECT * FROM people WHERE age=30").show()
 # ORDER BY
 df.orderBy("Sales").show() #ascending
 df.orderBy(df["Sales"].desc()).show() #descending
+
 
 
 ## NULL VALUES
@@ -150,24 +163,27 @@ df.select(year(df['Date'])).show() #year
 
 
 
+## USING RDD (Resilient Distributed Dataset)
+    # spark is transiting slowly to spark dataframe, but its stil good to learn the original parsing in RDD
+#--------------------------------------------------------
+from pyspark import SparkConf, SparkContext
 
-
-
-#--------------
 # set configuration & spark context object
 conf = SparkConf().setMaster("local").setAppName("MinTemperatures")
 conf = SparkConf().setMaster("local[*]").setAppName("MovieSimilarities") #[*] use all cores in local computer
 sc = SparkContext(conf = conf)
 
 
-#--------------
+#--------------------------------------------------------
 # call the data from file and create RDD (Resilient Distributed Dataset)
-lines = sc.textFile("file:///Users/Spark/1800.csv")
+rdd = sc.textFile("file:///Users/Spark/1800.csv")
 
+rdd.collect() #print results
+rdd.take(n) #print n results
 
 #--------------
 ### RDD MAPPING
-parsedLines = lines.map(parseLine)  #use map function, output has same number of entries, just that it can be transformed.
+parsedLines = rdd.map(parseLine)  #use map function, output has same number of entries, just that it can be transformed.
 words = input.flatMap(lambda x: x.split())  #use flat map function, output has more entries than input
 # difference illustrated here: https://www.linkedin.com/pulse/difference-between-map-flatmap-transformations-spark-pyspark-pandey
 
