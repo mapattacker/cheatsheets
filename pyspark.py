@@ -163,6 +163,8 @@ df.select(year(df['Date'])).show() #year
 
 
 
+
+
 ## USING RDD (Resilient Distributed Dataset)
     # spark is transiting slowly to spark dataframe, but its stil good to learn the original parsing in RDD
 #--------------------------------------------------------
