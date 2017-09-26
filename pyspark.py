@@ -1,5 +1,5 @@
 import findspark #pyspark can't be detected if file is at other folders than where it is installed
-findspark.init()
+findspark.init('/home/jake/spark/spark-2.2.0-bin-hadoop2.7')
 
 from pyspark.sql import SparkSession
 spark = SparkSession.builder.appName("Basics").getOrCreate() #appName can be anything
