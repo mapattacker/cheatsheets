@@ -189,7 +189,7 @@ https://spark-packages.org/package/mongodb/mongo-spark
 
 Download the jar file of the connector. Place in `C:\spark\jars` folder.
 
-Use `spark-submit --jars C:/spark/jars/mongo-spark-connector_2.10-2.2.0.jar filename.py`
+Use `spark-submit --packages org.mongodb.spark:mongo-spark-connector_2.10:2.2.0 filename.py`
 
 ```
 from pyspark.sql import SparkSession
