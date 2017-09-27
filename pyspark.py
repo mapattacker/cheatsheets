@@ -82,6 +82,9 @@ spark.sql("SELECT * FROM people WHERE age=30").show()
 df.orderBy("Sales").show() #ascending
 df.orderBy(df["Sales"].desc()).show() #descending
 
+# REPLACE
+from spark.sql.functions import *
+df = df.withColumn('address', regexp_replace('address', 'lane', 'ln')) #in column address, replace lane with ln
 
 
 ## NULL VALUES
