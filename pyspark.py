@@ -69,6 +69,8 @@ df.withColumn('add_one_age',df['age']+1).show() #with calculation
 # RENAME COLUMN
 df = df.withColumnRenamed('age','supernewage')
 
+# DROP COLUMNS
+df.drop('columnName')
 
 
 ## SQL
@@ -85,6 +87,23 @@ df.orderBy(df["Sales"].desc()).show() #descending
 # REPLACE
 from spark.sql.functions import *
 df = df.withColumn('address', regexp_replace('address', 'lane', 'ln')) #in column address, replace lane with ln
+
+
+## UDF (User-Defined Function)
+#--------------------------------------------------------
+# using normal function
+def CountryCode(input):
+    something
+    return something_else
+
+udf_CountryCode = udf(CountryCode)
+df = df.select("*", udf_CountryCode(df['target_column']).alias('new_column'))
+
+# using udf lambda
+udf_UserName = udf(lambda x: x.split('@')[0])
+df = df.select("*", df('target_column').alias('new_column'))
+
+
 
 
 ## NULL VALUES
