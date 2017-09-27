@@ -91,6 +91,8 @@ df = df.withColumn('address', regexp_replace('address', 'lane', 'ln')) #in colum
 
 ## UDF (User-Defined Function)
 #--------------------------------------------------------
+from pyspark.sql.functions import udf 
+
 # using normal function
 def CountryCode(input):
     something
@@ -189,6 +191,7 @@ df.select(year(df['Date'])).show() #year
 
 ## USING RDD (Resilient Distributed Dataset)
     # spark is transiting slowly to spark dataframe, but its stil good to learn the original parsing in RDD
+    # especially when data is non-dataframe type
 #--------------------------------------------------------
 from pyspark import SparkConf, SparkContext
 
