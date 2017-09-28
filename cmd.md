@@ -92,6 +92,9 @@ killall Finder
 
 `sudo cp target/kafka-manager-1.1.zip ~/`   --copy and paste file from current directory to ~/
 
+`sudo rm target/kafka-manager-1.1.zip   --delete file
+
+
 ### Cron Job
 
 http://www.nncron.ru/help/EN/working/cron-format.htm
