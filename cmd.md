@@ -88,7 +88,9 @@ killall Finder
 
 `unzip kafka-manager-1.1.zip` --unzip file
 
-sudo mv target/kafka-manager-1.1.zip ~/   --cut and paste file from current directory to ~/
+`sudo mv target/kafka-manager-1.1.zip ~/`   --cut and paste file from current directory to ~/
+
+`sudo cp target/kafka-manager-1.1.zip ~/`   --copy and paste file from current directory to ~/
 
 ### Cron Job
 
