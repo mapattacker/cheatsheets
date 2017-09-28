@@ -47,7 +47,7 @@ for user in reader:
 reader.close()
 ```
 
-## Reading Avro with Spark
+## Reading & Writing Avro with Spark
 
 Read more: https://github.com/databricks/spark-avro
 
