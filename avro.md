@@ -49,6 +49,8 @@ reader.close()
 
 ## Reading & Writing Avro with Spark
 
+`spark-submit --packages com.databricks:spark-avro_2.11:3.2.0 filename.py`
+
 Read more: https://github.com/databricks/spark-avro
 
 ```
