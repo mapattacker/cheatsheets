@@ -50,6 +50,8 @@ killall Finder
 
 ### Some Commands
 
+`echo $PATH` --prints out path variables
+
 `ls -a`   --list all directories & files (including hidden ones)
 
 `ls -1`   --change to vertical view (number 1)
@@ -68,8 +70,6 @@ killall Finder
 
 `cd /java1.8*`  --* is a wild card
 
-`pwd`			--show full directory path (print working directory)
-
 `open .`			--open current directory in Finder
 
 `ls`			--list files and directories
@@ -78,11 +78,13 @@ killall Finder
 
 `clear`   --clear screen
 
-`> filename.txt` --create new file
+`mkdir -p folder1/folder2/folder3` --make nested directories
 
 `sudo rm -r directoryname` --delete directory and descending files, but WITH a prompt
 
-`sudo rm -rf directoryname` --delete directory and descending files, but WITHOUT a prompt
+`sudo rm -rf directoryname` --delete directory and descending files, but WITHOUT a prompt. rf = recursive, force.
+
+`rmdir projectfolder`  --delete folder if empty
 
 `apt list --installed`  --check installed software in Ubuntu
 
@@ -104,7 +106,24 @@ __TextEdit editor__
 `open -a TextEdit .bash_profile`
 
 
-__NANO text editor__
+### Manipulating Files
+
+`cat test.txt`  --prints out entire file contents
+
+`less test.txt`  --prints out a small portion of file contents. arrow up-down to scroll. Q to quit.
+
+`touch test.txt`  --create new file
+
+`> filename.txt` --create new file
+
+`mv test.txt test1.txt` --rename file from test to test1
+
+`echo "hello there" >> test.txt` --append text to file. create file if not exist.
+
+`echo "hello there" > test.txt` --replace text to file's contents. create file if not exist.
+
+
+### NANO text editor
 
 `nano .bash_profile`	--open bash profile; in Mac
 
@@ -117,9 +136,27 @@ __NANO text editor__
 `ctrl+D`			--close python, pyspark session
 
 
-### Locate Files
+### Locate
+
+`pwd`			--show full directory path (print working directory)
 
 `locate filename` --locate all file names containing the word, includes full path
+
+`which bash` --shows path where command/exe is installed in
+
+
+### .bashrc
+
+`nano ~\.bashrc` --create & open bashrc file
+
+`alias npp='notepad++'` --assign an alias in the file
+
+`source ~\bashrc` --reload file
+
+
+### Shell Scripting
+
+`#!/bin/bash` --shebang, use bash to execute
 
 
 # PowerShell
