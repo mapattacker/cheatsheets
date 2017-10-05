@@ -136,14 +136,6 @@ __TextEdit editor__
 `ctrl+D`			--close python, pyspark session
 
 
-### UBUNTU installation
-
-sudo apt-get update  --update latest package versions
-
-sudo apt-get install package_name  --install package
-
-sudo apt-get remove package_name  --uninstall package
-
 ### Locate
 
 `pwd`			--show full directory path (print working directory)

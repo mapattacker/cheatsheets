@@ -1,16 +1,13 @@
 import findspark #pyspark can't be detected if file is at other folders than where it is installed
 findspark.init('/home/jake/spark/spark-2.2.0-bin-hadoop2.7')
 
-
-## 1) SPARK DATAFRAME
-#--------------------------------------------------------
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import *
 spark = SparkSession.builder.appName("Basics").getOrCreate() #appName can be anything
 
 
 ## READING
-#--------------------------------------------------------
+#----------------------------
 df = spark.read.json('people.json') #json
 df = spark.read.csv('appl_stock.csv', inferSchema=True, header=True) #csv
 df = spark.read.csv(r'/home/jake/Desktop/test3.txt') #text
@@ -47,18 +44,6 @@ sales_std.select(format_number('std',2)).show()
 #--------------------------------------------------------
 # value, column name
 df = sqlContext.createDataFrame([('cat \n\n elephant rat \n rat cat', )], ['word'])
-
-# from dictionary
-from pyspark.sql import SparkSession
-from pyspark.sql import Row
-from pyspark import SparkContext
-
-dict = {1: 'test', 2: 'test2'}
-sc = SparkContext()
-spark = SparkSession(sc)
-
-rdd = sc.parallelize(dict)
-rdd.map(lambda x: x(**Row)).toDF().show() #toDF() needs a SparkSession
 
 
 
@@ -204,7 +189,7 @@ df.select(year(df['Date'])).show() #year
 
 
 
-## 2) USING RDD (Resilient Distributed Dataset)
+## USING RDD (Resilient Distributed Dataset)
     # spark is transiting slowly to spark dataframe, but its stil good to learn the original parsing in RDD
     # especially when data is non-dataframe type
 #--------------------------------------------------------
