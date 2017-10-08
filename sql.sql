@@ -21,6 +21,11 @@ CREATE INDEX indexname ON tablename (fieldname);
 --insert
 insert into operator_lookup(user_nm_domain, operator) values ('y5zwew.sg','testdata');
 
+--update
+UPDATE Customers
+SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+WHERE CustomerID = 1;
+
 --delete all data from table
 delete from ts_biz_100m_ap;
 
