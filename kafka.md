@@ -145,3 +145,9 @@ parsed.pprint()
 ssc.start()
 ssc.awaitTermination()
 ```
+
+# Spark Structured Streaming
+# ----------------------------------------
+
+https://spark.apache.org/docs/latest/structured-streaming-kafka-integration.html
+https://databricks.com/blog/2017/04/26/processing-data-in-apache-kafka-with-structured-streaming-in-apache-spark-2-2.html

@@ -50,6 +50,8 @@ killall Finder
 
 ### Some Commands
 
+`sudo su` --change to root user
+
 `echo $PATH` --prints out path variables
 
 `ls -a`   --list all directories & files (including hidden ones)
@@ -94,7 +96,7 @@ killall Finder
 
 `sudo cp target/kafka-manager-1.1.zip ~/`   --copy and paste file from current directory to ~/
 
-`sudo rm target/kafka-manager-1.1.zip   --delete file
+`sudo rm target/kafka-manager-1.1.zip`   --delete file
 
 
 ### Cron Job
@@ -135,14 +137,19 @@ __TextEdit editor__
 
 `ctrl+D`			--close python, pyspark session
 
+`alt + /`   --scroll to end of file
+
 
 ### UBUNTU installation
 
-sudo apt-get update  --update latest package versions
+`sudo apt-get update`  --update latest package versions
 
-sudo apt-get install package_name  --install package
+`sudo apt-get install package_name`  --install package
 
-sudo apt-get remove package_name  --uninstall package
+`sudo apt-get remove package_name`  --uninstall package
+
+`apt list --installed`  --list installed packages
+
 
 ### Locate
 
