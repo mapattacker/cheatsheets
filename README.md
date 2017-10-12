@@ -5,6 +5,7 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __CSS__: Cascading Style Sheet cheatsheet `cascading.css`
   * __Command Line__: Bash & Command Line `cmd.md`
   * __D3.js__: Intro to D3, Dynamic Driven Documents
+  * __Docker__: Docker container commands `docker.md`
   * __Git__: Git & GitHub/GitLab `git.md`
   * __Kafka__: Kafka, a distributed streaming platform `kafka.md`
   * __Matplotlib__: Python's matplotlib package `matplotlib.py`
