@@ -7,6 +7,7 @@ It was developed by Doug Cutting, the founder of Hadoop.
 Read more: 
  * https://avro.apache.org/docs/current/gettingstartedpython.html
  * https://www.tutorialspoint.com/avro/avro_overview.htm
+ * http://layer0.authentise.com/getting-started-with-avro-and-python-3.html
 
 ## Installation
 
