@@ -53,7 +53,7 @@ df['columnNm'] = df['columnNm'].astype('category')
 # display html
 from IPython.core.display import display, HTML
 html = 'https://github.com/PAIR-code/facets/blob/master/facets_dive/Dive_demo.ipynb'
-display(HTML(html))
+display(HTML(html), width=400)
 
 
 #--------------------------------------------------------
