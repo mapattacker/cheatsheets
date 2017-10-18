@@ -53,6 +53,11 @@ dictname.values()
 #--------------------------------
 sorted(token, reverse=True) # default is ascending, reverse=True is descending
 
+# there is a key parameter that can select which value in the tuple to be sorted by
+sorted(student_tuples, key=lambda x: x[2])
+import operator
+sorted(btwnCent.items(), key=operator.itemgetter(1), reverse = True)
+
 
 # DIVISION IN DECIMALS
 #--------------------------------
