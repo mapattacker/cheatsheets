@@ -48,6 +48,8 @@ killall Finder
 
 killall Finder
 
+
+
 ### Some Commands
 
 `sudo su` --change to root user
@@ -99,13 +101,35 @@ killall Finder
 `sudo rm target/kafka-manager-1.1.zip`   --delete file
 
 
+
+### TMUX (Terminal Multiplexer)
+
+`tmux`  --quick start for a tmux session
+
+`tmux new -s session_name`  --start a commandline session direct in the os, will not be subjected to timeout if any.  
+
+`Ctrl + B "`  --split horizontally
+
+`Ctrl + B %`  --split vertically
+
+`Ctrl + B arrow-key`  --switch to another window
+
+`Ctrl + D`  --close window
+
+`tmux a-t session_name`   --go back to same session
+
+
+
 ### Cron Job
 
 http://www.nncron.ru/help/EN/working/cron-format.htm
 
+
+
 __TextEdit editor__			
 
 `open -a TextEdit .bash_profile`
+
 
 
 ### Manipulating Files
@@ -113,6 +137,8 @@ __TextEdit editor__
 `cat test.txt`  --prints out entire file contents
 
 `less test.txt`  --prints out a small portion of file contents. arrow up-down to scroll. Q to quit.
+
+`head test.txt` --prints first 5 lines of the file
 
 `touch test.txt`  --create new file
 
@@ -140,6 +166,7 @@ __TextEdit editor__
 `alt + /`   --scroll to end of file
 
 
+
 ### UBUNTU installation
 
 `sudo apt-get update`  --update latest package versions
@@ -151,6 +178,7 @@ __TextEdit editor__
 `apt list --installed`  --list installed packages
 
 
+
 ### Locate
 
 `pwd`			--show full directory path (print working directory)
@@ -158,6 +186,7 @@ __TextEdit editor__
 `locate filename` --locate all file names containing the word, includes full path
 
 `which bash` --shows path where command/exe is installed in
+
 
 
 ### .bashrc
@@ -169,9 +198,11 @@ __TextEdit editor__
 `source ~\bashrc` --reload file
 
 
+
 ### Shell Scripting
 
 `#!/bin/bash` --shebang, use bash to execute
+
 
 
 # PowerShell

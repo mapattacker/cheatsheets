@@ -2,9 +2,9 @@
 #--------------------------------
 # more: https://mkaz.tech/code/python-string-format-cookbook/
 print 'this score is {}'.format(1.1234)
->>> 'this score is 1.1234'
+'this score is 1.1234'
 print 'this score is {:.2f}'.format(1.1234) # 2 decimal format
->>> 'this score is 1.12'
+'this score is 1.12'
 
 
 # LOOPS
@@ -49,9 +49,9 @@ sorted(token, reverse=True) # default is ascending, reverse=True is descending
 # in python, there is no decimals if you do a division. Use the following to obtain it.
 # only for python 2.7
 # fixed in python 3>
->>> 4 / float(100)
+4 / float(100)
 0.04
->>> 4 / 100.0
+4 / 100.0
 0.04
 
 
@@ -185,3 +185,39 @@ subprocess.call(["mongoexport", "--db", "test-database", "--collection", "wsg", 
                     "--out", "export.csv"])
                     
 # output value of 1 means good
+
+
+
+
+# PRETTY PRINTS
+#--------------------------------
+
+# pretty print json, dictionary etc.
+from pprint import pprint
+pprint(the_list)
+
+
+# print a table
+from beautifultable import BeautifulTable
+table = BeautifulTable()
+table.column_headers = ["name", "rank", "gender"]
+table.append_row(["Jacob", 1, "boy"])
+table.append_row(["Isabella", 1, "girl"])
+table.append_row(["Ethan", 2, "boy"])
+table.append_row(["Sophia", 2, "girl"])
+table.append_row(["Michael", 3, "boy"])
+print(table)
+
++----------+------+--------+
+|   name   | rank | gender |
++----------+------+--------+
+|  Jacob   |  1   |  boy   |
++----------+------+--------+
+| Isabella |  1   |  girl  |
++----------+------+--------+
+|  Ethan   |  2   |  boy   |
++----------+------+--------+
+|  Sophia  |  2   |  girl  |
++----------+------+--------+
+| Michael  |  3   |  boy   |
++----------+------+--------+
