@@ -39,6 +39,16 @@ print (x)
 >>>[1, 2, 3, 4, 5]
 
 
+# DICTIONARY
+#--------------------------------
+dictname.items()
+# dict_items([('97', 63), ('129', 1), ('134', 2)])
+dictname.keys()
+# dict_keys(['97', '129', '134'])
+dictname.values()
+# dict_values([63, 1, 2])
+
+
 # SORTING
 #--------------------------------
 sorted(token, reverse=True) # default is ascending, reverse=True is descending
