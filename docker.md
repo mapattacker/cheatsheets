@@ -12,7 +12,9 @@ https://docs.docker.com/engine/installation/linux/linux-postinstall/#manage-dock
 
 `docker images`   --see all installed docker images
 
-`docker rm -f image_name` --(-f = force) remove image from docker
+`docker rm -f container_name` --(-f = force) remove image from docker
+
+`docker rmi image_name` --remove image from docker
 
 `docker start image_name` --run image
 

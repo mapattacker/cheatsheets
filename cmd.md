@@ -114,6 +114,8 @@ killall Finder
 
 `Ctrl + B arrow-key`  --switch to another window
 
+`Ctrl + B [`  --scroll up and down within a window with arrow keys
+
 `Ctrl + D`  --close window
 
 `tmux a-t session_name`   --go back to same session
@@ -151,6 +153,7 @@ __TextEdit editor__
 `echo "hello there" > test.txt` --replace text to file's contents. create file if not exist.
 
 
+
 ### NANO text editor
 
 `nano .bash_profile`	--open bash profile; in Mac
@@ -173,9 +176,16 @@ __TextEdit editor__
 
 `sudo apt-get install package_name`  --install package
 
-`sudo apt-get remove package_name`  --uninstall package
+`sudo apt-get remove package_name`  --uninstall package, keep config files
+
+`sudo apt-get purge package_name`  --uninstall package, remove config files
+
+`sudo apt-get autoremove package_name`  --remove dependencies of package_name
 
 `apt list --installed`  --list installed packages
+
+`apt list --installed | less`  --list installed packages, line by line. press `q` to exit
+
 
 
 
