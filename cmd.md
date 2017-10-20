@@ -168,6 +168,12 @@ __TextEdit editor__
 
 `alt + /`   --scroll to end of file
 
+`F6 or Ctrl+W`  --search
+
+`Shift + Insert`  	--paste from clipboard
+
+`Alt + U`   --undo
+
 
 
 ### UBUNTU installation
@@ -186,7 +192,11 @@ __TextEdit editor__
 
 `apt list --installed | less`  --list installed packages, line by line. press `q` to exit
 
+`sudo dpkg -i installer_name` --install .deb installers (-i = install)
 
+`dpkg -l` --list installed packages
+
+`dpkg -l | grep installer_name` --list specific package
 
 
 ### Locate
@@ -196,6 +206,8 @@ __TextEdit editor__
 `locate filename` --locate all file names containing the word, includes full path
 
 `which bash` --shows path where command/exe is installed in
+
+`sudo find / -name "*iodbc*"` --find packages
 
 
 
