@@ -55,6 +55,9 @@ plt.yticks(size = 10)
   #axis scale limits
 plt.ylim([0.01,0.025]) #set x and y axis limits
 plt.xlim([-0.003,0.004])
+  #log scaling
+plt.xscale('log')
+plt.yscale('log')
   #change axis position
 plt.yaxis.tick_right()
   #legend
