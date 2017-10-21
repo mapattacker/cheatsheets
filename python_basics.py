@@ -20,6 +20,15 @@ for num, i in enumerate(a):
 3 232143434
 4 234235
 
+# can change the start number
+for num, i in enumerate(a, 1):
+    print num, i
+
+1 10
+2 123
+3 1231
+4 232143434
+5 234235
 
 # LIST SLICING
 #--------------------------------
