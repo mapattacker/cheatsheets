@@ -78,6 +78,11 @@ df_nan = pd.DataFrame(list)
     #create random dataframe
 df1 = pd.DataFrame(np.random.randint(1, 5, (10,2)), columns=['a','b']) #10 rows, 2 columns, with numbers 1 to 5
 
+    #from a dictionary
+df = pd.DataFrame()
+nedfw['Date'] = x.keys()    #where x is a dictionary
+df['DateValue'] = x.values()
+
 
 #--------------------------------------------------------
 ## EXPLORATORY
