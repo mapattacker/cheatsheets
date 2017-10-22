@@ -276,6 +276,8 @@ list = ['WORLD', 'ALL', 'DEVELOPING', 'ASIA', 'OTHER', 'MEMBERS', 'INCOME', 'DEV
 for i in list:
     df = df[~df['country'].str.contains(i)]
 
+# FILTER ROWS WITH NAN
+df[df['mgmtsalary'].isnull()]
     
 #--------------------------------------------------------
 ## UNIQUE VALUES, DUPLICATES
