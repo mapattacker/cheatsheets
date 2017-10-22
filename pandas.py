@@ -283,7 +283,11 @@ for i in list:
 
 # FILTER ROWS WITH NAN
 df[df['mgmtsalary'].isnull()]
-    
+
+# FILTER ROWS WITHOUT NAN
+df[df['mgmtsalary'].notnull()]
+
+
 #--------------------------------------------------------
 ## UNIQUE VALUES, DUPLICATES
 df['EVENT_TYPE'].unique() # single column, array
