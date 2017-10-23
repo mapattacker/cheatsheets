@@ -22,7 +22,7 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __Regular Expression__: python re package `re.py`
   * __Seaborn__: Seaborn package `seaborn.py`
   * __Sphinx__: Documentation creation using sphinx `sphinx.md`
-  * __SQL__: Some basic SQL queries `sql.sql`
+  * __SQL__: Some basic SQL queries `sql_basic.sql`
   * __Social Media__: Folder containing python codes for various social media APIs, including Slack, Instagram, Facebook, Twitter
   * __Spark__: Installation of Spark in Linux
   * __Tableau__: Sql queries for Tableau `tableau.sql`
