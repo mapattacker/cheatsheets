@@ -12,18 +12,38 @@ WHERE WEEKTYPE IN (SELECT weektype FROM filter_week WHERE param=:week);
 	--or just entirely in the WHERE clause as below
 WHERE (((time_belt='Morning' OR time_belt='Day' OR time_belt= 'Evening') AND :timebelt='(All)') OR (time_belt=:timebelt))
 
----------------------------------------
---Define Date range
-WHERE trunc(DATE_TIME) BETWEEN :strt_1_tme and :end_1_tme;
---Define Time range
-WHERE (to_char(DATE_TIME,'hh24:mi') between :stme1 and :etme1))
 
+
+-- RESTRICT DATETIME RANGE
+---------------------------------------
+--Filter Date Range
+WHERE trunc(DATE_TIME) BETWEEN :strt_1_tme and :end_1_tme;
+--Filter Time Range
+WHERE (to_char(DATE_TIME,'hh24:mi') between :stme1 and :etme1))
+--Filter Fixed Time Range
+where transactiontimestamp between now()::timestamp-interval '24 hour' and now()::timestamp
+--Filter Latest Data by DateTime
+where transactiontimestamp = (select max(transactiontimestamp) from joins limit 1)
+
+
+
+-- HOUR SLICE
 ---------------------------------------
 --Set date as constant so that Tableau can group by time only
 SELECT to_char(DATE_TIME, '1900-01-01 HH24:MI')::timestamp
 FROM table_nm
 
 
+-- TIME SLICE (MINUTE)
+---------------------------------------
+-- change 900 to appropriate seconds, e.g., 15 mins == 15 * 60 = 900
+-- convert timestamp to epoch, divide by interval desired in minutes then round to get the desired interval
+SELECT to_timestamp(floor((extract('epoch' from starttime) / 900 )) * 900) 
+FROM tablename
+
+
+
+-- GRAPH NETWORKS
 ---------------------------------------
 --graph networks; set a unidirectional & bidirectional graph according to time in a day
 	--paired movement to next location by time series
@@ -70,8 +90,11 @@ with newtable as (select * from (select *,
 select string_agg, count(*) from group_concat
 group by string_agg
 
+
 --------------------------------------TABLEAU---------------------------------------
 --Tableau Field Calculations
+
+--see timeslice for implementing this in SQL
 
 --adjustable time bin aggregation
   --(1) Set date as constant so that Tableau can group by time only
@@ -82,3 +105,12 @@ DATEADD('minute',
      	    ) * [Minute Bin Size], 
 DATETRUNC('day', [YF : Time]))
   --(3) set an integer parameter with range for changing bin size
+
+
+
+--Datetime Format
+--d-mmm-yy (5-Feb-17)
+--d-mm-yyyy (5-12-2017)
+--h:nn AMPM (for 12hr)
+--hh:nn (for 24hr)
+
