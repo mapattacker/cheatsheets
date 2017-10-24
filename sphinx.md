@@ -12,7 +12,11 @@
   * Built in themes: `alabaster` (default), `classic`, `sphinxdoc`, `scrolls`, `agogo`, `traditional`, `nature`, `haiku`, `pyramid`, `bizstyle`, `sphinx_rtd_theme` (best!)
   * Some other very nice themes include:
     * [guzzle_sphinx_theme](https://github.com/guzzle/guzzle_sphinx_theme)
+<<<<<<< HEAD
 
+=======
+    
+>>>>>>> 319d7063207a997d62c6b73fd547cff316699a2e
 
 ## Headings
   * header 1 ====
