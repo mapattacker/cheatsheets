@@ -43,3 +43,4 @@ git push -u origin master
 
 ## Resources
 1) http://rogerdudler.github.io/git-guide/
+2) https://help.github.com/articles/basic-writing-and-formatting-syntax/
