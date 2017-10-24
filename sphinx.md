@@ -13,7 +13,6 @@
   * Some other very nice themes include:
     * [guzzle_sphinx_theme](https://github.com/guzzle/guzzle_sphinx_theme)
 
-test
 
 ## Headings
   * header 1 ====
