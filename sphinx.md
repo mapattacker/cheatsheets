@@ -34,7 +34,7 @@ html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
   * Numbered list `1.` etc.
   * Nested lists, with indentation after a space
 
-  ```
+  ```restructuredtext
     1. 1st level bullet
 
         a. 2nd level bullet
