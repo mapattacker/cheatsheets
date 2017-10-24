@@ -12,7 +12,6 @@
   * Built in themes: `alabaster` (default), `classic`, `sphinxdoc`, `scrolls`, `agogo`, `traditional`, `nature`, `haiku`, `pyramid`, `bizstyle`, `sphinx_rtd_theme` (best!)
   * Some other very nice themes include:
     * [guzzle_sphinx_theme](https://github.com/guzzle/guzzle_sphinx_theme)
-    * [CrateDB](https://github.com/crate/crate-docs-theme)
 
 ```python
 import sphinx_rtd_theme
