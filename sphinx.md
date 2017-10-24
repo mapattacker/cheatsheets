@@ -13,11 +13,6 @@
   * Some other very nice themes include:
     * [guzzle_sphinx_theme](https://github.com/guzzle/guzzle_sphinx_theme)
 
-```python
-import sphinx_rtd_theme
-html_theme = "sphinx_rtd_theme"
-html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
-```
 
 ## Headings
   * header 1 ====
