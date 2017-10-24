@@ -39,7 +39,7 @@ __Grant Permissions to essential Spark folders__
 
 In the script or python shell
 
-```
+```python
 # order script to find spark location
 import findspark
 findspark.init('/home/jake/spark/spark-2.2.0-bin-hadoop2.7')
