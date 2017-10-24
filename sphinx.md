@@ -16,7 +16,7 @@
     * Comment out `html_theme = 'alabaster'` and in place of it
     * Add in the codes
 
-```
+```python
 import sphinx_rtd_theme
 html_theme = "sphinx_rtd_theme"
 html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
@@ -57,7 +57,7 @@ sys.path.insert(0, os.path.abspath('.'))
   * Change abspath if python code is in different directory
   * In rst file, set python file name without extension
 
-```
+```restructuredtext
 .. automodule:: filename
     :members:
 ```
@@ -77,7 +77,7 @@ sys.path.insert(0, os.path.abspath('.'))
   * Add auto-numbering if necessary
   * Possible to hide it on main page
 
-```
+```restructuredtext
 .. toctree::
    :maxdepth: 2
    :caption: Contents
@@ -94,31 +94,31 @@ sys.path.insert(0, os.path.abspath('.'))
 
 ## Paragraph Level Markup
   * Note
-  ```
+  ```restructuredtext
   .. note::
 
      This function is not suitable for sending spam e-mails.
   ```
   * Warning
-  ```
+  ```restructuredtext
   .. warning::
 
      An important bit of information about an API.
   ```
   * Error/Danger
-  ```
+  ```restructuredtext
   .. error::
      This is sample of admonition directive for "Error".
   ```
   * Hint/Tip
-  ```
+  ```restructuredtext
   .. tip::
      This is sample of admonition directive for "Tip".
   ```
 
 ## Blocks
   * Code Block
-  ```
+  ```restructuredtext
   .. code-block:: python
     :linenos:
     :emphasize-lines: 1
@@ -137,7 +137,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
 ## Images
   * Image only
-  ```
+  ```restructuredtext
   .. image:: workflow.png
       :scale: 40 %
       :align: left
@@ -145,7 +145,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
   * image with caption
 
-  ```
+  ```restructuredtext
   .. figure:: images/rankingencode.png
       :width: 200px
       :align: center
@@ -158,7 +158,7 @@ sys.path.insert(0, os.path.abspath('.'))
 
   * image with attachment
   
-  ```
+  ```restructuredtext
   .. image:: images/sklearn.PNG
       :target: _static/sklearn_cheat.pdf
   ```
@@ -170,13 +170,13 @@ sys.path.insert(0, os.path.abspath('.'))
   * __Undo rst Commands__: \
   * __Images__: `.. image:: workflow.png`
   * __Hyperlink__: assign a variable then call hyperlink below:
-  ```
+  ```restructuredtext
   Document dated Jun 2000. Download_.
 
   .. _Download: https://tools.ietf.org/html/rfc2865
   ```
   * __SVG images__: put svg file in html/_images folder and use a raw directive to link to it
-  ```
+  ```restructuredtext
   .. raw:: html
 
       <object data="_images/workflow.svg" type="image/svg+xml"></object>
