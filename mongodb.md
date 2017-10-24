@@ -100,7 +100,7 @@ use pretty printing
 
 `db.mycol.find().pretty()` --use pretty printing
 
-```python
+```
 db.mycol.find({"likes": {$gt:10}, $or: [{"by": "tutorials point"},
 {"title": "MongoDB Overview"}]}).pretty()
 ```
