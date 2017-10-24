@@ -10,11 +10,7 @@
 
 ## Themes
   * Built in themes: `alabaster` (default), `classic`, `sphinxdoc`, `scrolls`, `agogo`, `traditional`, `nature`, `haiku`, `pyramid`, `bizstyle`
-  * Nicest theme is provided by readthedocs.org. View here on how to install https://pypi.python.org/pypi/sphinx_rtd_theme
-  * `pip install sphinx_rtd_theme`
-  * In config.py:
-    * Comment out `html_theme = 'alabaster'` and in place of it
-    * Add in the codes
+  * Nicest theme is `sphinx_rtd_theme`, provided by readthedocs.org
 
 ```python
 import sphinx_rtd_theme
