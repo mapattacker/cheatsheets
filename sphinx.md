@@ -11,7 +11,7 @@
 ## Themes
   * Built in themes: `alabaster` (default), `classic`, `sphinxdoc`, `scrolls`, `agogo`, `traditional`, `nature`, `haiku`, `pyramid`, `bizstyle`, `sphinx_rtd_theme` (best!)
   * Some other very nice themes include:
-    * [guzzle_sphinx_theme](https://github.com/guzzle/guzzle_sphinx_theme)
+    * [guzzle_sphinx_theme](https://github.com/guzzle/guzzle_sphinx_theme) (not supported by readthedocs)
 
 
 ## Headings
