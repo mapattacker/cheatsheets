@@ -62,7 +62,7 @@ It will be automatically created when inserting a document.
 Object ID, if not specified, will be automatically entered with the following format:
 `_id: ObjectId(4 bytes timestamp, 3 bytes machine id, 2 bytes process id, 3 bytes incrementer)` --unique id
 
-```
+```python
 db.post.insert([
  {
     title: 'MongoDB Overview', 
@@ -100,7 +100,7 @@ use pretty printing
 
 `db.mycol.find().pretty()` --use pretty printing
 
-```
+```python
 db.mycol.find({"likes": {$gt:10}, $or: [{"by": "tutorials point"},
 {"title": "MongoDB Overview"}]}).pretty()
 ```
@@ -116,7 +116,7 @@ db.mycol.find({"likes": {$gt:10}, $or: [{"by": "tutorials point"},
 
 # Explain
 
-```
+```python
 db.collection.find(query).explain()
 {
     // BasicCursor means no index used, BtreeCursor would mean this is an indexed query
@@ -155,7 +155,7 @@ In Mongo Shell
 `mongoexport --db wsg-database --collection wsg --type=csv --fieldFile fields.txt --out export.csv`
 
 In Python
-```
+```python
 import pymongo
 import subprocess
 
@@ -165,7 +165,7 @@ subprocess.call(["mongoexport", "--db", "mydb", "--collection", "url_db","--type
 
 
 In Python
-```
+```python
 # get unique fields from mongodb
 fields = []
 for i in db['wsg'].find({}):
@@ -192,7 +192,7 @@ Download the jar file of the connector. Place  in `C:\spark\jars` folder.
 
 Use `spark-submit --packages org.mongodb.spark:mongo-spark-connector_2.10:2.2.0 filename.py`
 
-```
+```python
 #spark > v2.0
 from pyspark.sql import SparkSession
 
