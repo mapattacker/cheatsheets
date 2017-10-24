@@ -15,7 +15,7 @@
 6) Go to Github > Settings > Personal access tokens > create token. This will be used in place of the password in command line
 7) `git push -u origin master` > enter username & token as password
 
-```
+```bash
 git init
 git add README.md
 git commit -m "first commit"
