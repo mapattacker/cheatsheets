@@ -42,6 +42,19 @@ SELECT to_timestamp(floor((extract('epoch' from starttime) / 900 )) * 900)
 FROM tablename
 
 
+-- GAP FILLING
+---------------------------------------
+--time series
+SELECT date_trunc('day', dd)::date
+FROM generate_series
+        ('2007-02-01'::timestamp, 
+         '2008-04-01'::timestamp,
+         '1 day'::interval) dd
+
+--numbers
+select generate_series(1,4)
+
+
 
 -- GRAPH NETWORKS
 ---------------------------------------

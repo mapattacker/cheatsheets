@@ -8,6 +8,11 @@
   * readthedocs: go to new build > Admin > Integrations > Add Integrations > copy weblink created (include https:// in front!!)
   * Github: go to repository > Settings > Webhooks > Add Webhook > paste weblink > content type as "application/x-www-form-urlencoded..." > Secret leave blank > just push event > Update webhook
 
+## Using Github Pages
+  * Upload sphinx contents in `_build` > `html` folder into the master of your github repository.
+  * By default, Github Pages ignores all folders with an underscore, e.g., `_image`. Add a `.nojekyll` file into the repository to disable this.
+  * Go to the repository > Settings > Github Pages > Source: master branch > Save
+
 ## Themes
   * Built in themes: `alabaster` (default), `classic`, `sphinxdoc`, `scrolls`, `agogo`, `traditional`, `nature`, `haiku`, `pyramid`, `bizstyle`, `sphinx_rtd_theme` (best!)
   * Some other very nice themes include:
