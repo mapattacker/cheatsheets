@@ -22,6 +22,14 @@ df.head() #shows a list of row objects
 # [Row(age=None, name='Michael'), Row(age=30, name='Andy')]
 
 
+
+## WRITING
+#--------------------------------------------------------
+# will auto write to hdfs
+df.write.option('path','jake/foldername/operator_lookup.parquet').partitionBy("datestring").format("parquet").saveAsTable("operator_lookup")
+
+
+
 ## BASICS
 #--------------------------------------------------------
 df[:10].collect() #collect the result instead of showing

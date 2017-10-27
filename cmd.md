@@ -186,7 +186,7 @@ __TextEdit editor__
 
 `sudo apt-get purge package_name`  --uninstall package, remove config files
 
-`sudo apt-get autoremove package_name`  --remove dependencies of package_name
+`sudo apt-get purge --auto-remove package_name` --uninstall package, remove config files and it's dependencies
 
 `apt list --installed`  --list installed packages
 
@@ -218,6 +218,16 @@ __TextEdit editor__
 `alias npp='notepad++'` --assign an alias in the file
 
 `source ~\bashrc` --reload file
+
+
+
+### HDFS
+
+`hdfs dfs`  -- show all commands
+
+`hdfs dfs -ls`  --list directory contents in hdfs
+
+`hdfs dfs -put foldername foldername` --copy folder and all contents from edge and paste in hdfs datanode
 
 
 
