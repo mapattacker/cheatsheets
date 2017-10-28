@@ -6,7 +6,10 @@ https://docs.docker.com/engine/installation/
 Post Installation
 https://docs.docker.com/engine/installation/linux/linux-postinstall/#manage-docker-as-a-non-root-user
 
+## Some Notes
 
+One of the most important configuration for docker is to create a data folder that links from the os to the container data directory.
+This is designated by the `-v path/in/os/folder:/default/path/of/software/data/directory/in/container`
 
 ### Some Docker Commands
 
@@ -54,6 +57,5 @@ https://hub.docker.com/r/kartoza/geoserver/
   * `/opt/geoserver/data_dir`: where all data is stored
   * Username: admin
   * Password: geoserver
-
 
 
