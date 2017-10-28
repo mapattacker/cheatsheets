@@ -7,8 +7,8 @@
 5) Go to Github/GitLab > Settings > SSH and GPG Keys > paste the key here
 
 ## New Repository
-1) create new project folder `> testfolder`, then `git init`
-2) Go to Github > create new repository > get repository link
+1) create new project folder `mkdir testfolder`, then `git init`
+2) Go to Github > create new repository (DO NOT create a README.md or other files) > get repository link
 3) `git add README.md`
 4) `git commit -m "first commit"`
 5) `git remote add origin https://github.com/mapattacker/testrepo.git`
