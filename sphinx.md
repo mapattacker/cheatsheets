@@ -1,5 +1,6 @@
 ## Using Sphinx
   * In cmd or terminal > `sphinx-quickstart`
+    * if using GitHub Pages, enter `y` when asked to create a `.nojekyll` file
   * master document is the home page
   * `make html` OR `./make html` (in atom powershell) command to create html document, note to cd to folder where rst file is stored
   * Html pages stored under `_build/html` folder
