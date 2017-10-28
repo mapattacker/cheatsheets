@@ -54,7 +54,8 @@ https://docs.gitlab.com/omnibus/docker/README.html#install-gitlab-using-docker-c
 https://hub.docker.com/r/kartoza/geoserver/
 
 `docker run --name "geoserver" -v ~/Users/xxx/docker/geoserver:/opt/geoserver_data/data -d -p 8080:8080 kartoza/geoserver`
-  * `/opt/geoserver/data_dir`: where all data is stored
+  * `/opt/geoserver/data_dir`: where all data is stored (note it varies with containers)
+  * Url: `localhost:8080/geoserver`
   * Username: admin
   * Password: geoserver
 
