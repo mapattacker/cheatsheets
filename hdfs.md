@@ -21,4 +21,4 @@ Default database is default; there is no need to specify this.
 
 `show tables;`  --show all tables
 
-`drop table table_name` --delete table
+`drop table table_name;` --delete table
