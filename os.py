@@ -16,7 +16,7 @@ path = r'C:\Users\Teo Siyang\'
 for i in os.listdir(path):
   print i
 
-    
+
 # get full path, folder name (in a list), and file names (in a list) from path lsited
 import os
 path = 'C:\Users\Teo Siyang\'

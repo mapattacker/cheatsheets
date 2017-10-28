@@ -31,7 +31,13 @@ Simple Install
   * `docker run --name some-postgres -e POSTGRES_PASSWORD=mysecretpassword -d postgres`
 
 Detail Install
-  * `docker run --name some-postgres -v /home/xxxx/postgresdata:/var/lib/postgresql/data -p 5432:5432 --restart=always -e POSTGRES_DB=postgres -e POSTGRES_USER=xxxx -e POSTGRES_PASSWORD=xxxx -d postgres`   --name: name of docker image, -v: mount image on a created directory called postgresdata, with container directories /var/lib/postgresql/data, -p: expose postgres port, restart: start docker image when os restarts, POSTGRES_PASSWORD: password, -d: name of database
+  * `docker run --name some-postgres -v /home/xxxx/postgresdata:/var/lib/postgresql/data -p 5432:5432 --restart=always -e POSTGRES_DB=postgres -e POSTGRES_USER=xxxx -e POSTGRES_PASSWORD=xxxx -d postgres`   
+      * `--name`: name of docker image
+      * `-v`: mount image on a created directory called postgresdata, with container directories /var/lib/postgresql/data
+      * `-p`: expose postgres port
+      * `restart`: start docker image when os restarts
+      * `POSTGRES_PASSWORD`: password
+      * `-d`: name of database
 
   * Note that default username is postgres
 
