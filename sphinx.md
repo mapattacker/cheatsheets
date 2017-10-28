@@ -6,7 +6,7 @@
   * Html pages stored under `_build/html` folder
 
 ## Using readthedocs
-  * readthedocs: go to new build > Admin > Integrations > Add Integrations > copy weblink created (include https:// in front!!)
+  * readthedocs: go to new build > Admin > Integrations > Add Integrations > copy weblink created (include `https://` in front!!)
   * Github: go to repository > Settings > Webhooks > Add Webhook > paste weblink > content type as "application/x-www-form-urlencoded..." > Secret leave blank > just push event > Update webhook
 
 ## Using Github Pages
