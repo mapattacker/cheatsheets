@@ -7,7 +7,7 @@
 
 ## Impala Shell
 Most usual database commands are valid in the impala shell. 
-Default database is default. There is no need to specify this.
+Default database is default; there is no need to specify this.
 
 `impala-shell`  --launch impala shell
 
