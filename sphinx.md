@@ -18,6 +18,8 @@
   * Built in themes: `alabaster` (default), `classic`, `sphinxdoc`, `scrolls`, `agogo`, `traditional`, `nature`, `haiku`, `pyramid`, `bizstyle`, `sphinx_rtd_theme` (best!)
   * Some other very nice themes include:
     * [guzzle_sphinx_theme](https://github.com/guzzle/guzzle_sphinx_theme) (not supported by readthedocs)
+    * [sphinx_adc_theme](https://github.com/mga-sphinx/sphinx_adc_theme)
+    * More listed by [Awesome Sphinxdoc](https://github.com/yoloseem/awesome-sphinxdoc)
 
 
 ## Headings
