@@ -97,7 +97,7 @@ sys.path.insert(0, os.path.abspath('.'))
 :Username: admin
 :Password: geoserver
 ```
-  * Simple table with header
+  * Simple table with header [type1](http://docs.geoserver.org/latest/en/user/datadirectory/location.html)
 
 ```
 .. list-table::
@@ -113,6 +113,25 @@ sys.path.insert(0, os.path.abspath('.'))
      - |data_directory_mac|
    * - Linux (Tomcat)
      - |data_directory_linux|
+```
+  * Simple table with header [type2](http://docs.geoserver.org/latest/en/docguide/sphinx.html)
+
+```
+.. list-table::
+   :widths: 30 40 30
+
+   * - **Format**
+     - **Syntax**
+     - **Output**
+   * - Italics
+     - ``*italics*`` (single asterisk)
+     - *italics*
+   * - Bold
+     - ``**bold**`` (double asterisk)
+     - **bold**
+   * - Monospace
+     - `` ``monospace`` `` (double back quote)
+     - ``monospace``
 ```
 
 ## Paragraph Level Markup
