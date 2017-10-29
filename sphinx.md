@@ -90,6 +90,13 @@ sys.path.insert(0, os.path.abspath('.'))
 
 ## Tables
   * Use the table generator in the link: http://www.tablesgenerator.com/text_tables
+  * Simple table, see below
+
+```
+:Url: localhost:8080/geoserver
+:Username: admin
+:Password: geoserver
+```
 
 
 ## Paragraph Level Markup
