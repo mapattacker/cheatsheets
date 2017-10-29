@@ -97,7 +97,23 @@ sys.path.insert(0, os.path.abspath('.'))
 :Username: admin
 :Password: geoserver
 ```
+  * Simple table with header
 
+```
+.. list-table::
+   :header-rows: 1
+
+   * - Standalone platform
+     - Default/typical location
+   * - Windows (except XP)
+     - |data_directory_win|
+   * - Windows XP
+     - |data_directory_winXP|
+   * - Mac OS X
+     - |data_directory_mac|
+   * - Linux (Tomcat)
+     - |data_directory_linux|
+```
 
 ## Paragraph Level Markup
   * Note
