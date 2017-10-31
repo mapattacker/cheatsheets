@@ -26,6 +26,7 @@ df.head() #shows a list of row objects
 ## WRITING
 #--------------------------------------------------------
 # will auto write to hdfs
+    #best to check & define column data types first
 df.write.option('path','jake/foldername/operator_lookup.parquet').partitionBy("datestring").format("parquet").saveAsTable("operator_lookup")
 
 

@@ -100,6 +100,8 @@ killall Finder
 
 `sudo rm target/kafka-manager-1.1.zip`   --delete file
 
+`history | grep "iodbctest"`  --search history of a particular command
+
 
 
 ### TMUX (Terminal Multiplexer)

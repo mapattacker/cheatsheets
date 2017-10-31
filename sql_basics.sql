@@ -65,4 +65,42 @@ from table_name
 select (case when column1 - column2 >= 14 then 1 else 0) as difference
 from table_name
 
---Union
+
+
+--CONVERT DATA TYPE
+--------------------------------------
+  --simple conversion (POSTGRES, VERTICA)
+select column1::date, column2::int
+  --using CAST (IMPALA)
+select CAST('2016-02-03 06:37:51' as timestamp)
+
+
+--DATETIME
+--------------------------------------
+--CONVERT TO DATETIME
+  --from EPOCH to TIMESTAMP (IMPALA)
+select to_timestamp(1456314748) 
+  --from TIMESTAMP to DATE (IMPALA)
+select to_date(now())
+  --from string to TIMESTAMP
+select CAST('2016-02-03 06:37:51' as timestamp)
+  --fixed constant parts for datetime
+select to_char(starttime, '1900-01-01 HH24:00:00')::timestamp --(POSTGRES)
+select cast(concat('1991-01-01', ' ', from_unixtime(1392394861, 'HH'), ':00:00') as timestamp) --(IMPALA)
+
+
+--DATETIME DELTA (ADD/DIFF)
+select now() - interval '15 minutes' -- (POSTGRES)
+select now() - interval 15 minutes -- (IMPALA)
+
+
+--TRUNCATE
+select trunc(starttime, 'dd')
+
+
+--EXTRACT (POSTGRES, IMPALA)
+select extract(now(), 'year');
+  --2017
+  
+  
+  
