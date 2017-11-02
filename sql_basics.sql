@@ -53,6 +53,12 @@ FROM information_schema.columns
 WHERE table_name = 'wsg_radius_log'
 
 
+--create views
+CREATE VIEW view_name AS
+select * from tablename
+where column 1 
+
+
 --QUERIES
 --------------------------------------
 --select consecutive before & after rows

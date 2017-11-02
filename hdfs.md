@@ -17,6 +17,8 @@ Default database is default; there is no need to specify this.
 
 `impala-shell`  --launch impala shell
 
+`connect 192.168.xxx.xxx:21000;`  --connect to impala in the data-node
+
 `create database database_name;` --create new database
 
 `use database_name;` --switch database
