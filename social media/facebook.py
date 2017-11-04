@@ -7,7 +7,7 @@ sys.setdefaultencoding("utf-8")
 
 # Notes
 # ----------------------------------------
-# Explore the API using https://developers.facebook.com/tools/explorer
+# Explore the API results using https://developers.facebook.com/tools/explorer
 
 
 # Token
