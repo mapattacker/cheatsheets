@@ -5,6 +5,13 @@ reload(sys)
 sys.setdefaultencoding("utf-8")
 
 
+# Notes
+# ----------------------------------------
+# Explore the API using https://developers.facebook.com/tools/explorer
+
+
+# Token
+# ----------------------------------------
 # Facebook App Token (long live compared to User Token)
 fbtoken = 'xx|xx'
 
