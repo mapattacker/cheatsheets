@@ -5,6 +5,12 @@ https://docs.docker.com/engine/installation/
 
 Post Installation
 https://docs.docker.com/engine/installation/linux/linux-postinstall/#manage-docker-as-a-non-root-user
+to prevent typing sudo for docker commands use the below to add a user to docker
+
+`sudo groupadd docker`
+
+`sudo usermod -aG docker $USER`
+
 
 ## Some Notes
 
@@ -26,6 +32,12 @@ This is designated by the `-v path/in/os/folder:/default/path/of/software/data/d
 `docker ps`  --show status of images which are running
 
 `docker exec -it <containerIdOrName> bash`  --enter into container using bash
+
+`docker cp container_name:container_path local_path`  --copy container contents to local drive
+
+`docker cp local_path container_name:container_path`  --copy local drive contents to docker
+
+`exit`  --exit from docker bash
 
 ### PostGreSQL
 https://hub.docker.com/_/postgres/
@@ -53,10 +65,12 @@ https://docs.gitlab.com/omnibus/docker/README.html#install-gitlab-using-docker-c
 ### GeoServer
 https://hub.docker.com/r/kartoza/geoserver/
 
-`docker run --name "geoserver" -v ~/Users/xxx/docker/geoserver:/opt/geoserver_data/data -d -p 8080:8080 kartoza/geoserver`
+`docker run --name "geoserver" -v /home/xxxx/geoserverdata:/opt/geoserver/data_dir -d -p 8080:8080 kartoza/geoserver`
   * `/opt/geoserver/data_dir`: where all data is stored (note it varies with containers)
   * Url: `localhost:8080/geoserver`
   * Username: admin
   * Password: geoserver
+
+
 
 
