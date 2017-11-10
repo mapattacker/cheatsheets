@@ -1,3 +1,10 @@
+--PSQL------------------------
+-- upload csv to table
+-- put csv in C:\tmp folder
+copy public.tablename from 'C:\tmp\upload.csv' delimiter ',' csv header;
+
+
+
 --SYSTEM----------------------
 --check list of tables in database
 SELECT * FROM information_schema.tables 

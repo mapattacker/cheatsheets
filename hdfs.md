@@ -6,9 +6,9 @@
 
 `hdfs dfs -ls dir_name` --list all files and directories in dir_name
 
-`hdfs dts -rm \dir_name\file_name`  --delete file
+`hdfs dfs -rm \dir_name\file_name`  --delete file
 
-`hdfs dts -rm -r dir_name`  --delete 
+`hdfs dfs -rm -r dir_name`  --delete 
 
 
 ## Impala Shell

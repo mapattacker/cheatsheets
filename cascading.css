@@ -1,16 +1,59 @@
+/*cascading in CSS means that the closest style settings will "win" over another further away in a html document.*/
 
-// Queries with dot in front are classes; will style all elements with an attribute class="foo"
+/* Inline CSS */
+<p style="border-style:solid;"> Write Something. </p>
+
+
+
+
+/* CLASS */
+/* Queries with dot in front are classes; will style all elements with an attribute class="foo" */
+/* Class can be used more than once in the document */
+/* A tag can have more than one class, e.g., <div class="foo foo2">Write something</div> */
 .foo {
-  font-size = 18px} 
+  font-family: monospace, sans-serif; /* first font is the priority */
+  font-size: xx-large;  /* relative */
+  font-size: 18px;  /* px is an absolute size */
+  margin: 1em;      /* margin is a relative size of a character "m" in the document */
+  } 
 
-// comma like below assigns both a tag and class
+.foo2 {
+  font-size: 18px} 
+
+/* ID */
+/*# is an id tag, e.g.,<div id="first"></div>
+    id tag can only be used once in the document*/
+#first {
+  margin-left: 10px;
+}
+
+/* TAG  */
+/*comma like below assigns both a tag and class*/
 h5, 
 .h5 {
   font-size: 14px;
 }
 
-// media queries changes styles in response to webpage size
+
+/* MEDIA QUERY */
+/*media queries changes styles in response to webpage size*/
 @media (max-width: 768px) {
     h4 {font-size: 0.8em;
         }
         
+/* IMPORTANT */
+p {
+  border-style: dotted;
+  border-color: red !important;
+  border-width: 5px;
+  background-color: #EAECEE;
+  margin: 20px
+}
+
+
+/* OVERFLOW */
+/*for enclosing text into a box with a scroll bar*/
+.flow {
+  height: 3em;
+  overflow: scroll; /* can be hidden too */
+}
