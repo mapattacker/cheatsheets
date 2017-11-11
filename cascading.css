@@ -57,3 +57,11 @@ p {
   height: 3em;
   overflow: scroll; /* can be hidden too */
 }
+
+
+/* NESTED DEFAULT TAGS */
+/*style will act in a <nav><li>Something</li></nav> tags*/
+nav li {
+  display: inline-block;
+  vertical-align: middle;
+}
