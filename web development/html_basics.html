@@ -23,6 +23,29 @@
   <div>Something</div>
   <!-- Span has zero styling -->
   <span>Something</span>
+
+
+  <!-- HTML FORM -->
+  <!-- $_POST is used when data is being created or modified.
+  $_GET is used when your are reading or searching things. -->
+  <!-- https://www.wa4e.com/code/forms/more.php -->
+  
+  <form method="post"> <!-- if remove method = post, it will be a $_GET request -->
+    <p><label for="guess">Input Guess</label>
+    <input type="text" name="guess" size="40" id="guess"/></p>
+    <input type="submit"/>
+    </form>
+    <pre>
+      $_POST:
+          <?php
+          print_r($_POST);
+          ?>
+      $_GET:
+          <?php
+          print_r($_GET);
+          ?>
+    </pre>
+
 </body>
 
 </html>

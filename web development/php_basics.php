@@ -1,3 +1,7 @@
+<?php
+  phpinfo() //give php version, configuration, etc.
+?>
+
 <!-- Database Access & Query -->
 <?php
     // access mysql database access parameters
@@ -210,4 +214,71 @@ heredoc;
   //     [2] => a
   //     [3] => sentence
   // )
+?>
+
+
+
+<?php
+  // FUNCTION
+  // --------------------------------------------
+  function greet(){
+    return "Hello!";
+  }
+  print greet();
+  
+  function greet($x){
+    if ($x>0) return "True";
+    else return "False";
+  }
+  print greet(5);
+  
+  // optional arguements; define default arguments
+  function greet($x=1){
+    if ($x>0) return "True";
+    else return "False";
+  }
+  print greet();
+  print greet(0);
+  
+  // Call by Value
+  // Call by Reference
+  // Global Scope
+?>
+
+
+<?php
+  // ADDING FILES; MODULARITY
+  // useful for repeating stuff in many webpages
+  include "header.php";
+  include_once "header.php";
+  require "header.php";
+  require_once "header.php";
+?>
+
+
+<?php
+  // HASHING
+  hash('md5', '1234');
+?>
+
+
+<?php
+  $oldguess = isset($_POST['guess']) ? $_POST['guess'] : ''
+?>
+  <?php echo($old_guess)?>; <!-- usual statement -->
+  <?= $old_guess ?>; <!-- shortcut to echoing -->
+  
+  <!-- convert text into html entities; prevent html injection -->
+  <!-- always use for user query submissions -->
+  <?= htmlentities($old_guess) ?> 
+
+
+
+
+<?php
+    // DATA VALIDATION
+    strlen($var) > 0;
+    is_numeric($var);
+    strpos($var, '@') > 0;
+    filter_var($var, FILTER_VALIDATE_EMAIL) !== false
 ?>
