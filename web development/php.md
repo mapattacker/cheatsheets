@@ -2,4 +2,4 @@
 
 A standard placement of php-html positioning.
 
-![mvc](../img/mvc.PNG | width=600)
+![mvc](../img/mvc.PNG)
