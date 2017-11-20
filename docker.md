@@ -39,6 +39,7 @@ This is designated by the `-v path/in/os/folder:/default/path/of/software/data/d
 
 `exit`  --exit from docker bash
 
+
 ### PostGreSQL
 https://hub.docker.com/_/postgres/
 
@@ -71,6 +72,13 @@ https://hub.docker.com/r/kartoza/geoserver/
   * Username: admin
   * Password: geoserver
 
+
+### PostGIS
+https://hub.docker.com/r/kartoza/postgis/
+
+`docker pull kartoza/postgis`
+
+`sudo docker run --name "postgis" -v /home/xxx/postgresdata:/var/lib/postgresql -p 5432:5432 --restart=always -d -t kartoza/postgis`
 
 
 

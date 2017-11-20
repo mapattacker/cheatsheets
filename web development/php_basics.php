@@ -262,15 +262,13 @@ heredoc;
 ?>
 
 
-<?php
-  $oldguess = isset($_POST['guess']) ? $_POST['guess'] : ''
-?>
-  <?php echo($old_guess)?>; <!-- usual statement -->
-  <?= $old_guess ?>; <!-- shortcut to echoing -->
-  
-  <!-- convert text into html entities; prevent html injection -->
-  <!-- always use for user query submissions -->
-  <?= htmlentities($old_guess) ?> 
+<?php $oldguess = isset($_POST['guess']) ? $_POST['guess'] : '' ?>
+<?php echo($old_guess)?>; <!-- usual statement -->
+<?= $old_guess ?>; <!-- shortcut to echoing -->
+
+<!-- convert text into html entities; prevent html injection -->
+<!-- always use for user query submissions -->
+<?= htmlentities($old_guess) ?> 
 
 
 

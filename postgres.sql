@@ -9,7 +9,7 @@ copy public.tablename from 'C:\tmp\upload.csv' delimiter ',' csv header;
 --check list of tables in database
 SELECT * FROM information_schema.tables 
 --check version of database
-select version() 
+select version();
 --check index tables
 SELECT * FROM pg_indexes 
 WHERE schemaname = 'public' and tablename = 'mytable';
@@ -100,3 +100,19 @@ select scanid,
 	unnest(array[column1, column2, column3]) 
 from s188
 
+
+--POSTGIS-----------------------------
+--http://www.bostongis.com/PrinterFriendly.aspx?content_name=postgis_tut01
+--use Stack Builder (preinstalled with PostGres) to install PostGIS
+
+--PostGIS version
+SELECT PostGIS_full_version();
+
+--Convert SHP to POSTGIS
+-- Get the GUI Tool from the path below in windows
+-- C:\Program Files\PostgreSQL\9.6\bin\postgisgui
+
+
+
+--RESOURCES-----------------------------
+-- https://gist.github.com/clhenrick/ebc8dc779fb6f5ee6a88
