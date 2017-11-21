@@ -2,7 +2,6 @@
 Its tough remembering all the codes one wrote, especially if one have not use it for awhile. This is a collection of cheat codes I compiled to assist in generate faster scripts. They are updated whenever I encounter any lines of code which I forsee to be used again in the future.
 
   * __Avro__: A serialised file format based on json `avro.md`
-  * __CSS__: Cascading Style Sheet cheatsheet `cascading.css`
   * __Command Line__: Bash & Command Line `cmd.md`
   * __D3.js__: Intro to D3, Dynamic Driven Documents
   * __Docker__: Docker container commands `docker.md`
@@ -18,6 +17,7 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __Pandas__: python pandas package `pandas.py`
   * __Parallel Processing__: parallel processing using python `parallel_python.py`
   * __PostgreSQL__: sql samples for postgresql `postgres.sql`
+  * __PostGIS__: GIS database in PostgreSQL `postgis.rst`
   * __Python Installation__: tips on python installation `py_install.md`
   * __PySpark__: pyspark package `pyspark.py`
   * __Regular Expression__: python re package `re.py`
@@ -27,4 +27,5 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __Social Media__: Folder containing python codes for various social media APIs, including Slack, Instagram, Facebook, Twitter
   * __Spark__: Installation of Spark in Linux
   * __Tableau__: Sql queries for Tableau `tableau.sql`
+  * __Web Development__: Folder containing web development stuff like html, css & php
   * __Web Scraping__: Web-scraping using beautiful soup and selenium `webscraping.py`
