@@ -28,7 +28,9 @@ Open the connection button and connect to the database.
     :align: center
     :figclass: align-center
     
-Remember to add the SRID. 3414 is the coordinate system for Singapore's SVY21.
+Remember to add the SRID. 3414 is the coordinate system for Singapore's SVY21. All official government layers from GeoSpace are in this SRID.
+
+Spatial indexing is automatically done using this tool when uploading the shapefiles to PostGIS.
 
 
 Editing
@@ -36,14 +38,19 @@ Editing
 
 **ArcGIS** by default does not allow editing. However, 3rd party paid extensions like gisquirrel allows this.
 
-**QGIS** allows for editing/deleting.
+**QGIS** bby default allows for editing/deleting.
 
 
 Map Service
 ------------
 
-GeoServer can be connected to PostGIS & published the layers.
+GeoServer can be connected to PostGIS & published the layers. In GeoServer, create a new store with connection to PostGIS,
+and select the relevant tables to publish as a WMS.
 
+.. figure:: img/postgis3.PNG
+    :width: 400px
+    :align: center
+    :figclass: align-center
 
 Queries
 ----------
@@ -52,3 +59,6 @@ Queries
   
   # PostGIS version
   SELECT PostGIS_full_version();
+  # Data directory path
+  show data_directory;
+

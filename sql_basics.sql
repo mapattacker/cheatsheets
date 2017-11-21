@@ -4,6 +4,10 @@
 CREATE DATABASE tablename
   DEFAULT CHARACTER SET utf8;
 
+--Create Schema
+CREATE SCHEMA schema_name;
+CREATE SCHEMA AUTHORIZATION user_name;
+
 --Alter Existing Table
 ALTER TABLE tablename RENAME fieldname1 to fieldname2
 ALTER TABLE table_name ADD fieldname float;
