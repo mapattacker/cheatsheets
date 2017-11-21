@@ -28,7 +28,7 @@ Open the connection button and connect to the database.
     :align: center
     :figclass: align-center
     
-Remember to add the SRID. 3414 is the coordinate system for Singapore's SVY21. All official government layers from GeoSpace are in this SRID.
+Remember to add the SRID. 3414 is the coordinate system for Singapore's SVY21.
 
 Spatial indexing is automatically done using this tool when uploading the shapefiles to PostGIS.
 
@@ -59,6 +59,7 @@ Queries
   
   # PostGIS version
   SELECT PostGIS_full_version();
+  
   # Data directory path
   show data_directory;
 
