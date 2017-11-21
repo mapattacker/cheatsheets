@@ -47,7 +47,7 @@ Map Service
 GeoServer can be connected to PostGIS & published the layers. In GeoServer, create a new store with connection to PostGIS,
 and select the relevant tables to publish as a WMS.
 
-.. figure:: img/postgis3.PNG
+.. figure:: img/postgis3.png
     :width: 400px
     :align: center
     :figclass: align-center
