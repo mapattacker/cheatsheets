@@ -86,7 +86,7 @@ __Consumer__
 
 ```
 from kafka import KafkaConsumer
-consumer = KafkaConsumer("Tatooine", bootstrap_servers="192.168.0.2", auto_offset_reset='earliest', enable_auto_commit=False)
+consumer = KafkaConsumer(topic, bootstrap_servers="192.168.0.x", auto_offset_reset='earliest', enable_auto_commit=False)
 
 for msg in consumer:
     log = msg.value
