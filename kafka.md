@@ -137,7 +137,7 @@ sc = SparkContext(appName="PythonSparkStreamingKafka_RM_01")
 sc.setLogLevel("WARN")
 ssc = StreamingContext(sc, 1) # listen every 1 second
 # ssc = spark-streaming context, zkQuorum = zookeeper, groupid = kafka topic group-id, topics = topicname:#partitions
-kafkaStream = KafkaUtils.createStream(ssc=ssc, zkQuorum='192.168.0.2:2181', groupId='m1', topics={'m1':1}) 
+kafkaStream = KafkaUtils.createStream(ssc=ssc, zkQuorum='192.168.0.x:2181', groupId='x1', topics={'x1':1}) 
 
 parsed = kafkaStream.map(lambda x: x)  
 parsed.pprint()
