@@ -1,5 +1,5 @@
 # cheatsheets
-Its tough remembering all the codes one wrote, especially if one have not use it for awhile. This is a collection of cheat codes I compiled to assist in generating faster scripts. They are updated whenever I encounter any lines of code which I forsee to be used again in the future.
+Its tough remembering all the codes one wrote, especially if one have not use it for awhile. This is a collection of cheat codes I compiled to assist in generating faster scripts. They are updated whenever I encounter any lines of code which I forsee to be used again in the future. 
 
   * __Avro__: A serialised file format based on json `avro.md`
   * __Command Line__: Bash & Command Line `cmd.md`
