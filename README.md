@@ -1,5 +1,5 @@
 # cheatsheets
-Its tough remembering all the codes one wrote, especially if one have not use it for awhile. This is a collection of cheat codes I compiled to assist in generate faster scripts. They are updated whenever I encounter any lines of code which I forsee to be used again in the future.
+Its tough remembering all the codes one wrote, especially if one have not use it for awhile. This is a collection of cheat codes I compiled to assist in generating faster scripts. They are updated whenever I encounter any lines of code which I forsee to be used again in the future.
 
   * __Avro__: A serialised file format based on json `avro.md`
   * __Command Line__: Bash & Command Line `cmd.md`
@@ -26,5 +26,5 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __Social Media__: Folder containing python codes for various social media APIs, including Slack, Instagram, Facebook, Twitter
   * __Spark__: Installation of Spark in Linux
   * __Tableau__: Sql queries for Tableau `tableau.sql`
-  * __Web Development__: Folder containing web development stuff like html, css & php
+  * __Web Development__: Folder containing web development languages cheatsheets like html, css & php
   * __Web Scraping__: Web-scraping using beautiful soup and selenium `webscraping.py`
