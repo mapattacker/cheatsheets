@@ -67,6 +67,14 @@ sorted(student_tuples, key=lambda x: x[2])
 import operator
 sorted(btwnCent.items(), key=operator.itemgetter(1), reverse = True)
 
+# JSON
+#--------------------------------
+sample = {'this': 1, 'this2':3}
+
+import json
+with open('result.json', 'w') as fp:
+    json.dump(sample,fp)
+
 
 # DIVISION IN DECIMALS
 #--------------------------------
@@ -190,7 +198,7 @@ import traceback
 
 try:
     something
-except Exception, e:
+except Exception as e:
     print sys.exc_info()[2].tb_lineno # line number where code breaks
     print e # exact item that have issue
     print traceback.format_exc() # full traceback error

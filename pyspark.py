@@ -25,6 +25,8 @@ df.head() #shows a list of row objects
 
 ## WRITING
 #--------------------------------------------------------
+# csv
+df.toPandas().to_csv("sample.csv", header=True)
 # will auto write to hdfs
     #best to check & define column data types first
 df.write.option('path','jake/foldername/operator_lookup.parquet').partitionBy("datestring").format("parquet").saveAsTable("operator_lookup")
@@ -58,6 +60,7 @@ sales_std.select(format_number('std',2)).show()
 # value, column name
 df = sqlContext.createDataFrame([('cat \n\n elephant rat \n rat cat', )], ['word'])
 
+
 # from dictionary
 from pyspark.sql import SparkSession
 from pyspark.sql import Row
@@ -67,8 +70,20 @@ dict = {1: 'test', 2: 'test2'}
 sc = SparkContext()
 spark = SparkSession(sc)
 
-rdd = sc.parallelize(dict)
-rdd.map(lambda x: x(**Row)).toDF().show() #toDF() needs a SparkSession
+rdd = spark.parallelize([dict])
+#toDF() needs a SparkSession, must be a row type before conversion to df
+rdd.map(lambda x: Row(**x)).toDF().show() # **x transposes the row
+# OR using createDataFrame
+rdd = rdd.map(lambda x: Row(**x))
+spark.createDataFrame(rdd).show()
+
+
+## APPENDING NEW DATA
+#--------------------------------------------------------
+firstDF = spark.range(3).toDF("myCol")
+newRow = spark.createDataFrame([[20]])
+appended = firstDF.union(newRow)
+display(appended)
 
 
 
@@ -76,6 +91,7 @@ rdd.map(lambda x: x(**Row)).toDF().show() #toDF() needs a SparkSession
 #--------------------------------------------------------
 df.describe() #show datatypes
 df.describe().show() #show max, min, stdev
+
 
 
 ## COLUMNS
@@ -236,8 +252,11 @@ rdd.take(n) #print n results
 #--------------
 ### RDD MAPPING
 parsedLines = rdd.map(parseLine)  #use map function, output has same number of entries, just that it can be transformed.
-words = input.flatMap(lambda x: x.split())  #use flat map function, output has more entries than input
+words = input.flatMap(lambda x: x.split())  #use flat map function,flattens output, thus will have more entries than input
 # difference illustrated here: https://www.linkedin.com/pulse/difference-between-map-flatmap-transformations-spark-pyspark-pandey
+dicts = sc.parallelize([{"foo": 1, "bar": 2}, {"foo": 3, "baz": -1, "bar": 5}])
+dicts.flatMap(lambda x: x.items()).collect()
+>>> [('bar', 2), ('foo', 1), ('bar', 5), ('foo', 3), ('baz', -1)]
 
 
 #--------------
