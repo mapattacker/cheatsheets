@@ -4,6 +4,11 @@
 CREATE DATABASE tablename
   DEFAULT CHARACTER SET utf8;
 
+--User Access
+  --can specific CRUD specific access rights too
+GRANT ALL ON misc.* TO 'fred'@'localhost' IDENTIFIED BY 'zap';
+  
+
 --Create Schema
 CREATE SCHEMA schema_name;
 CREATE SCHEMA AUTHORIZATION user_name;
