@@ -37,28 +37,49 @@ df.write.option('path','jake/foldername/operator_lookup.parquet').partitionBy("d
 #--------------------------------------------------------
 df[:10].collect() #collect the result instead of showing
 row.asDict() #produce as dictionary
+df.show() #print the results
+df.count() # print row count
+len(df.columns) #print column count
+df.printSchema() #print schema, datatypes, nullable
 
 
-## SCHEMA
+
+## SCHEMA & DATATYPES
 #--------------------------------------------------------
 #changing the schema
 from pyspark.sql.types import StructField,StringType,IntegerType,StructType
 
-data_schema = [StructField("age", IntegerType(), True),StructField("name", StringType(), True)]
-final_struc = StructType(fields=data_schema)
-df = spark.read.json('people.json', schema=final_struc)
-
+# true = nullable, false = non-nullable
+schema = StructType([StructField("age", IntegerType(), True),
+                          StructField("name", StringType(), True)])
+df = spark.read.json('people.json', schema)
 df.printSchema()
+
 
 # FORMAT DECIMAL PLACES
 sales_std.select(format_number('std',2)).show()
 
+# CONVERT DATATYPE
+df = df.withColumn("Acct-Session-Time", df["Acct-Session-Time"].cast("integer"))
 
 
 ## CREATE DATAFRAME
 #--------------------------------------------------------
 # value, column name
 df = sqlContext.createDataFrame([('cat \n\n elephant rat \n rat cat', )], ['word'])
+
+
+# empty dataframe
+from pyspark.sql.types import StructType, StructField, IntegerType, StringType
+schema = StructType([StructField("k", StringType(), True), StructField("v", IntegerType(), False)])
+# or df = sc.parallelize([]).toDF(schema)
+df = spark.createDataFrame([], schema)
+
+
+# from pandas
+df = pd.DataFrame([("foo", 1), ("bar", 2)], columns=("k", "v"))
+sqlCtx = SQLContext(sc)
+sqlCtx.createDataFrame(df).show()
 
 
 # from dictionary
