@@ -68,20 +68,29 @@ df = df.withColumn("Acct-Session-Time", df["Acct-Session-Time"].cast("integer"))
 # value, column name
 df = sqlContext.createDataFrame([('cat \n\n elephant rat \n rat cat', )], ['word'])
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d3e08e82105d237a7b8091d0368a90829943847f
 # empty dataframe
 from pyspark.sql.types import StructType, StructField, IntegerType, StringType
 schema = StructType([StructField("k", StringType(), True), StructField("v", IntegerType(), False)])
 # or df = sc.parallelize([]).toDF(schema)
 df = spark.createDataFrame([], schema)
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d3e08e82105d237a7b8091d0368a90829943847f
 # from pandas
 df = pd.DataFrame([("foo", 1), ("bar", 2)], columns=("k", "v"))
 sqlCtx = SQLContext(sc)
 sqlCtx.createDataFrame(df).show()
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> d3e08e82105d237a7b8091d0368a90829943847f
 # from dictionary
 from pyspark.sql import SparkSession
 from pyspark.sql import Row
