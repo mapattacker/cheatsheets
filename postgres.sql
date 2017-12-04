@@ -15,6 +15,28 @@ SELECT * FROM pg_indexes
 WHERE schemaname = 'public' and tablename = 'mytable';
 
 
+--change password
+ALTER user postgres
+with password 'newpassword';
+--change validity period
+ALTER USER techonthenet
+  VALID UNTIL 'Jan 1, 2015';
+--change username
+ALTER USER user_name
+  RENAME TO new_name;
+--create user
+CREATE USER techonthenet
+  WITH PASSWORD 'fantastic'
+  VALID UNTIL 'Jan 1, 2015';
+
+
+--grant privileges
+-- https://www.techonthenet.com/postgresql/grant_revoke.php
+GRANT SELECT, INSERT, UPDATE, DELETE ON table_name TO username;
+GRANT ALL ON table_name TO username;
+REVOKE privilege_types ON table_name FROM username;
+
+
 --EXECUTION PLAN----------------------
 --prints the time started for query to execute
 explain analyze 
