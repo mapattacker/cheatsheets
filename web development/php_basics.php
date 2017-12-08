@@ -37,6 +37,49 @@
         $url[$i] = $values['url'];
         $i++;
     }
+    
+    
+    // USING PDO
+    // database connection
+    $pdo = new PDO('mysql:host=localhost;port=80;dbname=misc', 
+       'fred', 'zap');
+    // See the "errors" folder for details...
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    
+    // call the connection
+    require_once "test2.php";
+    
+    // insert statement with PDO
+    session_start();
+    if ( isset($_POST['make']) && isset($_POST['model']) && isset($_POST['year']) && isset($_POST['mileage'])) {
+      // check for null entries
+      if (strlen($_POST['make']) == 0 || strlen($_POST['make']) == 0) {
+          // set a session error and redirect to same page, printing error
+          $_SESSION['error'] = "Make & Model are required";
+          header("Location: add.php");
+          return;
+      }
+      // check for data type integer
+      else if ( is_numeric($_POST['year']) === false || is_numeric($_POST['mileage']) === false ) {
+          $_SESSION['error'] = "Mileage and Year must be integers";
+          header("Location: add.php");
+          return;
+      }
+      else {
+          // insert data
+          // prepare sql
+          $stmt = $pdo->prepare('INSERT INTO autos (make, model, year, mileage) VALUES ( :mk, :md, :yr, :mi)');
+          $stmt->execute(array(
+              ':mk' => $_POST['make'],
+              ':md' => $_POST['model'],
+              ':yr' => $_POST['year'],
+              ':mi' => $_POST['mileage']));
+          // update session success, redirect to view
+          $_SESSION['success'] = "Record inserted";
+          header("Location: index.php");
+          return;
+      }
+}
 ?>
 
 
@@ -137,14 +180,21 @@ heredoc;
     $fuel = $fuel - 1
   }
   
-  // for loops (linear array)
-  for ($count=0; $count<count($array); $count++) { //start, end if, after each loop
+  // FOR LOOP
+  for ($count=0; $count<count($array); $count++) { //start, end if, after each loop, $count(no. rows in array)
     echo "$i, $stuff[$i]\n";
   }
   
-  // for each loop (array looping)
+  // FOR EACH LOOP
+  // linear array, key-value
   foreach($stuff as $key => $value){
     echo "$key: $value\n";
+  }
+  
+  // can use for multi-dimenstional array too
+  foreach($stuffs as $stuff){
+    echo $stuff['apple'];
+    echo $stuff['orange'];
   }
   
   
