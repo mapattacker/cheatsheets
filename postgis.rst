@@ -54,7 +54,7 @@ and select the relevant tables to publish as a WMS.
 
 After publishing, you can go back and add new layers from the same database / store, by clicking Layer > Add a new layer.
 
-.. figure:: img/postgis4.png
+.. figure:: img/postgis4.PNG
     :width: 400px
     :align: center
     :figclass: align-center
