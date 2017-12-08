@@ -52,6 +52,13 @@ and select the relevant tables to publish as a WMS.
     :align: center
     :figclass: align-center
 
+After publishing, you can go back and add new layers from the same database / store, by clicking Layer > Add a new layer.
+
+.. figure:: img/postgis4.png
+    :width: 400px
+    :align: center
+    :figclass: align-center
+
 Queries
 ----------
 
