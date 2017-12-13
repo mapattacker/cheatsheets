@@ -77,7 +77,7 @@ select *,
 from table_name 
 
 --if else
-select (case when column1 - column2 >= 14 then 1 else 0) as difference
+select (case when column1 - column2 >= 14 then 1 else 0 END) as difference
 from table_name
 
 
@@ -118,4 +118,20 @@ select extract(now(), 'year');
   --2017
   
   
-  
+-- SUBQUERY
+--------------------------------------
+-- WITH CLAUSE
+  --easily readable and recommended for initial scripting. however performance issues, so need to change to real subquery after coding
+with table1 as (select *
+                from tablenm
+                where column1 = 'stop')
+select * 
+from table1
+
+
+-- SUBQUERY
+  --very difficult to interpret when query is long. But performance is optimised.
+select * 
+from (select *
+      from tablenm
+      where column1 = 'stop') a

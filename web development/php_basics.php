@@ -1,5 +1,11 @@
 <?php
+  // basics
   phpinfo() //give php version, configuration, etc.
+  // string multiple lines, use backticks
+  `This is 
+  a multi-line
+  sentence.
+  `
 ?>
 
 <!-- Database Access & Query -->
