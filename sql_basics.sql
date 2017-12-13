@@ -90,6 +90,24 @@ select column1::date, column2::int
 select CAST('2016-02-03 06:37:51' as timestamp)
 
 
+--AGGREGATE FUNCTIONS
+--------------------------------------
+--number of rows is reduced
+--must group by column names that are not aggregated in selected columns
+select sum(sales), salesperson
+from tableName
+group by salesperson
+order by 1
+
+
+--ANALYTIC FUNCTIONS
+--------------------------------------
+--no change in total rows
+select sum(sales) over (partition by salesperson order by column_nm)
+from tableName
+
+
+
 --DATETIME
 --------------------------------------
 --CONVERT TO DATETIME
@@ -135,3 +153,12 @@ select *
 from (select *
       from tablenm
       where column1 = 'stop') a
+
+
+
+--USEFUL QUERIES
+--------------------------------------
+-- show # duplicate rows
+select column1, column2, count(*)-1 as duplicate_cnt
+from wsg_radius_log
+group by column1, column2
