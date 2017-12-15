@@ -104,6 +104,12 @@ killall Finder
 
 
 
+### Permissions
+
+`chmod 777 dirOrfile`   -- 777: no restriction for all `(rwxrwxrwx)
+
+
+
 ### TMUX (Terminal Multiplexer)
 
 `tmux`  --quick start for a tmux session

@@ -53,6 +53,13 @@ UPDATE Customers
 SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
 WHERE CustomerID = 1;
 
+--update from another table selection
+INSERT INTO table2 (column1, column2, column3, ...)
+SELECT column1, column2, column3, ...
+FROM table1
+WHERE condition;
+
+
 --delete all data from table
 delete from ts_biz_100m_ap;
 
@@ -162,3 +169,16 @@ from (select *
 select column1, column2, count(*)-1 as duplicate_cnt
 from wsg_radius_log
 group by column1, column2
+having count(*) > 0
+
+-- delete duplicated rows
+DELETE users 
+WHERE rowid NOT IN (
+  -- set a row_number
+  with rownm as (select row_number() over() as rowid, * 
+                  from tablename)
+    -- only keep a unique, non-duplicate row defined by min. rowid 
+  select min(rowid)
+  from rownm
+  GROUP BY date, file_name -- add all columns necessary to define duplicates
+  order by 2, 3) a

@@ -221,11 +221,21 @@ heredoc;
                  "country" => "Asia");
   echo $stuff["name"];
   
+  
   // print exact array with preserved indent
   echo "<pre>";
   print_r($stuff);
   echo "</pre>";
   
+
+  // print exact html/php when preserved indent
+  $path = 'aatemplate.php';
+  $file = file_get_contents($path);
+  echo '<pre>';
+  echo htmlspecialchars($file);
+  echo '</pre>';
+
+
   // add stuff to array, must be new field
   $stuff["name2"] = "Emila";
   
@@ -331,8 +341,18 @@ heredoc;
 
 <?php
     // DATA VALIDATION
+    // note, it is much easier using jquery for validation
     strlen($var) > 0;
     is_numeric($var);
     strpos($var, '@') > 0;
     filter_var($var, FILTER_VALIDATE_EMAIL) !== false
+?>
+
+
+<?php
+  // forward slashes at the start & end of string is required in PHP regex
+  $reg = 'WTNNNNN';
+  preg_match('/W.+/', $reg, $m);
+  print_r($m);
+
 ?>
