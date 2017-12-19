@@ -102,11 +102,15 @@ killall Finder
 
 `history | grep "iodbctest"`  --search history of a particular command
 
+`tail -f filename`  --live updates from a particular file, eg. error logs
+
 
 
 ### Permissions
 
 `chmod 777 dirOrfile`   -- 777: no restriction for all `(rwxrwxrwx)
+
+`chmod -R 777 dirOrfile`   -- grant 777 permissions to all files/folders in directory
 
 
 

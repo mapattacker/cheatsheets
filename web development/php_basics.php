@@ -191,6 +191,10 @@ heredoc;
     echo "$i, $stuff[$i]\n";
   }
   
+  foreach(range(0, count($tmp_name)) as $x){
+    echo $x;
+  }
+
   // FOR EACH LOOP
   // linear array, key-value
   foreach($stuff as $key => $value){
@@ -346,13 +350,24 @@ heredoc;
     is_numeric($var);
     strpos($var, '@') > 0;
     filter_var($var, FILTER_VALIDATE_EMAIL) !== false
-?>
 
 
-<?php
-  // forward slashes at the start & end of string is required in PHP regex
-  $reg = 'WTNNNNN';
-  preg_match('/W.+/', $reg, $m);
-  print_r($m);
+    // REGEX
+    // forward slashes at the start & end of string is required in PHP regex
+    $reg = 'WTNNNNN';
+    preg_match('/W.+/', $reg, $m);
+    print_r($m);
 
+
+    // TRY EXCEPT
+    try {
+      echo inverse(5) . "\n";
+      echo inverse(0) . "\n";
+    } catch (Exception $e) {
+        echo 'Caught exception: ',  $e->getMessage(), "\n";
+        error_log($e->getMessage());
+    }
+    // error logs located at /Applications/XAMPP/xamppfiles/logs/php_error_log
+
+    
 ?>
