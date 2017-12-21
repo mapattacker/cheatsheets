@@ -1,7 +1,9 @@
 <?php
   // basics
   phpinfo() //give php version, configuration, etc.
+
   // string multiple lines, use backticks
+  // however, only for strings, variables will not show up
   `This is 
   a multi-line
   sentence.
@@ -124,8 +126,10 @@
 <?php <a href="../$url_family[$i]">$family[$i]</a> ?>
 
 <!-- to escape all quotes in echo, use "<<<" with a variable name. 
+      start and end of heredoc must not have indentations
       note that closing variable can only have ";" with no spaces -->
-<?php echo <<< heredoc
+<?php echo 
+<<< heredoc
     <p>
       <strong>Family</strong>: <a href="../$url_family[$i]">$family[$i]</a>
     </p>
@@ -368,6 +372,6 @@ heredoc;
         error_log($e->getMessage());
     }
     // error logs located at /Applications/XAMPP/xamppfiles/logs/php_error_log
-
+    error_log('bah bah');
     
 ?>

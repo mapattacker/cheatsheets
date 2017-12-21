@@ -81,4 +81,7 @@ https://hub.docker.com/r/kartoza/postgis/
 `sudo docker run --name "postgis" -v /home/xxx/postgresdata:/var/lib/postgresql -p 5432:5432 --restart=always -d -t kartoza/postgis`
 
 
+### MongoDB
+https://hub.docker.com/_/mongo/
 
+`docker run --name [container_name] -v [os/datadirectory]:/data/db --restart=always -d [database_name]`
