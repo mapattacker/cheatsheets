@@ -295,7 +295,7 @@ for i in range(len(df)):
     x = df[longtidue][i]
     y = df[latitude][i]
     svy = pyproj.transform(wgs84, svy21, x, y)
-    df.set_value(i, 'X_svy', svy[0])
+    df.set_value(i, 'X_svy', svy[0]) # row_no, column_nm, value
     df.set_value(i, 'Y_svy', svy[1])
 
 
