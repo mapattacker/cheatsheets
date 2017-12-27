@@ -288,6 +288,18 @@ df[df['mgmtsalary'].isnull()]
 df[df['mgmtsalary'].notnull()]
 
 
+
+#--------------------------------------------------------
+# set values within a for loop
+for i in range(len(df)):
+    x = df[longtidue][i]
+    y = df[latitude][i]
+    svy = pyproj.transform(wgs84, svy21, x, y)
+    df.set_value(i, 'X_svy', svy[0])
+    df.set_value(i, 'Y_svy', svy[1])
+
+
+
 #--------------------------------------------------------
 ## UNIQUE VALUES, DUPLICATES
 df['EVENT_TYPE'].unique() # single column, array
