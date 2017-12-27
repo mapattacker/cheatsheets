@@ -58,3 +58,14 @@ soup = BeautifulSoup(html, 'html.parser')
 revenue=soup.select('td[data-name="totalRevenue"]')
 # use getText() to get all text within the tag
 r1 = revenue[0].getText()
+
+
+# other bs4 selection
+soup.select("title") # get title tag
+soup.select("body a") # all a tag inside body
+soup.select("html head title") # html->head->title
+soup.select("head > title") # head->title
+soup.select("p > a") # all a tag that inside p
+soup.select("body > a") # all a tag inside body
+soup.select(".sister") # select by class
+soup.select("#link1") # select by id
