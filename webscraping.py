@@ -20,8 +20,18 @@ url= 'https://mapattack.wordpress.com'
 driver=webdriver.Chrome(chromedriver) #use PhantomJS to parse js
 driver.get(url)
 
+# input value into form
+driver.get(r'https://npgsweb.ars-grin.gov/gringlobal/taxon/taxonomysimple.aspx')
+elem = driver.find_element_by_name('ctl00$cphBody$txtSearch')  #find search box
+elem.send_keys(species)  #input species
+elem.send_keys(Keys.RETURN) #start search
+time.sleep(5)   #delay for search to process
+
+# get data from searched page
 html = driver.page_source  #grab entire html
 link = driver.current_url  #grab hyperlink
+
+
 
 
 #----------------

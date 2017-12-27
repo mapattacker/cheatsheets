@@ -53,6 +53,9 @@ UPDATE Customers
 SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
 WHERE CustomerID = 1;
 
+UPDATE species_info --update replace multiple rows
+SET column_name = REPLACE(column_name, 'Image', 'image') 
+
 --update from another table selection
 INSERT INTO table2 (column1, column2, column3, ...)
 SELECT column1, column2, column3, ...

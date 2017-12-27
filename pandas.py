@@ -80,7 +80,7 @@ df1 = pd.DataFrame(np.random.randint(1, 5, (10,2)), columns=['a','b']) #10 rows,
 
     #from a dictionary
 df = pd.DataFrame()
-nedfw['Date'] = x.keys()    #where x is a dictionary
+newdf['Date'] = x.keys()    #where x is a dictionary
 df['DateValue'] = x.values()
 
 
