@@ -229,7 +229,7 @@ __TextEdit editor__
 
 `alias npp='notepad++'` --assign an alias in the file
 
-`source ~\bashrc` --reload file
+`source ~\.bashrc` --reload file
 
 
 
