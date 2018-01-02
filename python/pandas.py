@@ -20,6 +20,9 @@ df.to_json('/Users/xxx/Desktop/d.json')
     # Sample the data to speed up computation
 df = df.sample(frac=0.1, random_state=10)
 
+# set column as string
+df = pd.read_csv('sample.csv', dtype={'ID': object})
+
 
 
 

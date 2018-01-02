@@ -42,6 +42,7 @@ from selenium import webdriver
 chromedriver = r'C:\xxx\MyPythonScripts\chromedriver.exe'
 url= 'https://mapattack.wordpress.com'
 
+driver=webdriver.Chrome(chromeDriver) #use ChromeDriver.... OR
 driver=webdriver.PhantomJS(PJ) #use PhantomJS to parse js
 driver.get(url)
 
@@ -59,6 +60,11 @@ soup = BeautifulSoup(html, 'html.parser')
 revenue=soup.select('td[data-name="totalRevenue"]')
 # use getText() to get all text within the tag
 r1 = revenue[0].getText()
+# OR use contents to get all contents within tag, but as a list w every linebreak
+r1 = revenue[0].contents 
+    # e.g., ['1 Tampines Walk, Our Tampines Hub', <br/>, '#04-31', <br/>, 'Singapore 528523']
+# print pretty
+revenue[0].prettify()
 
 
 # other bs4 selection
@@ -70,3 +76,4 @@ soup.select("p > a") # all a tag that inside p
 soup.select("body > a") # all a tag inside body
 soup.select(".sister") # select by class
 soup.select("#link1") # select by id
+
