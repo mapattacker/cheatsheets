@@ -52,6 +52,8 @@ killall Finder
 
 ### Some Commands
 
+`ifconfig | less`   --show ip address, less make it output line by line
+
 `sudo su` --change to root user
 
 `echo $PATH` --prints out path variables
