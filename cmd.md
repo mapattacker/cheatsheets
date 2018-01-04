@@ -52,7 +52,7 @@ killall Finder
 
 ### Some Commands
 
-`ifconfig | less`   --show ip address, less make it output line by line
+`ifconfig | less`   --show ip address, less make it output line by line. Press "q" to quit.
 
 `sudo su` --change to root user
 
