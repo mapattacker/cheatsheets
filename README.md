@@ -8,19 +8,11 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __Git__: Git & GitHub/GitLab `git.md`
   * __HDFS__: Hadoop File System & Impala commands `hdfs.md`
   * __Kafka__: Kafka, a distributed streaming platform `kafka.md`
-  * __Matplotlib__: Python's matplotlib package `matplotlib.py`
   * __MongoDB__: A popular NoSQL database based on json format `mongodb.md`
   * __Networkx__: Python's Networkx package `network_basics.ipynb`
   * __Numpy__: python numpy package `numpy.py`
-  * __OS__: python os package and file handling `os.py`
-  * __Pandas__: python pandas package `pandas.py`
-  * __Parallel Processing__: parallel processing using python `parallel_python.py`
   * __PostgreSQL__: sql samples for postgresql `postgres.sql`
   * __PostGIS__: GIS database in PostgreSQL `postgis.rst`
-  * __Python Installation__: tips on python installation `py_install.md`
-  * __PySpark__: pyspark package `pyspark.py`
-  * __Regular Expression__: python re package `re.py`
-  * __Seaborn__: Seaborn package `seaborn.py`
   * __Sphinx__: Documentation creation using sphinx `sphinx.md`
   * __SQL__: Some basic SQL queries `sql_basic.sql`
   * __Social Media__: Folder containing python codes for various social media APIs, including Slack, Instagram, Facebook, Twitter
@@ -28,3 +20,12 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __Tableau__: Sql queries for Tableau `tableau.sql`
   * __Web Development__: Folder containing web development languages cheatsheets like html, css & php
   * __Web Scraping__: Web-scraping using beautiful soup and selenium `webscraping.py`
+  * __Python__
+    * __Matplotlib__: Python's matplotlib package `matplotlib.py`
+    * __OS__: python os package and file handling `os.py`
+    * __Pandas__: python pandas package `pandas.py`
+    * __Parallel Processing__: parallel processing using python `parallel_python.py`
+    * __Python Installation__: tips on python installation `py_install.md`
+    * __PySpark__: pyspark package `pyspark.py`
+    * __Regular Expression__: python re package `re.py`
+    * __Seaborn__: Seaborn package `seaborn.py`
