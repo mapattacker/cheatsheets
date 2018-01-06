@@ -67,6 +67,7 @@ r1 = revenue[0].contents
 revenue[0].prettify()
 
 
+#----------------
 # other bs4 selection
 soup.select("title") # get title tag
 soup.select("body a") # all a tag inside body
@@ -77,3 +78,11 @@ soup.select("body > a") # all a tag inside body
 soup.select(".sister") # select by class
 soup.select("#link1") # select by id
 
+# get attribute content; eg links in href
+for tag in soup.select('a'):
+    a = tag.get('href')
+    print(a)
+
+#----------------
+# extract URL for bs4, independent of selenium
+html = urllib.urlopen(url).read()
