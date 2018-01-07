@@ -86,3 +86,25 @@ for tag in soup.select('a'):
 #----------------
 # extract URL for bs4, independent of selenium
 html = urllib.urlopen(url).read()
+
+
+#----------------
+# ANONOMYOUS SCRAPING USING TOR
+# https://deshmukhsuraj.wordpress.com/2015/03/08/anonymous-web-scraping-using-python-and-tor/
+
+# install tor in Ubuntu
+sudo apt-get install tor
+# start tor
+tor &
+# check for port and ip used by tor
+netstat -tupln
+
+import socks
+import socket
+import requests
+
+socks.setdefaultproxy(proxy_type=socks.PROXY_TYPE_SOCKS5, addr="127.0.0.1", port=9050)
+socket.socket = socks.socksocket
+
+# check your IP in the web
+print requests.get("http://icanhazip.com").text
