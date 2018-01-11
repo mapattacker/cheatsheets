@@ -13,12 +13,20 @@ sys.setdefaultencoding("utf-8")
 #----------------
 # chromedriver for using webforms, dropdown and other browser manipulations
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
 
-chromedriver = r'C:\xxx\MyPythonScripts\chromedriver.exe'
-url= 'https://mapattack.wordpress.com'
 
-driver=webdriver.Chrome(chromedriver) #use PhantomJS to parse js
+chromedriver = r'C:\xxx\MyPythonScripts\chromedriver.exe'
+# option commands are required for headless GUI Chrome
+# otherwise remove all these options for normal GUI Chrome
+options = Options()
+options.add_argument('--headless')
+options.add_argument('--disable-gpu')
+driver=webdriver.Chrome(chromedriver, chrome_options=options)
+
+
+url= 'https://mapattack.wordpress.com'
 driver.get(url)
 
 # input value into form
@@ -82,10 +90,6 @@ soup.select("#link1") # select by id
 for tag in soup.select('a'):
     a = tag.get('href')
     print(a)
-
-#----------------
-# extract URL for bs4, independent of selenium
-html = urllib.urlopen(url).read()
 
 
 #----------------
