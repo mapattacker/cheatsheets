@@ -4,6 +4,8 @@
 
 `hdfs dfs -put path\of\os\directory path\of\hdfs\directory` --copy directory & contents from edge to hdfs data-node
 
+`hdfs dfs -get path\of\hdfs\directory path\of\os\directory` --copy directory & contents from hdfs data-node to edge
+
 `hdfs dfs -ls dir_name` --list all files and directories in dir_name
 
 `hdfs dfs -rm \dir_name\file_name`  --delete file

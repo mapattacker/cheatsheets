@@ -57,6 +57,9 @@ dictname.keys()
 dictname.values()
 # dict_values([63, 1, 2])
 
+# remove key
+dictname.pop('keyName')
+
 
 # SORTING
 #--------------------------------

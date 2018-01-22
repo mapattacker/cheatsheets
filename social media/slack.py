@@ -1,7 +1,8 @@
 from slackclient import SlackClient
 
 # More here http://www.codingtricks.biz/slack-python-client-to-send-messages/
-
+token = 'xxx'
+slack_client = SlackClient(token)
 
 # get list of channels & their ids
 slack = slack_client.api_call("channels.list") 
