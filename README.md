@@ -19,6 +19,7 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __Tableau__: Sql queries for Tableau `tableau.sql`
   * __Web Development__: Folder containing web development languages cheatsheets like html, css & php
   * __Python__
+    * __arcpy__: ArcGIS python library `arcpy.py`
     * __Matplotlib__: Python's matplotlib package `matplotlib.py`
     * __Numpy__: python numpy package `numpy.py`
     * __OS__: python os package and file handling `os.py`
