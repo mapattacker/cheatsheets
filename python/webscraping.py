@@ -15,9 +15,15 @@ sys.setdefaultencoding("utf-8")
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+import platform
 
 
-chromedriver = r'C:\xxx\MyPythonScripts\chromedriver.exe'
+if platform.system() == 'Windows':
+    chromedriver = r'C:\xxx\MyPythonScripts\chromedriver235.exe'
+else: # linux, mac
+    chromedriver = r'/Users/xxx/MyPythonScripts/chromedriver_mac235'
+
+
 # option commands are required for headless GUI Chrome
 # otherwise remove all these options for normal GUI Chrome
 options = Options()
