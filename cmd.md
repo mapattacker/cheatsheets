@@ -204,6 +204,8 @@ __TextEdit editor__
 
 `apt list --installed`  --list installed packages
 
+`apt list --installed tableau"*"` --list install package, using a wild card
+
 `apt list --installed | less`  --list installed packages, line by line. press `q` to exit
 
 `sudo dpkg -i installer_name` --install .deb installers (-i = install)
