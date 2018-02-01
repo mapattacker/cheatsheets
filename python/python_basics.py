@@ -222,6 +222,15 @@ subprocess.call(["mongoexport", "--db", "test-database", "--collection", "wsg", 
 # output value of 1 means good
 
 
+# Virtual Environment
+#--------------------------------
+# https://www.dabapps.com/blog/introduction-to-pip-and-virtualenv-python/
+
+virtualenv env # create a virtual env called env
+source env/bin/activate # change python env to work within env
+which python # confirm python env is in virtual
+deactivate # escape from virtual env
+
 
 
 # PRETTY PRINTS
