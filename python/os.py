@@ -1,3 +1,8 @@
+# shutdown 
+import os
+os.system('shutdown -s') # windows
+os.system('sudo shutdown now') # linux based
+
 
 # get list of selected file names in current directory
 import glob

@@ -5,6 +5,7 @@ import pandas as pd
 df = pd.read_csv('shenzhen_processed.csv', low_memory=False)
 df = pd.read_csv('olympics.csv', index_col=0, skiprows=1)   #take 1st col as index, and remove 1st row
 df.to_csv('shenzhen_processed.csv', index=False)
+df = pd.read_csv(file, usecols=[0,2])   #use only specific columns
     # EXCEL
 df = pd.read_excel('shenzhen_processed.xlsx', sheetname=1) #sheetname starts from 0
 df = pd.read_csv("P00000001-ALL.csv", nrows=20) # limit to only 20 rows
@@ -186,7 +187,8 @@ df[df.columns[1:11] | df.columns[12:14]]
 
     #ordering columns in a df
 df[sorted(df.columns.tolist())].head(3)
-
+    #specific ordering of columns
+df = df[['a', 'b', 'd', 'c']]
 
 #--------------------------------------------------------
 ## SET VALUES PER CELL
@@ -269,6 +271,7 @@ df[df['EVENT_TYPE'] == 'Thunderstorm Wind'] # one value
 df[df['A'].str.contains("hello")] # SQL like
 df[df['EVENT_TYPE'].isin(['Thunderstorm Wind', 'Hail', 'Winter Weather'])] # multiple values, like an SQL where~in clause
 
+# Multiple Conditions, add parenthensis ()!
 df3 = df2[(df2['layers']>0) & (df2['depth']>0)] # multiple columns using 'AND'
 df3 = df2[(df2['layers']>0) | (df2['depth']>0)] # multiple columns using 'OR'
 

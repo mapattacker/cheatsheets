@@ -40,3 +40,12 @@ arcpy.MakeFeatureLayer_management(os.path.join(workspace,"pa_main"),
 arcpy.Buffer_analysis("Roads", "in_memory/Buffers", 1000)
 # delete in memory dataset
 arcpy.Delete_management("in_memory/join1")
+
+
+
+# deleting rows
+with arcpy.da.UpdateCursor(os.path.join(workspace,initialname), "OBJECTID") as cursor:
+    for row in cursor:
+        if row[0] == 1:
+            cursor.deleteRow()
+print('table created, first redundant row deleted')
