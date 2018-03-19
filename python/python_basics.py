@@ -232,6 +232,11 @@ which python # confirm python env is in virtual
 deactivate # escape from virtual env
 
 
+# Local Server
+#--------------------------------
+python -m SimpleHTTPServer 3000 # python2
+python -m http.server 3000 # python3
+
 
 # PRETTY PRINTS
 #--------------------------------
@@ -273,3 +278,4 @@ import json
 your_json = '["foo", {"bar":["baz", null, 1.0, 2]}]'
 parsed = json.loads(your_json)
 print json.dumps(parsed, indent=4, sort_keys=True)
+
