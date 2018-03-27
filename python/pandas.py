@@ -10,6 +10,12 @@ df = pd.read_csv(file, usecols=[0,2])   #use only specific columns
 df = pd.read_excel('shenzhen_processed.xlsx', sheetname=1) #sheetname starts from 0
 df = pd.read_csv("P00000001-ALL.csv", nrows=20) # limit to only 20 rows
 df.to_excel('output.xlsx', index=False)
+    # multiple df in different Excel sheets
+from pandas import ExcelWriter
+writer = ExcelWriter(xls_path)
+for n, df in enumerate(list_dfs):
+    df1.to_excel(writer,'sheet%s' % n)
+writer.save()
     # TXT
 utown=pd.read_table('university_towns.txt', sep=',', header=None)
 df1 = pd.read_table('training_text', sep='\|\|', engine='python', skiprows=1, names=["ID","Text"]) #note that any delimiter more than 1 is a reg, have to use \ to override
@@ -24,12 +30,14 @@ df = df.sample(frac=0.1, random_state=10)
 # set column as string
 df = pd.read_csv('sample.csv', dtype={'ID': object})
 
-
+# encoding error, eg: 'utf-8' codec can't decode byte 0x92 in position 763: invalid start byte
+# use below to decode
+df = pd.read_csv(email, encoding = "ISO-8859-1")
 
 
 #--------------------------------------------------------
 ## SETTINGS
-pd.set_option('display.max_columns', None) # show all columns
+pd.set_option('display.max_columns',1) # expand column height
 pd.set_option('display.max_rows', None) # show all rows
 pd.set_option('display.max_colwidth', -1) # no limit to column width
 pd.reset_option('all') # reset set options

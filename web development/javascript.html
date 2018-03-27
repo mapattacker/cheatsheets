@@ -9,7 +9,8 @@ alert("Hello! I am an alert box!!");
 console.log('print')
 // prints in browser
 document.write('<p>something</p>')
-
+// print a variable into topN id tag
+document.getElementById('topN').innerText = topNnodes;
 
 // Escape Character '\'
 
@@ -27,13 +28,17 @@ arr[0] // ["first"]
 newarr = ['first', 'second', 'third'] // construct directly
 
 
+
 // DOM
 st = document.getElementById('person').innerHTML; // get id called person, and grab inner text
 
 
+// refresh webpage 5 secs
+setTimeout(function() { window.location=window.location;},5000);
+
 </script>
 
-// jQuery
+<!-- jQuery -->
 <script type="text/javascript" src="jquery.min.js"></script>
 <script>
 // count the number of direct descendants (childs) under tagged id
