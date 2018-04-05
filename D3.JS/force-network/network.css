@@ -1,0 +1,56 @@
+circle {
+    /* node border */
+    stroke-width: 1.5px;}
+
+.link {
+    stroke: rgb(173, 173, 173);}
+
+/* .node text {
+    stroke-width: 1.5px;
+    pointer-events: none;
+    font: 10px sans-serif;} */
+    
+.node:hover circle {
+    fill: #000;}
+
+.node:hover text {
+    display: inline;}
+
+.labels {
+    stroke-width: 1.5px;
+    pointer-events: none;
+    font-family: sans-serif;
+    /* font: 20px; */
+}
+
+/* halo for label */
+.shadow {
+    stroke: white;
+    stroke-width: 1.6px;
+    font-family: sans-serif;}
+
+div.tooltip {	
+    position: absolute;			
+    text-align: center;
+    -moz-border-radius:3px;
+    border-radius: 10px; /*rounded borders*/
+    border: 1px solid #D1D1D1;
+    background: #fff;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font: 16px sans-serif;
+    pointer-events: none;
+}
+
+/* BarChart */
+.chart rect {
+    fill: rgb(70, 173, 180);
+    }
+
+.chart text {
+    fill: white;
+    font: 12px sans-serif;
+    text-anchor: end;
+    }

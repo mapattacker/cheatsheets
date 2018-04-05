@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="utf-8">
+
+    <script src="frameworks/d3.v3.min.js"></script> 
+    <!-- <script src="//d3js.org/d3.v3.min.js"></script>  -->
+    <!-- <script src="frameworks/jquery-ui.min.js"></script>  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script> 
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/jquery-ui.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    
+    <link rel="stylesheet" href="network.css"></link>
+    <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.1/themes/smoothness/jquery-ui.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- <link rel="stylesheet" href="frameworks/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
+</head>
+
+<body style="background-color:#FAFAFA;">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-3">
+                <br>
+                <button id="update1" class="btn btn-block btn-danger">Update</button>
+                <button id="refresh" class="btn btn-block btn-primary">Refresh</button>
+                <br>
+                <div class="input-group">
+                    <input class="form-control" id="search" placeholder="Name">
+                    <span type="button" onclick="searchNode()" class="input-group-addon"><i class="fa fa-fw fa-search"></i></span>
+                </div>
+                <br><br>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h4><i class="fa fa-trophy"></i>&nbsp;Top 5 Networkers</h4>
+                    </div>
+                    <div class="panel-body" style="background-color:#FAFAFA;">
+                        <div id="topN">
+                            <svg class="chart"></svg>
+                        </div>
+                    </div>
+                </div>
+                <!-- <h4>Top 5 Networkers</h4>
+                <div id="topN">
+                    <svg class="chart"></svg>
+                </div> -->
+            </div>
+
+            <div class="col-xs-9">
+                <div id="network"></div>
+            </div>
+        </div>
+    </div>
+
+    <script type='text/javascript' src="network5.js"></script>
+    <script>
+        $("#refresh").click(function() {location.reload();});
+    </script>
+</body>
