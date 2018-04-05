@@ -13,7 +13,7 @@ var width = ($(window).width()-40)/4 * 3 - 80,
 var force = d3.layout.force()
     .size([width, height])
     .charge(-200)
-    .linkDistance(40)
+    .linkDistance(30)
     .gravity(0.1)
     .on("tick", tick);
 
@@ -137,12 +137,11 @@ var update = function(){
     // APPEND CIRCLE TAG WITHIN "G" TAG
     node.enter().append("circle") // create svg tag called circle
         .attr("class", "node")
-        .attr("r", 8)
         // circle fill & border
         .style("fill", function(d) { return fill(d.company); })
         // .style("stroke", function(d) { return d3.rgb(fill(d.company)).darker(); })
         // circle size
-        .attr("r", function(d) { return d.connect*3; })
+        .attr("r", function(d) { return nodefixed(d.connect)*3; })
         // expand circle when hover over
         .on("mouseenter", mouseover)
         .on("mouseleave", mouseout)
@@ -151,7 +150,7 @@ var update = function(){
             div.transition()
                 .duration(200)
                 .style("opacity", 1);
-            div.html(d.name + ' ' + '<span style="text-transform: uppercase; font-size: 14px;"><strong>'
+            div.html(d.name + ' (' + d.connect + ')' + '<span style="text-transform: uppercase; font-size: 14px;"><strong>'
                         + '<br>'
                         + d.company + '</strong></span>')
                 .style("left", (d3.event.pageX + 40) + "px")
@@ -171,15 +170,14 @@ var update = function(){
     // CREATE LABEL ------------------------------------------------------
     label = svg.append("g").selectAll(".label");
     label = label.data(graphData.nodes)
-    console.log(graphData.nodes)
-    
+
     // // cannot chain with previous or 
     // // exit-remove will not be able to work
     // // adding new nodes will not work too
     label.enter().append("text")
          .attr("class", "labels")
-         .style("font-size", function(d){return fontsize(d.connect) + "px"})
-         .attr("dx", function(d){return adjustleft(fontsize(d.connect))})
+         .style("font-size", function(d){return fontsize(nodefixed(d.connect)) + "px"})
+         .attr("dx", function(d){return adjustleft(fontsize(nodefixed(d.connect)))})
          .attr("dy", ".35em")
          .text(function(d) {  // only label topN, else empty label
             console.log(d.name)
@@ -349,11 +347,10 @@ d3.select("#update1").on("click", function() {
                 return d.id == selectedVal;
                 });
             // update the new size
-            selected.attr("r", function(d) { return i.connect*3; })
+            selected.attr("r", function(d) { return nodefixed(i.connect)*3; })
         })
 
         // remove labels & barcharts so that latest can be updated
-        // http://bl.ocks.org/alansmithy/e984477a741bc56db5a5
         label.remove();
         bar.remove();
 
@@ -409,10 +406,6 @@ function searchNode() {
 // setInterval("intervalupdate()", 20000);
 
 
-// ANTI-COLLISION OF NODES
-// https://bl.ocks.org/mbostock/1747543
-// https://bl.ocks.org/mbostock/3231298
-
 
 // dynamic node size label ranking
 // 15: -3, 20: -5, 25: -7, 30: 
@@ -425,6 +418,28 @@ function fontsize(connection){
         return "25"
     } else if (connection >= 20) {
         return "30"
+    }
+}
+
+// need to fixed node size so that it won't get too big
+// and cover whole screen
+function nodefixed(size){
+    if (size == 1){
+        return 1
+    } else if (size < 5){
+        return 2
+    } else if (size < 10){
+        return 3
+    } else if (size < 15){
+        return 4
+    } else if (size < 20){
+        return 5
+    } else if (size < 30){
+        return 6
+    } else if (size < 40){
+        return 7
+    } else if (size >= 40){
+        return 8
     }
 }
 
@@ -462,6 +477,5 @@ function mouseout() {
         .transition()
         .duration(750)
         // issue, size return to initial size
-        .attr("r", function(d) { return d.connect*3; });
+        .attr("r", function(d) { return nodefixed(d.connect)*3; });
     };
-
