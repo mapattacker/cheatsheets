@@ -1,6 +1,8 @@
 // network graph with update of new data feature
 // include a barchart to show top 5 connections
+// search box to show name of person in the network
 // label of top 5
+
 
 
 //Variables to set up SVG container
