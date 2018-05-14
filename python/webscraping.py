@@ -1,8 +1,10 @@
-# for plain old html
+# for plain old html, python 2.7
 import urllib
 url = 'https://mapattack.wordpress.com'
 html = urllib.urlopen(url).read()
 
+import urllib.request # python 3*
+html = urllib.request.urlopen(url).read()
 
 #----------------
 # force all encoding to be utf-8
