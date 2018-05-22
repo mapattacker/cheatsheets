@@ -1,4 +1,5 @@
-
+// New version from network_update
+// using canvas instead of svg to improve the loading speed
 
 
 // define variables
