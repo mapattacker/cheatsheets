@@ -257,3 +257,6 @@ __TextEdit editor__
 
 `new-item newfile.txt` --create new file. Note to type in *file* when prompted "type" after pressing enter.
 
+
+# Resources
+  * https://medium.com/@kadek/command-line-tricks-for-data-scientists-c98e0abe5da
