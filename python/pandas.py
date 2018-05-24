@@ -133,7 +133,8 @@ conn = psycopg2.connect(database="postgres", user="postgres", password="***", ho
     # latin1 or utf8 depending on client encoding
 from sqlalchemy import create_engine
 import psycopg2
-conn = create_engine('postgresql+psycopg2://postgres:password@localhost:5432/postgres?client_encoding=latin1') 
+conn = create_engine('postgresql+psycopg2://postgres:password@localhost:5432/postgres?client_encoding=latin1') # postgres
+conn = create_engine('mysql+pymysal://{}:{}@{}:{}/{}'.format(username, password, address, port, db_name)) # mysql 
 query = ''' SELECT * FROM customer  '''
 
 # reading from sql
