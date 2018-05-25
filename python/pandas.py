@@ -478,6 +478,7 @@ hudf=pd.merge(hdf, ul, how ='left', on=['State','RegionName']) #join on multiple
     #indicator give an additional field '_merge'.
     # Can use groupby size to count number of left-only, right-only, or both
 df=pd.merge(df1, df2, how='outer', on='Country', indicator=True)
+df.groupby('_merge').size()
 
                  
     #join by index
