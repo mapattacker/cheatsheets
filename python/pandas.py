@@ -181,6 +181,7 @@ for i in df.columns:
     print x, i
     x += 1
     #renaming columns
+df.columns = ['newcolumn1', 'newcolumn2', 'newcolumn3'] #easiest way to change, but error if total columns does not match
 df2 = df.rename(columns={'diam_circle_image':'diameter','depth_rimfloor_topog':'depth', 'number_layers':'layers'})
 hdata2.rename(columns=dict(zip(hdata2.columns,date_change.tolist())), inplace=True) #change two lists into dictionary
 df.columns = map(str.lower, df.columns) # change to lower case
