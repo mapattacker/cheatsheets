@@ -230,10 +230,9 @@ df3 = df2.dropna(how='all') #drop only rows with all nan values
 df3 = df2.dropna(threa=2) #drop only rows with 2 or more nan values
 df.dropna(subset=['x277_2012'],inplace=True) #drop all rows for specific columns
 
-    #fill Nan
+    #fill NaN
 df = df.fillna(value=99) #change NaN a value
-df = df.fillna(method='ffill') #forward filling, note need to 
-index
+df = df.fillna(method='ffill') #forward filling, note need to sort index
 df = df.fillna(method='bfill') #back filling, note to sort index
 
     #set value as NaN
@@ -480,7 +479,7 @@ hudf=pd.merge(hdf, ul, how ='left', on=['State','RegionName']) #join on multiple
 df=pd.merge(df1, df2, how='outer', on='Country', indicator=True)
 df.groupby('_merge').size()
 
-                 
+
     #join by index
 df=pd.concat([df1,df2], axis=1, join_axes=[df1.index])
 
