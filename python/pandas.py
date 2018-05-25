@@ -200,8 +200,9 @@ df[sorted(df.columns.tolist())].head(3)
     #specific ordering of columns
 df = df[['a', 'b', 'd', 'c']]
 
+
 #--------------------------------------------------------
-## SET VALUES PER CELL
+## SET VALUES PER CELL, GOOD FOR ITERATION
 df.set_value(i, 'Y_svy', svy[1]) # index, column name, value
 
 
@@ -432,9 +433,9 @@ ticketcat['price']=ticketcat['price'].str.replace('$', '')
 #--------------------------------------------------------
 ## GROUP BY AND CALCULATING
 census_df[['STNAME', 'COUNTY']].groupby(['STNAME']).sum() #SELECT sum(county), stname FROM tablenm GROUP BY stname
-df3.groupby(['longitude', 'latitude']).count()
+df3.groupby(['longitude', 'latitude']).count() #shows all column counts
 df3.groupby(['longitude', 'latitude']).sum()
-df.groupby(['LocationDescription','LocationCode']).size() #size include NAN counts, counts() does not
+df.groupby(['LocationDescription','LocationCode']).size() #size include NAN counts, counts() does not, shows row size instead of columns
 
     #group by to show just top 3 records for each STNAME
 df.groupby(['STNAME']).head(3)
@@ -474,6 +475,9 @@ df.T
 df=pd.merge(df1, df2, on='Country')
 df = pd.merge(df1, df2, how='left', left_on=['id_key'], right_on=['fk_key']) #if join fields are different
 hudf=pd.merge(hdf, ul, how ='left', on=['State','RegionName']) #join on multiple columns
+    #indicator give an additional field '_merge'.
+    # Can use groupby size to count number of left-only, right-only, or both
+df=pd.merge(df1, df2, how='outer', on='Country', indicator=True)
 
                  
     #join by index
