@@ -142,6 +142,7 @@ df = pd.read_sql(query, conn)
 df = pd.read_sql_query(query, conn)
 
 # upload dataframe to database as new table by default (use if_exist for appending), only available using sqlalchemy as engine
+# if_exists can 'replace' entire table, default is fail
 df.to_sql(name='wsg_ap_list3', con=conn, index=False, if_exists='append')
 
 
@@ -262,6 +263,7 @@ df3[['a','b']].sort_values(['a','b'], ascending=[True, True]) # sort a first the
 ## STRING MANIPULATIONS
     
 df['column1'].str.len() # length of each cell
+df['column1'].str.strip() # remove spacing front & back. such spaces is not visible in dataframe
 
 # regular expressions is also enabled here
 df['text'].str.count(r'\d') # find how many times a digit occurs in each string
@@ -319,7 +321,9 @@ for i in range(len(df)):
 #--------------------------------------------------------
 ## UNIQUE VALUES, DUPLICATES
 df['EVENT_TYPE'].unique() # single column, array
-df[['EVENT_TYPE', 'EVENT_ID']].drop_duplicates() # multiple columns, dataframe
+    # multiple columns, dataframe
+df[['EVENT_TYPE', 'EVENT_ID']].drop_duplicates() 
+df.drop_duplicates(subset=['col1', 'col2']) # same as above
 df[df.duplicated(keep=False)] # show all duplicated rows (only)
 
 # comparing duplicates between two columns
@@ -508,6 +512,7 @@ df2['code'] = df2['Gene'].cat.codes     # then extract their code out
     #change string to date format
 col = pd.to_datetime(df.columns[6:])
     #aggregation by date intervals
+    #list of rules can be found in url: http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
 date=date.resample('Q').mean()  #by quarter, also (Day: D, Week: W, Month: M, Quarter: Q, Year: Y)
                  
     #change date to string

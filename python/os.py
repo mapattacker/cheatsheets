@@ -3,6 +3,8 @@ import os
 os.system('shutdown -s') # windows
 os.system('sudo shutdown now') # linux based
 
+# screenshot
+os.system("screencapture screen.png")
 
 # get list of selected file names in current directory
 import glob

@@ -56,3 +56,9 @@ np.sort(nparray)[::-1][:5] #top 5 descending
 # CALCULATIONS
 
 np.mean(nparray)    #mean
+nparray.max()       #max
+
+# HISTOGRAM
+np.histogram(array, bins=10, range=(0,1000)) #give two arrays binned, first is x-values, 2nd y-values or range
+#(array([139,  17,  13,   9,   7]),
+#array([    0.,   200.,   400.,   600.,   800.,  1000.]))
