@@ -47,6 +47,15 @@ x.extend([4, 5])
 print (x)
 >>>[1, 2, 3, 4, 5]
 
+# sort
+list2 = [(1,2),(53,12),(23,232),(99,231)]
+def take2nd(elem):
+    # for sorting 2nd position of a tuple within a list
+    return elem[1]
+
+    # reverse is descending order
+    # key is to take position of sort if it is a nested list
+sorted(list2, reverse=True, key=take2nd) 
 
 # DICTIONARY
 #--------------------------------
