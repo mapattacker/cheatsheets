@@ -32,7 +32,10 @@ np.linspace(2,3,5)  #It is ok not to define num=
 
 # INDEX
 np.argwhere(result) #get indexes
-np.argmax(result)   #get index with max result; need to flatten if its multi-dimensional
+np.argmax(result)   #get index with max result; if multi-dimenstional, it flattens array then get the index
+
+# COORDINATES OF MULTI-DIMENSIONAL ARRAY
+np.unravel_index(index, array.shape) #given a flattened index value of a multiD array, give the coordinates
 
 
 # FLATTEN
