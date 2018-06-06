@@ -64,8 +64,10 @@ nparray.max()       #max
 
 
 # SEARCH
+        #search for index given a value or list of values
 array = np.array([1,1,1,2,3,3,4])
-np.searchsorted(array, [3,4])
+np.searchsorted(array, [3,4])   
+
 
 # HISTOGRAM
 np.histogram(array, bins=10, range=(0,1000)) #give two arrays binned, first is x-values, 2nd y-values or range
