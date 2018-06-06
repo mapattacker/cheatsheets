@@ -30,6 +30,11 @@ np.linspace(2,3,5)  #It is ok not to define num=
 #>>> array([ 2.  ,  2.25,  2.5 ,  2.75,  3.  ])
 
 
+# INDEX
+np.argwhere(result) #get indexes
+np.argmax(result)   #get index with max result; need to flatten if its multi-dimensional
+
+
 # FLATTEN
 a = np.array([[1,2], [3,4]])
 a.flatten()
@@ -54,11 +59,13 @@ np.sort(nparray)[::-1][:5] #top 5 descending
 
 
 # CALCULATIONS
-
 np.mean(nparray)    #mean
 nparray.max()       #max
-np.argmax(result)   #get index with max result; need to flatten if its multi-dimensional
 
+
+# SEARCH
+array = np.array([1,1,1,2,3,3,4])
+np.searchsorted(array, [3,4])
 
 # HISTOGRAM
 np.histogram(array, bins=10, range=(0,1000)) #give two arrays binned, first is x-values, 2nd y-values or range
