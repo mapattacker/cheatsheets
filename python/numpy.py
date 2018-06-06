@@ -57,6 +57,8 @@ np.sort(nparray)[::-1][:5] #top 5 descending
 
 np.mean(nparray)    #mean
 nparray.max()       #max
+np.argmax(result)   #get index with max result; need to flatten if its multi-dimensional
+
 
 # HISTOGRAM
 np.histogram(array, bins=10, range=(0,1000)) #give two arrays binned, first is x-values, 2nd y-values or range
