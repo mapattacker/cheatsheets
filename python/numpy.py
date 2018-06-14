@@ -23,6 +23,8 @@ array([[ 0.66666667,  0.76086957],
 list = [1,2,3,4]
 np.array(list)
 
+# UNIQUE VALUES
+np.unique(array)
 
 # space out between a start & end number of equal intervals
 np.linspace(2.0, 3.0, num=5)

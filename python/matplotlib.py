@@ -24,6 +24,11 @@ b: blue; g: green r: red c: cyan, m: magenta, y: yellow, k: black, w: white
   # html
 color = '#eeefff'
 
+### OTHERS---------------------------------------
+  #line thickness
+plt.plot([1,50], [0,20], linewidth=10)
+
+
 ### CLEARING CHARTS---------------------------------------
 plt.cla() #clears an axis, i.e. the currently active axis in the current figure. It leaves the other axes untouched.
 plt.clear() #clears the entire current figure with all its axes, but leaves the window opened, such that it may be reused for other plots.
@@ -31,6 +36,16 @@ plt.close() #closes a window, which will be the current window, if not specified
 
 hline = plt.axhline(y = line, color = "red", lw=1)
 hline.remove() #remove an object in the chart
+
+# remove x & y axes
+plt.axis('off')
+
+### SAVE CHART IMAGE---------------------------------------
+plt.plot(range(10))
+plt.savefig('testplot.png') #save as png
+
+import Image
+Image.open('testplot.png').save('testplot.jgp', 'JPEG') #save as jpeg using Pillow
 
 ### TWO BASIC WAYS OF PLOTTING---------------------------------------
   #1. Plotting Using Pandas
