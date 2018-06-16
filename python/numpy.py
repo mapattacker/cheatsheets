@@ -1,5 +1,8 @@
 import numpy as np
 
+# OPTIONS
+np.set_printoptions(threshold=np.nan) #display all values
+
 # SHAPE
 np.shape
 
