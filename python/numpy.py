@@ -63,6 +63,10 @@ np.sort(nparray)[::-1] #descending order
 np.sort(nparray)[::-1][:5] #top 5 descending
 
 
+# WHERE
+np.where(gray > np.mean(gray),1.0,0.0) # if gray array is more than mean, change to 1, else 0
+
+
 # CALCULATIONS
 np.mean(nparray)    #mean
 nparray.max()       #max
