@@ -69,6 +69,8 @@ plt.title('Frasers Centrepoint Trust', fontsize=10)
   #axis title
 plt.xlabel('Date', fontsize=10)
 plt.ylabel('Volume', fontsize=10)
+  #axis tick intervals
+plt.xticks(np.arange(-180.0, 200, 45.0)) #max, min, interval
   #axis tick size
 plt.xticks(size = 10)
 plt.yticks(size = 10)
