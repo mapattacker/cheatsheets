@@ -29,6 +29,9 @@ color = '#eeefff'
 plt.plot([1,50], [0,20], linewidth=10)
   #show gridlines
 plt.grid()
+  #interpolations for imshow of images
+  # https://matplotlib.org/gallery/images_contours_and_fields/interpolation_methods.html
+plt.imshow(image, interpolation='nearest')
 
 
 ### CLEARING CHARTS---------------------------------------
