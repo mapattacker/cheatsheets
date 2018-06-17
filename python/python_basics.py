@@ -34,6 +34,8 @@ for num, i in enumerate(a, 1):
 #--------------------------------
 list1[-1] # get last in the list
 list1[::20] # get every 20th feature
+list1[::-1] # reverse sort the entire list
+list1[::,0] # for a nested list, grab first value
 
 # append
 x = [1, 2, 3]
@@ -56,6 +58,12 @@ def take2nd(elem):
     # reverse is descending order
     # key is to take position of sort if it is a nested list
 sorted(list2, reverse=True, key=take2nd) 
+
+# reverse sort
+list1 = [1,2,3,4,5]
+print(list1[::-1])
+>>> 
+
 
 # DICTIONARY
 #--------------------------------

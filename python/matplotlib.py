@@ -27,6 +27,8 @@ color = '#eeefff'
 ### OTHERS---------------------------------------
   #line thickness
 plt.plot([1,50], [0,20], linewidth=10)
+  #show gridlines
+plt.grid()
 
 
 ### CLEARING CHARTS---------------------------------------
