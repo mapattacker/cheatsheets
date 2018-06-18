@@ -29,4 +29,5 @@ Its tough remembering all the codes one wrote, especially if one have not use it
     * __PySpark__: pyspark package `pyspark.py`
     * __Regular Expression__: python re package `re.py`
     * __Seaborn__: Seaborn package `seaborn.py`
+    * __skimage__: Image processing using skimage `skimage-tutorial.ipynb`
     * __Web Scraping__: Web-scraping using beautiful soup and selenium `webscraping.py`

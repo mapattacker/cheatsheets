@@ -114,6 +114,14 @@ sns.regplot(x=df[df.columns[4]], y='Protected Areas', data=df, ax=ax[1,0])
 sns.regplot(x=df[df.columns[5]], y='Protected Areas', data=df, ax=ax[1,1])
 sns.regplot(x=df[df.columns[6]], y='Protected Areas', data=df, ax=ax[1,2])
 
+# or use iteration
+fig, ax = plt.subplots(ncols=9, nrows=1, figsize=(20, 15))
+for i, a in enumerate(ax):
+    region = regionprops(label_image)[i]
+    if region.area >= 3000:
+        box = region.bbox
+        a.imshow(imgin[box[0]:box[2], box[1]:box[3]])
+
 #e.g. 2
 # create a 3x3 grid of subplots
 fig, ((ax1,ax2,ax3), (ax4,ax5,ax6), (ax7,ax8,ax9)) = plt.subplots(3, 3, sharex=True, sharey=True)
