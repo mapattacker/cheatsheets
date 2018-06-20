@@ -154,6 +154,15 @@ plt.imshow("Filtering Circular Blobs Only", blobs)
 
 
 
+### CONTOURS --------------------------
+    #hierarchy type: RETR_LIST, RETR_EXTERNAL, RETR_TREE = all contours, external contours only, full hierarchy
+    #approximation method: CHAIN_APPROX_SIMPLE,CHAIN_APPROX_NONE = stores start & end bounding points, stores all bounding points
+contours, hierarchy = cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_NONE)
+cv2.drawContours(originalimage, contours, -1, (0,255,0), 3)
+plt.imshow(image)
+
+
+
 ### VIDEO CAPTURE TO FRAME --------------------------
     #define a function to change the image
 def sketch(image):
