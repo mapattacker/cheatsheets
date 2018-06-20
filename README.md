@@ -22,6 +22,7 @@ Its tough remembering all the codes one wrote, especially if one have not use it
     * __arcpy__: ArcGIS python library `arcpy.py`
     * __Matplotlib__: Python's matplotlib package `matplotlib.py`
     * __Numpy__: python numpy package `numpy.py`
+    * __OpenCV__: Image processing using opencv `opencv.py`
     * __OS__: python os package and file handling `os.py`
     * __Pandas__: python pandas package `pandas.py`
     * __Parallel Processing__: parallel processing using python `parallel_python.py`
@@ -29,5 +30,5 @@ Its tough remembering all the codes one wrote, especially if one have not use it
     * __PySpark__: pyspark package `pyspark.py`
     * __Regular Expression__: python re package `re.py`
     * __Seaborn__: Seaborn package `seaborn.py`
-    * __skimage__: Image processing using skimage `skimage-tutorial.ipynb`
+    * __Skimage__: Image processing using skimage `skimage-tutorial.ipynb`
     * __Web Scraping__: Web-scraping using beautiful soup and selenium `webscraping.py`

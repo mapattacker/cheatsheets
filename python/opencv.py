@@ -3,7 +3,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 %matplotlib inline
 
-### READING & WRITING IMAGE
+### READING & WRITING IMAGE --------------------------
 # Read
 img = plt.imread('hopea_odorata5.jpg')
     # gray scale, two ways of doing it
@@ -16,20 +16,25 @@ img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
 cv2.imwrite('img_hsv.jpg', img_hsv)
 
 
-### DIMENSIONS
+### BASICS --------------------------
+    # dimensions
 print('In RGB:', img.shape)
 print('In GrayScale:',img_gray.shape)
 
-
-### CROPPING
+    # cropping
 img[:,80:370] #y-axis, x-axis
 
+    # duplicate image
+img2 = img.copy()
 
-### PLOT
+
+
+### PLOT --------------------------
     #subplot
 fig, (ax1,ax2) = plt.subplots(ncols=2, nrows=1, figsize=(15, 10))
 ax1.imshow(img);
 ax2.imshow(img_gray);
+
 
 
 ### MERGING, SPLITTING, AMPLIFYING --------------------------
@@ -45,6 +50,7 @@ bright = cv2.add(image, M)
 dark = cv2.subtract(image, M)
 
 
+
 ### HISTOGRAM --------------------------
     #separate colors
 color = ('b', 'g', 'r')
@@ -53,6 +59,7 @@ for i, col in enumerate(color):
     histogram2 = cv2.calcHist([image], [i], None, [256], [0, 256])
     plt.plot(histogram2, color = col)
     plt.xlim([0,20])
+
 
 
 ### TRANSFORMATIONS --------------------------
@@ -66,9 +73,11 @@ image_scaled = cv2.resize(image, None, fx=0.75, fy=0.75)
 img_scaled = cv2.resize(image, (900, 400), interpolation = cv2.INTER_AREA)
 
 
+
 ### DILATION, EROSION --------------------------
 erosion = cv2.erode(image, kernel, iterations = 1)
 dilation = cv2.dilate(image, kernel, iterations = 1)
+
 
 
 ### CONVOLUTIONS --------------------------
@@ -87,6 +96,7 @@ kernel_sharpening = np.array([[-1,-1,-1],
 sharpened = cv2.filter2D(image, -1, kernel_sharpening)
 
 
+
 ### THRESHOLDING --------------------------
     #manual threshold
     #THRESH_BINARY; THRESH_BINARY_INV; THRESH_TRUNC; THRESH_TOZERO; THRESH_TOZERO_INV
@@ -102,6 +112,47 @@ thresh = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_MEAN_C,
 sobel_x = cv2.Sobel(image, cv2.CV_64F, ksize=5)
     #canny: low error rate, well defined edges
 canny = cv2.Canny(image, 50, 120)
+
+
+
+### LINE, CIRCLE, BLOB DETECTION --------------------------
+    # Run HoughLines using a rho accuracy of 1 pixel
+    # theta accuracy of np.pi / 180 which is 1 degree
+    # Our line threshold is set to 240 (number of points on line)
+lines = cv2.HoughLines(edges, 1, np.pi / 180, 240)
+
+    #circle detection
+circles = cv2.HoughCircles(blur, cv.CV_HOUGH_GRADIENT, 1.5, 10)
+
+    #blob detection
+detector = cv2.SimpleBlobDetector()
+keypoints = detector.detect(image)
+blank = np.zeros((1,1)) 
+blobs = cv2.drawKeypoints(image, keypoints, blank, (0,255,255),
+                                      cv2.DRAW_MATCHES_FLAGS_DEFAULT) #ensure blob size same as circle size
+plt.imshow(blobs)
+
+    #circle & ellipse detection
+params = cv2.SimpleBlobDetector_Params()
+params.filterByArea = True  # Set Area filtering parameters
+params.minArea = 100
+params.filterByCircularity = True # Set Circularity filtering parameters
+params.minCircularity = 0.9
+params.filterByConvexity = False # Set Convexity filtering parameters
+params.minConvexity = 0.2
+params.filterByInertia = True # Set inertia filtering parameters
+params.minInertiaRatio = 0.01
+detector = cv2.SimpleBlobDetector(params) # Create a detector with the parameters
+keypoints = detector.detect(image) # Detect blobs
+blank = np.zeros((1,1)) 
+blobs = cv2.drawKeypoints(image, keypoints, blank, (0,255,0),# Draw blobs on our image as red circles
+                                      cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+number_of_blobs = len(keypoints)
+text = "Number of Circular Blobs: " + str(len(keypoints))
+cv2.putText(blobs, text, (20, 550), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 100, 255), 2)
+plt.imshow("Filtering Circular Blobs Only", blobs)
+
+
 
 ### VIDEO CAPTURE TO FRAME --------------------------
     #define a function to change the image
