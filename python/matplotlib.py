@@ -14,7 +14,8 @@ plt.style.use('seaborn') #set the style
 df.plot(); 
 # prevents overlapping of axis labels, tick labels and titles
 plt.tight_layout()
-
+# fix figsize for entire jupyter notebook
+plt.rcParams["figure.figsize"] =(10,10)
 
 ### COLORS---------------------------------------
   #normal form

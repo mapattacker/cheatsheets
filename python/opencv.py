@@ -327,6 +327,10 @@ restored = cv2.inpaint(image, mask, 3, cv2.INPAINT_TELEA)
 ### MOTION TRACKING --------------------------
 
 
+### OBJECT TRACKING --------------------------
+
+
+
 ### VIDEO CAPTURE TO FRAME --------------------------
     #define a function to change the image
 def sketch(image):
