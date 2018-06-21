@@ -1,3 +1,7 @@
+# Many codes were obtained from the Udemy course:
+# Mastering Computer Vision OpenCV3 in Python & Machine Learning by Rajeev Ratan
+# Do check it out!
+
 import cv2
 import numpy as np
 from matplotlib import pyplot as plt
@@ -26,6 +30,10 @@ img[:,80:370] #y-axis, x-axis
 
     # duplicate image
 img2 = img.copy()
+
+    # create new dummy images
+ones = np.ones(image.shape, dtype = "uint8") #all ones
+blank = np.zeros((image.shape[0], image.shape[1], 3))
 
 
 
@@ -61,6 +69,17 @@ for i, col in enumerate(color):
     plt.xlim([0,20])
 
 
+### BITWISE CALCULATIONS --------------------------
+# Intersect
+And = cv2.bitwise_and(square, ellipse)
+# Either Or
+bitwiseOr = cv2.bitwise_or(square, ellipse)
+# No Intersect
+bitwiseXor = cv2.bitwise_xor(square, ellipse)
+# Not
+bitwiseNot_sq = cv2.bitwise_not(square)
+
+
 
 ### TRANSFORMATIONS --------------------------
     #rotation
@@ -77,6 +96,20 @@ img_scaled = cv2.resize(image, (900, 400), interpolation = cv2.INTER_AREA)
 ### DILATION, EROSION --------------------------
 erosion = cv2.erode(image, kernel, iterations = 1)
 dilation = cv2.dilate(image, kernel, iterations = 1)
+
+
+
+### COLOR FILTERING --------------------------
+# define range of PURPLE color in HSV
+lower_purple = np.array([125,0,0])
+upper_purple = np.array([175,255,255])
+
+# Convert image from RBG/BGR to HSV so we easily filter
+hsv_img = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+# Use inRange to capture only the values between lower & upper_blue
+mask = cv2.inRange(hsv_img, lower_blue, upper_blue)
+# Perform Bitwise AND on mask and our original frame
+res = cv2.bitwise_and(img, img, mask=mask)
 
 
 
@@ -161,6 +194,137 @@ contours, hierarchy = cv2.findContours(edged, cv2.RETR_EXTERNAL, cv2.CHAIN_APPRO
 cv2.drawContours(originalimage, contours, -1, (0,255,0), 3)
 plt.imshow(image)
 
+    #area
+cv2.contourArea(contour)
+    #centroid
+cv2.moments(contours)
+    #bounding box
+x,y,w,h = cv2.boundingRect(c)
+cv2.rectangle(orig_image,(x,y),(x+w,y+h),(0,0,255),2)   
+
+
+#Approximate Contours
+    #cv2.approxPolyDP(contour, Approximation Accuracy, Closed)
+for c in contours:
+    # Calculate accuracy as a percent of the contour perimeter
+    accuracy = 0.03 * cv2.arcLength(c, True)
+    approx = cv2.approxPolyDP(c, accuracy, True)
+    cv2.drawContours(image, [approx], 0, (0, 255, 0), 2)
+    cv2.imshow('Approx Poly DP', image)
+
+#Convex Hull
+for c in contours:
+    hull = cv2.convexHull(c)
+    cv2.drawContours(image, [hull], 0, (0, 255, 0), 2)
+    cv2.imshow('Convex Hull', image)
+
+#Contour Matching
+    #http://docs.opencv.org/2.4/modules/imgproc/doc/structural_analysis_and_shape_descriptors.html
+    #cv2.matchShapes(contour template, contour, method, method parameter)
+for c in contours:
+    # Iterate through each contour in the target image and 
+    # use cv2.matchShapes to compare contour shapes
+    # methods = 1, 2 or 3
+    match = cv2.matchShapes(template_contour, c, 3, 0.0)
+    print match
+    # If the match value is less than 0.15 we
+    if match < 0.15:
+        closest_contour = c
+    else:
+        closest_contour = []                 
+cv2.drawContours(target, [closest_contour], -1, (0,255,0), 3)
+cv2.imshow('Output', target)
+
+
+
+### OBJECT DETECTION --------------------------
+
+#Template Matching
+    #http://docs.opencv.org/2.4/modules/imgproc/doc/object_detection.html
+result = cv2.matchTemplate(gray, template, cv2.TM_CCOEFF)
+min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(result)
+
+#Corner Detection
+    # HARRIS CORNER
+    # The cornerHarris function requires the array datatype to be float32
+gray = np.float32(gray)
+harris_corners = cv2.cornerHarris(gray, 3, 3, 0.05)
+    #We use dilation of the corner points to enlarge them\
+kernel = np.ones((7,7),np.uint8)
+harris_corners = cv2.dilate(harris_corners, kernel, iterations = 2)
+    # Threshold for an optimal value, it may vary depending on the image.
+image[harris_corners > 0.025 * harris_corners.max() ] = [255, 127, 127]
+plt.imshow(image)
+
+    # GOOD FEATURES TO TRACK
+corners = cv2.goodFeaturesToTrack(gray, 100, 0.01, 150)
+
+
+
+### FEATURE DETECTION --------------------------
+
+#SIFT; patented, not in opencv3
+sift = cv2.SIFT()
+    #Detect key points
+keypoints = sift.detect(gray, None)
+print("Number of keypoints Detected: ", len(keypoints))
+    # Draw rich key points on input image
+image = cv2.drawKeypoints(image, keypoints, flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+plt.imshow(image)
+
+#SURF; patented, not in opencv3
+surf = cv2.SURF()
+    # Only features, whose hessian is larger than hessianThreshold are retained by the detector
+surf.hessianThreshold = 500
+keypoints, descriptors = surf.detectAndCompute(gray, None)
+print "Number of keypoints Detected: ", len(keypoints)
+    # Draw rich key points on input image
+image = cv2.drawKeypoints(image, keypoints, flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+plt.imshow(image)
+
+#FAST
+fast = cv2.FastFeatureDetector()
+    # Obtain Key points, by default non max suppression is On
+    # to turn off set fast.setBool('nonmaxSuppression', False)
+keypoints = fast.detect(gray, None)
+print "Number of keypoints Detected: ", len(keypoints)
+    # Draw rich keypoints on input image
+image = cv2.drawKeypoints(image, keypoints, flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+
+#BRIEF
+fast = cv2.FastFeatureDetector()
+    # Create BRIEF extractor object
+brief = cv2.DescriptorExtractor_create("BRIEF")
+    # Determine key points
+keypoints = fast.detect(gray, None)
+    # Obtain descriptors and new final keypoints using BRIEF
+keypoints, descriptors = brief.compute(gray, keypoints)
+print "Number of keypoints Detected: ", len(keypoints)
+    # Draw rich keypoints on input image
+image = cv2.drawKeypoints(image, keypoints, flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+
+#ORB; FAST + BRIEF
+orb = cv2.ORB()
+    # Determine key points
+keypoints = orb.detect(gray, None)
+    # Obtain the descriptors
+keypoints, descriptors = orb.compute(gray, keypoints)
+print("Number of keypoints Detected: ", len(keypoints))
+    # Draw rich keypoints on input image
+image = cv2.drawKeypoints(image, keypoints,flags=cv2.DRAW_MATCHES_FLAGS_DRAW_RICH_KEYPOINTS)
+
+
+### OTHERS --------------------------
+#inpainting
+    #cv2.inpaint(input image, mask, inpaintRadius, Inpaint Method)
+    #inpaint method: NPAINT_NS,INPAINT_TELEA = Navier-Stokes based method, Method by Alexandru Telea (better)
+restored = cv2.inpaint(image, mask, 3, cv2.INPAINT_TELEA)
+
+
+### MACHINE LEARNING --------------------------
+
+
+### MOTION TRACKING --------------------------
 
 
 ### VIDEO CAPTURE TO FRAME --------------------------
