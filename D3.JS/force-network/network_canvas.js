@@ -46,7 +46,7 @@ window.onload = function(){
         contentType: 'application/json',
         data: JSON.stringify(
         {
-            "Password": "$imda",
+            "Password": "xxx",
         }),
         dataType: 'json',
 

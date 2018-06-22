@@ -17,6 +17,7 @@ plt.tight_layout()
 # fix figsize for entire jupyter notebook
 plt.rcParams["figure.figsize"] =(10,10)
 
+
 ### COLORS---------------------------------------
   #normal form
 color = red
@@ -24,6 +25,7 @@ color = red
 b: blue; g: green r: red c: cyan, m: magenta, y: yellow, k: black, w: white
   # html
 color = '#eeefff'
+
 
 ### OTHERS---------------------------------------
   #line thickness
@@ -115,13 +117,16 @@ sns.regplot(x=df[df.columns[4]], y='Protected Areas', data=df, ax=ax[1,0])
 sns.regplot(x=df[df.columns[5]], y='Protected Areas', data=df, ax=ax[1,1])
 sns.regplot(x=df[df.columns[6]], y='Protected Areas', data=df, ax=ax[1,2])
 
-# or use iteration
+# or use simple iteration if rows=1 or cols=1
 fig, ax = plt.subplots(ncols=9, nrows=1, figsize=(20, 15))
 for i, a in enumerate(ax):
-    region = regionprops(label_image)[i]
-    if region.area >= 3000:
-        box = region.bbox
-        a.imshow(imgin[box[0]:box[2], box[1]:box[3]])
+    a.imshow(images[i])
+
+# if col & row>1, flatten nested axes list so can iterate
+fig, axes = plt.subplots(ncols=2, nrows=4, figsize=(10, 10))
+a = [i for i in axes for i in i]
+for i, ax in enumerate(a):
+    ax.imshow(eroded[i], 'gray');
 
 #e.g. 2
 # create a 3x3 grid of subplots
