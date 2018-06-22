@@ -9,7 +9,9 @@ from matplotlib import pyplot as plt
 
 ### READING & WRITING IMAGE --------------------------
 # Read
-img = plt.imread('hopea_odorata5.jpg')
+img = plt.imread('hopea_odorata5.jpg') #read as BGR
+B, G, R = cv2.split(img) #can change it to RGB so matplotlib can render properly
+img = cv2.merge([R, G, B])
     # gray scale, two ways of doing it
 img_gray = cv2.imread('hopea_odorata5.jpg',0)
 img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -43,6 +45,15 @@ fig, (ax1,ax2) = plt.subplots(ncols=2, nrows=1, figsize=(15, 10))
 ax1.imshow(img);
 ax2.imshow(img_gray);
 
+    #draw shapes
+cv2.line(image, (x1, y1), (x2, y2), (255, 0, 0), 2) #coordinate, color, thickness
+cv2.rectangle(img,(384,0),(510,128),(0,255,0),3) #top left, top right coordinates, color, thickness
+cv2.circle(image,(cx, cy), r, (255, 0, 0), -1) #centre coordinates, radius, color, -1 means fill the shape
+cv2.ellipse(img,(cx,cy),(width,height),0,0,180,255,-1)
+
+pts = np.array([[10,5],[20,30],[70,20],[50,10]], np.int32)
+pts = pts.reshape((-1,1,2))
+cv2.polylines(img,[pts],True,(0,255,255))
 
 
 ### MERGING, SPLITTING, AMPLIFYING --------------------------
@@ -94,6 +105,7 @@ img_scaled = cv2.resize(image, (900, 400), interpolation = cv2.INTER_AREA)
 
 
 ### DILATION, EROSION --------------------------
+kernel = np.ones((5,5), np.uint8)
 erosion = cv2.erode(image, kernel, iterations = 1)
 dilation = cv2.dilate(image, kernel, iterations = 1)
 
