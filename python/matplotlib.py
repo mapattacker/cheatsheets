@@ -1,7 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 %matplotlib inline # non interactive, but less heavy
-%matplotlib notebook # new interactive charts
+%matplotlib notebook # new interactive charts, use plt.figure() tog for a new chart, else will be all in a single one
 
 
 ### SETTINGS---------------------------------------

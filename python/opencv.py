@@ -17,6 +17,11 @@ img_gray = cv2.imread('hopea_odorata5.jpg',0)
 img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
     # HSV
 img_hsv = cv2.cvtColor(img, cv2.COLOR_BGR2HSV)
+    # LAB
+brightLAB = cv2.cvtColor(bright, cv2.COLOR_BGR2LAB)
+    # YCrCb
+brightYCB = cv2.cvtColor(bright, cv2.COLOR_BGR2YCrCb)
+
 
 # Writing
 cv2.imwrite('img_hsv.jpg', img_hsv)
@@ -113,13 +118,13 @@ dilation = cv2.dilate(image, kernel, iterations = 1)
 
 ### COLOR FILTERING --------------------------
 # define range of PURPLE color in HSV
-lower_purple = np.array([125,0,0])
-upper_purple = np.array([175,255,255])
+lower_range = np.array([125,0,0])
+upper_range = np.array([175,255,255])
 
 # Convert image from RBG/BGR to HSV so we easily filter
 hsv_img = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-# Use inRange to capture only the values between lower & upper_blue
-mask = cv2.inRange(hsv_img, lower_blue, upper_blue)
+# Use inRange to capture only the values between lower & upper_values
+mask = cv2.inRange(hsv_img, lower_range, upper_range)
 # Perform Bitwise AND on mask and our original frame
 res = cv2.bitwise_and(img, img, mask=mask)
 
@@ -145,7 +150,8 @@ sharpened = cv2.filter2D(image, -1, kernel_sharpening)
 ### THRESHOLDING --------------------------
     #manual threshold
     #THRESH_BINARY; THRESH_BINARY_INV; THRESH_TRUNC; THRESH_TOZERO; THRESH_TOZERO_INV
-ret,thresh1 = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
+ret,thresh = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
+plt.imshow(thresh);
     #adaptive threshold
     #ADAPTIVE_THRESH_MEAN_C; THRESH_OTSU
 thresh = cv2.adaptiveThreshold(image, 255, cv2.ADAPTIVE_THRESH_MEAN_C, 
@@ -248,6 +254,12 @@ cv2.drawContours(target, [closest_contour], -1, (0,255,0), 3)
 cv2.imshow('Output', target)
 
 
+### SEGMENTATION
+
+# WaterShed
+# http://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_imgproc/py_watershed/py_watershed.html
+
+
 
 ### OBJECT DETECTION --------------------------
 
@@ -334,6 +346,9 @@ restored = cv2.inpaint(image, mask, 3, cv2.INPAINT_TELEA)
 
 
 ### MACHINE LEARNING --------------------------
+# trained classifiers
+# https://github.com/opencv/opencv/tree/master/data
+
 
 
 ### MOTION TRACKING --------------------------
