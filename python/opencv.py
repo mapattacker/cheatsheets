@@ -116,20 +116,6 @@ dilation = cv2.dilate(image, kernel, iterations = 1)
 
 
 
-### COLOR FILTERING --------------------------
-# define range of PURPLE color in HSV
-lower_range = np.array([125,0,0])
-upper_range = np.array([175,255,255])
-
-# Convert image from RBG/BGR to HSV so we easily filter
-hsv_img = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
-# Use inRange to capture only the values between lower & upper_values
-mask = cv2.inRange(hsv_img, lower_range, upper_range)
-# Perform Bitwise AND on mask and our original frame
-res = cv2.bitwise_and(img, img, mask=mask)
-
-
-
 ### CONVOLUTIONS --------------------------
     #blurs
 kernel_3x3 = np.ones((3, 3), np.float32) / 9
@@ -146,10 +132,26 @@ kernel_sharpening = np.array([[-1,-1,-1],
 sharpened = cv2.filter2D(image, -1, kernel_sharpening)
 
 
+### COLOR FILTERING --------------------------
+# define range of PURPLE color in HSV
+lower_range = np.array([125,0,0])
+upper_range = np.array([175,255,255])
+
+# Convert image from RBG/BGR to HSV so we easily filter
+hsv_img = cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+# Use inRange to capture only the values between lower & upper_values
+mask = cv2.inRange(hsv_img, lower_range, upper_range)
+# Perform Bitwise AND on mask and our original frame
+res = cv2.bitwise_and(img, img, mask=mask)
+
+
 
 ### THRESHOLDING --------------------------
+# For grayscale
+# https://docs.opencv.org/3.4/d7/d4d/tutorial_py_thresholding.html
     #manual threshold
     #THRESH_BINARY; THRESH_BINARY_INV; THRESH_TRUNC; THRESH_TOZERO; THRESH_TOZERO_INV
+    #cv2.threshold(image, lower_range, upper_range, thresh_type)
 ret,thresh = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
 plt.imshow(thresh);
     #adaptive threshold
