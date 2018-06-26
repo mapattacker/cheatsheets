@@ -48,7 +48,9 @@ killall Finder
 
 killall Finder
 
+__Get Password__
 
+ `security find-generic-password -ga "WiFi_Name"` --show wifi password
 
 ### Some Commands
 

@@ -153,6 +153,7 @@ res = cv2.bitwise_and(img, img, mask=mask)
     #THRESH_BINARY; THRESH_BINARY_INV; THRESH_TRUNC; THRESH_TOZERO; THRESH_TOZERO_INV
     #cv2.threshold(image, lower_range, upper_range, thresh_type)
 ret,thresh = cv2.threshold(image, 127, 255, cv2.THRESH_BINARY)
+ret,thresh = cv2.threshold(image, 254, 255, cv2.THRESH_BINARY) # just isolate white color only
 plt.imshow(thresh);
     #adaptive threshold
     #ADAPTIVE_THRESH_MEAN_C; THRESH_OTSU
