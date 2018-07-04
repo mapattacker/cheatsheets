@@ -24,6 +24,10 @@ pd.read_clipboard()
     # JSON
 df=pd.read_json(path)
 df.to_json('/Users/xxx/Desktop/d.json')
+    #DBF
+from simpledbf import Dbf5
+dbf = Dbf5('test.dbf')
+df = dbf.to_dataframe()
     # Sample the data to speed up computation
 df = df.sample(frac=0.1, random_state=10)
 
@@ -374,6 +378,7 @@ df['data']=df['data'].apply(lambda x: 'true' if x <= 2.5 else 'false')
 df['date'] = df['raw'].str.extract('(....-..-..)', expand=False) #note that expand will split it into different columns
     #for this case x refers to the entire dataframe, you have to specify the column within the function.
     #this gives if else conditions from multiple columns
+    #have to include axis=1 or will prompt error
 ticketcat['funpass_days'] = ticketcat.apply(lambda x: '2' if x['ItemDescription'].find('2Day')>=0 else x['funpass_days'],axis=1)
 
 
@@ -487,7 +492,7 @@ df.groupby('_merge').size()
     #join by index
 df=pd.concat([df1,df2], axis=1, join_axes=[df1.index])
 
-                 
+
 ## UNION
 df1=pd.read_csv('Redemption_Part1.csv')
 df2=pd.read_csv('Redemption_Part2.csv')
