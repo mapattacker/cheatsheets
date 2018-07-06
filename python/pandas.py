@@ -32,7 +32,7 @@ df = dbf.to_dataframe()
 df = df.sample(frac=0.1, random_state=10)
 
 # set column as string
-df = pd.read_csv('sample.csv', dtype={'ID': object})
+df = pd.read_csv('sample.csv', dtype={'ID': 'str'})
 
 # encoding error, eg: 'utf-8' codec can't decode byte 0x92 in position 763: invalid start byte
 # use below to decode
@@ -482,6 +482,7 @@ df.T
     #can also use left_on=, right_on=
 df=pd.merge(df1, df2, on='Country')
 df = pd.merge(df1, df2, how='left', left_on=['id_key'], right_on=['fk_key']) #if join fields are different
+df = pd.merge(df1, df2, how='left', left_on=['id_key','field2','field3'], right_on=['fk_key','field2','field3']) #multiple join fields
 hudf=pd.merge(hdf, ul, how ='left', on=['State','RegionName']) #join on multiple columns
     #indicator give an additional field '_merge'.
     # Can use groupby size to count number of left-only, right-only, or both
