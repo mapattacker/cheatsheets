@@ -6,6 +6,11 @@ print 'this score is {}'.format(1.1234)
 print 'this score is {:.2f}'.format(1.1234) # 2 decimal format
 'this score is 1.12'
 
+# 0 PADDING
+test = '1'
+test.zfill(5)
+'00001'
+
 
 # LOOPS
 #--------------------------------
@@ -76,6 +81,14 @@ dictname.values()
 
 # remove key
 dictname.pop('keyName')
+
+
+# CONCAT
+#--------------------------------
+s = "-"
+seq = ("a", "b", "c")
+print (s.join(seq))
+# a-b-c
 
 
 # SORTING

@@ -7,10 +7,13 @@ df = pd.read_csv('olympics.csv', index_col=0, skiprows=1)   #take 1st col as ind
 df.to_csv('shenzhen_processed.csv', index=False)
 df = pd.read_csv(file, usecols=[0,2])   #use only specific columns
     # EXCEL
+    # reading excel has various differences compared to csv
+    # dtype of a col to str will convert NaN into 'nan', while csv preserves the NaN
+    # dtype of a col to str will not preserve numeric 0 padding, while csv preserves
 df = pd.read_excel('shenzhen_processed.xlsx', sheetname=1) #sheetname starts from 0
 df = pd.read_csv("P00000001-ALL.csv", nrows=20) # limit to only 20 rows
 df.to_excel('output.xlsx', index=False)
-    # multiple df in different Excel sheets
+    # output multiple df in different Excel sheets
 from pandas import ExcelWriter
 writer = ExcelWriter(xls_path)
 for n, df in enumerate(list_dfs):
@@ -32,7 +35,7 @@ df = dbf.to_dataframe()
 df = df.sample(frac=0.1, random_state=10)
 
 # set column as string
-df = pd.read_csv('sample.csv', dtype={'ID': 'str'})
+df = pd.read_csv('sample.csv', dtype={'ID': object}) #no diff if you '' the data type
 
 # encoding error, eg: 'utf-8' codec can't decode byte 0x92 in position 763: invalid start byte
 # use below to decode
@@ -115,7 +118,7 @@ df.describe #mean, std, count, etc. only numeric formated columns
 ## FORMAT
 df.dtypes
 df['hour'] = df['hour'].astype('int64')
-df['text'] = df['text'].astype('str')
+df['text'] = df['text'].astype('str') # string will not preserve NaN, unlike object
 df['col3'] = df['col2'].astype('category') # category type has int code in the backend
     #coerce, any errors will be converted to NaN
 df['price'] = pd.to_numeric(df['price'], errors='coerce')
@@ -229,6 +232,9 @@ df[df['Timestamp'].isnull()] #filter rows with nan
 for i in df.columns: # how many nan in each column? Value
     print df[i].isnull().values.sum(), i
 
+    #filter dataframe to only rows NaN of a specific column
+df[df['colnm'].isnull()]
+
     #drop NaN
 df3 = df2.dropna() #drop all rows with nan in any columns
 df3 = df2.dropna(how='all') #drop only rows with all nan values
@@ -327,7 +333,9 @@ for i in range(len(df)):
 df['EVENT_TYPE'].unique() # single column, array
     # multiple columns, dataframe
 df[['EVENT_TYPE', 'EVENT_ID']].drop_duplicates() 
-df.drop_duplicates(subset=['col1', 'col2']) # same as above
+    # set for entire dataframe but target specific columns
+df.drop_duplicates(subset=['col1', 'col2'])
+df.drop_duplicates(subset=['A', 'C'], keep=False)
 df[df.duplicated(keep=False)] # show all duplicated rows (only)
 
 # comparing duplicates between two columns
@@ -373,6 +381,7 @@ df3['day_period'] = df3.apply(peak, axis=1)
 
 
     ## lambda function iterates a simple function. x below refers to each row of Top15{'PopEst']
+    ## Note that lambda must contain if-else when using condition
 Top15['PopEst']=Top15['PopEst'].apply(lambda x: "{:,}".format(x))   
 df['data']=df['data'].apply(lambda x: 'true' if x <= 2.5 else 'false')
 df['date'] = df['raw'].str.extract('(....-..-..)', expand=False) #note that expand will split it into different columns
@@ -424,6 +433,18 @@ ticketcat['medium'] = ticketcat['TicketDescription'].apply(lambda x: x.split(','
 
     ## using numpy, if > 3, x=1 else x=0
 df['Positively Rated'] = np.where(df['Rating'] > 3, 1, 0)
+
+
+    ## remove words duplicate, assuming there is a delimiter of '|' btw words
+def removedup(x):
+    x = x.split('|')
+    x = set(x)
+    x = '|'.join(x)
+    return x
+
+df['colnm'] = df['colnm'].apply(removedup)
+df['colnm'] = df['colnm'].apply(lambda x: '|'.join(set(x.split('|')))) #alternatively
+
                  
 #--------------------------------------------------------
 # REPLACE VALUES
@@ -447,11 +468,20 @@ df.groupby(['LocationDescription','LocationCode']).size() #size include NAN coun
 
     #group by to show just top 3 records for each STNAME
 df.groupby(['STNAME']).head(3)
-                 
+
+## GROUPBY AGGREGATIONS 
+# https://pandas.pydata.org/pandas-docs/version/0.23/generated/pandas.core.groupby.DataFrameGroupBy.agg.html
+
     #multiple aggregations
 Top15.groupby('Continent')['PopEst'].agg({'size': np.count_nonzero, 'mean': np.mean, 'sum': np.sum, 'std': np.std})
-                 
-                 
+
+    #merge nearly duplicate rows based on column value
+    # https://stackoverflow.com/questions/36271413/pandas-merge-nearly-duplicate-rows-based-on-column-value
+df.groupby(['Name','Sid','Revenue'])['Use_Case'].apply(''.join).reset_index()
+df.groupby('Name').agg({'Sid':'first', 
+                        'Use_Case': ', '.join, 
+                        'Revenue':'first' }).reset_index()
+
 #--------------------------------------------------------
 ## SIMPLE MATHS
 max(df['Gold']) #get the max value in the column
@@ -538,7 +568,7 @@ dfr['event_ts']= pd.to_datetime(dfr['Event-Timestamp'], unit='s', errors='coerce
 
 
 #--------------------------------------------------------
-## Split commas in cells and put them in new rows
+## Split commas in cells and stack them in new rows
     # https://stackoverflow.com/questions/17116814/pandas-how-do-i-split-text-in-a-column-into-multiple-rows
     
 # 1) isolate column with comma, split them, and stack them as single rows
