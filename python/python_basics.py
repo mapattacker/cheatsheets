@@ -94,6 +94,7 @@ print (s.join(seq))
 # SORTING
 #--------------------------------
 sorted(token, reverse=True) # default is ascending, reverse=True is descending
+token.reverse() # easier, but it will change the base variable
 
 # there is a key parameter that can select which value in the tuple to be sorted by
 sorted(student_tuples, key=lambda x: x[2])
@@ -309,3 +310,19 @@ your_json = '["foo", {"bar":["baz", null, 1.0, 2]}]'
 parsed = json.loads(your_json)
 print json.dumps(parsed, indent=4, sort_keys=True)
 
+
+# convert list of images into pdf -------------------------
+from fpdf import FPDF
+import os
+
+# get list of images file path
+path = r'/Users/xx/Desktop/foldername'
+[path+'/'+i for i in os.listdir(path)]
+
+pdf = FPDF()
+x,y,w,h = 0,0,200,300 # dimensions for A4, might need to adjust accordingly
+# imagelist is the list with all image filenames
+for image in imagelist:
+    pdf.add_page()
+    pdf.image(image,x,y,w,h)
+pdf.output("yourfile.pdf", "F")
