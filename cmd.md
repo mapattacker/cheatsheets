@@ -32,6 +32,11 @@ Create a .cmd file, save commands in the file and double click it.
 
 # Bash
 
+__Zip File With Password__
+
+`zip -er archive.zip ./` cd to directory and use the code. enter pw.
+
+
 __for loops__
 
 `for i in $( ls ); 
