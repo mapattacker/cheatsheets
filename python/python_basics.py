@@ -319,7 +319,7 @@ import os
 path = r'/Users/xx/Desktop/foldername'
 [path+'/'+i for i in os.listdir(path)]
 
-pdf = FPDF()
+pdf = FPDF() # use FPDF('L') for landscape
 x,y,w,h = 0,0,200,300 # dimensions for A4, might need to adjust accordingly
 # imagelist is the list with all image filenames
 for image in imagelist:

@@ -49,6 +49,11 @@ print num.group() #output '200'
 
 
 #-------------------------------------------
+# find and replace
+re.sub(r'[a-zA-Z]','', string) #remove all alphabets in a string
+
+
+#-------------------------------------------
 # search; output first result in string
 # Unmatched objects return None
 # can use s.split(' ') to split the text into individuals words first

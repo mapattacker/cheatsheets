@@ -10,7 +10,7 @@ df = pd.read_csv(file, usecols=[0,2])   #use only specific columns
     # reading excel has various differences compared to csv
     # dtype of a col to str will convert NaN into 'nan', while csv preserves the NaN
     # dtype of a col to str will not preserve numeric 0 padding, while csv preserves
-df = pd.read_excel('shenzhen_processed.xlsx', sheetname=1) #sheetname starts from 0
+df = pd.read_excel('shenzhen_processed.xlsx', sheet_name=1) #sheetname starts from 0
 df = pd.read_csv("P00000001-ALL.csv", nrows=20) # limit to only 20 rows
 df.to_excel('output.xlsx', index=False)
     # output multiple df in different Excel sheets
@@ -315,7 +315,9 @@ df[df['mgmtsalary'].isnull()]
 # FILTER ROWS WITHOUT NAN
 df[df['mgmtsalary'].notnull()]
 
-
+# CHECK FOR ALPHA OR NUMERIC
+df[colnm].str.isnumeric()
+df[colnm].str.isalpha()
 
 #--------------------------------------------------------
 # set values within a for loop
@@ -522,6 +524,7 @@ df.groupby('_merge').size()
 
     #join by index
 df=pd.concat([df1,df2], axis=1, join_axes=[df1.index])
+df=pd.concat([df1,df2], axis=1) #or if they are already sorted properly
 
 
 ## UNION
@@ -530,6 +533,7 @@ df2=pd.read_csv('Redemption_Part2.csv')
 df3=pd.read_csv('Redemption_Part3.csv')
 frames=[df1,df2,df3]
 df_new = pd.concat(frames)
+
 
 ## APPEND
 df = df.append(df2, ignore_index=True)

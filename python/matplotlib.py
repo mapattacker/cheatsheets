@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 # non interactive, but less heavy
 %matplotlib inline 
 # new interactive charts, use plt.figure() tog for a new chart, else will be all in a single one
+# sometimes plot will not show, just add another line of %matplotlib notebook
 plt.figure()
 %matplotlib notebook
 
