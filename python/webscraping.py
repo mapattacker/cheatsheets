@@ -17,6 +17,7 @@ sys.setdefaultencoding("utf-8")
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
 import platform
 
 
@@ -49,11 +50,26 @@ html = driver.page_source  #grab entire html
 link = driver.current_url  #grab hyperlink
 
 
+# select dropdown
+select = Select(driver.find_element_by_id('fruits01'))
+# using this as sample <option value="7">Jul</option>
+    # select by visible text
+select.select_by_visible_text('Jul')
+    # select by value 
+select.select_by_value('7')
+# press button
+driver.find_element_by_css_selector('.button.c_button.s_button').click()
+
+
 
 
 #----------------
 # phantomjs for parsing javascripts, no browser popups
 from selenium import webdriver
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.by import By
+
 
 chromedriver = r'C:\xxx\MyPythonScripts\chromedriver.exe'
 url= 'https://mapattack.wordpress.com'
@@ -63,7 +79,10 @@ driver=webdriver.PhantomJS(PJ) #use PhantomJS to parse js
 driver.get(url)
 
 # optional, wait 10 sec for iframe to load
+    # by xpath
 WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//div[starts-with(@id, "mainns_")]/iframe')))
+    # by id
+WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.ID,'ddlDay')))
 html = driver.page_source.encode('utf-8')
 
 
@@ -72,7 +91,7 @@ html = driver.page_source.encode('utf-8')
 from bs4 import BeautifulSoup
 soup = BeautifulSoup(html, 'html.parser')
 
-# find element td, attribute data-name, with value of totalRevenue
+# find element td, attribute data-name, with value of totalRevenue; using xpath
 revenue=soup.select('td[data-name="totalRevenue"]')
 # use getText() to get all text within the tag
 r1 = revenue[0].getText()

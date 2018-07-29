@@ -48,10 +48,6 @@ num = re.match(r'\w\w\w', phone)
 print num.group() #output '200'
 
 
-#-------------------------------------------
-# find and replace
-re.sub(r'[a-zA-Z]','', string) #remove all alphabets in a string
-
 
 #-------------------------------------------
 # search; output first result in string
@@ -69,6 +65,7 @@ print num.group() #output '2004-959-559'
 result = re.search(r'\w+@[\w.]+', email)  #find all word characters and dot after @
 print result.group()  #output 'nick19a@gmail.com'
 
+# multiple matches, use () in re, and result.groups()
 result = re.search(r'(\w+)@([\w.]+)', email)  #split the username & host name using round brackets
 print result.groups()  #output ('nick19a', 'gmail.com')
 print result.group()  #output 'nick19a@gmail.com'
@@ -88,7 +85,13 @@ print result #ouput [('nick19a', 'gmail.com'), ('foo', 'gmail.com.')]
 # replace
 num = re.sub(r'\W', '', phone)  #3 arguments
 print num
+re.sub(r'[a-zA-Z]','', string) #remove all alphabets in a string
 
+# insert
+s = "x01777"
+m = re.sub(r'(\w\d\d)(\d\d\d)', r'\1-\2', s) #\1 \2 indicates the brackets
+print(m)
+'x01-777'
 
 #-------------------------------------------
 # using date & pandas

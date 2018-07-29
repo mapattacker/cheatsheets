@@ -1,10 +1,12 @@
 import pandas as pd
 
 ## READ & WRITE
+    # Pickle
+df = pd.read_pickle('psi.pickle')
     # CSV
 df = pd.read_csv('shenzhen_processed.csv', low_memory=False)
 df = pd.read_csv('olympics.csv', index_col=0, skiprows=1)   #take 1st col as index, and remove 1st row
-df.to_csv('shenzhen_processed.csv', index=False)
+df.to_csv('shenzhen_processed.csv', index=False) #
 df = pd.read_csv(file, usecols=[0,2])   #use only specific columns
     # EXCEL
     # reading excel has various differences compared to csv
@@ -101,6 +103,9 @@ df1 = pd.DataFrame(np.random.randint(1, 5, (10,2)), columns=['a','b']) #10 rows,
 df = pd.DataFrame()
 newdf['Date'] = x.keys()    #where x is a dictionary
 df['DateValue'] = x.values()
+
+    #duplicate a dataframe
+df2 = df.copy()
 
 
 #--------------------------------------------------------
@@ -217,6 +222,7 @@ df.set_value(i, 'Y_svy', svy[1]) # index, column name, value
 #--------------------------------------------------------
 ## COUNTING
 df['EVENT_TYPE'].value_counts()
+df.groupby('name')['activity'].value_counts() #multi-dimension counts 
 df['number_layers'].value_counts(normalize=True)*100 # by percentage
 df.describe()
 
@@ -250,6 +256,9 @@ df = df.fillna(method='bfill') #back filling, note to sort index
 import numpy as np
 df2=df2.replace('nan',np.nan)
 df.replace({'99':np.nan}, inplace=True) #multiple rows
+
+    #select null within lambda
+df['colnm'] = df['colnm'].apply(lambda x: '' if pd.isnull(x)) else x)
 
 
 #--------------------------------------------------------
@@ -290,7 +299,7 @@ df['text'].str.extractall(r'(?P<time>(?P<hour>\d?\d):(?P<minute>\d\d) ?(?P<perio
 ## FILTERING, SQL WHERE CLAUSE
 df[:100] # first 100 rows
 df[df['EVENT_TYPE'] == 'Thunderstorm Wind'] # one value
-df[df['A'].str.contains("hello")] # SQL like
+df[df['A'].str.contains("hello")] # SQL like; cannot use if there are NaN values
 df[df['EVENT_TYPE'].isin(['Thunderstorm Wind', 'Hail', 'Winter Weather'])] # multiple values, like an SQL where~in clause
 
 # Multiple Conditions, add parenthensis ()!
@@ -328,7 +337,8 @@ for i in range(len(df)):
     df.set_value(i, 'X_svy', svy[0]) # row_no, column_nm, value
     df.set_value(i, 'Y_svy', svy[1])
 
-
+# set value for single cell
+df = df.set_value(100, 'colnm', 'value') # row_no, column_nm, value
 
 #--------------------------------------------------------
 ## UNIQUE VALUES, DUPLICATES
@@ -449,6 +459,12 @@ df['colnm'] = df['colnm'].apply(lambda x: '|'.join(set(x.split('|')))) #alternat
 
                  
 #--------------------------------------------------------
+# SHIFT COLUMN VALUES UP OR DOWN; LAG OR LEAD
+df['temp_observed'] = df['temp_observed'].shift(periods=1) #push column down by a row
+df['temp_observed'] = df['temp_observed'].shift(periods=-1) #push column up by a row
+
+
+#--------------------------------------------------------
 # REPLACE VALUES
     #option 1: single value
 df = df.replace('value1', 'value2')
@@ -553,6 +569,7 @@ df2['code'] = df2['Gene'].cat.codes     # then extract their code out
 col = pd.to_datetime(df.columns[6:])
     #aggregation by date intervals
     #list of rules can be found in url: http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
+    #date must be in index, while the dataframe contains only the col you want to aggregate
 date=date.resample('Q').mean()  #by quarter, also (Day: D, Week: W, Month: M, Quarter: Q, Year: Y)
                  
     #change date to string
