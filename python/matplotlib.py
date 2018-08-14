@@ -8,6 +8,10 @@ plt.figure()
 %matplotlib notebook
 
 
+### DISABLE DOUBLE PLOTTING BUG---------------------------------------
+sm.qqplot(df2['elect_lag']); # add a semi-colon at the end
+
+
 ### SETTINGS---------------------------------------
 # see available styles
 plt.style.available

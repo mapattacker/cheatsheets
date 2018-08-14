@@ -63,8 +63,13 @@ FROM table1
 WHERE condition;
 
 
---delete all data from table
-delete from ts_biz_100m_ap;
+--delete rows
+DELETE FROM ts_biz_100m_ap; --delete entire table
+DELETE FROM Customers 
+  WHERE CustomerName='Alfreds Futterkiste';
+
+UPDATE table_name
+  SET your_column_name = NULL; --not really delete but to purge data in a column
 
 --query column names from a table
 SELECT column_name,* 
@@ -155,6 +160,16 @@ with table1 as (select *
                 where column1 = 'stop')
 select * 
 from table1
+
+
+
+with table1 as (select * from tablenm where col1 > 10),
+     table2 as (select * from tablenm where col2 = 'sex')
+select * from table1 a
+join table2 b on a.col1 = b.col1
+
+
+
 
 
 -- SUBQUERY

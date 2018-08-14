@@ -12,6 +12,15 @@ test.zfill(5)
 '00001'
 
 
+# NUMBER FORMAT
+#--------------------------------
+format(MSE, 'e') # convert to 'e' format
+>>> 6.769587e+09
+
+# https://docs.python.org/2/library/string.html#formatspec
+# different format codes
+
+
 # LOOPS
 #--------------------------------
 # enumerate

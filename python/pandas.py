@@ -104,6 +104,11 @@ df = pd.DataFrame()
 newdf['Date'] = x.keys()    #where x is a dictionary
 df['DateValue'] = x.values()
 
+    # build a df with just one row of data. Note the nested list to change it to row
+prediction = pd.DataFrame([[4, 21, 1, 5, 91,1984]], \
+                          columns=['flat_type_code','town_code','flat_model_code', \
+                                   'storey_range_code','floor_area_sqm', 'lease_commence_date'])
+
     #duplicate a dataframe
 df2 = df.copy()
 
@@ -135,6 +140,7 @@ df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
     
 # Connection to database
     # sqlite connection
+import sqlite3
 conn = sqlite3.connect(sqlitePath) 
 df= pd.read_sql_query("SELECT * FROM table", conn)
     # postgres connection
@@ -155,7 +161,8 @@ df = pd.read_sql_query(query, conn)
 
 # upload dataframe to database as new table by default (use if_exist for appending), only available using sqlalchemy as engine
 # if_exists can 'replace' entire table, default is fail
-df.to_sql(name='wsg_ap_list3', con=conn, index=False, if_exists='append')
+df.to_sql(name='wsg_ap_list3', con=conn, index=False, if_exists='append') #OR
+df.to_sql('pa', conn, if_exists='append', index=False, dtype='text')
 
 
 #--------------------------------------------------------
@@ -218,6 +225,10 @@ df = df[['a', 'b', 'd', 'c']]
 ## SET VALUES PER CELL, GOOD FOR ITERATION
 df.set_value(i, 'Y_svy', svy[1]) # index, column name, value
 
+# new alternative
+df.at[4, 'B'] = 10 # index, column name = value
+df.at[4, 'B'] #querying a cell
+>>> 10
 
 #--------------------------------------------------------
 ## COUNTING
@@ -366,6 +377,12 @@ df2 = (df.astype('str').groupby(df.columns.tolist()).size()
 
 
 #--------------------------------------------------------
+## DROP ROW
+    # by index
+df = df.drop(df.index[2938])
+
+
+#--------------------------------------------------------
 ## NEW COLUMN CALCAULATIONS
     ## SINGLE COLUMN CONDITION
     ## by summing
@@ -476,7 +493,12 @@ df['Country'].apply(lambda x: dict.get(x,x))
     #option 4: replace part of string in value
 ticketcat['price']=ticketcat['price'].str.replace('$', '')
 
-                 
+
+#--------------------------------------------------------
+# CONFUSION MATRIX
+pd.crosstab(df['target'], df['predicted'])
+
+
 #--------------------------------------------------------
 ## GROUP BY AND CALCULATING
 census_df[['STNAME', 'COUNTY']].groupby(['STNAME']).sum() #SELECT sum(county), stname FROM tablenm GROUP BY stname
@@ -567,6 +589,7 @@ df2['code'] = df2['Gene'].cat.codes     # then extract their code out
 ## DATES
     #change string to date format
 col = pd.to_datetime(df.columns[6:])
+col = pd.to_datetime(df['date'],dayfirst=True)  #sometimes the auto-format is wrong, and you need specify dayfirst or yearfirst
     #aggregation by date intervals
     #list of rules can be found in url: http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
     #date must be in index, while the dataframe contains only the col you want to aggregate
