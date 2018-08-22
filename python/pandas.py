@@ -290,6 +290,12 @@ df3[['a','b']].sort_values(['a','b'], ascending=[True, True]) # sort a first the
 
 
 #--------------------------------------------------------
+## ENCODING
+encode = {'Y':0, 'N':1}
+df['Hired'] = df['Hired'].map(encode)
+
+
+#--------------------------------------------------------
 ## STRING MANIPULATIONS
     
 df['column1'].str.len() # length of each cell
