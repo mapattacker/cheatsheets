@@ -20,6 +20,85 @@ format(MSE, 'e') # convert to 'e' format
 # https://docs.python.org/2/library/string.html#formatspec
 # different format codes
 
+"{0:.2f}".format(14/2) #force 2 decimal places, with rounding off nearest
+# 7.00
+
+
+# SPLITTING
+#--------------------------------
+# split string into list
+'abcde'.split()
+# ['a','b','c','d','e']
+
+import textwrap
+textwrap.wrap('ABCDEFG',2)
+# ['AB', 'CD', 'EF', 'G']
+
+textwrap.fill('ABCDEFG',2)
+# 'AB\nCD\nEF\nG'
+
+import re
+re.findall('.{1,2}', '123456789')
+# ['12', '34', '56', '78', '9']
+
+
+# ITERTOOLS
+#--------------------------------
+# all permutations within list
+from itertools import permutations
+print list(permutations(['1','2','3']))
+# [('1', '2', '3'), ('1', '3', '2'), ('2', '1', '3'), ('2', '3', '1'), ('3', '1', '2'), ('3', '2', '1')]
+
+# limit no. in each permutation
+list(permutations(['1','2','3'],2))
+# [('1', '2'), ('1', '3'), ('2', '1'), ('2', '3'), ('3', '1'), ('3', '2')]
+
+# permutations but without order
+from itertools import combinations
+list(combinations([1,2,3], 2))
+# [(1, 2), (1, 3), (2, 3)]
+
+# permutations but without order, but allow matching with itself
+from itertools import combinations_with_replacement
+list(combinations_with_replacement([1,2,3], 2)
+
+# all permutations between lists
+from itertools import product
+list(product([1,2,3],[3,4]))
+# [(1, 3), (1, 4), (2, 3), (2, 4), (3, 3), (3, 4)]
+
+B = [[1,2],[3,4],[7,8]]
+list(product(*B))
+# [(1, 3, 7),
+#  (1, 3, 8),
+#  (1, 4, 7),
+#  (1, 4, 8),
+#  (2, 3, 7),
+#  (2, 3, 8),
+#  (2, 4, 7),
+#  (2, 4, 8)]
+
+
+# groupby; for each unique value, find the number of occurences
+from itertools import groupby
+s = '1222311'
+for a, b in groupby(s):
+    print(a, list(b))
+# 1 ['1']
+# 2 ['2', '2', '2']
+# 3 ['3']
+# 1 ['1', '1']
+
+
+# Zipping
+A = [1,2,3]
+B = [6,5,4]
+C = [7,8,9]
+X = [A] + [B] + [C]
+
+print zip(*X)
+[(1, 6, 7), (2, 5, 8), (3, 4, 9)]
+
 
 # LOOPS
 #--------------------------------
@@ -64,19 +143,23 @@ print (x)
 >>>[1, 2, 3, 4, 5]
 
 # sort
-list2 = [(1,2),(53,12),(23,232),(99,231)]
-def take2nd(elem):
     # for sorting 2nd position of a tuple within a list
-    return elem[1]
-
-    # reverse is descending order
+list2 = [(1,2),(53,12),(23,232),(99,231)]
+    # reverse is descending order; if only this argument, will take first item of the nested list
     # key is to take position of sort if it is a nested list
-sorted(list2, reverse=True, key=take2nd) 
+sorted(list2, reverse=True, key=lambda x: x[1]) 
+# [(23, 232), (99, 231), (53, 12), (1, 2)]
+
+    # sorting asc & dec order in nested list
+list2 = [(1, 1), (3, 1), (5, 3), (4, 3)]
+sorted(list2, reverse=True, key=lambda x: (x[1], -x[0]))
+# [(4, 3), (5, 3), (1, 1), (3, 1)]
+
 
 # reverse sort
 list1 = [1,2,3,4,5]
-print(list1[::-1])
->>> 
+list1[::-1]
+# [5,4,3,2,1]
 
 
 # DICTIONARY
@@ -88,8 +171,16 @@ dictname.keys()
 dictname.values()
 # dict_values([63, 1, 2])
 
+# call value using key name
+dictname['keyname']
+
 # remove key
 dictname.pop('keyName')
+
+# update new values through iteration
+newdict = {}
+for a, b in values:
+    newdict.update({a,b})
 
 
 # CONCAT
@@ -136,10 +227,36 @@ list1 = ['a', 'a', 'b', 'c', 'd', 'd']
 len(list1) # 6
 len(set(list1)) # 4
 print set(list1) # set(['a', 'c', 'b', 'd'])
+print list(set(list1)) # ['a', 'c', 'b', 'd'] #conversion to list takes time
 
-# remove item
+# remove item by value
 list1.remove('valuename')
+# remove item by index
+del list1[0]
 
+
+
+a = {2, 4, 5, 9}
+b = {2, 4, 11, 12}
+# union
+a.union(b) # Values which exist in a or b
+a|b #OR
+# {2, 4, 5, 9, 11, 12}
+
+# intersection
+a.intersection(b) # Values which exist in a and b
+a&b #OR
+# {2, 4}
+
+# difference
+a.difference(b) # Values which exist in a but not in b
+a-b #OR
+# {9, 5}
+
+# symmetrical difference
+a.symmetrical_difference(b)
+a^b
+# {9, 5, 11, 12}
 
 
 # PICKLING
@@ -183,6 +300,7 @@ time.strftime("%d/%m/%Y")
 # current time in epoch
 time.time()
 
+# TIME DELTAS -----
 from datetime import datetime, timedelta
 print datetime.now()
 # 2017-09-05 21:17:02.111204
@@ -190,6 +308,16 @@ print datetime.now().date()
 # 2017-09-05
 print datetime.now() + timedelta(days=5, hours=-5)
 # 2017-09-10 16:17:02.419905
+
+
+import datetime
+a = datetime.datetime.now()
+b = datetime.datetime.now()
+c = b-a
+c
+# datetime.timedelta(0, 5, 228578) => days, seconds, microseconds
+c.days, c.seconds
+# (0, 5); days, seconds
 
 
 # Parsing Time Formats
@@ -204,6 +332,31 @@ print dateutil.parser.parse("2014-02", default=datetime(2017, 1, 1, 0, 0)).date(
 
 # fuzzy = True ignores any exceptions
 print dateutil.parser.parse("2014-02", default=datetime(2017, 1, 1, 0, 0), fuzzy=True).date()
+
+# extracting date parts & time delta
+t1='Sun 10 May 2015 13:54:36 -0700' #with timezone
+t2='Sun 10 May 2015 13:54:37 -0000'
+x = dateutil.parser.parse(t1)
+y = dateutil.parser.parse(t2)
+print(x.year,x.month,x.day,x.hour,x.minute,x.second)
+# 2015 5 10 13 54 36
+z=y-x
+print(z)
+# 7:00:00
+print(z.days,z.seconds,z.microseconds)
+# 0 420 0
+print(z.total_seconds())
+# 420
+
+
+
+
+# get day of week
+import datetime
+print(datetime.datetime.strptime(input(), '%m %d %Y').strftime('%A').upper())
+# OR
+from calendar import weekday, day_name
+day_name[weekday(year,month,day)].upper()
 
 
 # Set Timezone to Local

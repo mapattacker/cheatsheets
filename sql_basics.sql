@@ -96,6 +96,13 @@ select (case when column1 - column2 >= 14 then 1 else 0 END) as difference
 from table_name
 
 
+-- JOIN
+--------------------------------------
+-- join using where clause
+select a.name, b.grade, a.marks
+from students a, grades b
+where a.marks between b.min_Mark and b.Max_Mark --joined using a between
+
 
 --CONVERT DATA TYPE
 --------------------------------------
@@ -140,6 +147,7 @@ select cast(concat('1991-01-01', ' ', from_unixtime(1392394861, 'HH'), ':00:00')
 --DATETIME DELTA (ADD/DIFF)
 select now() - interval '15 minutes' -- (POSTGRES)
 select now() - interval 15 minutes -- (IMPALA)
+select datediff(day, startdate, enddate)
 
 
 --TRUNCATE
@@ -169,9 +177,6 @@ select * from table1 a
 join table2 b on a.col1 = b.col1
 
 
-
-
-
 -- SUBQUERY
   --very difficult to interpret when query is long. But performance is optimised.
 select * 
@@ -180,9 +185,33 @@ from (select *
       where column1 = 'stop') a
 
 
+-- WHERE
+--------------------------------------
+  -- using IN clause for multiple values
+SELECT column_name(s)
+FROM table_name
+WHERE column_name IN (value1, value2, ...)
+
+
+-- NEW COLUMNS
+--------------------------------------
+  -- row number
+select row_number() over(order by name), name from occupations 
+
+  -- lead & lag
+select hacker_id, name, cnt, 
+        lag(cnt) over(order by cnt desc, hacker_id asc) as lag,
+        lead(cnt) over(order by cnt desc, hacker_id asc) as lead
+from table1
 
 --USEFUL QUERIES
 --------------------------------------
+-- MODULUS
+select distinct city
+from station
+where id %2=0 --only even numbers
+
+
 -- show # duplicate rows
 select column1, column2, count(*)-1 as duplicate_cnt
 from wsg_radius_log

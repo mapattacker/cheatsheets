@@ -34,6 +34,8 @@ import re
 #-------------------------------------------
 dir(re) #give list of constantsx
 result = re.findall(r'this', email, re.IGNORECASE) #e.g., IGNORECASE ignores casing
+result = re.findall(r'this', email, flags=re.I) #alternative
+
 
 
 #-------------------------------------------
@@ -92,6 +94,14 @@ s = "x01777"
 m = re.sub(r'(\w\d\d)(\d\d\d)', r'\1-\2', s) #\1 \2 indicates the brackets
 print(m)
 'x01-777'
+
+# split results equally
+re.findall('.{1,2}', '123456789')
+# ['12', '34', '56', '78', '9']
+
+str = '100,000,000.000'
+re.split(r'[,.]')
+# ['100', '000', '000', '000']
 
 #-------------------------------------------
 # using date & pandas
