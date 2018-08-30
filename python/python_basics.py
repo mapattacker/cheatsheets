@@ -26,10 +26,6 @@ format(MSE, 'e') # convert to 'e' format
 
 # SPLITTING
 #--------------------------------
-# split string into list
-'abcde'.split()
-# ['a','b','c','d','e']
-
 import textwrap
 textwrap.wrap('ABCDEFG',2)
 # ['AB', 'CD', 'EF', 'G']
@@ -40,6 +36,16 @@ textwrap.fill('ABCDEFG',2)
 import re
 re.findall('.{1,2}', '123456789')
 # ['12', '34', '56', '78', '9']
+
+
+# MAP & REDUCE
+#--------------------------------
+from functools import reduce
+reduce(lambda x, y: x*y, [1,2,3,4,5,6])
+# 720
+
+map(int, ['1','2','3','4','5','6'])
+# [1,2,3,4,5,6]
 
 
 # ITERTOOLS
