@@ -20,6 +20,7 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __Web Development__: Folder containing web development languages cheatsheets like html, css & php
   * __Python__
     * __arcpy__: ArcGIS python library `arcpy.py`
+    * __GeoPandas__: GIS manipulation in pandas dataframe `geopandas.py`
     * __Matplotlib__: Python's matplotlib package `matplotlib.py`
     * __Numpy__: python numpy package `numpy.py`
     * __OpenCV__: Image processing using opencv `opencv.py`
