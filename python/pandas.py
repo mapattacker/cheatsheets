@@ -202,6 +202,7 @@ for i in df.columns:
     x += 1
     #renaming columns
 df.columns = ['newcolumn1', 'newcolumn2', 'newcolumn3'] #easiest way to change, but error if total columns does not match
+df.name = 'Original' #changing pd.Series name
 df2 = df.rename(columns={'diam_circle_image':'diameter','depth_rimfloor_topog':'depth', 'number_layers':'layers'})
 hdata2.rename(columns=dict(zip(hdata2.columns,date_change.tolist())), inplace=True) #change two lists into dictionary
 df.columns = map(str.lower, df.columns) # change to lower case
@@ -294,6 +295,12 @@ df3[['a','b']].sort_values(['a','b'], ascending=[True, True]) # sort a first the
 encode = {'Y':0, 'N':1}
 df['Hired'] = df['Hired'].map(encode)
 
+
+# Convert dummies back to single column
+wild_dummies = df[['Wilderness_Area1','Wilderness_Area2','Wilderness_Area3','Wilderness_Area4']]
+wild = wild_dummies.idxmax(axis=1)
+wild.name = 'Wilderness' # set pd.Series name
+wild = pd.concat([df2['Cover_Type'],wild], axis=1)
 
 #--------------------------------------------------------
 ## STRING MANIPULATIONS

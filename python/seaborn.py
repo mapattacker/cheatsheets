@@ -30,6 +30,7 @@ sns.despine(left=True, bottom=True) # also remove left and bottom borders
 
 #------------------------------------------------------------------------------------
 # COLOR PALETTES
+# for entering in argument cmap=...
 # http://seaborn.pydata.org/tutorial/color_palettes.html
 # http://chrisalbon.com/python/seaborn_color_palettes.html
 sns.color_palette() # default palette
@@ -102,6 +103,7 @@ sns.factorplot(x='layers',y='depth',data=df3, kind='bar', ci=False) # remove con
 # joinplot, for only pairwise comparison. Gives histograms & scatterplot. Gives correlation labels.
 sns.jointplot('CMT', 'FCT', df2, kind='scatter', color='seagreen')
 # pairplot, for multiple comparisons. Gives histograms & scatterplots. No correlation labels.
+# https://seaborn.pydata.org/generated/seaborn.pairplot.html
 sns.pairplot(df3.dropna())
 # pairgrid, for multiple comparisons. Define plot type. No correlation labels.
 fig = sns.PairGrid(df3.dropna())
@@ -111,6 +113,10 @@ fig = sns.PairGrid(df3.dropna())
   fig.map_diag(sns.distplot, bins=30)
 # corrplot, for multiple comparisons. Gives correlation labels.
 sns.linearmodels.corrplot(df3.dropna())
+
+corr = df.corr()
+plt.figure(figsize=(15, 8))
+sns.heatmap(corr, cmap=sns.color_palette("RdBu_r", 20));
   
 #------------------------------------------------------------------------------------
   # SUBPLOTS

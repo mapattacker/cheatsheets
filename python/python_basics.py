@@ -67,6 +67,7 @@ list(combinations([1,2,3], 2))
 # permutations but without order, but allow matching with itself
 from itertools import combinations_with_replacement
 list(combinations_with_replacement([1,2,3], 2)
+# [(1, 1), (1, 2), (1, 3), (2, 2), (2, 3), (3, 3)]
 
 # all permutations between lists
 from itertools import product

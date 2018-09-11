@@ -6,6 +6,8 @@ import matplotlib.pyplot as plt
 # sometimes plot will not show, just add another line of %matplotlib notebook
 plt.figure()
 %matplotlib notebook
+# prevents default reduction resolution in jupyter notebook
+%config InlineBackend.figure_format = 'retina'
 
 
 ### DISABLE DOUBLE PLOTTING BUG---------------------------------------
