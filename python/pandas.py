@@ -240,6 +240,11 @@ df.describe()
 
 
 #--------------------------------------------------------
+## DELETE ROWS
+df.drop(df.index[[2,3,10,20]])
+
+
+#--------------------------------------------------------
 ## NAN NULL VALUES
     # note that NAN is only for numerical null values
 df.isnull().any().any() # is there any nan in entire dataframe? Boolean
@@ -366,6 +371,7 @@ df = df.set_value(100, 'colnm', 'value') # row_no, column_nm, value
 
 #--------------------------------------------------------
 ## UNIQUE VALUES, DUPLICATES
+df.nunique() # unique values for each column
 df['EVENT_TYPE'].unique() # single column, array
     # multiple columns, dataframe
 df[['EVENT_TYPE', 'EVENT_ID']].drop_duplicates() 

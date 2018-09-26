@@ -40,15 +40,24 @@ import fiona; fiona.supported_drivers
 
 
 # DISPLAY MAP --------------------
-df.plot(figsize=(10,10));
+    # choose colors
+    # https://matplotlib.org/users/colormaps.html
+df.plot(figsize=(10,10), cmap='tab20'); #categorical
+df2.plot(figsize=(10,10), column='numeric', cmap='YlOrRd'); #chloropeth
+
 
 
 # COORDINATE REFERENCE SYSTEM --------------------
+# SVY21; epsg=3414
+# WGS84; epsg=4326
+# Web Mercator; epsg=3857
+
+
 df.crs
 # {'init': 'epsg:4326'}
-df_mercator = df.to_crs(epsg=3395) # change CRS to mercator
+df_mercator = df.to_crs(epsg=3857) # change CRS to mercator
 df_mercator.crs
-# {'init': 'epsg:3395', 'no_defs': True}
+# {'init': 'epsg:3857', 'no_defs': True}
 
 
 # CONVERT CSV INTO GEOPANDAS
@@ -61,5 +70,38 @@ crs = {'init': 'epsg:4326'}
 gdf = gpd.GeoDataFrame(df, crs=crs, geometry=geometry)
 
 
+
 # FILTER, as with pandas --------------------
 df[df.SOVEREIGNT=='Australia']
+
+
+# DISSOLVE --------------------
+df2 = df.dissolve(by='CONTINENT')
+df2 = df.dissolve(by='CONTINENT', aggfunc='sum') # sum up all continuous columns
+
+
+# SIMPLE MANIPULATIONS --------------------
+
+# CENTROID
+world['centroid_column'] = world.centroid # set centroid column
+world = world.set_geometry('centroid_column') # change geometry from polygon to centroid point
+
+# AREA
+df2['area'] = df2.area
+
+
+# JOIN --------------------
+# attribute join
+# can only use a left join by merge
+df.merge(df2, on='iso_a3')
+
+# spatial join
+# op can be set to “intersects”, “within” or “contains”
+cities_with_country = geopandas.sjoin(cities, countries, how="inner", op='intersects')
+
+
+# OVERLAY --------------------
+geopandas.overlay(df1, df2, how='union')
+geopandas.overlay(df1, df2, how='intersection')
+geopandas.overlay(df1, df2, how='symmetric_difference')
+geopandas.overlay(df1, df2, how='difference')

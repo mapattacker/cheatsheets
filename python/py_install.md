@@ -33,4 +33,5 @@ in windows:
 in mac:
 
   * ``open -a TextEdit .bash_profile``: open this file. All installed python paths are here. Just cut and paste the one that needs to be the default to the bottom. Save and close.
+  * ``source ~/.bash_profile`` reload the bash profile and use ``python --version`` to check if the changes are made.
   
