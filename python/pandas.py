@@ -520,7 +520,7 @@ pd.crosstab(df['target'], df['predicted'])
 
 #--------------------------------------------------------
 ## GROUP BY AND CALCULATING
-census_df[['STNAME', 'COUNTY']].groupby(['STNAME']).sum() #SELECT sum(county), stname FROM tablenm GROUP BY stname
+df[['STNAME', 'COUNTY']].groupby(['STNAME']).sum() #SELECT sum(county), stname FROM tablenm GROUP BY stname
 df3.groupby(['longitude', 'latitude']).count() #shows all column counts
 df3.groupby(['longitude', 'latitude']).sum()
 df.groupby(['LocationDescription','LocationCode']).size() #size include NAN counts, counts() does not, shows row size instead of columns
@@ -540,6 +540,14 @@ df.groupby(['Name','Sid','Revenue'])['Use_Case'].apply(''.join).reset_index()
 df.groupby('Name').agg({'Sid':'first', 
                         'Use_Case': ', '.join, 
                         'Revenue':'first' }).reset_index()
+
+# GROUPBY OUTPUT AS A DATAFRAME
+    # note the as_index
+df.groupby('StationID', as_index=False)['BiasTemp'].mean()
+#   StationID  BiasTemp
+# 0        BB       5.0
+# 1     KEOPS       2.5
+# 2    SS0279      15.0
 
 #--------------------------------------------------------
 ## SIMPLE MATHS
