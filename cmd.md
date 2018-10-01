@@ -147,7 +147,24 @@ __Get Password__
 
 http://www.nncron.ru/help/EN/working/cron-format.htm
 
+Key thing is to store the cronjob statement into a file called crontab at the root
 
+```
+* * * * *  command to execute
+│ │ │ │ │
+│ │ │ │ └─── day of week (0 - 6) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
+│ │ │ └──────── month (1 - 12)
+│ │ └───────────── day of month (1 - 31)
+│ └────────────────── hour (0 - 23)
+└─────────────────────── min (0 - 59)
+```
+  `0 10-16 * * 1-5 /path/to/script/script.sh` --every hour from 10am to 4pm, Mon to Fri
+
+  `crontab -l`  --list of cronjobs
+
+
+  `*/10 * * * * /Users/xx/anaconda3/bin/python /path/to/script/script.py` --run python script
+  
 
 __TextEdit editor__			
 

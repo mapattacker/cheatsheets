@@ -61,10 +61,19 @@ select.select_by_value('7')
 driver.find_element_by_css_selector('.button.c_button.s_button').click()
 
 
+#----------------
+# parsing html that are in iframes
+from selenium import webdriver
+
+driver.get(url)
+# add these two lines
+iframeElement = driver.find_element_by_tag_name('iframe')
+driver.switch_to.frame(iframeElement)
+html = driver.page_source.encode('utf-8') #without encode, sometimes value does not appear
 
 
 #----------------
-# phantomjs for parsing javascripts, no browser popups
+# if iframe does not load element values, use this
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
@@ -74,8 +83,7 @@ from selenium.webdriver.common.by import By
 chromedriver = r'C:\xxx\MyPythonScripts\chromedriver.exe'
 url= 'https://mapattack.wordpress.com'
 
-driver=webdriver.Chrome(chromeDriver) #use ChromeDriver.... OR
-driver=webdriver.PhantomJS(PJ) #use PhantomJS to parse js
+driver=webdriver.Chrome(chromeDriver)
 driver.get(url)
 
 # optional, wait 10 sec for iframe to load
@@ -83,6 +91,8 @@ driver.get(url)
 WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.XPATH,'//div[starts-with(@id, "mainns_")]/iframe')))
     # by id
 WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.ID,'ddlDay')))
+    # by tag
+WebDriverWait(driver, 10).until(EC.frame_to_be_available_and_switch_to_it((By.TAG_NAME,'iframe')))
 html = driver.page_source.encode('utf-8')
 
 
@@ -112,6 +122,7 @@ soup.select("p > a") # all a tag that inside p
 soup.select("body > a") # all a tag inside body
 soup.select(".sister") # select by class
 soup.select("#link1") # select by id
+soup.select('span[data-bind]') # select elements named <span> that have an attribute called data-bind
 
 # get attribute content; eg links in href
 for tag in soup.select('a'):
