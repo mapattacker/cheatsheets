@@ -20,3 +20,13 @@ def send_message(channel_id, message):
                           username='fbalert')
 
 send_message(channel_id, message)
+
+
+# delete all user sent messages
+# https://medium.com/@jjerryhan/cleaning-all-messages-on-slack-channel-c46d71615c9a
+# run in terminal
+
+# verify
+slack-cleaner --token="token-code" --message --channel general --user "*"
+# execute delete all msgs
+slack-cleaner --token="token-code" --message --channel general --user "*" --perform
