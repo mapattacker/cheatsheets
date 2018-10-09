@@ -143,11 +143,11 @@ __Get Password__
 
 
 
-### Cron Job
+### Cron Job in Mac
 
 http://www.nncron.ru/help/EN/working/cron-format.htm
 
-Key thing is to store the cronjob statement into a file called crontab at the root
+Key thing is to store the cronjob statement into a file called crontab at the root. Add `MAILTO=""` to the top so that email will not be sent to the terminal.
 
 ```
 * * * * *  command to execute
@@ -160,7 +160,11 @@ Key thing is to store the cronjob statement into a file called crontab at the ro
 ```
   `0 10-16 * * 1-5 /path/to/script/script.sh` --every hour from 10am to 4pm, Mon to Fri
 
+  `*/5 * * * * /path/to/script/script.sh` --every 5 minutes
+
   `crontab -l`  --list of cronjobs
+
+  `env EDITOR=nano crontab -e`  --edit cronjobs in nano
 
 
   `*/10 * * * * /Users/xx/anaconda3/bin/python /path/to/script/script.py` --run python script

@@ -60,7 +60,7 @@ plt.axis('off')
 
 ### SAVE CHART IMAGE---------------------------------------
 plt.plot(range(10))
-plt.savefig('testplot.png') #save as png
+plt.savefig('testplot.png', dpi=300) #save as png
 
 import Image
 Image.open('testplot.png').save('testplot.jgp', 'JPEG') #save as jpeg using Pillow

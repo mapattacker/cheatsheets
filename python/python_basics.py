@@ -402,9 +402,9 @@ import traceback
 try:
     something
 except Exception as e:
-    print sys.exc_info()[2].tb_lineno # line number where code breaks
-    print e # exact item that have issue
-    print traceback.format_exc() # full traceback error
+    print(sys.exc_info()[2].tb_lineno) # line number where code breaks
+    print(e) # exact item that have issue
+    print(traceback.format_exc()) # full traceback error
 
 
 

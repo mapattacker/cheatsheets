@@ -5,8 +5,12 @@ token = 'xxx'
 slack_client = SlackClient(token)
 
 # get list of channels & their ids
-slack = slack_client.api_call("channels.list") 
-print json.dumps(slack, indent=4)
+import json
+#public only
+slack = slack_client.api_call("channels.list")
+#public and private, need to specify
+slack = slack_client.api_call("conversations.list", types="public_channel, private_channel")
+print (json.dumps(slack, indent=4))
 
 
 # With channel id input
@@ -27,6 +31,6 @@ send_message(channel_id, message)
 # run in terminal
 
 # verify
-slack-cleaner --token="token-code" --message --channel general --user "*"
-# execute delete all msgs
-slack-cleaner --token="token-code" --message --channel general --user "*" --perform
+# slack-cleaner --token="token-code" --message --channel general --user "*"
+# # execute delete all msgs
+# slack-cleaner --token="token-code" --message --channel general --user "*" --perform
