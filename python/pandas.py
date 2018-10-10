@@ -234,6 +234,7 @@ df.at[4, 'B'] #querying a cell
 #--------------------------------------------------------
 ## COUNTING
 df['EVENT_TYPE'].value_counts()
+df.groupby(['Fruit','Name'])['Number'].sum() #sum of Number grouping by fruit and name
 df.groupby('name')['activity'].value_counts() #multi-dimension counts 
 df['number_layers'].value_counts(normalize=True)*100 # by percentage
 df.describe()
