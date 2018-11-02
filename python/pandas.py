@@ -143,6 +143,10 @@ df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
 import sqlite3
 conn = sqlite3.connect(sqlitePath) 
 df= pd.read_sql_query("SELECT * FROM table", conn)
+
+from sqlalchemy import create_engine
+engine = sqlalchemy.create_engine('sqlite:///my_db.sqlite')
+
     # postgres connection
 import psycopg2 
 conn = psycopg2.connect(database="postgres", user="postgres", password="***", host="127.0.0.1", port="5432")
@@ -223,6 +227,20 @@ df = df[['a', 'b', 'd', 'c']]
 
 
 #--------------------------------------------------------
+## CREATE DATAFRAMES BASED ON UNIQUE COLUMN CATEGORY VALUE, STORED IN A DICT
+
+# https://datascience.stackexchange.com/questions/29825/create-new-data-frames-from-existing-data-frame-based-on-unique-column-values
+
+# store dataframes in dict, based on unique column value 'company_id'
+dict_of_companies = {key: value for key, value in df.groupby('company_id')}
+# get all keys
+keys = [i for i in dict_of_companies]
+# print each dataframe out
+for i in keys:
+    print(dict_of_companies[i])
+
+
+#--------------------------------------------------------
 ## SET VALUES PER CELL, GOOD FOR ITERATION
 df.set_value(i, 'Y_svy', svy[1]) # index, column name, value
 
@@ -234,6 +252,7 @@ df.at[4, 'B'] #querying a cell
 #--------------------------------------------------------
 ## COUNTING
 df['EVENT_TYPE'].value_counts()
+    # using groupby
 df.groupby(['Fruit','Name'])['Number'].sum() #sum of Number grouping by fruit and name
 df.groupby('name')['activity'].value_counts() #multi-dimension counts 
 df['number_layers'].value_counts(normalize=True)*100 # by percentage
