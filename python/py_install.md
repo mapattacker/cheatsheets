@@ -6,7 +6,7 @@ python -V
 
 ### install packages using wheel
    * Important for computers without internet access.
-   * 
+   * Unofficial but convenient wheel files to download from https://www.lfd.uci.edu/~gohlke/pythonlibs/
 
 ### install using pip
   * ``pip install packageName``: Install package

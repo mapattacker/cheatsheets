@@ -421,6 +421,15 @@ subprocess.call(["mongoexport", "--db", "test-database", "--collection", "wsg", 
                     
 # output value of 1 means good
 
+# open a file
+import subprocess
+import os
+
+path_to_notepad = r'C:\Windows\System32\notepad.exe'
+path_to_file = r'C:\Users\Desktop\hello.txt'
+
+subprocess.call([path_to_notepad, path_to_file]) #note the list brackets
+
 
 # Virtual Environment
 #--------------------------------
@@ -495,3 +504,17 @@ for image in imagelist:
     pdf.add_page()
     pdf.image(image,x,y,w,h)
 pdf.output("yourfile.pdf", "F")
+
+
+
+# PYAUTOGUI -------------------------
+# https://pyautogui.readthedocs.io/en/latest/keyboard.html
+# get coordinates
+print(pyautogui.position())
+# click
+pyautogui.click(coordinates)
+# single key
+pyautogui.press('enter')
+# consecutive keys
+pyautogui.hotkey('ctrl', ‘f4’)
+
