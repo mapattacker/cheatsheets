@@ -7,7 +7,7 @@ import re
   # *     Matches 0 or more occurrence of preceding expression.
   # +     Matches 1 or more occurrence of preceding expression.
   # ?     Matches 0 or 1 occurences of preceding expression.
-  # {n}   Matches exacetly n reptitions
+  # {n}   Matches exactly n reptitions
   # {n,}  At least n times
   # {,n}  At most n times
   # {m,n} At least m and at most n repetitions (e.g., \d{1,3} means get 1, 2 or 3 digits)
@@ -16,6 +16,7 @@ import re
   # []    Matches any charcters in the square brackets
   # ()    Groups regular expressions and remembers matched text / output & find only characters in brackets.
   # (?:)  Outputs not just within brackets, but the entire string
+  # (?=)  Lookahead. Will assert but not consumed
   # a|b	  Matches either a or b.
   
   # \     backslash changes search code into real symbol (eg., \$)
@@ -102,6 +103,18 @@ re.findall('.{1,2}', '123456789')
 str = '100,000,000.000'
 re.split(r'[,.]')
 # ['100', '000', '000', '000']
+
+
+#-------------------------------------------
+# Conditional Split
+text = "Perennials. Stolons slender. Perianth bristles 6 or 7, ca. 2 × as long as nutlet"
+
+result = re.split(r'\.\s(?=[A-Z])', text) #(?=somthing) will not remove the something when splitting
+['Perennials',
+ 'Stolons slender',
+ 'Perianth bristles 6 or 7, ca. 2 × as long as nutlet']
+
+
 
 #-------------------------------------------
 # using date & pandas
