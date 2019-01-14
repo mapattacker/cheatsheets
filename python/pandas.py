@@ -488,12 +488,14 @@ for i in range(len(df)):
 
 
     ## regex
-df['date'] = df['raw'].str.extract('(....-..-..)', expand=True)
+df['date'] = df['raw'].str.extract('(....-..-..)', expand=True) #extract
 # 0    2014-12-23
 # 1    2010-02-23
 # 2    2014-06-20
 # 3    2014-03-14       
-             
+df['node'] = df['node'].str.replace(r'[1-9]+\s','') #replace
+
+
     ## split by delimiter
 # example of value 'Online,Sales,Adult'
 ticketcat['sales'] = ticketcat['TicketDescription'].apply(lambda x: x.split(',')[1])

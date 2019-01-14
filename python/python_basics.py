@@ -55,11 +55,11 @@ from itertools import permutations
 print list(permutations(['1','2','3']))
 # [('1', '2', '3'), ('1', '3', '2'), ('2', '1', '3'), ('2', '3', '1'), ('3', '1', '2'), ('3', '2', '1')]
 
-# limit no. in each permutation
+# limit no. in each permutation, without order
 list(permutations(['1','2','3'],2))
 # [('1', '2'), ('1', '3'), ('2', '1'), ('2', '3'), ('3', '1'), ('3', '2')]
 
-# permutations but without order
+# permutations but with order
 from itertools import combinations
 list(combinations([1,2,3], 2))
 # [(1, 2), (1, 3), (2, 3)]
