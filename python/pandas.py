@@ -283,6 +283,7 @@ df3 = df2.dropna() #drop all rows with nan in any columns
 df3 = df2.dropna(how='all') #drop only rows with all nan values
 df3 = df2.dropna(threa=2) #drop only rows with 2 or more nan values
 df.dropna(subset=['x277_2012'],inplace=True) #drop all rows for specific columns
+df[df['Col2'].notnull()] # same as above
 
     #fill NaN
 df = df.fillna(value=99) #change NaN a value
@@ -396,9 +397,12 @@ df['EVENT_TYPE'].unique() # single column, array
     # multiple columns, dataframe
 df[['EVENT_TYPE', 'EVENT_ID']].drop_duplicates() 
     # set for entire dataframe but target specific columns
-df.drop_duplicates(subset=['col1', 'col2'])
-df.drop_duplicates(subset=['A', 'C'], keep=False)
-df[df.duplicated(keep=False)] # show all duplicated rows (only)
+df.drop_duplicates(subset=['col1', 'col2']) # only 1 the pair of a duplicate
+df.drop_duplicates(subset=['A', 'C'], keep=False) # drop all duplicates
+df.drop_duplicates(subset=['A', 'C'], keep='first') # keep only first of the pair of duplicates (default)
+    # display the duplicates only
+df[df.duplicated(keep=False)] # all columns
+df[df[['colA','colB']].duplicated(keep=False)] # specific columns
 
 # comparing duplicates between two columns
 df[df['States'].ne(df['Region'])]
@@ -604,7 +608,7 @@ df = pd.merge(df1, df2, how='left', left_on=['id_key'], right_on=['fk_key']) #if
 df = pd.merge(df1, df2, how='left', left_on=['id_key','field2','field3'], right_on=['fk_key','field2','field3']) #multiple join fields
 hudf=pd.merge(hdf, ul, how ='left', on=['State','RegionName']) #join on multiple columns
     #indicator give an additional field '_merge'.
-    # Can use groupby size to count number of left-only, right-only, or both
+    # Can use groupby size to count number of 'left_only', 'right_only', or both
 df=pd.merge(df1, df2, how='outer', on='Country', indicator=True)
 df.groupby('_merge').size()
 

@@ -407,6 +407,12 @@ except Exception as e:
     print(traceback.format_exc()) # full traceback error
 
 
+# using raise to effect an exception
+try:
+    if line1 != line2:
+        raise Exception('Stations are not in the same line')
+except Exception as e:
+    print(e)
 
 # SUBPROCESS
 #--------------------------------
@@ -489,7 +495,8 @@ parsed = json.loads(your_json)
 print json.dumps(parsed, indent=4, sort_keys=True)
 
 
-# convert list of images into pdf -------------------------
+# PDF -------------------------
+# convert list of images into PDF
 from fpdf import FPDF
 import os
 
@@ -505,6 +512,21 @@ for image in imagelist:
     pdf.image(image,x,y,w,h)
 pdf.output("yourfile.pdf", "F")
 
+
+# reduce pdf report to just specific pages
+from PyPDF2 import PdfFileWriter, PdfFileReader
+file = 'report.pdf'
+
+inputpdf = PdfFileReader(open(file, "rb"))
+output = PdfFileWriter()
+
+for i in range(inputpdf.numPages):
+    if i >= 8 and i <= 28:
+        p = inputpdf.getPage(i)
+        output.addPage(p)
+
+with open('greenery.pdf', 'wb') as f:
+    output.write(f)
 
 
 # PYAUTOGUI -------------------------
