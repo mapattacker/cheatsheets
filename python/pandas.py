@@ -109,6 +109,11 @@ prediction = pd.DataFrame([[4, 21, 1, 5, 91,1984]], \
                           columns=['flat_type_code','town_code','flat_model_code', \
                                    'storey_range_code','floor_area_sqm', 'lease_commence_date'])
 
+    # from dictionary
+d = {'Desert':2345,'Mountain':8764,'Water':6689,'Land':7332,'Forest':1050,'Snow':3741, \
+              'Is_Raining_ec':0,'Had_A_Good_Sleep_ec':0,'Average_Temperature':40}
+df = pd.DataFrame([list(d.values())], columns=list(d.keys()))
+
     #duplicate a dataframe
 df2 = df.copy()
 

@@ -18,7 +18,12 @@ python -V
   * windows cmd: `where python`
   * Bash: `which python`
 
-### Change default python path
+### Site Packages
+Mac:
+  * /Users/xxx/anaconda3/pkgs (packages)
+
+
+### Change Default Python Path
 
 in windows:
   

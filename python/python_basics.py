@@ -513,6 +513,7 @@ for image in imagelist:
 pdf.output("yourfile.pdf", "F")
 
 
+
 # reduce pdf report to just specific pages
 from PyPDF2 import PdfFileWriter, PdfFileReader
 file = 'report.pdf'
@@ -521,7 +522,7 @@ inputpdf = PdfFileReader(open(file, "rb"))
 output = PdfFileWriter()
 
 for i in range(inputpdf.numPages):
-    if i >= 8 and i <= 28:
+    if i >= 8 and i <= 28: # retain pages from 9 to 29
         p = inputpdf.getPage(i)
         output.addPage(p)
 
