@@ -107,6 +107,13 @@ print zip(*X)
 [(1, 6, 7), (2, 5, 8), (3, 4, 9)]
 
 
+# product: get combinations with repeated factor. useful for brute force, though memory might be an issue if the input is large
+from itertools import product
+alphalist = 'abcdefghijklmnopqrstuvwxyz'
+list(product(alphalist, repeat=2))
+
+
+
 # LOOPS
 #--------------------------------
 # enumerate

@@ -8,6 +8,8 @@ CREATE DATABASE tablename
   --can specific CRUD specific access rights too
 GRANT ALL ON misc.* TO 'fred'@'localhost' IDENTIFIED BY 'zap';
   
+-- Show Tables
+SELECT * FROM pg_catalog.pg_tables;
 
 --Create Schema
 CREATE SCHEMA schema_name;

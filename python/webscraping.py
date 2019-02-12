@@ -6,7 +6,12 @@ html = urllib.urlopen(url).read()
 import urllib.request # python 3*
 html = urllib.request.urlopen(url).read()
 
+
 #----------------
+# download images
+urllib.request.urlretrieve("http://www.gunnerkrigg.com//comics/00000001.jpg", "00000001.jpg")
+
+
 # force all encoding to be utf-8
 import sys
 reload(sys)
@@ -59,7 +64,18 @@ select.select_by_visible_text('Jul')
 select.select_by_value('7')
 # press button
 driver.find_element_by_css_selector('.button.c_button.s_button').click()
+# close chrome so there will not be so many appearing if there is iteration
+driver.close()
 
+
+#----------------
+# handling/removing pop-ups
+driver=webdriver.Chrome(chromedriver)
+driver.get(url)
+time.sleep(2)
+driver.refresh()
+time.sleep(2)
+html = driver.page_source
 
 #----------------
 # parsing html that are in iframes
@@ -110,6 +126,14 @@ r1 = revenue[0].contents
     # e.g., ['1 Tampines Walk, Our Tampines Hub', <br/>, '#04-31', <br/>, 'Singapore 528523']
 # print pretty
 revenue[0].prettify()
+
+
+#----------------
+# download html as file and prettify
+html = driver.page_source
+soup = BeautifulSoup(html, 'html.parser')
+with open('test.html', 'w') as f:
+    f.write(soup.prettify())
 
 
 #----------------

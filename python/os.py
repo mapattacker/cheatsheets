@@ -21,7 +21,7 @@ directoryName = os.path.relpath(".","..")
 import os
 path = r'C:\Users\Teo Siyang\'
 for i in os.listdir(path):
-  print i
+  print (i)
 
 
 # get full path, folder name (in a list), and file names (in a list) from path lsited
@@ -30,7 +30,7 @@ path = 'C:\Users\Teo Siyang\'
 for root, dirs, files in os.walk(path):
     print root, dirs, files
     for i in files:
-        print os.path.join(root,i) # get full path of files 
+        print (os.path.join(root,i)) # get full path of files 
 
         
 # check if a file is present
