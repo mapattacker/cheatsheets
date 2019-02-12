@@ -195,6 +195,8 @@ dictname.pop('keyName')
 newdict = {}
 for a, b in values:
     newdict.update({a,b})
+# OR
+{int(a): b for a,b in values}
 
 
 # CONCAT
