@@ -6,8 +6,8 @@ df = pd.read_pickle('psi.pickle')
     # CSV
 df = pd.read_csv('shenzhen_processed.csv', low_memory=False)
 df = pd.read_csv('olympics.csv', index_col=0, skiprows=1)   #take 1st col as index, and remove 1st row
-df.to_csv('shenzhen_processed.csv', index=False) #
-df = pd.read_csv(file, usecols=[0,2])   #use only specific columns
+df.to_csv('shenzhen_processed.csv', index=False)
+df = pd.read_csv(file, usecols=['col1','col2']) #use only specific columns; can save a lot of memory
     # EXCEL
     # reading excel has various differences compared to csv
     # dtype of a col to str will convert NaN into 'nan', while csv preserves the NaN
@@ -55,13 +55,15 @@ pd.reset_option('all') # reset set options
 
 #--------------------------------------------------------
 ## PERFORMANCE
-df.info(memory_usage="deep") # display memory usage
-df.memory_usage(deep=True) # display memory usage for each column
+first_five = pd.read_csv('loans_2007.csv', nrows=5) #call only first 5 rows
 
-# filter dataframe to select certain dtype
-df_obj = df.select_dtypes(include=['object'])
+df._data #see how BlockManager classify dataframe by dtypes
+df.info(memory_usage="deep") # display memory usage, dtype, null/non-null
+df.memory_usage(deep=True) # display only memory usage for each column
 
-# determining optimal dtype so that memory usage is minimised
+# step1: filter dataframe to select certain dtype
+df_obj = df.select_dtypes(include=['integer'])
+# step2: auto-determinine optimal dtype so that memory usage is minimised; eg change form int64 to int16
 df['columnNm'] = pd.to_numeric(df['columnNm'], downcast='integer')
 df['columnNm'].dtype
 
@@ -120,6 +122,7 @@ df2 = df.copy()
 
 #--------------------------------------------------------
 ## EXPLORATORY
+df.info() #total non-null rows, dtypes, columns
 df.shape #total number of rows by columns
 df.size #total number of rows
 len(df) #total number of rows too
@@ -138,6 +141,18 @@ df['col3'] = df['col2'].astype('category') # category type has int code in the b
     #coerce, any errors will be converted to NaN
 df['price'] = pd.to_numeric(df['price'], errors='coerce')
 df['Time'] = pd.to_datetime(df['Time'], errors='coerce')
+
+
+#--------------------------------------------------------
+## CHUNK-SIZE
+dtypes = {"ConstituentBeginDate": "float", "ConstituentEndDate": "float"}
+chunk_iter = pd.read_csv("moma.csv", chunksize=250, dtype=dtypes) #each chunk is 250 rows
+lifespans = []
+for chunk in chunk_iter:
+    diff = chunk['ConstituentEndDate'] - chunk['ConstituentBeginDate']
+    lifespans.append(diff)
+lifespans_dist = pd.concat(lifespans)
+print(lifespans_dist)
 
 
 #--------------------------------------------------------
@@ -172,7 +187,10 @@ df = pd.read_sql_query(query, conn)
 # if_exists can 'replace' entire table, default is fail
 df.to_sql(name='wsg_ap_list3', con=conn, index=False, if_exists='append') #OR
 df.to_sql('pa', conn, if_exists='append', index=False, dtype='text')
-
+    # upload using chunk, per 1000 
+moma_iter = pandas.read_csv('moma.csv',chunksize=1000)
+for chunk in moma_iter:
+    chunk.to_sql("exhibitions", conn, if_exists='append', index=False)
 
 #--------------------------------------------------------
 ## INDEX NAMES
@@ -495,7 +513,6 @@ for i in range(len(df)):
     df.set_value(i, 'X_svy', svy[0]) #set_value(index, column, value)
     df.set_value(i, 'Y_svy', svy[1])
 
-
     ## regex
 df['date'] = df['raw'].str.extract('(....-..-..)', expand=True) #extract
 # 0    2014-12-23
@@ -530,6 +547,11 @@ df['colnm'] = df['colnm'].apply(lambda x: '|'.join(set(x.split('|')))) #alternat
 df['temp_observed'] = df['temp_observed'].shift(periods=1) #push column down by a row
 df['temp_observed'] = df['temp_observed'].shift(periods=-1) #push column up by a row
 
+
+#--------------------------------------------------------
+# ITERATION
+for index, row in df.iterrows():
+    print(index, row['Desert'])
 
 #--------------------------------------------------------
 # REPLACE VALUES

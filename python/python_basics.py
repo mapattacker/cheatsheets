@@ -114,6 +114,15 @@ list(product(alphalist, repeat=2))
 
 
 
+# FREQUENCY COUNT
+#--------------------------------
+from collections import Counter
+words = ['this','this','is','a','test']
+Counter(words).most_common(3) # top 3 words
+# [('this', 2), ('is', 1), ('a', 1)]
+
+
+
 # LOOPS
 #--------------------------------
 # enumerate

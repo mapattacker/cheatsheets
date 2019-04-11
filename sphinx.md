@@ -21,6 +21,10 @@
     * [sphinx_adc_theme](https://github.com/mga-sphinx/sphinx_adc_theme)
     * More listed by [Awesome Sphinxdoc](https://github.com/yoloseem/awesome-sphinxdoc)
 
+## Jupyter Notebook as a Page by Itself
+ * Install package ```pip install nbsphinx```
+ * Edit config.py, add nbsphinx into extensions, ie., ```extensions = ['nbsphinx']```
+ * Add ```testing.ipynb``` to toctree at the index.rst
 
 ## Headings
   * header 1 ====

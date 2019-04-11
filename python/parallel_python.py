@@ -80,6 +80,31 @@ if __name__ == "__main__":
 
 
 
+# CONCURRENT FUTURES
+#---------------------------------------
+# concurrent futures uses threads & processes in the same package, making it convenient to switch
+import concurrent.futures
+
+def word_length(word):
+    return len(word)
+words = ["Hello", "are", "you", "thinking", "of", "becoming", "a", "polar", "bear", "?"]
+
+# THREADS
+# Threads are good for situations where you have long-running I/O bound tasks 
+# but they aren't so good where you have CPU-bound tasks or you have tasks that will run very quickly.
+pool = concurrent.futures.ThreadPoolExecutor(max_workers=10)
+lengths = pool.map(word_length, words)
+
+# PROCESS
+# Processes are best when your task is CPU bound or when your task will take long enough.
+pool = concurrent.futures.ProcessPoolExecutor(max_workers=10)
+lengths = pool.map(word_length, words)
+
+# put results in a list
+lengths = list(lengths)
+
+
+
 # FEATHER
 #---------------------------------------
 # http://blog.cloudera.com/blog/2016/03/feather-a-fast-on-disk-format-for-data-frames-for-r-and-python-powered-by-apache-arrow/
