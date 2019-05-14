@@ -36,6 +36,16 @@ b: blue; g: green r: red c: cyan, m: magenta, y: yellow, k: black, w: white
   # html
 color = '#eeefff'
 
+  #color maps; cmap
+  # https://matplotlib.org/tutorials/colors/colormaps.html
+cmaps['Qualitative'] = ['Pastel1', 'Pastel2', 'Paired', 'Accent',
+                        'Dark2', 'Set1', 'Set2', 'Set3',
+                        'tab10', 'tab20', 'tab20b', 'tab20c']
+
+cmaps['Miscellaneous'] = [
+            'flag', 'prism', 'ocean', 'gist_earth', 'terrain', 'gist_stern',
+            'gnuplot', 'gnuplot2', 'CMRmap', 'cubehelix', 'brg',
+            'gist_rainbow', 'rainbow', 'jet', 'nipy_spectral', 'gist_ncar']
 
 ### OTHERS---------------------------------------
   #line thickness
@@ -218,3 +228,10 @@ plt.annotate(label,
              arrowprops = dict(arrowstyle = '-', connectionstyle = 'arc3, rad=-0.3'))
 
 
+### 3D PLOTS---------------------------------------
+from mpl_toolkits.mplot3d import Axes3D
+
+  # scatterplot
+fig = plt.figure()
+ax = fig.add_subplot(111, projection='3d')
+ax.scatter(x_pca[0], x_pca[1], x_pca[2], c=labels, cmap='viridis', s=40);
