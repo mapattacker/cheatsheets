@@ -296,8 +296,7 @@ df.isnull().any() # which column is the nan in? Boolean
 df[df['Timestamp'].isnull()] #filter rows with nan
 
 for i in df.columns: # how many nan in each column? Value
-    print df[i].isnull().values.sum(), i
-
+    print(df[i].isnull().values.sum(), i)
     #filter dataframe to only rows NaN of a specific column
 df[df['colnm'].isnull()]
 
@@ -703,3 +702,10 @@ p.index = p.index.droplevel(-1)
 p.name = 'producer'
 # 4) use inner join to add based on index value
 df.join(p)
+
+
+#--------------------------------------------------------
+## STYLING
+https://pbpython.com/styling-pandas.html
+import seaborn as sns
+df.style.background_gradient(cmap='Greens')

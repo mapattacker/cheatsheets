@@ -85,7 +85,7 @@ top.axes.get_xaxis().set_visible(False)
   #2. Plotting using Matplotlib 
   # when df is inside, arguments must be entered as a separate line.
 plt.figure(figsize=(18, 5)) #note this sets for all figures in script
-plt.plot(df.index, df['Adj Close'])
+plt.plot(df.index, df['Adj Close']);
 
   #title
 plt.title('Frasers Centrepoint Trust', fontsize=10)
@@ -127,7 +127,7 @@ ax2.set_ylabel('Volume')
 
 ### SUBPLOTS-----------------------------------------------------------------------------
 #advantage of subplot: easier to control all figures
-#e.g. 1
+#e.g. 1 --------
 #subplots, equal sizing of each plot
 fig, ax = plt.subplots(ncols=3, nrows=2, figsize=(16, 20))
 sns.regplot(x=df[df.columns[1]], y='Protected Areas', data=df, ax=ax[0,0])
@@ -148,11 +148,38 @@ a = [i for i in axes for i in i]
 for i, ax in enumerate(a):
     ax.imshow(eroded[i], 'gray');
 
-#e.g. 2
+
+#e.g. 2 --------
+fig, ax = plt.subplots(ncols=3, nrows=2, figsize=(15, 8))
+
+axis1 = [0,0,1,2,3,4,5]
+axis2 = [0,0,1,2,3,4]
+
+ax[0,0].plot(axis1, cosine_pca);
+ax[0,1].plot(axis1, cosine_pca_eo);
+ax[0,2].plot(axis2, cosine_pca_nc);
+ax[1,0].plot(axis2, cosine_pca_fwc);
+ax[1,1].plot(axis2, cosine_pca_fwe);
+ax[1,2].plot(axis2, cosine_pca_rl);
+
+# subtitles
+ax[0,0].title.set_text('Condenser Fouling')
+ax[0,1].title.set_text('Excess Oil')
+ax[0,2].title.set_text('Non Condensables')
+ax[1,0].title.set_text('Reduce Condenser Water Flow')
+ax[1,1].title.set_text('Reduce Evaporator Water Flow')
+ax[1,2].title.set_text('Refrigerant Leak')
+
+# main title
+fig.suptitle('PCA > Cosine Similarity', y=1.05, size=15)
+plt.tight_layout()
+
+#e.g. 3 --------
 # create a 3x3 grid of subplots
 fig, ((ax1,ax2,ax3), (ax4,ax5,ax6), (ax7,ax8,ax9)) = plt.subplots(3, 3, sharex=True, sharey=True)
 # plot the linear_data on the 5th subplot axes 
 ax5.plot(linear_data, '-')
+
 
 
 ### SUBPLOT2GRID-------------------------------------------------------------------------
@@ -187,6 +214,8 @@ ax5 = plt.subplot(gs[-1,-2])
 
 
 ### CHART TYPES--------------------------------------------------------------------------
+  # line-plot
+plt.plot(x, y)
   # scatter-plot
 plt.scatter(dfinal['day'], dfinal['tmax15'], s=5, c='r')
   # histogram

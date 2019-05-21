@@ -87,7 +87,7 @@ fig = go.Figure(data=data,layout=layout)
 iplot(fig)
 
 
-# CANDLESTICK
+# CANDLESTICK -----------
 data = [go.Candlestick(x=apple.time,
                        open=apple.open,
                        high=apple.open, #no data so used another column
@@ -105,3 +105,23 @@ layout = go.Layout(
 
 fig = go.Figure(data=data,layout=layout)
 iplot(fig)
+
+# RADAR CHART -----------
+data = [go.Scatterpolar(
+  r = [4, 1, 0, 3, 2, 5],
+  theta = ['Condenser Fouling','Excess Oil','Non Condensarables', 'Reduced Condenser Water Flow', 
+           'Reduced Evaporator Water Flow', 'Refrigerant Leak', 'Refrigerant Overcharged'],
+  fill = 'toself'
+)]
+
+layout = go.Layout(
+  polar = dict(
+    radialaxis = dict(
+      visible = True,
+      range = [0, 5])
+  ),
+  showlegend = False,
+  title='Fault Severity'
+)
+
+iplot(go.Figure(data=data, layout=layout))

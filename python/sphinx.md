@@ -8,6 +8,7 @@
 ## Using readthedocs
   * readthedocs: go to new build > Admin > Integrations > Add Integrations > copy weblink created (include `https://` in front!!)
   * Github: go to repository > Settings > Webhooks > Add Webhook > paste weblink > content type as "application/x-www-form-urlencoded..." > Secret leave blank > just push event > Update webhook
+  * **Debug**: sometimes the Payload URL changes, and in Github Webhook page > Recent Delivery, you can see 403 errors. Go back to readthedocs > Integrations, & copy the new webhook again.
 
 ## Using Github Pages
   * Upload sphinx contents in `_build` > `html` folder into the master of your github repository.
