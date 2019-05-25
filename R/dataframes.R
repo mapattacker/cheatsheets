@@ -25,14 +25,16 @@ iris
 
 #--------------------------------------------------------
 # BASICS 
-head(df)
 class(df) #"data.frame"
 summary(df)
 str(df)
 
-# select features
-df$name #array
-df['Sepal.Length'] #dataframe
+dim(df) #shape
+nrow(df) #rows
+ncol(df) #columns
+
+colnames(df)
+
 
 
 
@@ -41,7 +43,24 @@ df['Sepal.Length'] #dataframe
 df <- data.frame(col1, col2, col3)
 
 
-#--------------------------------------------------------
-# LINEAR REGRESSION
 
-model <- lm(y ~ x1, x2, x3, data=df)
+#--------------------------------------------------------
+# INDEXING
+head(df)
+
+# rows start:end, column_names
+df[1:5,] #select first 5 rows
+df[,1:2] #select first 2 columns
+
+df[[2,'colname']] #output cell value
+df[[2,'colname']] <- 5 #change cell value to 5
+
+# select features
+df$name #array
+df['Sepal.Length'] #dataframe
+
+
+#--------------------------------------------------------
+# FILTER
+subset(df, subset= col1==True)
+subset(df, subset=Sepal.Length>7)
