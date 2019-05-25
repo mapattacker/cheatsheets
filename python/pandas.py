@@ -657,6 +657,21 @@ df = df.append(df2, ignore_index=True)
 
 
 #--------------------------------------------------------
+## APPLY TO ALL CELLS IN DF
+
+df.applymap(function_to_change)
+
+
+#--------------------------------------------------------
+## COMBINE TWO OR MORE DATAFRAMES
+
+# all must be numerical
+# sum
+df1 + df2
+# multiply
+df1 * df2
+
+#--------------------------------------------------------
 ## ENCODE CATEGORICAL TO INTEGERS
 
 df2['Gene'] = df2['Gene'].astype('category') # first change an object to category
