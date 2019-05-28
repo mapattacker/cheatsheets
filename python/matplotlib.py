@@ -17,7 +17,7 @@ sm.qqplot(df2['elect_lag']); # add a semi-colon at the end
 ### SETTINGS---------------------------------------
 # see available styles
 plt.style.available
-plt.style.use('seaborn') #set the style
+plt.style.use('seaborn-white') #set the style
 
 # IMPT!!!!!!
 # add a semi-colon to the end of the plotting call to suppress unwanted output
