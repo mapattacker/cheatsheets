@@ -3,6 +3,7 @@ import pandas as pd
 ## READ & WRITE
     # Pickle
 df = pd.read_pickle('psi.pickle')
+df.to_pickle('normal.pkl')
     # CSV
 df = pd.read_csv('shenzhen_processed.csv', low_memory=False)
 df = pd.read_csv('olympics.csv', index_col=0, skiprows=1)   #take 1st col as index, and remove 1st row
@@ -12,7 +13,7 @@ df = pd.read_csv(file, usecols=['col1','col2']) #use only specific columns; can 
     # reading excel has various differences compared to csv
     # dtype of a col to str will convert NaN into 'nan', while csv preserves the NaN
     # dtype of a col to str will not preserve numeric 0 padding, while csv preserves
-df = pd.read_excel('shenzhen_processed.xlsx', sheet_name=1) #sheetname starts from 0
+df = pd.read_excel('shenzhen_processed.xlsx', sheet_name=0) #sheetname starts from 0
 df = pd.read_csv("P00000001-ALL.csv", nrows=20) # limit to only 20 rows
 df.to_excel('output.xlsx', index=False)
     # output multiple df in different Excel sheets
@@ -304,6 +305,17 @@ df.replace({'99':np.nan}, inplace=True) #multiple rows
 
     #select null within lambda
 df['colnm'] = df['colnm'].apply(lambda x: '' if pd.isnull(x)) else x)
+
+
+
+#--------------------------------------------------------
+# CHECK NEGATIVE VALUES
+#entire df
+any(df<0) 
+# each columns
+for i in cfoul.columns:
+    if any(cfoul[i]<0) == True:
+        print(i)
 
 
 #--------------------------------------------------------

@@ -22,3 +22,8 @@ display(HTML(html), width=400)
 # Collapsible Headers
 # https://jupyter-contrib-nbextensions.readthedocs.io/en/latest/install.html
 conda install -c conda-forge jupyter_contrib_nbextensions
+
+
+#--------------------------------------------------------
+from IPython.display import Audio
+Audio('data/nightingale.wav')
