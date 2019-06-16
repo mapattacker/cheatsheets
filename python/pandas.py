@@ -115,7 +115,7 @@ len(df) #total number of rows too
 len(df.columns) #total number of columns
 df.head(2) #top 2 rows
 df.dtypes #format
-df.describe #mean, std, count, etc. only numeric formated columns
+df.describe() #mean, std, count, etc. only numeric formated columns
 
 
 #--------------------------------------------------------
@@ -321,7 +321,7 @@ for i in cfoul.columns:
 #--------------------------------------------------------
 ## SORTING
     # sort by index
-df.sort_index()
+df.sort_index(ascending=False) # reverse order
 df.sort_values #note no brackets
 
     # sort by value (column)
@@ -422,6 +422,8 @@ df.drop_duplicates(subset=['A', 'C'], keep='first') # keep only first of the pai
     # display the duplicates only
 df[df.duplicated(keep=False)] # all columns
 df[df[['colA','colB']].duplicated(keep=False)] # specific columns
+    # count number of duplicates
+len(df) - len(df.drop_duplicates())
 
 # comparing duplicates between two columns
 df[df['States'].ne(df['Region'])]
@@ -681,6 +683,7 @@ df2['code'] = df2['Gene'].cat.codes     # then extract their code out
     #change string to date format
 col = pd.to_datetime(df.columns[6:])
 col = pd.to_datetime(df['date'],dayfirst=True)  #sometimes the auto-format is wrong, and you need specify dayfirst or yearfirst
+pd.to_datetime(df['Date'], format ='%d/%m/%Y') #sometimes the day, mth or yr are mixed up with each other, so we have to specify directly
     #aggregation by date intervals
     #list of rules can be found in url: http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
     #date must be in index, while the dataframe contains only the col you want to aggregate

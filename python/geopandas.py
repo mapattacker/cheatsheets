@@ -13,6 +13,7 @@ source deactivate geopandas # deactivate vm
 
 
 import geopandas as gpd
+import matplotlib.pyplot as plt
 %config InlineBackend.figure_format = 'retina'
 
 # READ SHAPEFILE --------------------
@@ -43,8 +44,13 @@ import fiona; fiona.supported_drivers
     # choose colors
     # https://matplotlib.org/users/colormaps.html
 df.plot(figsize=(10,10), cmap='tab20'); #categorical
-df2.plot(figsize=(10,10), column='numeric', cmap='YlOrRd'); #chloropeth
-
+df.plot(figsize=(10,10), column='numeric', cmap='YlOrRd', legend=True); #chloropeth
+    # arguments are similar to matplotlib
+borneo.plot(figsize=(15,15), 
+            column='id',
+            marker='s',
+            s=8);
+plt.show()
 
 
 # COORDINATE REFERENCE SYSTEM --------------------
@@ -69,6 +75,8 @@ df = df.drop(['Lon', 'Lat'], axis=1)
 crs = {'init': 'epsg:4326'}
 gdf = gpd.GeoDataFrame(df, crs=crs, geometry=geometry)
 
+# CONVERT DF INTO GEOPANDAS
+gdf = gpd.GeoDataFrame(coord, geometry=gpd.points_from_xy(coord.long, coord.lat))
 
 
 # FILTER, as with pandas --------------------

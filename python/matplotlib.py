@@ -56,6 +56,12 @@ plt.grid()
   # https://matplotlib.org/gallery/images_contours_and_fields/interpolation_methods.html
 plt.imshow(image, interpolation='nearest')
 
+  #marker type
+  #https://matplotlib.org/3.1.0/api/markers_api.html
+# 's' = square
+# '.' = dot
+# 'x' = cross
+
 
 ### CLEARING CHARTS---------------------------------------
 plt.cla() #clears an axis, i.e. the currently active axis in the current figure. It leaves the other axes untouched.
@@ -92,6 +98,8 @@ plt.title('Frasers Centrepoint Trust', fontsize=10)
   #axis title
 plt.xlabel('Date', fontsize=10)
 plt.ylabel('Volume', fontsize=10)
+  #axis angle or orientation
+plt.xticks(x, labels, rotation='vertical')
   #axis tick intervals
 plt.xticks(np.arange(-180.0, 200, 45.0)) #max, min, interval
   #axis tick size
@@ -107,6 +115,7 @@ plt.yscale('log')
 plt.yaxis.tick_right()
   #legend
 plt.legend(loc=9, labels=['Max Temp 2005-2014', 'Min Temp 2005-2014', 'Max Temp 2015', 'Min Temp 2015'], \
+           title='Chiller No.',
            frameon=False, fontsize=6, ncol=4) #ncol, split into horizontal, #loc is location of title
 
 
@@ -222,6 +231,8 @@ plt.scatter(dfinal['day'], dfinal['tmax15'], s=5, c='r')
 plt.hist(sample, bins=100, orientation='horizontal')
   # bar-plot
 plt.bar(FCT.index, FCT['Volume'])
+  # horizontal bar-plot
+plt.hbar(FCT.index, FCT['Volume'])
   # boxplot
 plt.boxplot([df['normal'], df['random'], df['gamma']])
   # heatmap
