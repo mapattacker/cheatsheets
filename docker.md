@@ -40,7 +40,7 @@ This is designated by the `-v path/in/os/folder:/default/path/of/software/data/d
 `exit`  --exit from docker bash
 
 
-### Docker & Docker Compose GUI Management
+### Docker Containers & Docker Compose GUI Management
 
  * Portainer: https://www.portainer.io
  * Dock Station: https://dockstation.io
