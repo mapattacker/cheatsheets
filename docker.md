@@ -40,6 +40,12 @@ This is designated by the `-v path/in/os/folder:/default/path/of/software/data/d
 `exit`  --exit from docker bash
 
 
+### Docker & Docker Compose GUI Management
+
+ * Portainer: https://www.portainer.io
+ * Dock Station: https://dockstation.io
+
+
 ### PostGreSQL
 https://hub.docker.com/_/postgres/
 

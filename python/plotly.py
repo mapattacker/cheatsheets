@@ -88,20 +88,17 @@ iplot(fig)
 
 
 # CANDLESTICK -----------
-data = [go.Candlestick(x=apple.time,
-                       open=apple.open,
-                       high=apple.open, #no data so used another column
-                       low=apple.close, #no data so used another column
-                       close=apple.close)]
+data = [go.Candlestick(x=df.index,
+                       open=df.Open,
+                       high=df.High,
+                       low=df.Low,
+                       close=df.Close)]
 
-# remove range slider
+# add range slider, change to False if not needed
 layout = go.Layout(
     xaxis = dict(
         rangeslider = dict(
-            visible = False
-        )
-    )
-)
+            visible = True)))
 
 fig = go.Figure(data=data,layout=layout)
 iplot(fig)

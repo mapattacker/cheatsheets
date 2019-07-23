@@ -211,7 +211,7 @@ df.columns[:2] ## first 3 columns
     ## show column names and position
 x = 0
 for i in df.columns:
-    print x, i
+    print(x, i)
     x += 1
     #renaming columns
 df.columns = ['newcolumn1', 'newcolumn2', 'newcolumn3'] #easiest way to change, but error if total columns does not match
@@ -256,7 +256,7 @@ df.set_value(i, 'Y_svy', svy[1]) # index, column name, value
 # new alternative
 df.at[4, 'B'] = 10 # index, column name = value
 df.at[4, 'B'] #querying a cell
->>> 10
+# >>> 10
 
 #--------------------------------------------------------
 ## COUNTING
@@ -677,6 +677,10 @@ df2['Gene'] = df2['Gene'].astype('category') # first change an object to categor
 df2['code'] = df2['Gene'].cat.codes     # then extract their code out
 # when training a model, can just use ".cat.codes" to fit the model
 
+# or use the map function
+replace = {'Logistics': 1, 'Commercial':2, 'Hospitality': 3, 'Retail': 4,
+           'Medical': 5, 'Industrial': 6, 'Retail/Commercial': 7}
+df['Type_Cat'] = df['Type'].map(replace)
 
 #--------------------------------------------------------
 ## DATES
