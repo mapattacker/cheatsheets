@@ -9,6 +9,8 @@ df = pd.read_csv('shenzhen_processed.csv', low_memory=False)
 df = pd.read_csv('olympics.csv', index_col=0, skiprows=1)   #take 1st col as index, and remove 1st row
 df.to_csv('shenzhen_processed.csv', index=False)
 df = pd.read_csv(file, usecols=['col1','col2']) #use only specific columns; can save a lot of memory
+    # APPENDING DF TO EXISTING CSV
+df = df.to_csv('my_csv.csv', mode='a', header=False)
     # EXCEL
     # reading excel has various differences compared to csv
     # dtype of a col to str will convert NaN into 'nan', while csv preserves the NaN
@@ -688,10 +690,15 @@ df['Type_Cat'] = df['Type'].map(replace)
 col = pd.to_datetime(df.columns[6:])
 col = pd.to_datetime(df['date'],dayfirst=True)  #sometimes the auto-format is wrong, and you need specify dayfirst or yearfirst
 pd.to_datetime(df['Date'], format ='%d/%m/%Y') #sometimes the day, mth or yr are mixed up with each other, so we have to specify directly
+
+    #set datetime col to index
+df = df.set_index('datetime')
+
     #aggregation by date intervals
     #list of rules can be found in url: http://pandas.pydata.org/pandas-docs/stable/timeseries.html#offset-aliases
     #date must be in index, while the dataframe contains only the col you want to aggregate
 date=date.resample('Q').mean()  #by quarter, also (Day: D, Week: W, Month: M, Quarter: Q, Year: Y)
+df.resample('1Min').mean()  #by seconds (1S), minutes (1Min)
                  
     #change date to string
 date_yr=a['column_nm'].dt.strftime('%Y') #change to year
@@ -725,6 +732,6 @@ df.join(p)
 
 #--------------------------------------------------------
 ## STYLING
-https://pbpython.com/styling-pandas.html
+# https://pbpython.com/styling-pandas.html
 import seaborn as sns
 df.style.background_gradient(cmap='Greens')

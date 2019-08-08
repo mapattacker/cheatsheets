@@ -6,14 +6,16 @@
 4) Open file & copy keys `cat ~/.ssh/id_rsa.pub` OR `open ~/.ssh/id_rsa.pub` OR `open -a textedit ~/.ssh/id_rsa.pub`
 5) Go to Github/GitLab > Settings > SSH and GPG Keys > paste the key here
 
+## Git Push from VSCode without PW
+1) Go to Github > Settings > Developer Settings > Personal access tokens > create token. This will be used in place of the password in command line
+
 ## New Repository
 1) create new project folder `mkdir testfolder`, then `git init`
 2) Go to Github > create new repository (DO NOT create a README.md or other files) > get repository link
 3) `git add README.md`
 4) `git commit -m "first commit"`
 5) `git remote add origin https://github.com/mapattacker/testrepo.git`
-6) Go to Github > Settings > Personal access tokens > create token. This will be used in place of the password in command line
-7) `git push -u origin master` > enter username & token as password
+6) `git push -u origin master` > enter username & token as password
 
 ```bash
 git init

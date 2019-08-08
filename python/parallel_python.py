@@ -9,7 +9,7 @@
 # check no. of cores
 #---------------------------------------
 import multiprocessing as mp
-print mp.cpu_count()
+print(mp.cpu_count())
 
 
 #---------------------------------------
@@ -21,9 +21,12 @@ def worker(files):
     some task
     
 def pooling(allfiles, name, newfolderpath, acctHeader, fieldnamefile):
-    func = partial(worker, name, newfolderpath, acctHeader, fieldnamefile)
-    pool = mp.Pool(min(mp.cpu_count(), len(allfiles)))
-    pool.map(func, allfiles, chunksize=1)
+    list_to_iterate = [file1, file2, file3, file4]
+
+    # func = partial(worker, name, newfolderpath, acctHeader, fieldnamefile)
+    process_spawn = min(mp.cpu_count(), len(allfiles)) 
+    pool = mp.Pool(process_spawn)
+    pool.map(worker, list_to_iterate, chunksize=1)
     pool.close()
 
     
@@ -45,7 +48,7 @@ def unziptar(folder):
     for file in os.listdir(folder):
         filepath = os.path.join(folder, file)
         if file.endswith("tar.gz"):
-            print 'extracting... {}'.format(filepath)
+            print('extracting... {}'.format(filepath))
             tar = tarfile.open(filepath, 'r:gz')
             tar.extractall(os.path.dirname(filepath))
             tar.close()
@@ -76,7 +79,7 @@ if __name__ == "__main__":
     path = r"/Users/jake/Desktop/test"
     fanout_unziptar(path)
     end = time()
-    print 'script ended after {} mins'.format((end-start)/60)
+    print('script ended after {} mins'.format((end-start)/60))
 
 
 
