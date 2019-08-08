@@ -1,3 +1,9 @@
+## Git Push from VSCode without Password Prompt
+1) Go to Github > Settings > Developer Settings > Personal access tokens > create token. Check Repo. Copy the token
+2) Click `git add *` > `git commit -m '.'` > `git push`
+3) Username for 'https://github.com': mapattacker
+4) Password for 'https://mapattacker@github.com': paste personal access token
+
 ## Steps for Versioning using Git & GitHub / GitLab
 
 1) Create new Git Directory, eg. `mkdir github`
@@ -5,9 +11,6 @@
 3) Create github key > `ssh-keygen` > enter to accept defaults
 4) Open file & copy keys `cat ~/.ssh/id_rsa.pub` OR `open ~/.ssh/id_rsa.pub` OR `open -a textedit ~/.ssh/id_rsa.pub`
 5) Go to Github/GitLab > Settings > SSH and GPG Keys > paste the key here
-
-## Git Push from VSCode without PW
-1) Go to Github > Settings > Developer Settings > Personal access tokens > create token. This will be used in place of the password in command line
 
 ## New Repository
 1) create new project folder `mkdir testfolder`, then `git init`
