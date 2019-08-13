@@ -1,6 +1,6 @@
 ## Git Push from VSCode without Password Prompt
 1) Go to Github > Settings > Developer Settings > Personal access tokens > create token. Check Repo. Copy the token
-2) Click `git add *` > `git commit -m '.'` > `git push`
+2) Click `git add *` > `git commit -m '.'` > `git push`. Either a popup or within the console, will ask for the username & password.
 3) Username for 'https://github.com': mapattacker
 4) Password for 'https://mapattacker@github.com': paste personal access token
 
