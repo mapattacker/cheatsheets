@@ -36,7 +36,8 @@ git push -u origin master
 2) `git commit -m "add a message here"`: commit files with a message tag to repository
 3) `git push`: push committed files to GitHub
 4) A git alias can be used to combine all 3 commands into one. This needs to be set at each repository in your local machine
-    * ``config alias.push-all '! git commit -a -m "commit" && git push'``: push-all refers to the alias name, it can be thus called using ``git push-all``
+    * ``config alias.pushall '! git commit -a -m "commit" && git push'``: push-all refers to the alias name, it can be thus called using ``git pushall``
+    * ``git config --global --unset alias.YourAlias``: to remove the set alias
 
 ## Some Git Commands
    * `git pull`: pull all contents from github repository into local repository
