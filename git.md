@@ -35,6 +35,8 @@ git push -u origin master
 1) `git add .`: add all changes from working area to staging area
 2) `git commit -m "add a message here"`: commit files with a message tag to repository
 3) `git push`: push committed files to GitHub
+4) A git alias can be used to combine all 3 commands into one 
+    * ``config alias.push-all '! git commit -a -m "commit" && git push'``: push-all refers to the alias name, it can be thus called using ``git push-all``
 
 ## Some Git Commands
    * `git pull`: pull all contents from github repository into local repository
