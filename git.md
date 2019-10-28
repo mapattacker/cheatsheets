@@ -12,7 +12,7 @@
 4) Open file & copy keys `cat ~/.ssh/id_rsa.pub` OR `open ~/.ssh/id_rsa.pub` OR `open -a textedit ~/.ssh/id_rsa.pub`
 5) Go to Github/GitLab > Settings > SSH and GPG Keys > paste the key here
 
-## New Repository
+## Link Folder to Repository
 1) create new project folder `mkdir testfolder`, then `git init`
 2) Go to Github > create new repository (DO NOT create a README.md or other files) > get repository link
 3) `git add README.md`
@@ -28,7 +28,7 @@ git remote add origin https://github.com/mapattacker/datavis.git
 git push -u origin master
 ```
 
-## Existing Repository
+## Add Repository to a Root Folder
 1) __Existing repository__: clone project, eg `git clone https://github.com/mapattacker/cheatsheets.git`
 
 ## Commit and Upload to GitHub
@@ -40,7 +40,10 @@ git push -u origin master
     * ``git config --global --unset alias.YourAlias``: to remove the set alias
 
 ## Some Git Commands
+   * `git status`: shows which branch you are at, and changes not set for commit
    * `git pull`: pull all contents from github repository into local repository
+   * `git add 'foldername/scriptname.py'`: stage specific files for committing
+   * `git reset`: unstage all files set for committing
    * `git config --global user.name "Jake Teo"`: set username. Will show in commit message
    * `git config --global user.email "xxx@gmail.com"`: set email. Will show in commit message
    * `git log`: show commits for the day
@@ -48,6 +51,13 @@ git push -u origin master
    * `git remote -v`: shows the source of repository in remote server
    * `git remote rm origin`: remove origin location from remote. Remote location needed for push / pull / fetch commands
    * `git remote add heroku https://git.heroku.com/xxx.git`: add new remote location
+
+## .gitignore file
+   * for folders `folder/`
+   * for single file `file.txt`
+   * for all files of an extension `*.txt`
+   * for all folders in all directories `**\__pycache__`
+   * https://medium.com/@haydar_ai/learning-how-to-git-ignoring-files-and-folders-using-gitignore-177556afdbe3
 
 ## Resources
 1) http://rogerdudler.github.io/git-guide/

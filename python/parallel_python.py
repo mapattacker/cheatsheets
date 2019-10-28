@@ -82,6 +82,16 @@ if __name__ == "__main__":
     print('script ended after {} mins'.format((end-start)/60))
 
 
+# Using pandas ----------------
+#  IMPT: does not work when applying on string columns
+
+def some_func(x):
+    x = x*29/2
+    return x
+
+import swifter
+train['new_col'] = train['non_string'].swifter.apply(some_func)
+
 
 # CONCURRENT FUTURES
 #---------------------------------------

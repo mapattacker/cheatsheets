@@ -9,18 +9,26 @@
   * readthedocs: go to new build > Admin > Integrations > Add Integrations > copy weblink created (include `https://` in front!!)
   * Github: go to repository > Settings > Webhooks > Add Webhook > paste weblink > content type as "application/x-www-form-urlencoded..." > Secret leave blank > just push event > Update webhook
   * **Debug**: sometimes the Payload URL changes, and in Github Webhook page > Recent Delivery, you can see 403 errors. Go back to readthedocs > Integrations, & copy the new webhook again.
+    * when first building the site in readthedocs, there might be an error saying `contents.rst` is not present. Go to `config.py` file and add this line `master_doc = 'index'` since `index.rst` is the master file by default.
 
 ## Using Github Pages
-  * Upload sphinx contents in `_build` > `html` folder into the master of your github repository.
+  * Link and upload sphinx contents in `_build` > `html` folder into the master of your github repository.
+    * in html folder > `git init` > `git commit -m "first commit"` > `git remote add origin https://github.com/mapattacker/testrepo.git` > `git push -u origin master`
   * By default, Github Pages ignores all folders with an underscore, e.g., `_image`. Add a `.nojekyll` file into the repository to disable this.
   * Go to the repository > Settings > Github Pages > Source: master branch > Save
 
 ## Themes
   * Built in themes: `alabaster` (default), `classic`, `sphinxdoc`, `scrolls`, `agogo`, `traditional`, `nature`, `haiku`, `pyramid`, `bizstyle`, `sphinx_rtd_theme` (best!)
   * Some other very nice themes include:
-    * [guzzle_sphinx_theme](https://github.com/guzzle/guzzle_sphinx_theme) (not supported by readthedocs)
+    * [guzzle_sphinx_theme](https://github.com/guzzle/guzzle_sphinx_theme)
+      * not supported by readthedocs, but can host at github pages
+      * go to Github Repo > Settings > Github Pages > under Source > dropdown change to Master Branch
     * [sphinx_adc_theme](https://github.com/mga-sphinx/sphinx_adc_theme)
+    * [bootstraptheme](http://ryan-roemer.github.io/sphinx-bootstrap-theme/README.html)
     * More listed by [Awesome Sphinxdoc](https://github.com/yoloseem/awesome-sphinxdoc)
+
+## Errors
+  * If your sphinx is of a lower version, there might be a need to change from the `Makefile`, from `SPHINXBUILD   = python -msphinx` to `SPHINXBUILD   = python3 -msphinx`.
 
 ## Jupyter Notebook as a Page by Itself
  * Install package ```pip install nbsphinx```

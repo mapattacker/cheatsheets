@@ -214,18 +214,39 @@ bottom.set_ylabel('Volume')
 
 
 ### GRIDSPEC-------------------------------------------------------------------------
-# http://matplotlib.org/users/gridspec.html
-# similar to subplot2grid
+# https://riptutorial.com/matplotlib/example/20875/multiple-plots-with-gridspec
+# gs[row_space:column_space]
+# define by list slicing
 import matplotlib.gridspec as gridspec
+plt.figure(figsize=(8,8))
+gs = gridspec.GridSpec(4,4)
+plt.subplot(gs[:, 0:3])
+plt.subplot(gs[0:1,3:4])
+plt.subplot(gs[1:2:,3:4])
+plt.subplot(gs[2:3:,3:4])
+plt.subplot(gs[3:4,3:4])
+plt.tight_layout()
 
-gs = gridspec.GridSpec(3, 3)
-ax1 = plt.subplot(gs[0, :])
-ax2 = plt.subplot(gs[1,:-1])
-ax3 = plt.subplot(gs[1:, -1])
-ax4 = plt.subplot(gs[-1,0])
-ax5 = plt.subplot(gs[-1,-2])
-
-
+# ---------------------------------   ---------
+# |                                | |         |
+# |                                | |         |
+# |                                | |         |
+# |                                |  ---------
+# |                                |  ---------
+# |                                | |         |
+# |                                | |         |
+# |                                | |         |
+# |                                |  ---------
+# |                                |  ---------
+# |                                | |         |
+# |                                | |         |
+# |                                | |         |
+# |                                |  ---------
+# |                                |  ---------
+# |                                | |         |
+# |                                | |         |
+# |                                | |         |
+# ---------------------------------   ---------
 
 ### CHART TYPES--------------------------------------------------------------------------
   # line-plot

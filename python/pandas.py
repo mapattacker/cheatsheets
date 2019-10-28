@@ -77,7 +77,7 @@ df['columnNm'] = df['columnNm'].astype('category')
 
 
 #--------------------------------------------------------
-## BUILDING A DATAFRAME
+## BUILDING A NEW DATAFRAME
     #build dataframe from a for loop
 x = 0
 list = []
@@ -283,9 +283,10 @@ df.isnull().values.sum() #total number of nan in dataframe? Value
 df.isnull().any() # which column is the nan in? Boolean
 df[df['Timestamp'].isnull()] #filter rows with nan
 
-for i in df.columns: # how many nan in each column? Value
-    print(df[i].isnull().values.sum(), i)
-    #filter dataframe to only rows NaN of a specific column
+# how many nan in each column? Value
+df.isnull().sum() # by counts
+df.isnull().sum() / len(df) # by percent
+#filter dataframe to only rows NaN of a specific column
 df[df['colnm'].isnull()]
 
     #drop NaN
@@ -689,7 +690,8 @@ df['Type_Cat'] = df['Type'].map(replace)
     #change string to date format
 col = pd.to_datetime(df.columns[6:])
 col = pd.to_datetime(df['date'],dayfirst=True)  #sometimes the auto-format is wrong, and you need specify dayfirst or yearfirst
-pd.to_datetime(df['Date'], format ='%d/%m/%Y') #sometimes the day, mth or yr are mixed up with each other, so we have to specify directly
+df['timestamp'] = pd.to_datetime(df['timestamp'], format ='%d/%m/%Y') #sometimes the day, mth or yr are mixed up with each other, so we have to specify directly
+df["timestamp"] = pd.to_datetime(df["timestamp"], format='%Y-%m-%d %H:%M:%S')
 
     #set datetime col to index
 df = df.set_index('datetime')
@@ -703,10 +705,16 @@ df.resample('1Min').mean()  #by seconds (1S), minutes (1Min)
     #change date to string
 date_yr=a['column_nm'].dt.strftime('%Y') #change to year
 
-    #change to hour
-df['hour'] = df['Time'].apply(lambda x: x.hour)
+    #change to hour / mth
+df['hour'] = df['Time'].dt.hour
+df['day'] = df['Time'].dt.day
+df['mth'] = df['Time'].dt.month
+df['dayofweek'] = df['timestamp'].dt.dayofweek
     #change to day of week
 df['day_of_week'] = df['my_dates'].dt.weekday_name
+    # change to date or time
+df['date'] = df['datetime'].dt.date
+df['time'] = df['datetime'].dt.time
     #set constant for date, minute, second
 df2['hour'] = pd.to_datetime('1900-01-01') + pd.to_timedelta(df3['Time'].dt.hour, unit='H')
 

@@ -9,7 +9,7 @@ os.system("screencapture screen.png")
 # get list of selected file names in current directory
 import glob
 for i in glob.iglob('*eapsim*'):
-  print i
+    print (i)
   
 
 # get current directory name
@@ -21,14 +21,14 @@ directoryName = os.path.relpath(".","..")
 import os
 path = r'C:\Users\Teo Siyang\'
 for i in os.listdir(path):
-  print (i)
+    print (i)
 
 
 # get full path, folder name (in a list), and file names (in a list) from path lsited
 import os
 path = 'C:\Users\Teo Siyang\'
 for root, dirs, files in os.walk(path):
-    print root, dirs, files
+    print (root, dirs, files)
     for i in files:
         print (os.path.join(root,i)) # get full path of files 
 

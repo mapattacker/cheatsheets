@@ -235,6 +235,13 @@ with open('result.json', 'w') as fp:
     json.dump(sample,fp)
 
 
+# RANDOM NUMBER GENERATOR
+# ----------------------------
+import random
+random.uniform(1.5, 1.9) # float
+random.randint(0, 5) # integer
+
+
 # DIVISION IN DECIMALS
 #--------------------------------
 # in python, there is no decimals if you do a division. Use the following to obtain it.
@@ -558,4 +565,6 @@ pyautogui.click(coordinates)
 pyautogui.press('enter')
 # consecutive keys
 pyautogui.hotkey('ctrl', ‘f4’)
+
+
 
