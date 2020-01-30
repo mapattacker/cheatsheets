@@ -20,7 +20,11 @@ python -V
 
 ### Site Packages
 Mac:
-  * /Users/xxx/anaconda3/pkgs (packages)
+  * /anaconda3/lib/python3.7/site-packages
+  * OR in python shell
+```from distutils.sysconfig import get_python_lib
+print(get_python_lib())
+```
 
 
 ### Change Default Python Path
@@ -40,3 +44,14 @@ in mac:
   * ``open -a TextEdit .bash_profile``: open this file. All installed python paths are here. Just cut and paste the one that needs to be the default to the bottom. Save and close.
   * ``source ~/.bash_profile`` reload the bash profile and use ``python --version`` to check if the changes are made.
   
+in VSCode:
+
+ * terminal in VSCode might be by default python 2.7. If you have anaconda python 3+ installed, just type ``conda`` and it should convert to anaconda python path.
+
+
+### Import Relative Path of Local Packages
+```
+import sys, os
+sys.path.append('../')
+import package_name
+```

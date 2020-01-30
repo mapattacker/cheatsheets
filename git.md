@@ -52,6 +52,10 @@ git push -u origin master
    * `git remote rm origin`: remove origin location from remote. Remote location needed for push / pull / fetch commands
    * `git remote add heroku https://git.heroku.com/xxx.git`: add new remote location
 
+## Git Conflicts
+   * sometimes there can be conflicts when trying to push your commits to master, because there are already a conflict when someone else have committed new changes. a prompt saying `Please enter a commit message to explain why this merge is necessary, especially if it merges an updated upstream into a topic branch` will be given. To resolve this:
+     * press `i` > write your merge message > press `esc` > write `:wq` > then press enter
+
 ## .gitignore file
    * for folders `folder/`
    * for single file `file.txt`

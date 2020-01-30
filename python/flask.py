@@ -17,5 +17,16 @@ def index(name=None):
     login = 'test success'
     return render_template('index.html',name=name, login=login)
 
-# in html
+# in html, double curly brackets
 {{variable name}}
+
+
+# methods
+    # GET request - frontend request backend for information
+    # PUSH request - frontend send data to backend
+@app.route('/faults/', methods=["GET"])
+def fault_types():
+    try:
+        return get_fault_types()
+    except:
+        return 'flasksplat'

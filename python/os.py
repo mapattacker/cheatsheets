@@ -110,3 +110,7 @@ csvwriter.writerow(['genus', 'species', 'author', 'family',\
 # copying files
 from shutil import copyfile
 copyfile(file_original, file_new)
+
+
+# rename file
+os.rename('original_name.jpg','new_name.jpg')

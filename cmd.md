@@ -129,13 +129,13 @@ __Get Password__
 
 `tmux new -s session_name`  --start a commandline session direct in the os, will not be subjected to timeout if any.  
 
-`Ctrl + B "`  --split horizontally
+`Ctrl + B (release then select) "`  --split horizontally
 
-`Ctrl + B %`  --split vertically
+`Ctrl + B (release then select) %`  --split vertically
 
-`Ctrl + B arrow-key`  --switch to another window
+`Ctrl + B (release then select) arrow-key`  --switch to another window
 
-`Ctrl + B [`  --scroll up and down within a window with arrow keys
+`Ctrl + B (release then select) [`  --scroll up and down within a window with arrow keys
 
 `Ctrl + D`  --close window
 

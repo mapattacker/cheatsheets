@@ -1,3 +1,12 @@
+# IGNORE WARNINGS
+#--------------------------------
+import warning
+
+for i in range(10):
+    warnings.simplefilter("ignore")
+    run something
+
+
 # STRING FORMAT
 #--------------------------------
 # more: https://mkaz.tech/code/python-string-format-cookbook/

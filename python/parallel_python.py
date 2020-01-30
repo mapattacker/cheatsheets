@@ -13,9 +13,7 @@ print(mp.cpu_count())
 
 
 #---------------------------------------
-# for worker function that require more than one variable, use 'partial' function to 'group' them together
 import multiprocessing as mp
-from functools import partial
 
 def worker(files):
     some task
@@ -23,10 +21,25 @@ def worker(files):
 def pooling(allfiles, name, newfolderpath, acctHeader, fieldnamefile):
     list_to_iterate = [file1, file2, file3, file4]
 
-    # func = partial(worker, name, newfolderpath, acctHeader, fieldnamefile)
     process_spawn = min(mp.cpu_count(), len(allfiles)) 
     pool = mp.Pool(process_spawn)
     pool.map(worker, list_to_iterate, chunksize=1)
+    pool.close()
+
+
+#---------------------------------------
+# for worker function that require more than one variable, use 'partial' function to 'group' them together
+import multiprocessing as mp
+from functools import partial
+
+def fdtw(match, pattern, features, distances):
+    do_something
+
+def pooling(win_slices, pattern, features, cores=1):
+    processes = round(min(mp.cpu_count(), len(win_slices))*cores)
+    pool = mp.Pool(processes)
+    fdtw_partial = partial(fdtw, pattern=pattern, features=features, distances=distances)
+    pool.map(fdtw_partial, win_slices, chunksize=1)
     pool.close()
 
     
@@ -80,6 +93,18 @@ if __name__ == "__main__":
     fanout_unziptar(path)
     end = time()
     print('script ended after {} mins'.format((end-start)/60))
+
+
+# set special list for results of multiprocess to pump within
+distances = mp.Manager().list()
+
+
+# set error logging
+import logging
+mpl = mp.log_to_stderr()
+mpl.setLevel(logging.INFO)
+
+
 
 
 # Using pandas ----------------

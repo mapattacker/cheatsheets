@@ -46,6 +46,8 @@ CREATE table newtable (
 --Add Primary keys & Indexes
 ALTER TABLE tablename ADD PRIMARY KEY (fieldname);
 CREATE INDEX indexname ON tablename (fieldname);
+CREATE INDEX indexname 
+ON tablename (date(datetime), building_id,  equipment_type, equipment_unit, sensor);
 
 --insert
 insert into operator_lookup(user_nm_domain, operator) values ('y5zwew.sg','testdata');

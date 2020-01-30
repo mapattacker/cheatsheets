@@ -2,12 +2,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 # non interactive, but less heavy
 %matplotlib inline 
+# prevents default reduction resolution in jupyter notebook
+%config InlineBackend.figure_format = 'retina'
 # new interactive charts, use plt.figure() tog for a new chart, else will be all in a single one
 # sometimes plot will not show, just add another line of %matplotlib notebook
 plt.figure()
 %matplotlib notebook
-# prevents default reduction resolution in jupyter notebook
-%config InlineBackend.figure_format = 'retina'
+
 
 
 ### DISABLE DOUBLE PLOTTING BUG---------------------------------------
@@ -227,24 +228,26 @@ plt.subplot(gs[2:3:,3:4])
 plt.subplot(gs[3:4,3:4])
 plt.tight_layout()
 
+
+#               plot 1
 # ---------------------------------   ---------
 # |                                | |         |
-# |                                | |         |
-# |                                | |         |
-# |                                |  ---------
-# |                                |  ---------
-# |                                | |         |
-# |                                | |         |
+# |                                | |         | plot 2
 # |                                | |         |
 # |                                |  ---------
 # |                                |  ---------
 # |                                | |         |
-# |                                | |         |
+# |                                | |         | plot 3
 # |                                | |         |
 # |                                |  ---------
 # |                                |  ---------
 # |                                | |         |
+# |                                | |         | plot 4
 # |                                | |         |
+# |                                |  ---------
+# |                                |  ---------
+# |                                | |         |
+# |                                | |         | plot 5
 # |                                | |         |
 # ---------------------------------   ---------
 

@@ -176,9 +176,7 @@ df = pd.read_sql_query(query, conn)
 df.to_sql(name='wsg_ap_list3', con=conn, index=False, if_exists='append') #OR
 df.to_sql('pa', conn, if_exists='append', index=False, dtype='text')
     # upload using chunk, per 1000 
-moma_iter = pandas.read_csv('moma.csv',chunksize=1000)
-for chunk in moma_iter:
-    chunk.to_sql("exhibitions", conn, if_exists='append', index=False)
+df.to_sql('table', engine, chunksize=20000)
 
 #--------------------------------------------------------
 ## INDEX NAMES
@@ -300,6 +298,7 @@ df[df['Col2'].notnull()] # same as above
 df = df.fillna(value=99) #change NaN a value
 df = df.fillna(method='ffill') #forward filling, note need to sort index
 df = df.fillna(method='bfill') #back filling, note to sort index
+df['colname'].interpolate(method='linear', limit=2) #interpolation, very useful for timeseries
 
     #set value as NaN
 import numpy as np
@@ -399,6 +398,10 @@ df[df['mgmtsalary'].notnull()]
 # CHECK FOR ALPHA OR NUMERIC
 df[colnm].str.isnumeric()
 df[colnm].str.isalpha()
+
+# FILTER BY INDEX
+filter_df  = df[df.index.isin(index_list)]
+
 
 #--------------------------------------------------------
 # set values within a for loop
@@ -603,6 +606,10 @@ df.groupby('StationID', as_index=False)['BiasTemp'].mean()
 # 1     KEOPS       2.5
 # 2    SS0279      15.0
 
+# GROUPBY & STORE AS A LIST OF DF
+listdf = [df for date, df in df.groupby('date')]
+
+
 #--------------------------------------------------------
 ## SIMPLE MATHS
 max(df['Gold']) #get the max value in the column
@@ -723,6 +730,9 @@ df2['hour'] = pd.to_datetime('1900-01-01') + pd.to_timedelta(df3['Time'].dt.hour
 dfr['event_ts']=  dfr['Event-Timestamp'].apply(lambda x: time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(x)))
 dfr['event_ts']= pd.to_datetime(dfr['Event-Timestamp'], unit='s', errors='coerce') #note that this STILL needs to convert to local time
 
+
+    # filter by list of dates
+df[df['Timestamp'].dt.date.isin(dates)]
 
 #--------------------------------------------------------
 ## Split commas in cells and stack them in new rows

@@ -1,4 +1,4 @@
-# remove error msg in a cel
+# remove error msg in a cell, MUST be at first line
 %%capture --no-stdout --no-display
 
 
