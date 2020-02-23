@@ -1,10 +1,7 @@
 # IGNORE WARNINGS
 #--------------------------------
 import warning
-
-for i in range(10):
-    warnings.simplefilter("ignore")
-    run something
+warnings.simplefilter("ignore")
 
 
 # STRING FORMAT
@@ -29,7 +26,7 @@ format(MSE, 'e') # convert to 'e' format
 # https://docs.python.org/2/library/string.html#formatspec
 # different format codes
 
-"{0:.2f}".format(14/2) #force 2 decimal places, with rounding off nearest
+"{:.2f}".format(14/2) #force 2 decimal places, with rounding off nearest
 # 7.00
 
 

@@ -304,3 +304,22 @@ from mpl_toolkits.mplot3d import Axes3D
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
 ax.scatter(x_pca[0], x_pca[1], x_pca[2], c=labels, cmap='viridis', s=40);
+
+
+
+### LIVE REFRESH IN NOTEBOOK---------------------------------------
+# live update of charts when using a for loop
+
+from IPython import display
+from matplotlib import pyplot as plt
+%matplotlib inline 
+%config InlineBackend.figure_format = 'retina'
+
+for i in range(x):
+  plt.gca().cla() # clear legend else it will culmulate
+  plt.plot(epoch_list_al, label="AL")
+  plt.plot(epoch_list_rdm, label="RDM")
+  plt.legend()
+  display.display(plt.gcf())
+  display.clear_output(wait=True)
+  time.sleep(0.5)
