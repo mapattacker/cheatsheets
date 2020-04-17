@@ -55,3 +55,10 @@ import sys, os
 sys.path.append('../')
 import package_name
 ```
+
+
+### Creating Requirements.txt
+
+ * ``pip install pipreqs``
+ * ``pipreqs .``: make a requirement.txt file in current directory with all imported packages
+ * ``pipreqs . --force``: overwrite existing requirements.txt

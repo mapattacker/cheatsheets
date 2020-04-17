@@ -27,3 +27,22 @@ conda install -c conda-forge jupyter_contrib_nbextensions
 #--------------------------------------------------------
 from IPython.display import Audio
 Audio('data/nightingale.wav')
+
+
+# Anchor Links #---------------------------
+
+# Table of Contents
+ * <a href="#1">Import Packages</a>
+ * <a href="#2">Functions</a>
+ * <a href="#3">Fault Detection</a>
+   * <a href="#3.1"><b>Test Case 1</b>: Common Features</a>
+   * <a href="#3.2"><b>Test Case 2</b>: Less Features</a>
+ * <a href="#4">Severity Detection</a>
+   * <a href="#4.1"><b>Test Case 3</b>: Common Features</a>
+   * <a href="#4.2"><b>Test Case 4</b>: Important Features</a>
+ * <a href="#5">Query Strategies</a>
+ * <a href="#6">Conclusion</a>
+
+
+<a id='1'></a>
+# Import Packages

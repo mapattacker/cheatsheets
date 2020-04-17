@@ -170,6 +170,17 @@ Key thing is to store the cronjob statement into a file called crontab at the ro
   `*/10 * * * * /Users/xx/anaconda3/bin/python /path/to/script/script.py` --run python script
   
 
+### SSH
+
+`ipconfig getifaddr en0` -- get wifi ip address
+
+`sudo systemsetup -getremotelogin` -- checks if ssh remote login is on/off
+
+`sudo systemsetup -setremotelogin on` -- enable ssh
+
+`ssh login_name@192.168.1.xxx` -- from another computer, enter ssh followed by username@ip_address
+
+
 __TextEdit editor__			
 
 `open -a TextEdit .bash_profile`

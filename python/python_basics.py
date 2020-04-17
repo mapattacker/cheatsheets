@@ -1,6 +1,6 @@
 # IGNORE WARNINGS
 #--------------------------------
-import warning
+import warnings
 warnings.simplefilter("ignore")
 
 

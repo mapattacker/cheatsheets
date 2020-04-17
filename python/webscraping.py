@@ -3,6 +3,7 @@ import urllib
 url = 'https://mapattack.wordpress.com'
 html = urllib.urlopen(url).read()
 
+# note that it might be better to use chromedriver to retrieve html as some info might be truncated
 import urllib.request # python 3*
 html = urllib.request.urlopen(url).read()
 
@@ -64,6 +65,8 @@ select.select_by_visible_text('Jul')
 select.select_by_value('7')
 # press button
 driver.find_element_by_css_selector('.button.c_button.s_button').click()
+driver.find_element_by_link_text("Send InMail").click()
+driver.find_element_by_xpath('//a[img/@src="/static/img/download.png"]').click() # click image
 # close chrome so there will not be so many appearing if there is iteration
 driver.close()
 
@@ -99,7 +102,7 @@ from selenium.webdriver.common.by import By
 chromedriver = r'C:\xxx\MyPythonScripts\chromedriver.exe'
 url= 'https://mapattack.wordpress.com'
 
-driver=webdriver.Chrome(chromeDriver)
+driver=webdriver.Chrome(chromedriver)
 driver.get(url)
 
 # optional, wait 10 sec for iframe to load
@@ -152,6 +155,20 @@ soup.select('span[data-bind]') # select elements named <span> that have an attri
 for tag in soup.select('a'):
     a = tag.get('href')
     print(a)
+
+
+#----------------
+# single result to dump into soup and retrieve list
+# e.g. get all rows in a table, then put each row into a list
+url = 'https://www.xeno-canto.org/explore?query=asian%20koel'
+html = urllib.request.urlopen(url).read()
+soup = BeautifulSoup(html, 'html.parser')
+result = soup.select('table[class="results"] tr')
+
+for i in result[1:]:
+    soup = BeautifulSoup(str(i), 'html.parser')
+    result = soup.select('td')
+    print(result)
 
 
 #----------------

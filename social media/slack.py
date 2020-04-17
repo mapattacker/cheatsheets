@@ -1,36 +1,24 @@
-from slackclient import SlackClient
+# https://slack.dev/python-slackclient/index.html
 
-# More here http://www.codingtricks.biz/slack-python-client-to-send-messages/
-token = 'xxx'
-slack_client = SlackClient(token)
+import slack
 
-# get list of channels & their ids
-import json
-#public only
-slack = slack_client.api_call("channels.list")
-#public and private, need to specify
-slack = slack_client.api_call("conversations.list", types="public_channel, private_channel")
-print (json.dumps(slack, indent=4))
+token = 'xoxp-'
+client = slack.WebClient(token=token)
 
+# list channel name & id
+channels = client.channels_list()
+for i in channels['channels']:
+    print(i['name'], i['id'])
 
-# With channel id input
-# send message to slack general channel
-channel_id = ''
-def send_message(channel_id, message): 
-    
-    slack_client.api_call("chat.postMessage", 
-                          channel=channel_id, 
-                          text=message, 
-                          username='fbalert')
-
-send_message(channel_id, message)
+# list user names & id
+clients = client.users_list()
+for i in clients['members']:
+    print(i['id'], i['team_id'], i['name'], i['real_name'])
 
 
-# delete all user sent messages
-# https://medium.com/@jjerryhan/cleaning-all-messages-on-slack-channel-c46d71615c9a
-# run in terminal
+# Post Messages
+client.chat_postMessage(
+    channel="U010PDDAR0F",
+    text="Hello from your app! :tada:"
+)
 
-# verify
-# slack-cleaner --token="token-code" --message --channel general --user "*"
-# # execute delete all msgs
-# slack-cleaner --token="token-code" --message --channel general --user "*" --perform
