@@ -574,3 +574,11 @@ pyautogui.hotkey('ctrl', ‘f4’)
 
 
 
+# ENVIRONMENT VARIABLES -------------------------
+# e.g.
+if len(sys.argv) == 1: # ensure a variable is entered
+    print('Please provide a valid IP address\n')
+    sys.exit()
+webcam_ip = str(sys.argv[1])
+# in cmd
+python main.py 192.168.5.111

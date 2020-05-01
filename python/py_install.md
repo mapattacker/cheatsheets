@@ -11,8 +11,10 @@ python -V
 ### install using pip
   * ``pip install packageName``: Install package
   * ``pip install --upgrade packageName``: Upgrade package version
+  * ``pip install -r requirements.txt``: install from requirements.txt
   * ``pip freeze``: Print list of packages installed
   * ``pip uninstall packageName``: Uninstall package
+  * ``pip show packageName``: show package version, license, filepath etc.
 
 ### Check paths of all python installations
   * windows cmd: `where python`

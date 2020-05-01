@@ -39,6 +39,11 @@ git push -u origin master
     * ``git config alias.pushall '! git commit -a -m "commit" && git push'``: push-all refers to the alias name, it can be thus called using ``git pushall``
     * ``git config --global --unset alias.YourAlias``: to remove the set alias
 
+## Branches
+ * Reference: https://confluence.atlassian.com/bitbucket/branching-a-repository-223217999.html
+ * `git branch`: check which branch is active, asterisk sign beside
+ * `git clone -b feature/scene_understanding https://bitbucket.ship.gov.sg/scm/imadinso/vama.git`: clone existing branch
+
 ## Some Git Commands
    * `git status`: shows which branch you are at, and changes not set for commit
    * `git pull`: pull all contents from github repository into local repository
@@ -51,6 +56,14 @@ git push -u origin master
    * `git remote -v`: shows the source of repository in remote server
    * `git remote rm origin`: remove origin location from remote. Remote location needed for push / pull / fetch commands
    * `git remote add heroku https://git.heroku.com/xxx.git`: add new remote location
+
+## Username
+   * For single repo:
+      * `git config user.name`: display current local username
+      * `git config user.name "Your Name"`: change username in current repo
+   * For all repos:
+      * `git config --global user.name`: display global username
+      * `git config --global user.name "Your Name"`: change global username 
 
 ## Git Conflicts
    * sometimes there can be conflicts when trying to push your commits to master, because there are already a conflict when someone else have committed new changes. a prompt saying `Please enter a commit message to explain why this merge is necessary, especially if it merges an updated upstream into a topic branch` will be given. To resolve this:
