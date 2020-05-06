@@ -14,12 +14,18 @@
     * Go to Boot Menu > boot from USB/Removeable Media
  5. Revert thumbdrive to normal
     * right click bootable USB drive > Format > Format Table Type > Format
+ 6. Merge partition back to C://
+    * install NIUBI partition editor
+    * right click C:// > Resize/Move Volume > drag right in GUI
+    * click Apply icon
 
 
 Resources:
    * https://itsfoss.com/install-ubuntu-1404-dual-boot-mode-windows-8-81-uefi/
    * https://answers.microsoft.com/en-us/windows/forum/all/how-to-convert-bootable-usb-back-to-normal-with/a1f991fb-7169-4f5c-931f-b07edd2dc31c
+   * https://www.hdd-tool.com/tutorials/resize-volume.html
 
+---
 
 ## Virtual Machine from Windows 10
 
@@ -47,14 +53,17 @@ Resources:
    * Who are You > enter username & password
    * Wait for awhile for installation to complete > restart computer
 
-## View VM to Full Screen
+### Mouse not Enabled
+ 1. In VM > top Toolbar > Input > Mouse Integration
+
+### View VM to Full Screen
  1. First try 
    * Top toolbar > View > Virtual Machine 1 > Select Resize to (Max Resolution)
    * Top toolbar > View > Full-Screen Mode
  2. Alternate
    * Top toolbar > Device > Insert Guest Addition CD Images
 
-## Configure Resources
+### Configure Resources
  1. Poweroff Machine
  2. Click on VM > Settings
    * **RAM**: System > Motherboard > Base Memory
@@ -74,13 +83,26 @@ Resources:
       * Click "Tick" symbol to save
       * Poweroff VM > Start original Ubuntu VM 
 
+
+### File Transfers
+   1. **Clipboard**
+      * In VM > Top Toolbar > Devices > Clipboard > Bidirectional
+   2. **USB Drive**
+      * In VM > Top Toolbar > Devices > USB Settings > +USB icon > add USB drive
+
 Resources:
    * https://itsfoss.com/install-linux-in-virtualbox/
    * https://www.youtube.com/watch?v=ozJmfSPcfxY (increase vm ubuntu size)
+   * https://www.isunshare.com/blog/3-ways-to-transfer-files-between-windows-and-virtualbox/
 
+
+
+---
 
 ## Starting Ubuntu, Basics
 
-* ``sudo apt-get install build-essential``: install all the basic functions in terminal
+* ``sudo apt-get install build-essential``: install all the basic functions in terminal, e.g. make
 * ``sudo apt-install git``: install git
 * System Monitor: like Windows Task Manager
+
+### Installing 
