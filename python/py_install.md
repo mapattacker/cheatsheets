@@ -21,7 +21,7 @@ python -V
   * Bash: `which python`
 
 ### Site Packages
-Mac:
+Mac/Ubuntu:
   * /anaconda3/lib/python3.7/site-packages
   * OR in python shell
 ```from distutils.sysconfig import get_python_lib

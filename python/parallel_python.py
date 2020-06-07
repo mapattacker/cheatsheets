@@ -107,7 +107,9 @@ mpl.setLevel(logging.INFO)
 
 
 
+
 # execute different functions concurrently -----
+# v1
 from functools import partial
 from multiprocessing import Pool
 
@@ -134,6 +136,33 @@ pool.join()
 print(res)
 
 
+
+# v2
+from multiprocessing import Process
+import os
+import datetime
+
+
+def func_1(title):
+    now = datetime.datetime.now()
+    print "hello, world"
+    print "Current second: %d" % now.second
+    print "Current microsecond: %d" % now.microsecond
+
+
+def func_2(name):
+    now = datetime.datetime.now()
+    print "Bye, world"
+    print "Current second: %d" % now.second
+    print "Current microsecond: %d" % now.microsecond
+
+
+if __name__ == '__main__':
+    procs = []
+    procs.append(Process(target=func_2, args=('bob',)))
+    procs.append(Process(target=func_1, args=('sir',)))
+    map(lambda x: x.start(), procs)
+    map(lambda x: x.join(), procs)
 
 
 

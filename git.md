@@ -57,6 +57,10 @@ git push -u origin master
    * `git remote rm origin`: remove origin location from remote. Remote location needed for push / pull / fetch commands
    * `git remote add heroku https://git.heroku.com/xxx.git`: add new remote location
 
+## Git Release
+   * `git tag -a v1.0.0 -m "1st prod version"`: tag in local.
+   * `git push origin v1.0.0`: push to github. can check from the commits section.
+
 ## Username
    * For single repo:
       * `git config user.name`: display current local username
