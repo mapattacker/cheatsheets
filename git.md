@@ -58,8 +58,9 @@ git push -u origin master
    * `git remote add heroku https://git.heroku.com/xxx.git`: add new remote location
 
 ## Git Release
-   * `git tag -a v1.0.0 -m "1st prod version"`: tag in local.
-   * `git push origin v1.0.0`: push to github. can check from the commits section.
+   * `git tag -a v1.0.0 -m "1st prod version"`: tag in local
+   * `git push origin v1.0.0`: push to github. can check from the commits section
+   * `git tag` list tags
 
 ## Username
    * For single repo:

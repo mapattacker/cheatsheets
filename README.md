@@ -9,12 +9,9 @@ Its tough remembering all the codes one wrote, especially if one have not use it
   * __HDFS__: Hadoop File System & Impala commands `hdfs.md`
   * __Kafka__: Kafka, a distributed streaming platform `kafka.md`
   * __MongoDB__: A popular NoSQL database based on json format `mongodb.md`
-  * __Networkx__: Python's Networkx package `network_basics.ipynb`
   * __PostgreSQL__: sql samples for postgresql `postgres.sql`
   * __PostGIS__: GIS database in PostgreSQL `postgis.rst`
-  * __Sphinx__: Documentation creation using sphinx `sphinx.md`
   * __SQL__: Some basic SQL queries `sql_basic.sql`
-  * __Social Media__: Folder containing python codes for various social media APIs, including Slack, Instagram, Facebook, Twitter
   * __Spark__: Installation of Spark in Linux
   * __Tableau__: Sql queries for Tableau `tableau.sql`
   * __Web Development__: Folder containing web development languages cheatsheets like html, css & php
@@ -25,6 +22,7 @@ Its tough remembering all the codes one wrote, especially if one have not use it
     * __Numpy__: python numpy package `numpy.py`
     * __OpenCV__: Image processing using opencv `opencv.py`
     * __OS__: python os package and file handling `os.py`
+    * __Networkx__: Python's Networkx package `network_basics.ipynb`
     * __Pandas__: python pandas package `pandas.py`
     * __Parallel Processing__: parallel processing using python `parallel_python.py`
     * __Python Installation__: tips on python installation `py_install.md`
@@ -32,4 +30,6 @@ Its tough remembering all the codes one wrote, especially if one have not use it
     * __Regular Expression__: python re package `re.py`
     * __Seaborn__: Seaborn package `seaborn.py`
     * __Skimage__: Image processing using skimage `skimage-tutorial.ipynb`
+    * __Social Media__: Folder containing python codes for various social media APIs, including Slack, Instagram, Facebook, Twitter
+    * __Sphinx__: Documentation creation using sphinx `sphinx.md`
     * __Web Scraping__: Web-scraping using beautiful soup and selenium `webscraping.py`
