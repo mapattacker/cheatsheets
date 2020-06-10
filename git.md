@@ -32,7 +32,9 @@ git push -u origin master
 1) __Existing repository__: clone project, eg `git clone https://github.com/mapattacker/cheatsheets.git`
 
 ## Commit and Upload to GitHub
-1) `git add *`: add all changes in the repository to the staging area
+1) `git add`: add changes in the repository to the staging area
+   * `git add -A`: add all changes including deleted files
+   * `git add *`: add all changes, excluding deleted files
 2) `git commit -m "add a message here"`: commit files with a message tag to repository
 3) `git push`: push committed files to GitHub
 4) A git alias can be used to combine all 3 commands into one. This needs to be set at each repository in your local machine

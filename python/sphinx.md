@@ -6,7 +6,9 @@
   * Html pages stored under `_build/html` folder
 
 ## Using readthedocs
-  * readthedocs: go to new build > Admin > Integrations > Add Integrations > copy weblink created (include `https://` in front!!)
+  * readthedocs: 
+    * Import New Projects > select Repository
+    * Admin > Integrations > Add Integrations > copy weblink created (include `https://` in front!!)
   * Github: go to repository > Settings > Webhooks > Add Webhook > paste weblink > content type as "application/x-www-form-urlencoded..." > Secret leave blank > just push event > Update webhook
   * **Debug**: sometimes the Payload URL changes, and in Github Webhook page > Recent Delivery, you can see 403 errors. Go back to readthedocs > Integrations, & copy the new webhook again.
     * when first building the site in readthedocs, there might be an error saying `contents.rst` is not present. Go to `config.py` file and add this line `master_doc = 'index'` since `index.rst` is the master file by default.
