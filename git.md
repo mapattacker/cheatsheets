@@ -44,7 +44,7 @@ git push -u origin master
 ## Branches
  * Reference: https://confluence.atlassian.com/bitbucket/branching-a-repository-223217999.html
  * `git branch`: check which branch is active, asterisk sign beside
- * `git clone -b feature/scene_understanding https://bitbucket.ship.gov.sg/scm/imadinso/vama.git`: clone existing branch
+ * `git clone -b feature/repository https://bitbucket.ship.gov.sg/scm/vam.git`: clone existing branch
 
 ## Some Git Commands
    * `git status`: shows which branch you are at, and changes not set for commit
