@@ -288,8 +288,32 @@ __TextEdit editor__
 
 ### Shell Scripting
 
-`#!/bin/bash` --shebang, use bash to execute
+Example of a shell script that can be called using `sh filename.sh`.
+This ssh in a server after you specify which one.
 
+```bash
+#!/bin/bash
+echo 
+"
+server-1  = 1
+server-2  = 2
+server-3  = 3
+server-4  = 4
+"
+read -p 'select server code:' selection
+password='yourpassword'
+
+if [[ $selection == '1' ]]
+then sshpass -p $password ssh ubuntu@18.1.70.9
+elif [[ $selection == '2' ]]
+then sshpass -p $password ssh ubuntu@18.1.20.75
+elif [[ $selection == '3' ]]
+then sshpass -p $password ssh ubuntu@52.2.19.40
+elif [[ $selection == '4' ]]
+then sshpass -p $password ssh ubuntu@18.1.07.14
+
+fi
+```
 
 
 # PowerShell

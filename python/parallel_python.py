@@ -166,6 +166,17 @@ if __name__ == '__main__':
 
 
 
+# MULTI THREADING
+
+from threading import Thread
+
+def do_something(json_input):
+    something = json_input
+    return something
+
+thread = Thread(target=do_something, kwargs={'json_input': request.args.get('value', json_input)})
+thread.start()
+
 
 # RAY
 #---------------------------------------

@@ -37,7 +37,10 @@
     * to change this go to BIOS > Boot Menu > UEFI Ubuntu
  5. Revert thumbdrive to normal
     * right click bootable USB drive > Format > Start Format
- 6. Merge partition back to C://
+ 6. Boot Windows
+    * Press F2 when restarting
+    * Choose to Windows Boot Manager when ubuntu startup screen appears
+ 7. Merge partition back to C://
     * install NIUBI partition editor
     * right click C:// > Resize/Move Volume > drag right in GUI
     * click Apply icon
@@ -57,7 +60,8 @@ Resources:
  2. Download & Install Oracle's Virtual Box
  3. In VirtualBox
    * Click New > give a name > select Type (Linux) > Version (Ubuntu)
-   * Choose HDD file type > VDI
+   * Memory Size > 1GB
+   * Create a Virtual Harddisk > Choose HDD file type > VDI
    * Storage on physical HDD > dynamically allocated
    * File location & size > at least 20GB
  4. Add Ubuntu ISO to created VM
@@ -77,6 +81,10 @@ Resources:
    * Who are You > enter username & password
    * Wait for awhile for installation to complete > restart computer
 
+### Switch from Virtual Box to Host at Full Screen
+ 1. CTRL + m
+ 2. Drag mouse to bottom centre, VirtualBox panel will popup
+
 ### Mouse not Enabled
  1. In VM > top Toolbar > Input > Mouse Integration
 
@@ -94,7 +102,7 @@ Resources:
    * Change width & height appropriately
 
 
-### Configure Resources
+### Configure Resources (RAM, CPU, GPU, HDD)
  1. Poweroff Machine
  2. Click on VM > Settings
    * **RAM**: System > Motherboard > Base Memory
@@ -177,3 +185,5 @@ Resources:
  * ``nano ~/.bashrc``: open bashrc. put stuff that applies only to bash itself
  * ``nano ~/.bash_profile``: open bash_profile. put stuff that applies to your whole session, e.g., programs or env variables
  * ``cp -R ~/Desktop/comply/app /var/www/`` copy paste directories
+ * `watch -n 1 free -m`: check RAM every 1 sec
+ * `df`: check disk space

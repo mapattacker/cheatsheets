@@ -58,10 +58,12 @@ git push -u origin master
    * `git remote -v`: shows the source of repository in remote server
    * `git remote rm origin`: remove origin location from remote. Remote location needed for push / pull / fetch commands
    * `git remote add heroku https://git.heroku.com/xxx.git`: add new remote location
+   * `git diff`: show changes made in files
 
-## Git Release
+## Git Tags
    * `git tag -a v1.0.0 -m "1st prod version"`: tag in local
    * `git push origin v1.0.0`: push to github. can check from the commits section
+   * `git push -delete origin v1.0.0`: delete remote tag ONLY
    * `git tag` list tags
 
 ## Username
