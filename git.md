@@ -63,7 +63,8 @@ git push -u origin master
 ## Git Tags
    * `git tag -a v1.0.0 -m "1st prod version"`: tag in local
    * `git push origin v1.0.0`: push to github. can check from the commits section
-   * `git push --delete origin v1.0.0`: delete remote tag ONLY
+   * `git tag -d v1.0`: delete local tag ONLY
+   * `git push -d origin v1.0.0`: delete remote tag ONLY
    * `git tag`: list tags
 
 ## Username
