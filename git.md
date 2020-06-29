@@ -50,6 +50,9 @@ git push -u origin master
    * `git status`: shows which branch you are at, and changes not set for commit
    * `git pull`: pull all contents from github repository into local repository
    * `git add 'foldername/scriptname.py'`: stage specific files for committing
+   * `git add -A`: stage all changes
+   * `git add *`: stages new files and modifications, without deletions
+   * `git add -u`: stages modifications and deletions, without new files
    * `git reset`: unstage all files set for committing
    * `git config --global user.name "Jake Teo"`: set username. Will show in commit message
    * `git config --global user.email "xxx@gmail.com"`: set email. Will show in commit message
