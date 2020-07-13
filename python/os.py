@@ -24,7 +24,7 @@ for i in os.listdir(path):
     print (i)
 
 
-# get full path, folder name (in a list), and file names (in a list) from path lsited
+# get full path, folder name (in a list), and file names (in a list) from path listed
 import os
 path = 'C:\Users\Teo Siyang\'
 for root, dirs, files in os.walk(path):
@@ -32,7 +32,20 @@ for root, dirs, files in os.walk(path):
     for i in files:
         print (os.path.join(root,i)) # get full path of files 
 
-        
+
+# remove a file from directory and all subdirectories
+import os
+remove_file = '.DS_Store'
+path = '/Users/siyang/Desktop/VAMA/scene-understanding'
+cnt = 0
+for root, dirs, files in os.walk(path):
+    for i in files:
+        if i == remove_file:
+            os.remove(os.path.join(root,i))
+            cnt += 1
+print('{} files removed'.format(cnt))
+
+
 # check if a file is present
 fieldnamefile = 'filename.txt'
 if os.path.isfile(fieldnamefile):

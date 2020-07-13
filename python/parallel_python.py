@@ -95,8 +95,15 @@ if __name__ == "__main__":
     print('script ended after {} mins'.format((end-start)/60))
 
 
-# set special list for results of multiprocess to pump within
-distances = mp.Manager().list()
+
+# set special list or dict for results of multiprocess to pump within
+#---------------------------------------
+l = mp.Manager().list()
+
+d = mp.Manager().dict()
+# convert dict proxy to dict
+d = json.dumps(d.copy())
+d = json.loads(d)
 
 
 # set error logging
@@ -167,7 +174,6 @@ if __name__ == '__main__':
 
 
 # MULTI THREADING
-
 from threading import Thread
 
 def do_something(json_input):

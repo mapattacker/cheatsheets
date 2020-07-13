@@ -288,7 +288,7 @@ __TextEdit editor__
 
 ### Shell Scripting
 
-Example of a shell script that can be called using `sh filename.sh`.
+Example of a shell script that can be called using `bash filename.sh`.
 This ssh in a server after you specify which one.
 
 ```bash

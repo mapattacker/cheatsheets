@@ -44,7 +44,7 @@ git push -u origin master
 ## Branches
  * Reference: https://confluence.atlassian.com/bitbucket/branching-a-repository-223217999.html
  * `git branch`: check which branch is active, asterisk sign beside
- * `git clone -b feature/repository https://bitbucket.ship.gov.sg/scm/vam.git`: clone existing branch
+ * `git clone --single-branch --branch <repo-url>`: clone existing branch. e.g. `git clone --single-branch --branch main-branch git@gitlab.com:projectname/repo/scene-understanding.git` 
 
 ## Some Git Commands
    * `git status`: shows which branch you are at, and changes not set for commit
@@ -54,9 +54,6 @@ git push -u origin master
    * `git add *`: stages new files and modifications, without deletions
    * `git add -u`: stages modifications and deletions, without new files
    * `git reset`: unstage all files set for committing
-   * `git config --global user.name "Jake Teo"`: set username. Will show in commit message
-   * `git config --global user.email "xxx@gmail.com"`: set email. Will show in commit message
-   * `git log`: show commits for the day
    * `git status`: shows files changed
    * `git remote -v`: shows the source of repository in remote server
    * `git remote rm origin`: remove origin location from remote. Remote location needed for push / pull / fetch commands
@@ -69,6 +66,11 @@ git push -u origin master
    * `git tag -d v1.0`: delete local tag ONLY
    * `git push -d origin v1.0.0`: delete remote tag ONLY
    * `git tag`: list tags
+
+## Git Logs
+   * `git log`: lists commits & their msgs from most recent first. type q to exit
+   * `git log --stat`: lists commits and summary of changes
+   * `git log -p -2`: lists commits in detail with their difference (change), -2 for two entries
 
 ## Username
    * For single repo:

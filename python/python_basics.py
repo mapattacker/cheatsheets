@@ -582,3 +582,19 @@ if len(sys.argv) == 1: # ensure a variable is entered
 webcam_ip = str(sys.argv[1])
 # in cmd
 python main.py 192.168.5.111
+
+
+# using argparse
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--file', help='(str) File path containing json input to send to modules')
+parser.add_argument('--api', help='(str) REST API url endpoint to recieve results')
+args = parser.parse_args()
+
+if len(sys.argv) <= 2:
+    print('''ERROR!: Enter filepath as 1st sys argument and API URL as 2nd sys argument''')
+    sys.exit()
+else:
+    filepath = args.file
+    robot_api = args.api
