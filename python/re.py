@@ -1,7 +1,7 @@
 import re
 
 # https://www.tutorialspoint.com/python/python_reg_expressions.htm
-# https://www.youtube.com/watch?v=kWyoYtvJpe4
+# https://www.regextester.com/15
 
   # .     (dot) matches any character.
   # *     Matches 0 or more occurrence of preceding expression.
@@ -21,7 +21,8 @@ import re
   
   # \     backslash changes search code into real symbol (eg., \$)
   
-  # [^A-Z] does not match alphabets A to Z (^ means does not)
+  # [^A-Z]                  does not match alphabets A to Z (^ means does not)
+  # ^((?!main-branch).)*$   does not contain the string main-branch
   
   # \b    Word boundary. Matches r'\bfoo\b' matches 'foo', 'foo.', '(foo)', 'bar foo baz' but not 'foobar' or 'foo3'.
   # \B    Matches r'py\B' matches 'python', 'py3', 'py2', but not 'py', 'py.', or 'py!'.

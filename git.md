@@ -43,8 +43,10 @@ git push -u origin master
 
 ## Branches
  * Reference: https://confluence.atlassian.com/bitbucket/branching-a-repository-223217999.html
- * `git branch`: check which branch is active, asterisk sign beside
- * `git clone --single-branch --branch <repo-url>`: clone existing branch. e.g. `git clone --single-branch --branch main-branch git@gitlab.com:projectname/repo/scene-understanding.git` 
+ 1. Single Branch
+   * `git branch`: check which branch is active, asterisk sign beside
+   * `git clone --single-branch --branch <repo-url>`: clone existing branch. e.g. `git clone --single-branch --branch main-branch git@gitlab.com:projectname/repo/scene-understanding.git`
+ 2. `git push origin develop:ci-integration`: e.g. edit on develop branch and push to a new or existing branch called ci-integration.
 
 ## Some Git Commands
    * `git status`: shows which branch you are at, and changes not set for commit
@@ -53,12 +55,16 @@ git push -u origin master
    * `git add -A`: stage all changes
    * `git add *`: stages new files and modifications, without deletions
    * `git add -u`: stages modifications and deletions, without new files
+   * `git rm -r dir_name`: add removed directory & contents within
    * `git reset`: unstage all files set for committing
    * `git status`: shows files changed
    * `git remote -v`: shows the source of repository in remote server
    * `git remote rm origin`: remove origin location from remote. Remote location needed for push / pull / fetch commands
    * `git remote add heroku https://git.heroku.com/xxx.git`: add new remote location
    * `git diff`: show changes made in files
+
+## Git Commands Combine
+   * `alias lazygit="git add *; git add .gitlab-ci.yml; git commit -m 'test'; git push;";`: call `lazygit` in bash
 
 ## Git Tags
    * `git tag -a v1.0.0 -m "1st prod version"`: tag in local
@@ -84,6 +90,26 @@ git push -u origin master
    * sometimes there can be conflicts when trying to push your commits to master, because there are already a conflict when someone else have committed new changes. a prompt saying `Please enter a commit message to explain why this merge is necessary, especially if it merges an updated upstream into a topic branch` will be given. To resolve this:
      * press `i` > write your merge message > press `esc` > write `:wq` > then press enter
 
+## Git LFS (Large File Storage)
+   * `brew install git-lfs` or `sudo apt install git-lfs`: install git LFS
+   * `git lfs install`: update git hooks
+   * `git lfs track ".onnx" ".pb" ".pth" ".h5" ".tflite" ".mp4"`: add large file extensions
+   * if repo is already created, use the link below to migrate large files to LFS
+      * https://docs.gitlab.com/ee/topics/git/lfs/migrate_to_git_lfs.html
+   * see this [video](https://www.youtube.com/watch?v=xPFLAAhuGy0&list=PLqUYzs7QMIAzR82pcut3saEI06fFeEgak&index=48&t=0s) for greater clarity
+   * [Others](https://blog.axosoft.com/learning-git-git-lfs/)
+
+## Remove Files from Git History
+   1. `git clone --mirror git@gitlab.com:project/repo-name.git`: clone only the .git
+   2. `bfg --delete-files "*.{png,jpg,gif}" repo-name.git`: delete certain file extensions
+   3. `cd repo-name.git`: go into git directory
+   4. `git reflog expire --expire=now --all && git gc --prune=now --aggressive`: delete old files
+   5. `git push --force`: push updated git to remote
+
+## Show Clone URL
+   * `git config --get remote.origin.url`: just url, without internet
+   * `git remote show origin`: full output with internet
+
 ## .gitignore file
    * for folders `folder/`
    * for single file `file.txt`
@@ -94,3 +120,4 @@ git push -u origin master
 ## Resources
 1) http://rogerdudler.github.io/git-guide/
 2) https://help.github.com/articles/basic-writing-and-formatting-syntax/
+3) https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow

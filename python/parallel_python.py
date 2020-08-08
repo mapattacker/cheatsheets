@@ -174,13 +174,14 @@ if __name__ == '__main__':
 
 
 # MULTI THREADING
+# https://stackoverflow.com/questions/48994440/execute-a-function-after-flask-returns-response/51013358
 from threading import Thread
 
 def do_something(json_input):
     something = json_input
     return something
 
-thread = Thread(target=do_something, kwargs={'json_input': request.args.get('value', json_input)})
+thread = Thread(target=do_something, kwargs={'json_input': json})
 thread.start()
 
 

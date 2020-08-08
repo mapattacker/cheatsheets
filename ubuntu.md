@@ -180,6 +180,7 @@ Resources:
 
  * ``nautilus .``: open current directory in GUI view
  * ``whereis anaconda``: search for installed package path
+ * ``pip show packagename``: show path to package
  * ``find path/to/directory -name filename``: find file location
  * ``find / -name "site-packages" -type d``: find folder location
  * ``nano ~/.bashrc``: open bashrc. put stuff that applies only to bash itself
