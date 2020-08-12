@@ -27,7 +27,7 @@ Sorts by alphabetical order the imported libraries, while splitting python base 
 
  * Installation: `pip install isort`
  * Single File: `isort your_file.py`
- * Directory: `isort your.project`
+ * Directory: `isort your_project/`
  * Check Changes w/o Formating
    * `isort mypythonfile.py --diff`
 
@@ -77,7 +77,37 @@ Tool to find and list common security issues in Python code, with ratings of low
  * Installation: `pip install bandit`
  * Single File: `bandit your_file.py`
  * Directory: `bandit -r ~/your_repos/project`
+ * Display only High Severities: `bandit -r ~/your_repos/project -lll`
+ * Json Output: `bandit --format json --recursive project/ -l --output bandit.json`
+ * Skip Certain Vulnerabilities, by placing `.bandit` file at directory to check
 
+```
+[bandit]
+skips: B104,B101
+```
+
+---
+
+## Detect Secrets
+
+ * Installation: `pip install detect-secrets`
+ * Directory: `detect-secrets scan directory/`
+
+---
+
+## Safety
+
+### Description
+
+Check vulnerabilities in python libraries.
+
+### Usage
+
+ * Installation: `pip install safety`
+ * Check installed packages in VM: `safety check`
+ * Check requirements.txt, does not include dependencies: `safety check -r requirements.txt`
+ * Full Report: `safety check --full-report`
+ * Output: `safety check --output --json insecure_report.json`
 
 ---
 

@@ -43,10 +43,22 @@ git push -u origin master
 
 ## Branches
  * Reference: https://confluence.atlassian.com/bitbucket/branching-a-repository-223217999.html
- 1. Single Branch
+ 1. Check Branch
    * `git branch`: check which branch is active, asterisk sign beside
+   * `git checkout branch`: switch to another branch
+ 1. Create Single Branch
    * `git clone --single-branch --branch <repo-url>`: clone existing branch. e.g. `git clone --single-branch --branch main-branch git@gitlab.com:projectname/repo/scene-understanding.git`
- 2. `git push origin develop:ci-integration`: e.g. edit on develop branch and push to a new or existing branch called ci-integration.
+ 2. Create from Existing Branch (1)
+   * `git checkout -b newBranch develop`
+   * `git push origin newBranch`
+ 3. Create from Existing Branch (2)
+   * `git push origin develop:newBranch`
+ 4. Delete Branch
+   * Locally
+      * `git branch -d branch-to-delete`: will check if the branch is merged
+      * `git branch -D branch-to-delete`: will NOT check if the branch is merged (forced delete)
+   * Remotely
+      * `git push origin -d branch-to-delete`: delete branch in remote
 
 ## Some Git Commands
    * `git status`: shows which branch you are at, and changes not set for commit
@@ -72,6 +84,9 @@ git push -u origin master
    * `git tag -d v1.0`: delete local tag ONLY
    * `git push -d origin v1.0.0`: delete remote tag ONLY
    * `git tag`: list tags
+
+## Git Reset
+   * `git reset --hard HEAD~1`: delete the top commit, unable to retrieve back changes after this
 
 ## Git Logs
    * `git log`: lists commits & their msgs from most recent first. type q to exit
