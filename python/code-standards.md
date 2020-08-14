@@ -107,7 +107,7 @@ Check vulnerabilities in python libraries.
  * Check installed packages in VM: `safety check`
  * Check requirements.txt, does not include dependencies: `safety check -r requirements.txt`
  * Full Report: `safety check --full-report`
- * Output: `safety check --output --json insecure_report.json`
+ * Output: `safety check --json --output insecure_report.json`
 
 ---
 
