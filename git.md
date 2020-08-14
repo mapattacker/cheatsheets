@@ -43,17 +43,17 @@ git push -u origin master
 
 ## Branches
  * Reference: https://confluence.atlassian.com/bitbucket/branching-a-repository-223217999.html
- 1. **Check Branch**
+ **1. Check Branch**
    * `git branch`: check which branch is active, asterisk sign beside
    * `git checkout branch`: switch to another branch
- 1. **Create Single Branch**
+ **2. Create Single Branch**
    * `git clone --single-branch --branch <repo-url>`: clone existing branch. e.g. `git clone --single-branch --branch main-branch git@gitlab.com:projectname/repo/scene-understanding.git`
- 2. **Create from Existing Branch (1)**
+ **3. Create from Existing Branch (1)**
    * `git checkout -b newBranch develop`
    * `git push origin newBranch`
- 3. **Create from Existing Branch (2)**
+ **3. Create from Existing Branch (2)**
    * `git push origin develop:newBranch`
- 4. **Delete Branch**
+ **4. Delete Branch**
    * Locally
       * `git branch -d branch-to-delete`: will check if the branch is merged
       * `git branch -D branch-to-delete`: will NOT check if the branch is merged (forced delete)
