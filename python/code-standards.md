@@ -91,7 +91,7 @@ skips: B104,B101
 ## Detect Secrets
 
  * Installation: `pip install detect-secrets`
- * Directory: `detect-secrets scan directory/`
+ * Directory: `detect-secrets scan directory/*`
 
 ---
 

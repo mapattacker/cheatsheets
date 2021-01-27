@@ -20,13 +20,13 @@
 5) `git remote add origin https://github.com/mapattacker/testrepo.git`
 6) `git push -u origin master` > enter username & token as password
 
-```bash
+``bash
 git init
 git add README.md
 git commit -m "first commit"
 git remote add origin https://github.com/mapattacker/datavis.git
 git push -u origin master
-```
+``
 
 ## Add Repository to a Root Folder
 1) __Existing repository__: clone project, eg `git clone https://github.com/mapattacker/cheatsheets.git`
@@ -38,14 +38,16 @@ git push -u origin master
 2) `git commit -m "add a message here"`: commit files with a message tag to repository
 3) `git push`: push committed files to GitHub
 4) A git alias can be used to combine all 3 commands into one. This needs to be set at each repository in your local machine
-    * ``git config alias.pushall '! git commit -a -m "commit" && git push'``: push-all refers to the alias name, it can be thus called using ``git pushall``
-    * ``git config --global --unset alias.YourAlias``: to remove the set alias
+    * `git config alias.pushall '! git commit -a -m "commit" && git push'`: push-all refers to the alias name, it can be thus called using `git pushall`
+    * `git config --global --unset alias.YourAlias`: to remove the set alias
 
 ## Branches
  * Reference: https://confluence.atlassian.com/bitbucket/branching-a-repository-223217999.html
- 1. **Check Branch**
+ 1. **Checkout Branch**
    * `git branch`: check which branch is active, asterisk sign beside
+   * `git fetch`: fetch all remote branches
    * `git checkout branch`: switch to another branch
+   * `git fetch; git checkout branch`: switch to a branch from remote
  2. **Create Single Branch**
    * `git clone --single-branch --branch <repo-url>`: clone existing branch. e.g. `git clone --single-branch --branch main-branch git@gitlab.com:projectname/repo/scene-understanding.git`
  2. **Create from Existing Branch (1)**
@@ -59,6 +61,16 @@ git push -u origin master
       * `git branch -D branch-to-delete`: will NOT check if the branch is merged (forced delete)
    * Remotely
       * `git push origin -d branch-to-delete`: delete branch in remote
+ 5. **Merge Branch**
+   * to merge branchB into branchA
+      * `git checkout branchA`
+      * `git merge branchB`
+   * merge conflicts
+      * sometimes it might be necessary to merge branches locally
+      * after forcing the merge locally, go to the IDE & accept/reject the conflicts
+
+## Go back to previous commit
+   * `git checkout hashkey`
 
 ## Some Git Commands
    * `git status`: shows which branch you are at, and changes not set for commit
@@ -85,11 +97,19 @@ git push -u origin master
    * `git push -d origin v1.0.0`: delete remote tag ONLY
    * `git tag`: list tags
 
+## Git Stash
+   * `git stash`: store changes in stash before checkout in another branch
+   * `git stash list`: list all the stash
+   * `git stash apply`: after going back to branch, put back latest stash
+
 ## Git Reset
    * `git reset --hard HEAD~1`: delete the top commit, unable to retrieve back changes after this
+   * `git reset --hard 2b237987`: delete till commit hash ID
 
 ## Git Logs
-   * `git log`: lists commits & their msgs from most recent first. type q to exit
+   * `git log`: lists commits & their msgs/author/date from most recent first. type q to exit
+   * `git log --oneline`: lists only commit messages & sha hash code
+   * `git show hash`: list changes
    * `git log --stat`: lists commits and summary of changes
    * `git log -p -2`: lists commits in detail with their difference (change), -2 for two entries
 
@@ -116,7 +136,8 @@ git push -u origin master
 
 ## Remove Files from Git History
    1. `git clone --mirror git@gitlab.com:project/repo-name.git`: clone only the .git
-   2. `bfg --delete-files "*.{png,jpg,gif}" repo-name.git`: delete certain file extensions
+   2. `alias bfg="java -jar /home/jake/Desktop/vama/bfg-1.13.0.jar"`: in ubuntu, download bfg from [official site](https://rtyley.github.io/bfg-repo-cleaner/#download) and set an alias to its path within bash_profile; in Mac, use homebrew to install
+   2. `bfg --delete-files "*.{png,jpg,jpeg,bmp,mp4}" repo-name.git`: delete certain file extensions
    3. `cd repo-name.git`: go into git directory
    4. `git reflog expire --expire=now --all && git gc --prune=now --aggressive`: delete old files
    5. `git push --force`: push updated git to remote
@@ -131,6 +152,26 @@ git push -u origin master
    * for all files of an extension `*.txt`
    * for all folders in all directories `**\__pycache__`
    * https://medium.com/@haydar_ai/learning-how-to-git-ignoring-files-and-folders-using-gitignore-177556afdbe3
+
+## Submodules
+   * __Add new submodule__
+      * `git submodule add -b master [URL to Git repo]`: Adds `.gitmodules`
+      * `git submodule init`: add `.gitmodules` submodule repo link to `.git/config`
+      * `git submodule update --remote`: git pull/checkout a detached head (not existing branch)
+   * __Update commits__
+      * cd into submodule folder < `git pull`
+      * update to submodule repo > `git add xx` > `git commit -m "xx"`> `git push`
+      * all normal git commands work within submodule folder including git checkout, branching, logs
+   * __Pull branch with existing submodule__
+      * `git checkout branchname`
+      * `git submodule init`: add `.gitmodules`link to `.git/config`
+      * `git pull update --remote`: checks out current commit
+   * __Delete Submodule from Repo__
+      * `git submodule deinit -f — mymodule`
+      * `rm -rf .git/modules/mymodule`
+      * `git rm -f mymodule`
+   * in the Gitlab/Github, clicking on the submodule folder will be directed to the source repo
+   * https://www.vogella.com/tutorials/GitSubmodules/article.html
 
 ## Resources
 1) http://rogerdudler.github.io/git-guide/

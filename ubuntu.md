@@ -44,6 +44,15 @@
     * install NIUBI partition editor
     * right click C:// > Resize/Move Volume > drag right in GUI
     * click Apply icon
+ 8. Increase Ubuntu Disk Space
+    * Go to Windows > Disk Management > Shrink Volume > resulting free space will be parked under "unallocated space"
+    * Disk partition management in Ubuntu requires GParted, but can only be done when Ubuntu is not active. Therefore, install GParted in [USB](https://gparted.org/liveusb.php) > try "GNU/Linux Method D: Manual - Overwrite"
+    * Go to BIOS > Boot USB (GParted)
+    * To merge unallocated partition to Ubuntu partition, the two partitions will need to align side by side
+    * Open GParted > Click on partition on the right of unallocated space > move resize > drag the partition to the left without changing its size > the unallocated space will be shifted right. [more](https://askubuntu.com/questions/641713/cannot-move-unallocated-space)
+    * Do this till it is beside the Ubuntu parition > move resize Ubuntu partition > expand the partition to fill up the unallocated space
+    * Click "tick" icon to activate the partitioning steps you indicated earlier
+    * Close system > boot ubuntu
 
 
 Resources:
@@ -100,6 +109,9 @@ Resources:
    * Virtual Box > File > Preferences > Display
    * Maximum Guest Screen Size > Hint
    * Change width & height appropriately
+ 4. Alternate
+   * Virtual Box > Top Left > View > Virtual Screen 1
+   * Scale to percentage screen size
 
 
 ### Configure Resources (RAM, CPU, GPU, HDD)
@@ -138,11 +150,24 @@ Resources:
 
 ---
 
+## GPU Driver not Set
+
+ * Settings > Details > About > Graphics > should be indicating an Nvidia GPU name
+ * Software & Updates > Additional Drivers > it should be pointing at an Nvidia driver
+ * If the drivers are grey out, use the command `sudo ubuntu-drivers autoinstall` to install back the drivers > after that reboot your computer
+ * more [info](https://askubuntu.com/questions/1237590/not-able-to-change-the-nvidia-driver-in-ubuntu-20-04)
+
 ## Auto Rotation
  
  * Ubuntu sometimes will auto rotate the screen upside down
  * it is best to go settings at top right corner > bottom 2nd icon > click it to lock the screen rotation
  * if it is already rotated > turn your laptop upside down > try to nagivate and lock the screen rotation
+
+## Set File Explorer
+
+ * At top left, click the explorer icon > Preferences
+ * At Views > Check > Sort folders before files
+ * At List Columns > Check > Type
 
 ## Screen Brightness
 
@@ -159,6 +184,10 @@ Resources:
       * https://askubuntu.com/questions/468277/screen-brightness-isnt-taking-effect-on-a-lenovo-z570
 
 
+## Bluetooth HeadPhone no Sound
+ 
+ * From software centre, install PulseAudio Volume Control. [link](https://askubuntu.com/questions/239209/no-sound-from-bluetooth-headset-but-its-detected)
+
 ## Shortcut Show Desktop
 
  * Go to Settings > Devices > Keyboard
@@ -174,6 +203,10 @@ Resources:
 * ``sudo apt install git``: install git
 * Anaconda: https://www.digitalocean.com/community/tutorials/how-to-install-anaconda-on-ubuntu-18-04-quickstart
 * System Monitor: like Windows Task Manager
+* Tilix: emulator for multi-window terminal
+* Shutter: screenshots
+* Pulse Audio Volume Control: overcome some bug to use bluetooth headphones
+* Bright Control Simple: for additional screen dim-ness
 
 
 ### Terminal
@@ -188,3 +221,7 @@ Resources:
  * ``cp -R ~/Desktop/comply/app /var/www/`` copy paste directories
  * `watch -n 1 free -m`: check RAM every 1 sec
  * `df`: check disk space
+
+### Change terminal abs path to relative path
+
+ * change in (~/.bashrc)[https://unix.stackexchange.com/questions/381113/how-do-i-shorten-the-current-directory-path-shown-on-terminal]

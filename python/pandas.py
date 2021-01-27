@@ -104,6 +104,9 @@ d = {'Desert':2345,'Mountain':8764,'Water':6689,'Land':7332,'Forest':1050,'Snow'
               'Is_Raining_ec':0,'Had_A_Good_Sleep_ec':0,'Average_Temperature':40}
 df = pd.DataFrame([list(d.values())], columns=list(d.keys()))
 
+    # from nested list (with headers)
+df = pd.DataFrame(data[1:],columns=data[0])
+
     #duplicate a dataframe
 df2 = df.copy()
 

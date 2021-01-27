@@ -3,8 +3,8 @@ import os
 import json
 
 
-access_key = ''
-secret_key = ''
+access_key = os.environ["AWS_ACCESS_KEY_ID"]
+secret_key = os.environ["AWS_SECRET_ACCESS_KEY"]
 
 
 
@@ -12,6 +12,7 @@ secret_key = ''
 bucket = "bucketname"
 s3 = boto3.resource('s3', aws_access_key_id=access_key, aws_secret_access_key=secret_key)
 my_bucket = s3.Bucket(bucket)
+
 
 # download images from s3
 # arg: (bucket-img-path, local-path)
@@ -27,6 +28,34 @@ my_bucket.upload_file(local_img, 'public/label_images/siyang_test.jpg')
 # list all files
 for file in my_bucket.objects.all():
     print(file.key)
+
+# delete objects
+from boto.s3.connection import S3Connection, Bucket, Key
+
+conn = S3Connection(AWS_ACCESS_KEY, AWS_SECERET_KEY)
+b = Bucket(conn, S3_BUCKET_NAME)
+k = Key(b)
+k.key = 'images/my-images/'+filename
+
+b.delete_key(k)
+
+
+
+def download_s3(s3folder, bucket="vama-sceneuds-images"):
+    """download all data in a S3 folder"""
+    s3 = boto3.client('s3')
+    for obj in s3.list_objects_v2(Bucket=bucket, Prefix=s3folder)["Contents"]:
+        s3_file = obj["Key"]
+        s3_subfolder = s3_file.split("/")[-2]
+        s3_filename = s3_file.split("/")[-1]
+        local_subfolder_path = os.path.join("download", s3_subfolder)
+        local_subfolder_filepth = os.path.join(local_subfolder_path, s3_filename)
+
+        if not os.path.exists(local_subfolder_path):
+            os.makedirs(local_subfolder_path)
+        s3.download_file(bucket, s3_file, local_subfolder_filepth)
+
+        print(s3_filename, "downloaded")
 
 
 

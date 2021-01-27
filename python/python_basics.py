@@ -1,7 +1,22 @@
+# PRINT COLORED SYMBOLS IN TERMINAL
+#--------------------------------
+# https://codepoints.net/miscellaneous_symbols_and_pictographs?page=2
+
+
 # IGNORE WARNINGS
 #--------------------------------
 import warnings
 warnings.simplefilter("ignore")
+
+
+
+# COMMANDS TO TERMINAL
+#--------------------------------
+# save terminal output to variable
+import os
+save = os.popen('cat /etc/services').read().strip()
+# execute terminal commands
+os.system("sudo docker cp {}:/app/memory_cpu .".format(module))
 
 
 # STRING FORMAT
@@ -359,7 +374,7 @@ c.days, c.seconds
 
 
 # Parsing Time Formats
-#----------------------
+#----------------------qqqq
 # dateutil.parser is very good at parsing all times of date formats into standard ones
 import dateutil.parser
 from datetime import datetime
@@ -422,6 +437,13 @@ central = utc.astimezone(tz.tzlocal())
   # > Add arguements (choose python script path)
         # "C:\Users\xx\xx\Scripts\MyPythonScripts\facebook_public.py"
   # Note that double quotes needed is there are spaces in path
+
+
+# PRINT
+# -----------
+# print in stdin in same line, replacing previous
+for i in range(10):
+    print("{} requests made\r".format(cnt), end="")
 
 
 
@@ -588,9 +610,15 @@ python main.py 192.168.5.111
 import argparse
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--file', help='(str) File path containing json input to send to modules')
-parser.add_argument('--api', help='(str) REST API url endpoint to recieve results')
+parser.add_argument("-q", "--query", required=True,
+	help="search query to search Bing Image API for")
+parser.add_argument("-o", "--output", required=True,
+	help="path to output directory of images")
 args = parser.parse_args()
+
+query = args["query"]
+output = args["output"]
+
 
 if len(sys.argv) <= 2:
     print('''ERROR!: Enter filepath as 1st sys argument and API URL as 2nd sys argument''')

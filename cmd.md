@@ -12,10 +12,6 @@
 
 `tree`                    --show tree structure of current directory and within
 
-`netsh wlan show profile` --show all wifi profiles that you have saved
-
-`netsh wlan show profile SSID key=clear`  --show wifi profile details, including password (change SSID to wifi name)
-
 `systeminfo`              --show every details about your computer
 
 `shutdown -f -t 636`      --time shutdown. -f refers to force shutdown; -t refers to time in seconds
@@ -135,12 +131,40 @@ __Get Password__
 
 `Ctrl + B (release then select) arrow-key`  --switch to another window
 
+`Ctrl + B (release then select) CTRL + arrow-key` --adjust window size
+
 `Ctrl + B (release then select) [`  --scroll up and down within a window with arrow keys
 
-`Ctrl + D`  --close window
+`Ctrl + D`  --close window / alternatively, type exit
 
 `tmux a-t session_name`   --go back to same session
 
+
+### iTerm2
+
+[Download](https://iterm2.com/index.html)
+
+`Command+D`	--Split current window vertically
+
+`Command+Shift+D`	--Split current window horizontally
+
+`Ctrl+Alt+Left/Right/Up/Down`	--Move between window (panes)
+
+`Ctrl+D`	Close window (pane). Could also type exit
+
+`Command+Alt+2/3/4`	Switch to iTerm window number 2 (or 3, 4, etc)
+
+`Command+T`	New window in new tab
+
+`Command+Left/Right`	Move between tabs
+
+### Terminator
+
+`Ctrl+alt+t`  --open Terminator
+
+`Ctrl + shift + o` --split horizontal
+
+`Ctrl + shift + e` --split vertical
 
 
 ### Cron Job in Mac
@@ -217,9 +241,11 @@ __TextEdit editor__
 
 `ctrl + x`			--exit
 
-`ctrl+D`			--close python, pyspark session
+`ctrl + D`			--close python, pyspark session
 
-`alt + /`   --scroll to end of file
+`alt + /`   --scroll to end of file (Win)
+
+`CTRL + e` --go to end of line (Mac)
 
 `F6 or Ctrl+W`  --search
 
@@ -227,7 +253,9 @@ __TextEdit editor__
 
 `Alt + U`   --undo
 
+`CTRL + Spacebar` --move cursor to next word
 
+ 
 
 ### UBUNTU installation
 

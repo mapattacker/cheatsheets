@@ -25,8 +25,6 @@ theme:
 nav:
     - Introduction: index.md
     - Image Basics: basics.md
-    - Videos: videos.md
-    - Installation: install.md
 
 repo_name: mapattacker/computer-vision-python
 repo_url: https://github.com/mapattacker/computer-vision-python
@@ -39,5 +37,7 @@ markdown_extensions:
     * store all your markdown `.md` documentations here
 
 * Use `mkdocs gh-deploy` to generate the html and other web related files
+    * this creates a new branch called gh-pages, and put all html files here
+* Settings > Github Pages > Source > change to gh-pages
 * Upload all files and changes to the remote git repository
 * The documentation site will be available at ``https://{username}.github.io/{repo-name}/``

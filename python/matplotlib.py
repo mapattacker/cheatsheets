@@ -199,7 +199,7 @@ ax5.plot(linear_data, '-')
 
 ### SUBPLOT2GRID-------------------------------------------------------------------------
 # advantage of subplot2grid: full control over size of each plot
-plt.figure(figsize(14,5)) #define plot dimensions
+plt.figure(figsize=(14,5)) #define plot dimensions
     #arguments: grid dimensions (rows,columns), placement of plot in grid (row, column), no. of rows it occupy, no. columns it occupy.
     #note that even if rowspan=1, dimension is (4,4), you cant put placement as (4,0), but rather (3,0)
 top = plt.subplot2grid((5,4), (0, 0), rowspan=3, colspan=3) 

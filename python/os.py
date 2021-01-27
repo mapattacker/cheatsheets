@@ -12,6 +12,11 @@ for i in glob.iglob('*eapsim*'):
     print (i)
   
 
+# get absolute path
+import os
+os.path.abspath(".")
+
+
 # get current directory name
 import os
 directoryName = os.path.relpath(".","..")

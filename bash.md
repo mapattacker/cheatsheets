@@ -8,6 +8,10 @@
  * `echo FROM python:3.7 > Dockerfile`: add echoed line to new file, replace if exist
  * `echo FROM python:3.7 >> Dockerfile`: add echoed line to existing file as new line
 
+## Zip Files
+
+ * `zip --encrypt secure.zip file1 file2`: enter & it will prompt u for password
+
 ## DATETIME
 
  * `$(date)`: display datetime
@@ -18,6 +22,24 @@
 
  * `du -sh .git`: check total file size
  * `du -h -d1`: file sizes of all top level directories
+ * `du -csh`: show file size in MB
+
+## MEMORY
+
+**Memory Usage**
+
+ * `free`: show free & used memory
+    * `free -t -g`: show total & also in gigabytes
+    * `watch -n 1 free -m`: check memory every 1 sec, in Mb
+    * `free -m | grep "Mem" | awk '{ print $3 }'`: output only used memory
+    * `free -m | grep "Mem" | awk '{ print $4 }'`: output only free memory
+ * `top`: check cpu & memory for each process [link](https://linuxaria.com/howto/understanding-the-top-command-on-linux)
+    * `top -p PID`: check for specific PID
+    * `top -o %MEM`: sort by memory usage
+    * `top | grep python`: check by process name
+    * in Live View
+        * `SHIFT + e`: change size from Kb to Mb to Gb etc...
+        * `SHIFT + l`: search & highlight process name 
 
 
 ## SCP
@@ -63,8 +85,11 @@ EOF
 
 **Stream Editor (Find/Replace)**
 
- * `sed -i -e 's/original string/replacement string/g' file/path/location`
+ * `-i` = in-place (i.e. save back to the original file)
+ * `s` = the substitute/replace command
+ * `g` = global (i.e. replace all and not just the first occurrence)
 
+ * `sed -i -e 's/original_string/replacement_string/g' file/path/location`
 
 ## CURL
 

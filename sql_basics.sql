@@ -96,12 +96,20 @@ select *,
 from table_name 
 
 --if else
-select (case when column1 - column2 >= 14 then 1 else 0 END) as difference
+select (case when column1 - column2 >= 14 then 1 
+             when column1 - column3 = 0 then 2
+             else 0 end) as difference
 from table_name
 
 
 -- JOIN
 --------------------------------------
+-- normal join
+select b.name
+from country a
+join city b on a.code=b.countrycode
+where continent = 'Africa'
+
 -- join using where clause
 select a.name, b.grade, a.marks
 from students a, grades b
@@ -195,6 +203,24 @@ from (select *
 SELECT column_name(s)
 FROM table_name
 WHERE column_name IN (value1, value2, ...)
+
+
+-- FORMAT
+--------------------------------------
+  -- round to 2 decimal place
+select continent, round(avg(population), 2)
+from country
+group by continent
+
+  -- round down
+select continent, floor(avg(population))
+from country
+group by continent
+
+  -- round up
+select continent, ceil(avg(population))
+from country
+group by continent
 
 
 -- NEW COLUMNS
