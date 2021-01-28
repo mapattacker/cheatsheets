@@ -104,13 +104,20 @@ from table_name
 
 -- JOIN
 --------------------------------------
--- normal join
+    -- normal join
 select b.name
 from country a
 join city b on a.code=b.countrycode
 where continent = 'Africa'
 
--- join using where clause
+    -- multiple joins
+select a.id, name, friend_id, c.salary as salary_1, d.salary as salary_2
+from students a
+left join friends b on a.id=b.id
+left join packages c on a.id=c.id
+left join packages d on b.friend_id=d.id
+
+    -- join using where clause
 select a.name, b.grade, a.marks
 from students a, grades b
 where a.marks between b.min_Mark and b.Max_Mark --joined using a between
@@ -120,18 +127,24 @@ where a.marks between b.min_Mark and b.Max_Mark --joined using a between
 --------------------------------------
   --simple conversion (POSTGRES, VERTICA)
 select column1::date, column2::int
+
   --using CAST (IMPALA)
 select CAST('2016-02-03 06:37:51' as timestamp)
+from table_name
+
+select CAST(salary as int)
+from table_name
 
 
 --AGGREGATE FUNCTIONS
 --------------------------------------
 --number of rows is reduced
 --must group by column names that are not aggregated in selected columns
+--"where" clause is change to "having" when using group by
 select sum(sales), salesperson
 from tableName
 group by salesperson
-order by 1
+having sum(sales) > 1000
 
 
 --ANALYTIC FUNCTIONS
@@ -205,7 +218,20 @@ FROM table_name
 WHERE column_name IN (value1, value2, ...)
 
 
--- FORMAT
+-- ORDER
+--------------------------------------
+  -- default order is ascending
+select *
+from table_name
+order by name asc, marks desc
+
+  -- indicate col number instead
+select name, sex, salary
+from table_name
+order by 1
+
+
+-- ROUNDING FLOATS
 --------------------------------------
   -- round to 2 decimal place
 select continent, round(avg(population), 2)
