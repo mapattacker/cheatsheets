@@ -26,7 +26,7 @@ stages:
     * `needs`: this job requires a previous job to run first b4 start
     * `variables`: define variables to use in script
     * `images`: base image to run in
-    * `before_script`: runs some script b4 `script`starts, usually installation 
+    * `before_script`: runs some script b4 `script` starts, usually installation 
     * `rules`: define conditions when the job will run
 
 ## dind
