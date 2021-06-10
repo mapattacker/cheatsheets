@@ -274,3 +274,14 @@ def func2():
 # Execute func1 and func2 in parallel.
 for i in range(20):
     ray.get([func1.remote(), func2.remote()])
+
+
+
+# Joblib 
+#---------------------------------------
+
+# sequential
+sentences = [preprocess(text) for text in pages]
+# parallel
+from joblib import Parallel, delayed
+sentences = Parallel(n_jobs=5)(delayed(preprocess)(text) for text in pages)
