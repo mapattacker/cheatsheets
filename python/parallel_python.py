@@ -109,6 +109,24 @@ if __name__ == "__main__":
 #---------------------------------------
 l = mp.Manager().list()
 
+# e.g ----
+urls = ["url1", "url2", "url3", "url4"]
+def worker(url, l):
+    """call individual recommenders & get predictions"""
+    data = {"resultSize": "something"}
+    prediction = requests.post(url, json=data).content
+    prediction = json.loads(prediction)
+    l.append(prediction)
+
+def multiproc(urls):
+    l = mp.Manager().list()
+    worker_ = partial(worker, l=l)
+    pool = mp.Pool(4)
+    pool.map(worker_, urls, chunksize=1)
+    pool.close()
+    return l
+
+
 d = mp.Manager().dict()
 # convert dict proxy to dict
 d = json.dumps(d.copy())
