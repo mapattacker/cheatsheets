@@ -1,3 +1,44 @@
+## Windows Subsystem for Linux
+
+ 1. In Microsoft Store > search Ubuntu > Install
+ 2. In Windows > Search "Turn Windows features on and off" > Check "Windows Subsystem for Linux"
+ 3. Restart Windows
+      * Open Ubuntu Terminal
+      * Set your username / password
+ 4. Change VSCode Terminal to Linux
+      * Install VSCode > Go to Extensions Tab > Search "Remote - WSL" > Install
+      * There should be a new tab added called Remote Explorer
+      * Right click > "Connect to WSL"
+ 5. Set your home directory in terminal
+      * `sudo nano /etc/passwd`
+      * Scroll to bottom of page, should show your default home directory
+         * `harry:x:1000:1000:"",,,:/home/harry:/bin/bash`
+         * Change to `harry:x:1000:1000:"",,,:/mnt/c/Users/<your-acc-name>:/bin/bash`
+      * Restart Terminal
+ 6. Allow Terminal to change file permissions in Windows directories 
+      * need to chmod 400 github's ssh private key `chmod 400 .ssh/id_rsa`
+      * `sudo nano /etc/wsl.conf`
+      * Add the following & restart your computer
+```
+[automount]
+enabled  = true
+root     = /mnt/
+options  = "metadata,umask=22,fmask=11"
+```
+
+ 7. Install Anaconda
+      * See most popular comment using wget & bash [link](https://askubuntu.com/questions/505919/how-to-install-anaconda-on-ubuntu) 
+ 8. Windows Terminal
+      * Seems like the better terminal which supports multitabs, though no split screens
+      * Go to Windows Store > Windows Terminal
+      * Go to Terminal > Dropdown > Settings > Change default terminal to Ubuntu
+
+
+Resources
+
+ * https://docs.microsoft.com/en-us/windows/wsl/install-win10
+ * https://superuser.com/questions/1323645/unable-to-change-file-permissions-on-ubuntu-bash-for-windows-10
+
 ## Dual Boot Installation from Windows 10
 
  1. Download Ubuntu ISO file from website
@@ -41,6 +82,7 @@
     * Press F2 when restarting
     * Choose to Windows Boot Manager when ubuntu startup screen appears
  7. Merge partition back to C://
+    * Before doing anything, change the boot order to windows first!
     * install NIUBI partition editor
     * right click C:// > Resize/Move Volume > drag right in GUI
     * click Apply icon
@@ -197,7 +239,7 @@ Resources:
 
  * drag and drop file into terminal
 
-## Starting Ubuntu, Basics
+## Starting Ubuntu, Apps
 
 * ``sudo apt-get install build-essential``: install all the basic functions in terminal, e.g. make
 * ``sudo apt install git``: install git
@@ -207,6 +249,8 @@ Resources:
 * Shutter: screenshots
 * Pulse Audio Volume Control: overcome some bug to use bluetooth headphones
 * Bright Control Simple: for additional screen dim-ness
+* Postman: for testing your APIs
+* Filezilla: file transfers
 
 
 ### Terminal
