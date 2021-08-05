@@ -25,8 +25,10 @@ plt.style.use('seaborn-white') #set the style
 df.plot(); 
 # prevents overlapping of axis labels, tick labels and titles
 plt.tight_layout()
-# fix figsize for entire jupyter notebook
+# fix fig/font size & DPI for entire jupyter notebook & script
 plt.rcParams["figure.figsize"] =(10,10)
+plt.rcParams.update({'font.size': 4})
+plt.rcParams['figure.dpi'] = 300
 
 
 ### COLORS---------------------------------------
@@ -79,6 +81,17 @@ hline.remove() #remove an object in the chart
 
 # remove x & y axes
 plt.axis('off')
+
+# refresh chart
+maxiter = 10
+for i in range(maxiter):
+  plot_something(x, y, best_tour, tau)
+  plt.pause(0.25)
+  if i != maxiter-1:
+      plt.close()
+  else:
+      plt.show()
+
 
 ### SAVE CHART IMAGE---------------------------------------
 plt.plot(range(10))

@@ -45,6 +45,7 @@
 # S3 Bucket
 
  * `aws s3 cp s3://bucketname/foldername localdirectory --recursive`: download all data from s3 folder
+ * `aws s3 cp rules.pkl s3://<s3-bucket-name>/rules.pkl`: copy a file to bucket
  * Best Practices
    * S3 buckets should have server-side encryption enabled
    * S3 buckets should prohibit public read access

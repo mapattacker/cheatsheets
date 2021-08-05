@@ -253,6 +253,9 @@ with concurrent.futures.ThreadPoolExecutor() as executor:
     for future in concurrent.futures.as_completed(futures):
         print(future.result())
 
+# note, to use multiprocess with concurrent futures we can just use this
+    # with concurrent.futures.ProcessPoolExecutor(NUM_CORES) as executor:
+
 
 # RAY
 #---------------------------------------

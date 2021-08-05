@@ -58,24 +58,24 @@ print num.group() #output '200'
 # Unmatched objects return None
 # can use s.split(' ') to split the text into individuals words first
 num = re.search(r'...4', phone)
-print num.group() #output '2004'
+print(num.group()) #output '2004'
 
 num = re.search(r'\sThis', phone)
-print num.group() #output ' This'
+print(num.group()) #output ' This'
 
 num = re.search(r'.+559', phone)
-print num.group() #output '2004-959-559'
+print(num.group()) #output '2004-959-559'
 
 result = re.search(r'\w+@[\w.]+', email)  #find all word characters and dot after @
-print result.group()  #output 'nick19a@gmail.com'
+print(num.group())  #output 'nick19a@gmail.com'
 
 # multiple matches, use () in re, and result.groups()
 result = re.search(r'(\w+)@([\w.]+)', email)  #split the username & host name using round brackets
-print result.groups()  #output ('nick19a', 'gmail.com')
-print result.group()  #output 'nick19a@gmail.com'
-print result.group(0)  #output 'nick19a@gmail.com'
-print result.group(1)  #output 'nick19a'
-print result.group(2)  #output 'gmail.com'
+print(result.groups())  #output ('nick19a', 'gmail.com')
+print(result.group())  #output 'nick19a@gmail.com'
+print(result.group(0))  #output 'nick19a@gmail.com'
+print(result.group(1))  #output 'nick19a'
+print(result.group(2))  #output 'gmail.com'
 
 
 #-------------------------------------------

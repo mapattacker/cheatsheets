@@ -31,7 +31,9 @@ df1 = pd.read_table('training_text', sep='\|\|', engine='python', skiprows=1, na
 pd.read_clipboard()
     # JSON
 df=pd.read_json(path)
-df.to_json('/Users/xxx/Desktop/d.json')
+df.to_json('/Users/xxx/Desktop/d.json') # display by index
+out = df.to_json(orient="records") # display by row, key=colname, value=cell value
+dict_ = df.to_dict(orient="list") # display by cols, key=colname, value=list of values
     # DBF
 from simpledbf import Dbf5
 dbf = Dbf5('test.dbf')
