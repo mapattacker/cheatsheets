@@ -4,6 +4,14 @@
 3) Username for 'https://github.com': mapattacker
 4) Password for 'https://mapattacker@github.com': paste personal access token
 
+## Add SSH Access to Github/Gitlab
+
+1) In your terminal > `ssh-keygen`
+2) Accept all defaults
+3) Copy the public key `cat ~/.ssh/id_rsa.pub`
+4) Go to Github/Gitlab Settings > SSH Keys, and paste the keys here
+5) We should be able to git push/pull/clone now without logging in
+
 ## Steps for Versioning using Git & GitHub / GitLab
 
 1) Create new Git Directory, eg. `mkdir github`

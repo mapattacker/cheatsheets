@@ -1,6 +1,6 @@
-## Windows Subsystem for Linux
+## Windows Subsystem for Linux (WSL)
 
- 1. In Microsoft Store > search Ubuntu > Install
+ 1. In Microsoft Store > search Ubuntu (must be >20.4 for WSL2) > Install
  2. In Windows > Search "Turn Windows features on and off" > Check "Windows Subsystem for Linux"
  3. Restart Windows
       * Open Ubuntu Terminal
@@ -32,6 +32,9 @@ options  = "metadata,umask=22,fmask=11"
       * Seems like the better terminal which supports multitabs, though no split screens
       * Go to Windows Store > Windows Terminal
       * Go to Terminal > Dropdown > Settings > Change default terminal to Ubuntu
+ 9. Install Docker
+      * install Docker for Windows
+      * Docker GUI > settings, check "Use WSL2 based engine"
 
 
 Resources
