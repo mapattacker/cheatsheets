@@ -192,6 +192,8 @@ Key thing is to store the cronjob statement into a file called crontab at the ro
 
 
   `*/10 * * * * /Users/xx/anaconda3/bin/python /path/to/script/script.py` --run python script
+
+  Live editor: https://crontab.guru
   
 
 ### SSH

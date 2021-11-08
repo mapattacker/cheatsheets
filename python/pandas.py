@@ -555,7 +555,8 @@ df['colnm'] = df['colnm'].apply(lambda x: '|'.join(set(x.split('|')))) #alternat
 # SHIFT COLUMN VALUES UP OR DOWN; LAG OR LEAD
 df['temp_observed'] = df['temp_observed'].shift(periods=1) #push column down by a row
 df['temp_observed'] = df['temp_observed'].shift(periods=-1) #push column up by a row
-
+# compare row with previous
+df['match'] = df.col1.eq(df.col1.shift())
 
 #--------------------------------------------------------
 # ITERATION
