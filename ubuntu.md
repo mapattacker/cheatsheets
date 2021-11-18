@@ -27,7 +27,8 @@ options  = "metadata,umask=22,fmask=11"
 ```
 
  7. Install Anaconda
-      * See most popular comment using wget & bash [link](https://askubuntu.com/questions/505919/how-to-install-anaconda-on-ubuntu) 
+      * See most popular comment using wget & bash [link](https://askubuntu.com/questions/505919/how-to-install-anaconda-on-ubuntu)
+      * If have error `Conda command not found`, add anaconda to default paths `export PATH="/home/username/anaconda3/bin:$PATH"` [link](https://stackoverflow.com/questions/35246386/conda-command-not-found)
  8. Windows Terminal
       * Seems like the better terminal which supports multitabs, though no split screens
       * Go to Windows Store > Windows Terminal
