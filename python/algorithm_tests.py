@@ -1,5 +1,24 @@
 # https://www.tutorialspoint.com/python_data_structure/index.htm
 
+# warmup questions
+# https://www.hackerrank.com/challenges/counting-valleys/problem?isFullScreen=true
+    
+
+
+def countingValleys(steps, path):
+    """count no. steps climbing up to sea level"""
+    seaLevel = valley = 0
+
+    for step in path:
+        if step == 'U':
+            seaLevel += 1
+        else:
+            seaLevel -= 1
+        
+        if step == 'U' and seaLevel == 0:
+            valley += 1
+    return valley
+
 
 # LIST -------------------
 a = [23,21,50,1,5]
