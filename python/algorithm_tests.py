@@ -3,6 +3,7 @@
 
 # easiest questions
 # https://www.hackerrank.com/challenges/repeated-string/problem?isFullScreen=true
+# https://www.hackerrank.com/challenges/ctci-array-left-rotation/problem?isFullScreen=true
 
 def repeatedString(s, n):
     cnt_s = len(s)
@@ -19,6 +20,14 @@ def repeatedString(s, n):
     cnt_a_sliced_s = s_slice.count("a")
     
     return cnt_a_full_s + cnt_a_sliced_s
+
+
+def rotLeft(a, d):
+    for i in range(d):
+        first_char = a[0]
+        a.pop(0)
+        a.append(first_char)
+    return a
 
 
 
