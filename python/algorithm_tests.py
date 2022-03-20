@@ -107,6 +107,21 @@ def maximumToys(prices, k):
         else:
             total += price         
 
+            
+# string manipulation
+# https://www.hackerrank.com/challenges/alternating-characters/problem?isFullScreen=true
+
+def alternatingCharacters(s):
+    """time complexity fail, but worthy solution"""
+    deletion = 0
+    while "AA" in s or "BB" in s:
+        if "AA" in s:
+            s = s.replace("AA", "A", 1)
+            deletion += 1
+        if "BB" in s:
+            s = s.replace("BB", "B", 1)
+            deletion += 1
+    return deletion
 
 
 # LIST -------------------
