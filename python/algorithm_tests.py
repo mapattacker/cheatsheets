@@ -1,5 +1,27 @@
 # https://www.tutorialspoint.com/python_data_structure/index.htm
 
+
+# easiest questions
+# https://www.hackerrank.com/challenges/repeated-string/problem?isFullScreen=true
+
+def repeatedString(s, n):
+    cnt_s = len(s)
+    cnt_a_s = s.count("a")
+    
+    # num a in full s
+    multiply = math.floor(n / len(s))
+    cnt_a_full_s = cnt_a_s * multiply
+    
+    # num a in remainder s
+    cnt_full_s = multiply * cnt_s
+    remainder_s = n - cnt_full_s
+    s_slice = s[:remainder_s]
+    cnt_a_sliced_s = s_slice.count("a")
+    
+    return cnt_a_full_s + cnt_a_sliced_s
+
+
+
 # warmup questions
 # https://www.hackerrank.com/challenges/counting-valleys/problem?isFullScreen=true
 # https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem?isFullScreen=true
