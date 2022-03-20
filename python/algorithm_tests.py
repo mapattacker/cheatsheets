@@ -64,6 +64,27 @@ def jumpingOnClouds(c):
     return jumps
 
 
+# array
+# https://www.hackerrank.com/challenges/2d-array/problem?isFullScreen=true
+
+def hourglassSum(arr):
+    max = 0
+    
+    for A in range(0, 4):
+        
+        for r in range(0,4):
+            
+            top = sum(arr[A][r:r+3])
+            mid = arr[A+1][r+1]
+            bottom = sum(arr[A+2][r:r+3] )
+            hr_sum = top+mid+bottom
+            
+            if hr_sum > max: max = hr_sum
+        
+    return max
+
+
+
 
 
 # LIST -------------------
