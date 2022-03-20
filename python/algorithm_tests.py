@@ -111,6 +111,13 @@ def maximumToys(prices, k):
 # string manipulation
 # https://www.hackerrank.com/challenges/alternating-characters/problem?isFullScreen=true
 
+def alternatingCharacters(s):    
+    duplicates = 0
+    for i in range(len(s)-1):
+        if s[i] == s[i+1]:
+            duplicates += 1
+    return duplicates
+
 def alternatingCharacters(s):
     """time complexity fail, but worthy solution"""
     deletion = 0
