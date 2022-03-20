@@ -2,7 +2,9 @@
 
 # warmup questions
 # https://www.hackerrank.com/challenges/counting-valleys/problem?isFullScreen=true
-    
+# https://www.hackerrank.com/challenges/jumping-on-the-clouds/problem?isFullScreen=true
+
+
 
 
 def countingValleys(steps, path):
@@ -18,6 +20,28 @@ def countingValleys(steps, path):
         if step == 'U' and seaLevel == 0:
             valley += 1
     return valley
+
+
+def jumpingOnClouds(c):
+    """use while loop or recursive"""
+    jumps = 0
+    # "000" = 2
+    # "010" = 2
+    # "00" = 1
+    c = "".join(str(i) for i in c)
+    while len(c) > 1:
+        if c[:3] == "000":
+            c = c.replace("000", "00", 1)
+        if c[:2] == "00":
+            c = c.replace("00", "0", 1)
+            jumps += 1
+        if c[:3] == "010":
+            c = c.replace("010", "0", 1)
+            jumps += 1
+            
+    return jumps
+
+
 
 
 # LIST -------------------
