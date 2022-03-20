@@ -131,6 +131,34 @@ def alternatingCharacters(s):
     return deletion
 
 
+# search
+# https://www.hackerrank.com/challenges/pairs/problem?isFullScreen=true
+
+from itertools import combinations
+def pairs(k, arr):
+    """use itertools but not the most efficient"""
+    cnts = 0
+    
+    combi = list(combinations(arr, 2))
+    for com in combi:
+        diff = abs(com[0] - com[1])
+        if diff == k:
+            cnts += 1
+    return cnts
+
+def pairs(k, arr):
+    """use plain nested iteration""""
+    cnts = 0
+
+    for i in range(len(arr)-1):
+        for a in range(i+1, len(arr)):
+            diff = abs(arr[i] - arr[a])
+            if diff == k:
+                cnts += 1
+    return cnts
+
+
+
 # LIST -------------------
 a = [23,21,50,1,5]
 # updating a value by index
@@ -139,6 +167,8 @@ a[0] = a[0] + 1
 a.remove(23)
 # get index from value
 a.index(50)
+# remove based on index
+a.pop(0)
 
 
 # WHILE LOOPS -------------------
@@ -148,8 +178,18 @@ while a:
         a.remove(i)
 
 
-
 # SORTING -------------------
 # where possible, use python sorted function
 # it uses Timsort, an efficient sorting method
 sorted(a, reverse=True)
+
+# ITERATION -------------------
+# when we need to iterate but need to grab +1 or +x index after use this
+for i in range(len(arr)-1):
+    # do something
+
+# if need to iterate nested, but need exclude those iterated in first nest
+for i in range(len(arr)-1):
+    for a in range(i+1, len(arr)):
+        # do something
+    
