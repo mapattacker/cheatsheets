@@ -159,6 +159,16 @@ def pairs(k, arr):
 
 
 
+# dict & hasimaps
+# https://www.hackerrank.com/challenges/two-strings/problem?isFullScreen=true
+    
+def twoStrings(s1, s2):
+    for letter in s1:
+        if letter in s2:
+            return "YES"
+    return "NO"
+
+
 # LIST -------------------
 a = [23,21,50,1,5]
 # updating a value by index
@@ -183,6 +193,7 @@ while a:
 # it uses Timsort, an efficient sorting method
 sorted(a, reverse=True)
 
+
 # ITERATION -------------------
 # when we need to iterate but need to grab +1 or +x index after use this
 for i in range(len(arr)-1):
@@ -193,3 +204,27 @@ for i in range(len(arr)-1):
     for a in range(i+1, len(arr)):
         # do something
     
+
+# CLASSES -------------------
+# __init__ passes variables to all methods in class
+# all methods in class requires self
+# all shared methods requires self.<variable_name>
+
+class captcha:
+    
+    def __init__(self, model_path="model.json"):
+        """Initialize variables & model"""
+        # pixel positional heights and widths to extract 5 chars in a captcha
+        self.h_min, self.h_max = 11, 21
+        self.w_start_list = [5, 14, 23, 32, 41]
+        self.w = 8
+
+        f = open(model_path)
+        self.model = json.load(f)
+
+    
+    def clean_image(self, img, bg_threshold=0.2, char_threshold=0.5):
+        """Remove texture & fix char color based on thresholds"""
+        img[img >= char_threshold] = 1.0
+        img[img <= bg_threshold] = 0.0
+        return img
