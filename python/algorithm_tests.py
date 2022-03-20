@@ -93,6 +93,19 @@ def hourglassSum(arr):
     return max
 
 
+# sorting
+# https://www.hackerrank.com/challenges/mark-and-toys/problem?isFullScreen=true
+
+def maximumToys(prices, k):
+
+    prices = sorted(prices)
+    total = 0
+    
+    for cnt, price in enumerate(prices, 1):
+        if total + price > k:
+            return cnt - 1
+        else:
+            total += price         
 
 
 
