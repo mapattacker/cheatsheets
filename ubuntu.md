@@ -1,21 +1,23 @@
 ## Windows Subsystem for Linux (WSL)
 
  1. In Microsoft Store > search Ubuntu (must be >20.4 for WSL2) > Install
- 2. In Windows > Search "Turn Windows features on and off" > Check "Windows Subsystem for Linux"
- 3. Restart Windows
+ 2. In Windows > Search "Turn Windows features on and off"
+      * Check "Windows Subsystem for Linux"
+      * Check "Hyper-V" and its subdir
+ 4. Restart Windows
       * Open Ubuntu Terminal
       * Set your username / password
- 4. Change VSCode Terminal to Linux
+ 5. Change VSCode Terminal to Linux
       * Install VSCode > Go to Extensions Tab > Search "Remote - WSL" > Install
       * There should be a new tab added called Remote Explorer
       * Right click > "Connect to WSL"
- 5. Set your home directory in terminal
+ 6. Set your home directory in terminal
       * `sudo nano /etc/passwd`
       * Scroll to bottom of page, should show your default home directory
          * `harry:x:1000:1000:"",,,:/home/harry:/bin/bash`
          * Change to `harry:x:1000:1000:"",,,:/mnt/c/Users/<your-acc-name>:/bin/bash`
       * Restart Terminal
- 6. Allow Terminal to change file permissions in Windows directories 
+ 7. Allow Terminal to change file permissions in Windows directories 
       * need to chmod 400 github's ssh private key `chmod 400 .ssh/id_rsa`
       * `sudo nano /etc/wsl.conf`
       * Add the following & restart your computer
@@ -26,14 +28,18 @@ root     = /mnt/
 options  = "metadata,umask=22,fmask=11"
 ```
 
- 7. Install Anaconda
+ 1. WSL commands
+      * `wsl.exe --list --verbose`
+      * `wsl --set-default-version 2`
+
+ 1. Install Anaconda
       * See most popular comment using wget & bash [link](https://askubuntu.com/questions/505919/how-to-install-anaconda-on-ubuntu)
       * If have error `Conda command not found`, add anaconda to default paths `export PATH="/home/username/anaconda3/bin:$PATH"` [link](https://stackoverflow.com/questions/35246386/conda-command-not-found)
- 8. Windows Terminal
+ 2. Windows Terminal
       * Seems like the better terminal which supports multitabs, though no split screens
       * Go to Windows Store > Windows Terminal
       * Go to Terminal > Dropdown > Settings > Change default terminal to Ubuntu
- 9. Install Docker
+ 3. Install Docker
       * install Docker for Windows
       * Docker GUI > settings, check "Use WSL2 based engine"
 
