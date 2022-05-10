@@ -1,12 +1,20 @@
 ## Windows Subsystem for Linux (WSL)
 
- 1. In Microsoft Store > search Ubuntu (must be >20.4 for WSL2) > Install
- 2. In Windows > Search "Turn Windows features on and off"
+ 
+ 1. In Windows > Search "Turn Windows features on and off"
       * Check "Windows Subsystem for Linux"
       * Check "Hyper-V" and its subdir
+ 2. WSL commands
+      * open powershell as admin
+      * `wsl.exe update`: update wsl to v2
+ 3. In Microsoft Store > search Ubuntu (must be >20.4 for WSL2) > Install
  4. Restart Windows
       * Open Ubuntu Terminal
       * Set your username / password
+ 5. WSL commands
+      * `wsl.exe --list --verbose`: check ubuntu is in wsl2 
+      * `wsl.exe --status`: double check ubuntu is in wsl2
+      * `wsl --set-default-version 2`: if not, set default
  5. Change VSCode Terminal to Linux
       * Install VSCode > Go to Extensions Tab > Search "Remote - WSL" > Install
       * There should be a new tab added called Remote Explorer
@@ -28,9 +36,7 @@ root     = /mnt/
 options  = "metadata,umask=22,fmask=11"
 ```
 
- 1. WSL commands
-      * `wsl.exe --list --verbose`
-      * `wsl --set-default-version 2`
+ 1. 
 
  1. Install Anaconda
       * See most popular comment using wget & bash [link](https://askubuntu.com/questions/505919/how-to-install-anaconda-on-ubuntu)
