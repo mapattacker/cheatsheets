@@ -142,7 +142,7 @@ git push -u origin master
    * see this [video](https://www.youtube.com/watch?v=xPFLAAhuGy0&list=PLqUYzs7QMIAzR82pcut3saEI06fFeEgak&index=48&t=0s) for greater clarity
    * [Others](https://blog.axosoft.com/learning-git-git-lfs/)
    * Download from LFS
-      * `git lfs fetch --all`: download all files from LFS
+      * `git lfs pull`: download all files from LFS
 
 ## Remove Files from Git History
    1. `git clone --mirror git@gitlab.com:project/repo-name.git`: clone only the .git
