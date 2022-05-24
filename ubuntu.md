@@ -11,21 +11,26 @@
  4. Restart Windows
       * Open Ubuntu Terminal
       * Set your username / password
- 5. WSL commands
+ 5. Limit Docker memory
+      * WSL2 vmmem (Docker virtualization) will eat up all ur memory
+      * We can set a limit by creating a `.wslconfig` file in the root of user profile dir
+      * Add the line `memory=XGB` to it.
+      * Shutdown Docker by `wsl --shutdown`, and then open it again
+ 6. WSL commands
       * `wsl.exe --list --verbose`: check ubuntu is in wsl2 
       * `wsl.exe --status`: double check ubuntu is in wsl2
       * `wsl --set-default-version 2`: if not, set default
- 5. Change VSCode Terminal to Linux
+ 7. Change VSCode Terminal to Linux
       * Install VSCode > Go to Extensions Tab > Search "Remote - WSL" > Install
       * There should be a new tab added called Remote Explorer
       * Right click > "Connect to WSL"
- 6. Set your home directory in terminal
+ 8. Set your home directory in terminal
       * `sudo nano /etc/passwd`
       * Scroll to bottom of page, should show your default home directory
          * `harry:x:1000:1000:"",,,:/home/harry:/bin/bash`
          * Change to `harry:x:1000:1000:"",,,:/mnt/c/Users/<your-acc-name>:/bin/bash`
       * Restart Terminal
- 7. Allow Terminal to change file permissions in Windows directories 
+ 9. Allow Terminal to change file permissions in Windows directories 
       * need to chmod 400 github's ssh private key `chmod 400 .ssh/id_rsa`
       * `sudo nano /etc/wsl.conf`
       * Add the following & restart your computer
