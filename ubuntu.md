@@ -15,7 +15,7 @@
       * WSL2 vmmem (Docker virtualization) will eat up all ur memory
       * We can set a limit by creating a `.wslconfig` file in the root of user profile dir
       * Add the line `memory=XGB` to it.
-      * Shutdown Docker by `wsl --shutdown`, and then open it again
+      * In powershell, shutdown Docker by `wsl --shutdown`, and then open it again (a pop up will ask if you want to restart)
  6. WSL commands
       * `wsl.exe --list --verbose`: check ubuntu is in wsl2 
       * `wsl.exe --status`: double check ubuntu is in wsl2
