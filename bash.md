@@ -90,6 +90,19 @@ EOF
  * `g` = global (i.e. replace all and not just the first occurrence)
 
  * `sed -i -e 's/original_string/replacement_string/g' file/path/location`
+ * `sed -i "/CMD/d" $DOCKERFILE`: remove line if contain substring
+
+
+## REGEX
+
+Save matched regex as a variable
+
+```bash
+# FROM python:3.8-slim
+first_line=$(head -n 1 $DOCKERFILE)
+subtext=$(egrep -o "python.+[0-9]" <<<$first_line)
+# python:3.8
+```
 
 ## CURL
 
