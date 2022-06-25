@@ -1,5 +1,14 @@
 # Bash
 
+# Print Contents of File
+
+ * `cat <filename>`: prints whole file contents
+ * `head -10 <filename>`: prints first 10 lines of file
+ * `tail -10 <filename>`: prints last 10 lines of file
+ * `grep -R "<string>" "<filename>"`: prints contents in file that contains <string>
+
+# Delete
+
  * `rm -rf /path/dir`: delete directory and contents
 
 # File Manipulation
