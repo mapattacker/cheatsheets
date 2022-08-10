@@ -7,6 +7,7 @@ over the old Sphinx themes.
 
 ```bash
 pip install mkdocs-material
+pip install mkdocs-material-extensions
 ```
 
 ## Setting Up
