@@ -20,6 +20,7 @@
 ## Zip Files
 
  * `zip --encrypt secure.zip file1 file2`: enter & it will prompt u for password
+ * `zip --encrypt file.zip -r folder`: for zipping folders
 
 ## DATETIME
 
