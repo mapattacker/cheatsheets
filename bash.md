@@ -33,6 +33,10 @@
  * `du -sh .git`: check total file size
  * `du -h -d1`: file sizes of all top level directories
  * `du -csh`: show file size in MB
+   
+ * ncdu: NCurses Disk Usage, a very easy to use terminal storage query. After scan, can enter within folders and out to see breakdown
+ * apt install ncdu
+ * ncdu /foldername
 
 ## MEMORY
 
