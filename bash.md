@@ -89,6 +89,7 @@ EOF
 **JSON Parser**
 
  * `cat /tmp/curl_body | jq '.'`: prints entire json file from curl_body
+ * `id=$(echo $result | jq .Command.CommandId)`: query from a json variable, and save output as variable
  * `mask=$(cat /tmp/curl_body | jq '.FACEMASK_DETECTION[0]')`: get 1st array within the value of `FACEMASK_DETECTION`
  * `mask=$(cat /tmp/curl_body | jq '.FACEMASK_DETECTION[0] .boundingPoly .normalizedVertices | length')`: get length of array
  * `cat bandit.json | jq '[.results [] | select(.issue_severity=="MEDIUM")]'`: filter
