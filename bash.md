@@ -18,8 +18,7 @@ fi;
 * with timer and breaks
 
 ```bash
-for i in {1..90}; 
-do
+for i in {1..90}; do
  if [[ $getstatus == "Pending" ]]; then
    echo "pending... please wait"
    sleep 10
@@ -31,6 +30,15 @@ do
    exit 1
  fi;
 done;
+```
+
+Sometimes the above doesnt work. Below might be an alternative.
+
+```bash
+count=10
+for i in $(seq $count); do
+  echo test
+ done
 ```
 
 # Print Contents of File
