@@ -10,7 +10,7 @@ elif [[ $getstatus == "Success" ]]; then
 elif [[ $getstatus == "Failed" ]]; then
   echo "deployment failed, please check SSM logs"
   exit 1
- fi;
+fi;
 ```
 
 # FOR LOOP CLAUSE
