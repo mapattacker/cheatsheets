@@ -1,5 +1,38 @@
 # Bash
 
+# IF-ELSE CLAUSE
+
+```bash
+if [[ $getstatus == "Pending" ]]; then
+  echo "pending... please wait"
+elif [[ $getstatus == "Success" ]]; then
+  echo "deployed"
+elif [[ $getstatus == "Failed" ]]; then
+  echo "deployment failed, please check SSM logs"
+  exit 1
+ fi;
+```
+
+# FOR LOOP CLAUSE
+
+* with timer and breaks
+
+```bash
+for i in {1..90}; 
+do
+ if [[ $getstatus == "Pending" ]]; then
+   echo "pending... please wait"
+   sleep 10
+ elif [[ $getstatus == "Success" ]]; then
+   echo "deployed"
+   break
+ elif [[ $getstatus == "Failed" ]]; then
+   echo "deployment failed, please check SSM logs"
+   exit 1
+ fi;
+done;
+```
+
 # Print Contents of File
 
  * `cat <filename>`: prints whole file contents
