@@ -136,7 +136,7 @@ git push -u origin master
 ## Git LFS (Large File Storage)
    * `brew install git-lfs` or `sudo apt install git-lfs`: install git LFS
    * `git lfs install`: update git hooks
-   * `git lfs track ".onnx" ".pb" ".pth" ".h5" ".tflite" ".mp4"`: add large file extensions
+   * `git lfs track "*.onnx" "*.pb" "*.pth" "*.h5" "*.tflite" "*.mp4"`: add large file extensions
    * if repo is already created, use the link below to migrate large files to LFS
       * https://docs.gitlab.com/ee/topics/git/lfs/migrate_to_git_lfs.html
    * see this [video](https://www.youtube.com/watch?v=xPFLAAhuGy0&list=PLqUYzs7QMIAzR82pcut3saEI06fFeEgak&index=48&t=0s) for greater clarity
