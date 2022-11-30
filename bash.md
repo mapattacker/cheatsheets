@@ -75,6 +75,7 @@ for i in $(seq $count); do
  * `du -h`: file sizes of all top level directories
  * `du -csh`: show file size in MB
  * `du -sh */`: show all dir size in current folder
+ * `du -sh */ | sort -h`: short by size
    
  * ncdu: NCurses Disk Usage, a very easy to use terminal storage query. After scan, can enter within folders and out to see breakdown
  * `apt install ncdu`
