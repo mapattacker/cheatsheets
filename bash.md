@@ -74,10 +74,11 @@ for i in $(seq $count); do
  * `du -sh .git`: check total file size
  * `du -h`: file sizes of all top level directories
  * `du -csh`: show file size in MB
+ * `du -sh */`: show all dir size in current folder
    
  * ncdu: NCurses Disk Usage, a very easy to use terminal storage query. After scan, can enter within folders and out to see breakdown
- * apt install ncdu
- * ncdu /foldername
+ * `apt install ncdu`
+ * `ncdu /foldername`
 
 ## MEMORY
 
