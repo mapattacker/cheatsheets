@@ -21,6 +21,23 @@ def repeatedString(s, n):
     
     return cnt_a_full_s + cnt_a_sliced_s
 
+def repeatedString(s, n):
+    """using modulus""""
+    len_s = len(s)
+    counts_in_s = s.count("a")
+    
+    if n < len_s:
+        return s[:n].count("a")
+    elif n == len_s:
+        return counts_in_s
+    else:
+        repeats = math.floor(n/len_s )
+        modulus = n % len_s
+        if modulus == 0:
+            return counts_in_s * repeats
+        else:
+            return (counts_in_s * repeats) + s[:modulus].count("a")
+
 
 def rotLeft(a, d):
     for i in range(d):
