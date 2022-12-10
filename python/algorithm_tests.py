@@ -90,6 +90,21 @@ def jumpingOnClouds(c):
     return jumps
 
 
+def jumpingOnClouds(c):
+    jump = 0
+    while len(c) > 2:
+        if c[2] != 1:
+            c = c[2:]
+        else:
+            c = c[1:]
+        jump += 1
+
+    if len(c) == 2:
+        jump += 1
+        
+    return jump
+
+
 # array
 # https://www.hackerrank.com/challenges/2d-array/problem?isFullScreen=true
 
