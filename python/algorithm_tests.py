@@ -186,6 +186,14 @@ def twoStrings(s1, s2):
     return "NO"
 
 
+
+# MODULUS -------------------
+# e.g. test if it is a full divisioin
+10 % 5 # out: 0
+# e.g. get remainder
+11 % 5 # out: 1
+
+
 # LIST -------------------
 a = [23,21,50,1,5]
 # updating a value by index
