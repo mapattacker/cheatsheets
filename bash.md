@@ -1,5 +1,16 @@
 # Bash
 
+# FUNCTIONS
+
+```bash
+function func_name() {
+  # do something
+}
+
+# execute function
+func_name
+```
+
 # IF-ELSE CLAUSE
 
 ```bash
