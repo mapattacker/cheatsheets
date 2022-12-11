@@ -189,6 +189,14 @@ def pairs(k, arr):
                 cnts += 1
     return cnts
 
+def pairs(k, arr):    
+    pairs = 0
+    for cnt, a in enumerate(arr):
+        for b in arr[cnt+1:]:
+            if abs(a-b) == k:
+                pairs+=1
+    return pairs
+
 
 
 # dict & hasimaps
