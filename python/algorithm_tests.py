@@ -251,7 +251,27 @@ for i in range(len(arr)-1):
 for i in range(len(arr)-1):
     for a in range(i+1, len(arr)):
         # do something
-    
+
+
+# BINARY TREE -------------------
+# the most efficient algorithm through divide & conquer methods
+def binary_search(list1, n):
+    """https://www.javatpoint.com/binary-search-in-python
+    list needs to be integer, unique, and sorted"""
+    low = 0  
+    high = len(list1) - 1  
+    mid = 0  
+  
+    while low <= high:    
+        mid = (high + low) // 2  
+        if list1[mid] < n:  
+            low = mid + 1  
+        elif list1[mid] > n:  
+            high = mid - 1  
+        else:  
+            return mid  
+    return -1  
+
 
 # CLASSES -------------------
 # __init__ passes variables to all methods in class
