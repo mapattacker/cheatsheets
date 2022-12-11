@@ -149,17 +149,18 @@ def alternatingCharacters(s):
             duplicates += 1
     return duplicates
 
+# not as good in terms of time complexity
 def alternatingCharacters(s):
-    """time complexity fail, but worthy solution"""
-    deletion = 0
-    while "AA" in s or "BB" in s:
-        if "AA" in s:
-            s = s.replace("AA", "A", 1)
-            deletion += 1
-        if "BB" in s:
-            s = s.replace("BB", "B", 1)
-            deletion += 1
-    return deletion
+    flag = True
+    x = s
+    
+    while flag:
+        len_before = len(x)
+        x = x.replace("AA", "A").replace("BB","B")
+        if len_before == len(x):
+            flag = False
+
+    return len(s) - len(x)
 
 
 # search
