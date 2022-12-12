@@ -216,6 +216,8 @@ def twoStrings(s1, s2):
 # e.g. get remainder
 11 % 5 # out: 1
 
+x = divmod(5, 2) # out: (2, 1)
+
 
 # LIST -------------------
 a = [23,21,50,1,5]
