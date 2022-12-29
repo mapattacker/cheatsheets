@@ -199,9 +199,11 @@ def pairs(k, arr):
 
 
 
-# dict & hasimaps
+# dict & hashmaps
 # https://www.hackerrank.com/challenges/two-strings/problem?isFullScreen=true
-    
+# they are key-value based, & have a fast time-complexity of O(1)
+# set() also uses hashmaps
+
 def twoStrings(s1, s2):
     for letter in s1:
         if letter in s2:
