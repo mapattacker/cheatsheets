@@ -127,6 +127,8 @@ def hourglassSum(arr):
 
 # sorting
 # https://www.hackerrank.com/challenges/mark-and-toys/problem?isFullScreen=true
+# https://app.codility.com/programmers/lessons/6-sorting/
+# https://www.javatpoint.com/quick-sort-vs-merge-sort
 
 def maximumToys(prices, k):
     toy_list = []
