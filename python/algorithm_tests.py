@@ -212,6 +212,34 @@ def twoStrings(s1, s2):
 
 
 
+# sort
+# quicksort is the fastest sorting algo as
+# best case is O(nlogn), average is O(nlogn), worst is o(
+# https://medium.com/human-in-a-machine-world/quicksort-the-best-sorting-algorithm-6ab461b5a9d0
+def sort(array):
+    """Sort the array by using quicksort."""
+
+    less = []
+    equal = []
+    greater = []
+
+    if len(array) > 1:
+        pivot = array[0]
+        for x in array:
+            if x < pivot:
+                less.append(x)
+            elif x == pivot:
+                equal.append(x)
+            elif x > pivot:
+                greater.append(x)
+        # Don't forget to return something!
+        return sort(less)+equal+sort(greater)  # Just use the + operator to join lists
+    # Note that you want equal ^^^^^ not pivot
+    else:  # You need to handle the part at the end of the recursion - when you only have one element in your array, just return the array.
+        return array
+
+
+
 # MODULUS -------------------
 # e.g. test if it is a full divisioin
 10 % 5 # out: 0
