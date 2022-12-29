@@ -213,8 +213,9 @@ def twoStrings(s1, s2):
 
 
 # sort
-# quicksort is the fastest sorting algo as
-# best case is O(nlogn), average is O(nlogn), worst is o(
+# quicksort is the fastest sorting algo
+# best case is O(nlog(n)), average is O(nlog(n))
+# note that python sorted uses timsort
 # https://medium.com/human-in-a-machine-world/quicksort-the-best-sorting-algorithm-6ab461b5a9d0
 def sort(array):
     """Sort the array by using quicksort."""
