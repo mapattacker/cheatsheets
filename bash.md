@@ -82,6 +82,8 @@ for i in $(seq $count); do
 
 **Disk Usage**
 
+ * `free`: total, used, and free storage 
+  
  * `du -sh .git`: check total file size
  * `du -h`: file sizes of all top level directories
  * `du -csh`: show file size in MB
