@@ -52,6 +52,38 @@ for i in $(seq $count); do
  done
 ```
 
+# Cron
+
+
+`crontab -e`: open vi to enter cron job. `i`, paste the cron job in, `ESC` > `:wq` > `Return` to save & exit
+
+`crontab -l`  --list of cronjobs
+
+
+http://www.nncron.ru/help/EN/working/cron-format.htm
+
+Key thing is to store the cronjob statement into a file called crontab at the root. Add `MAILTO=""` to the top so that email will not be sent to the terminal.
+
+```
+* * * * *  command to execute
+│ │ │ │ │
+│ │ │ │ └─── day of week (0 - 6) (0 to 6 are Sunday to Saturday, or use names; 7 is Sunday, the same as 0)
+│ │ │ └──────── month (1 - 12)
+│ │ └───────────── day of month (1 - 31)
+│ └────────────────── hour (0 - 23)
+└─────────────────────── min (0 - 59)
+```
+  `0 10-16 * * 1-5 /path/to/script/script.sh` --every hour from 10am to 4pm, Mon to Fri
+
+  `*/5 * * * * /path/to/script/script.sh` --every 5 minutes
+
+  `env EDITOR=nano crontab -e`  --edit cronjobs in nano
+
+
+  `*/10 * * * * /Users/xx/anaconda3/bin/python /path/to/script/script.py` --run python script
+
+  Live editor: https://crontab.guru
+
 # Print Contents of File
 
  * `cat <filename>`: prints whole file contents
