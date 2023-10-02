@@ -254,6 +254,13 @@ then exit 1
 fi
 ```
 
+Creating Gif
+
+```
+brew install ImageMagick
+convert -delay 500 *.png test.gif
+```
+
 ## Code Snippets
 
 ### Login SSH
