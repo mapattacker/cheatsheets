@@ -149,7 +149,7 @@ Key thing is to store the cronjob statement into a file called crontab at the ro
 **Secure Copy**
 
  * `scp /path/to/file username@ipaddress`: copy paste files to remote server. need enter pw.
- * `scp -r directory username@ipaddress`: copy paste directory to server
+ * `scp -r directory username@ipaddress:dir/in/server`: copy paste directory to server
 
 ## SSHPASS
 
