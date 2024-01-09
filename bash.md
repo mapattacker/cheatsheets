@@ -114,8 +114,9 @@ Key thing is to store the cronjob statement into a file called crontab at the ro
 
 **Disk Usage**
 
- * `free`: total, used, and free storage 
-  
+ * `free -h`: total, used, and free storage (memory only)
+
+ * `df -h --total`: give total size for each partition & percentage use
  * `du -sh .git`: check total file size
  * `du -h`: file sizes of all top level directories
  * `du -csh`: show file size in MB
